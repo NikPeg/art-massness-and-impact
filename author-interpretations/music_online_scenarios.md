@@ -1,5 +1,7 @@
 # Online music: two explicitly different exposure questions
 
+**Scope warning:** these earlier author profiles mix embedded music exposure with mostly standalone work formats. They are retained as author scenarios, not a harmonized comparison of either primary formats or media components. The [two-level framework](../research/01_scope_and_metrics.md#units-of-comparison) supersedes that comparative use. No replacement scores or cross-format component totals have been inferred.
+
 Both rows contain author judgments, not conversions or measured estimates. Only the streaming-only row has matched numeric consumption proxies. No offline radio, physical recordings or live attendance is included in either row.
 
 | scenario | reach | time | frequency | basis |

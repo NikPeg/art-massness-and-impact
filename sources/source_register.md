@@ -1,5 +1,9 @@
 # Source register
 
+## Matched-outcome literature correction, 9 November 2026
+
+Exact queries and inclusion/exclusion decisions: [search record](balanced_review_search_2026.md). Canonical methods/results extraction and coverage by format: [balanced review](../research/09_balanced_literature_review.md). New direct/provisional records: HUMOR23, SHORTDRAMA23, MUSCOG23, FILM24, BOOKMOOD22 and READRCT23. New contextual/candidate records: GAMERCT18, BOOKAUDIO20, SERIESCLV26, PICFRAME22, LONGSHWM21 and SAS25. Abstract-only records remain provisional; no secondary report substitutes for a primary finding. Previously unappraised leads and attention/memory/circulation examples were removed from the main influence synthesis, with links preserved in the [archive](literature_leads_archive_2026.md).
+
 ## Moderate literature update, 9 November 2026
 
 New source IDs, original links, access levels and inclusion/context/exclusion decisions are registered in the [selected candidate table](moderate_review_search_2026.md#selected-candidate-and-decision-register): NARR25, SHORT26, YTPSR26, READ18, READ24, MUSICREV23, MUSICEXP21, GAME14, GAME09, GAMEPRE26, PICART24 and PICSLOW25. This supplementary register does not overwrite earlier retrieval histories. Abstract-only candidates remain provisional, and a discovery lead is not a fully appraised result.
@@ -46,20 +50,9 @@ Access and selection date: **9 November 2026**. “Inspected” describes retrie
 
 Original GWI chart images: [reach](https://images.squarespace-cdn.com/content/v1/5b79011d266c077298791201/8ba9ea9a-4a45-48f4-99dd-bad01a61238d/DataReportal%2BDigital%2B2027%2BGlobal%2BOverview%2BReport%2BPage%2B38.png), [frequency](https://images.squarespace-cdn.com/content/v1/5b79011d266c077298791201/ae710b8b-2bb1-43ab-a6d9-fbbf23a1f177/DataReportal%2BDigital%2B2027%2BGlobal%2BOverview%2BReport%2BPage%2B39.png), [time](https://images.squarespace-cdn.com/content/v1/5b79011d266c077298791201/0d99400c-011f-483b-a16d-0e1a04bda795/DataReportal%2BDigital%2B2027%2BGlobal%2BOverview%2BReport%2BPage%2B40.png). Images were visually read; no source images are redistributed here.
 
-## Social breadth and active participation
-
-Selected by the user on 9 November 2026. Values and qualifications: [participation tables](../data/participation_and_breadth.md).
-
-| ID | Source | Access and use |
-| --- | --- | --- |
-| PS24T | [DCMS Participation Survey 2023/24 technical report](https://www.gov.uk/government/statistics/participation-survey-2023-24-annual-publication/participation-survey-2023-to-2024-annual-technical-report) | Official HTML inspected, section 4.3; achieved sample for methodological context only |
-| PS25T | [DCMS Participation Survey 2024/25 technical report](https://www.gov.uk/government/statistics/participation-survey-2024-25-annual-publication/participation-survey-2024-to-2025-annual-technical-report) | Official HTML inspected; sampling, modules, response rate, and final achieved sample |
-| PS25 | [DCMS Participation Survey 2024/25 main report](https://www.gov.uk/government/statistics/participation-survey-2024-25-annual-publication/main-report-for-the-participation-survey-april-2024-to-march-2025) | Official HTML inspected, section 2 and Annex 3; selected social and territorial contrasts |
-| EB25 | [European Commission, Special Eurobarometer 562](https://europa.eu/eurobarometer/surveys/detail/3364); [full original report hosted by the Basque Government](https://www.euskadi.eus/contenidos/informacion/keb_ber_argitalpenak_portada/eu_def/adjuntos/web01-keb_europeans_attitudes_towards_culture_SP562_report_en.pdf) | Original report text inspected via government-hosted copy: methodology p. 7, QA3 pp. 43-44, technical specifications p. 92 onward. Official survey landing page exposed no readable text. Sample and fieldwork follow the report, rather than a news-page typo. No microdata obtained |
-
 ## Sources checked for the long-video extension
 
-GWI26: the original Digital 2027 article and links to charts 38–40 were retrieved again on 9 November 2026. Reach 81.2% and weekly time 299 minutes were already retained in the dossier; the article reports long-video frequency as 3.36 "times per week". This extension follows the previously documented source-chart days-per-week convention. The new retrieval exposed image links but did not independently re-read the chart footnote; no finer duration, orientation, or art-only breakdown was obtained.
+GWI26: the original Digital 2027 article and links to charts 38–40 were retrieved again on 9 November 2026. Reach 81.2% and weekly time 299 minutes were already retained in the dossier; the article reports long-video frequency as 3.36 "times per week". This extension follows the previously documented source-chart days-per-week convention. The new retrieval exposed image links but did not independently re-read the chart footnote; no finer duration, orientation, or format-specific breakdown was obtained.
 
 | ID | Source | Access and use |
 | --- | --- | --- |
@@ -93,8 +86,7 @@ Appraised works and additional discovery leads are linked and qualified in the [
 
 | ID | Source | Access and use |
 | --- | --- | --- |
-| PICCREATE26 | [Creative Australia, Digital Creativity (2026)](https://www.creative.gov.au/research/digital-creativity-online-creative-engagement-and-social-connection); [full report](https://creative.gov.au/sites/creative-australia/files/documents/2026-09/CreativeAustralia_Digital%20Creativity%20Report_Tagged.pdf) | Official HTML and PDF text inspected, methodology and main-content question. PDF denominator retained where the HTML summary is ambiguous. A main-type composition, not population participation or consumption |
-| PICART24 | [Cotter et al. (2024), virtual art galleries](https://internationaljournalofwellbeing.org/index.php/ijow/article/view/3603); [full text](https://www.internationaljournalofwellbeing.org/index.php/ijow/article/download/3603/1205/12937) | Original publisher abstract and full-text methods inspected; curated online viewing, not social feeds |
+| PICART24 | [Cotter et al. (2024), virtual image galleries](https://internationaljournalofwellbeing.org/index.php/ijow/article/view/3603); [full text](https://www.internationaljournalofwellbeing.org/index.php/ijow/article/download/3603/1205/12937) | Original publisher abstract and full-text methods inspected; curated online viewing, not social feeds |
 | PICNEWS24 | [Chmel, Savin and Delli Carpini (2024), Making Politics Attractive](https://ijoc.org/index.php/ijoc/article/view/18119); [full text](https://ijoc.org/index.php/ijoc/article/viewFile/18119/4627) | Original abstract and indexed original PDF design text inspected; student convenience experiment, news attention outcome |
 | PICSHARE25 | [Vasquez et al. (2025), Sharing photographs on social media enhances recollection of photograph-related details](https://doi.org/10.1017/mem.2025.3) | Original publisher PDF abstract and procedure text inspected; experimental selective sharing and recall, not major life decisions |
 | PICMEM26 | [Peng and Bainbridge, Image memorability predicts social media virality and externally-associated commenting](https://arxiv.org/abs/2409.14659v3); [journal DOI](https://doi.org/10.1016/j.chb.2025.108799) | Author abstract/version history inspected. First preprint 2024; v3 September 2025; repository lists Computers in Human Behavior 174 (2026), 108799. Claims follow v3; journal full text not independently checked. Observational model-predicted memorability, not a causal effect |
@@ -112,3 +104,10 @@ Study-level appraisal and confidence: [cumulative-effects review](../research/08
 | SMCLOSE21 | Pouwels et al. (2021), [friendship closeness across timescales](https://pmc.ncbi.nlm.nih.gov/articles/PMC8551228/) | Full text inspected, including null follow-up and short-to-long-term linkage results |
 | SMHABIT23 | Ceylan, Anderson and Wood (2023), [Sharing of misinformation is habitual, not just lazy or biased](https://doi.org/10.1073/pnas.2216614120) | Original full-text methods/results inspected; news-sharing task is adjacent mechanism evidence |
 | NORMRAD09 | Paluck (2009), [Reducing Intergroup Prejudice and Conflict Using the Media](https://sparq.stanford.edu/sites/g/files/sbiybj19021/files/media/file/paluck_2009_-_reducing_intergroup_prejudice_and_conflict_using_the_media.pdf) | Published full text inspected; offline radio is contextual only, outside online-distribution target |
+
+## Consumption time and narrative audience mechanism, 9 November 2026
+
+| ID | Source | Access and use |
+| --- | --- | --- |
+| PLAYWELL22 | [Vuorre et al., 2022](https://doi.org/10.1098/rsos.220411); [original full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC9326284/) | Full text retrieved; methods, abstract and conclusions inspected. Observational six-week gaming panel, not an all-media causal or predictive-model comparison. Supports the bounded partial answer to H28. |
+| NARR25, comparative recheck | [Rahmani et al., 2025](https://doi.org/10.1017/bpp.2025.10010) | Publisher full-text comparative results and interpretation inspected. Audience attraction/retention is an untested possible explanation; no significant persuasion advantage is not proof of equivalence. Supports the tentative answer to H29; same synthesis as the existing NARR25 entry. |

@@ -1,9 +1,0 @@
-Music
-
-2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.
-
-Blue: direct and embedded audible online music. Orange dashed: streaming-only reference (8/6/7), informed by GWI26. Different exposure definitions, not measured uplift. See ../data/music_online_scenarios.md.
-
-Filled circle: numeric anchor | Hollow diamond: qualitative rationale.
-
-No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: ../data/subjective_scores_2026.md; ../data/score_rationales.md.

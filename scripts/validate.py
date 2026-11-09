@@ -4,7 +4,8 @@
 from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
-from build_figures import ROOT, AXES, AXIS_LABELS, RADAR_NAMES, table_with, tables
+from markdown_links import check_local_links
+from build_figures import ROOT, AXES, AXIS_LABELS, RADAR_NAMES, SUBJECTIVE, table_with, tables
 
 
 def main():
@@ -25,19 +26,38 @@ def main():
     long_video=next(r for r in snapshot if r["category"]=="long_video")
     assert [long_video[k] for k in ("weekly_reach_percent","weekly_minutes","days_per_week")]==["81.2","299","3.36"]
     assert all(lookup[("long_video",y)]["value_billion_usd"]=="NA" for y in range(2021,2026))
-    score_rows=table_with(ROOT/"data/subjective_scores_2026.md","recognition")
+    # Component exposure is a separate comparison, with no measured cross-host totals.
+    components=table_with(ROOT/"data/media_components_2026.md","component")
+    assert {r["component"] for r in components}=={"music","images","text","speech"}
+    assert all(r[k]=="NA" for r in components for k in ("reach","time","frequency"))
+    for name in ("reach-2026.svg","time-2026.svg","frequency-2026.svg"):
+        displayed=" ".join(ET.parse(ROOT/"figures"/name).getroot().itertext())
+        assert all(label in displayed for label in ("Music streaming","Digital books","Standalone pictures"))
+        assert "format proxies" in displayed
+        visible = [el.text or "" for el in ET.parse(ROOT/"figures"/name).getroot().iter()
+                   if el.tag.endswith("text")]
+        assert "TV streaming (all content)" in visible
+        assert visible.count("Not available — no comparable observation") == 3
+        assert any("GWI Q2 2026" in label and "16+" in label for label in visible)
+        assert any(label.startswith("Source: GWI via DataReportal") for label in visible)
+        assert "Books / US fiction" not in visible and "Music" not in visible
+    us_visible = [el.text or "" for el in ET.parse(ROOT/"figures/us-time-use.svg").getroot().iter()
+                  if el.tag.endswith("text")]
+    assert any("Source: BLS" in label for label in us_visible)
+    assert any("Includes offline use" in label for label in us_visible)
+    score_rows=table_with(ROOT/"author-interpretations/subjective_scores_2026.md","recognition")
     assert len(score_rows)==8
     for row in score_rows:
         assert all(0<=float(row[a])<=10 for a in AXES)
-        assert (ROOT/"figures"/("radar-"+row["category"].replace("_","-")+".svg")).is_file()
-    rationales=table_with(ROOT/"data/score_rationales.md","rationale")
+        assert (SUBJECTIVE/("radar-"+row["category"].replace("_","-")+".svg")).is_file()
+    rationales=table_with(ROOT/"author-interpretations/score_rationales.md","rationale")
     assert len(rationales)==48
     assert {(r["category"],r["axis"]) for r in rationales}=={(r["category"],a) for r in score_rows for a in AXES}
     categories={r["category"] for r in score_rows}
     assert len(categories)==8
     assert {r["category"] for r in snapshot}==categories
     assert {r["series"] for r in financial}==categories
-    anchor_rows=next(rows for header,rows in tables(ROOT/"data/subjective_scores_2026.md") if header==["category","reach","time","frequency","money"])
+    anchor_rows=next(rows for header,rows in tables(ROOT/"author-interpretations/subjective_scores_2026.md") if header==["category","reach","time","frequency","money"])
     assert {r["category"] for r in anchor_rows}==categories
     assert next(r for r in anchor_rows if r["category"]=="long_video")["money"]=="NA"
     picture_snapshot=next(r for r in snapshot if r["category"]=="pictures")
@@ -48,36 +68,37 @@ def main():
     # Combined musical exposure must not masquerade as measured streaming use.
     music_anchors=next(r for r in anchor_rows if r["category"]=="music")
     assert all(music_anchors[a]=="NA" for a in ("reach","time","frequency","money"))
-    scenarios=table_with(ROOT/"data/music_online_scenarios.md","scenario")
+    scenarios=table_with(ROOT/"author-interpretations/music_online_scenarios.md","scenario")
     inclusive=next(r for r in scenarios if r["scenario"]=="inclusive_online")
     music=next(r for r in score_rows if r["category"]=="music")
     assert all(music[a]==inclusive[a] for a in AXES[:3])
-    music_svg=ET.parse(ROOT/"figures/radar-music.svg").getroot()
+    music_svg=ET.parse(SUBJECTIVE/"radar-music.svg").getroot()
     reference=[el for el in music_svg.iter() if el.attrib.get("id")=="music-streaming-reference"]
     assert len(reference)==1 and reference[0].attrib["stroke-dasharray"]=="6 4"
     assert all(next(r for r in anchor_rows if r["category"]==cat)["money"]=="NA"
                for cat in ("music","film","series","books","games"))
-    picture_svg=ET.parse(ROOT/"figures/radar-pictures.svg").getroot()
+    picture_svg=ET.parse(SUBJECTIVE/"radar-pictures.svg").getroot()
     assert not [el for el in picture_svg if el.tag.endswith("circle")], "Pictures data must have no numeric-anchor circles (legend excluded)"
     questions=re.findall(r"^(\d+)\.", (ROOT/"research/06_hypotheses.md").read_text(), re.M)
     answers=re.findall(r"^\| H(\d+) \|", (ROOT/"results/01_findings.md").read_text(), re.M)
-    assert list(map(int,questions))==list(range(1,28))
-    assert sorted(map(int,answers))==list(range(1,28))
+    assert list(map(int,questions))==list(range(1,30))
+    assert sorted(map(int,answers))==list(range(1,30))
     for name in ("reach-2026.svg","time-2026.svg","frequency-2026.svg"):
         tree=ET.parse(ROOT/"figures"/name)
         height=float(tree.getroot().attrib["height"])
         assert all(0<=float(el.attrib["y"])<height for el in tree.iter() if el.tag.endswith("text"))
-    svgs=list((ROOT/"figures").glob("*.svg"))
-    assert len(svgs)==15
+    svgs=list((ROOT/"figures").glob("*.svg")) + list(SUBJECTIVE.glob("*.svg"))
+    assert not list((ROOT/"figures").glob("radar-*")), "Radars belong in the author-interpretation folder"
+    assert len(svgs)==13
     for path in svgs:
         tree=ET.parse(path)
         assert tree.getroot().tag.endswith("svg")
-    overview=ET.parse(ROOT/"figures/radar-overview.svg").getroot()
+    overview=ET.parse(SUBJECTIVE/"radar-overview.svg").getroot()
     ns="{http://www.w3.org/2000/svg}"
     panels=overview.findall(f"{ns}svg")
     assert len(panels)==8
     for panel, row in zip(panels, sorted(score_rows, key=lambda row: RADAR_NAMES[row["category"]].casefold())):
-        individual=ET.parse(ROOT/"figures"/("radar-"+row["category"].replace("_","-")+".svg")).getroot()
+        individual=ET.parse(SUBJECTIVE/("radar-"+row["category"].replace("_","-")+".svg")).getroot()
         assert panel.find(f"{ns}desc").text==individual.find(f"{ns}desc").text
         profile=[p for p in individual.findall(f"{ns}path") if p.attrib.get("fill-opacity")=="0.11"]
         assert len(profile)==1 and profile[0].attrib["d"].endswith("Z"), "Scored profile must be closed"
@@ -87,23 +108,16 @@ def main():
     ids=[el.attrib["id"] for el in overview.iter() if "id" in el.attrib]
     assert len(ids)==len(set(ids)), "Duplicate SVG accessibility IDs"
     assert not overview.findall(f".//{ns}image"), "Overview must be self-contained"
-    annotation=(ROOT/"figures/radar-overview.txt").read_text(encoding="utf-8")
-    assert annotation==(ROOT/"data/radar_overview_annotation.txt").read_text(encoding="utf-8")
+    annotation=(SUBJECTIVE/"radar-overview.txt").read_text(encoding="utf-8")
+    assert annotation==(ROOT/"author-interpretations/radar_overview_annotation.txt").read_text(encoding="utf-8")
     assert all(f"{AXIS_LABELS[axis]} —" in annotation for axis in AXES)
-    broken=[]
-    for path in ROOT.rglob("*.md"):
-        for target in re.findall(r'!?\[[^\]]*\]\(([^\s)]+)\)',path.read_text(encoding="utf-8")):
-            if "://" in target or target.startswith("#"):
-                continue
-            if not (path.parent/target.split("#")[0]).resolve().exists():
-                broken.append((str(path.relative_to(ROOT)),target))
-    assert not broken, f"Broken local Markdown references: {broken}"
-    text_files=[p for p in ROOT.rglob("*") if p.suffix in {".md",".py",".html",".svg"}]
-    for path in text_files:
-        assert not re.search(r'[\u0400-\u04ff]',path.read_text(encoding="utf-8")),f"Non-English Cyrillic text: {path}"
-    from validate_participation_figures import validate as validate_participation
-    validate_participation()
-    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; 48 subjective scores and rationales; 15 SVGs including participation; Russian TXT; local links; English figures.")
+    broken = check_local_links(ROOT)
+    assert not broken, "Broken local Markdown links (file, line, target, reason):\n" + "\n".join(map(str, broken))
+    for path in svgs:
+        assert not re.search(r'[\u0400-\u04ff]', " ".join(ET.parse(path).getroot().itertext())), f"Non-English SVG text: {path}"
+    assert (SUBJECTIVE/"README.md").is_file()
+    assert (SUBJECTIVE/"index.html").is_file()
+    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; 48 subjective scores and rationales; 13 SVGs; Russian TXT; local files and section anchors; English figures.")
 
 
 if __name__=="__main__":

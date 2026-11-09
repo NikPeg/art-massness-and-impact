@@ -1,6 +1,8 @@
 # Revised subjective online-content radar scores
 
-Each numeric value below is an author judgment for an illustrative 2026 profile. Life impact is a new subjective author interpretation of potential lasting influence on an engaged person, including reflection, identity, choices, and habits. Research supporting these exact scores or their cross-medium ordering has not been found in the project review. The earlier five detailed impact axes were inspected in Git history (5de5c35); the new scores are fresh judgments, not restored values, averages, or measured effects. No calibrated comparative procedure supports them. None is a measured scientific score, a percentile, a probability, or a percentage. A source anchor is evidence informing the judgment, not a normalization formula. No total score is computed. Reassessed on 9 November 2026 for internet-distributed content. Offline listening, cinema attendance and print consumption do not support these ratings. The revision is a new author assessment, not a statistical re-estimation from microdata.
+**Scope warning:** these earlier author profiles mix embedded music exposure with mostly standalone work formats. They are retained as author scenarios, not a harmonized comparison of either primary formats or media components. The [two-level framework](../research/01_scope_and_metrics.md#units-of-comparison) supersedes that comparative use. No replacement scores or cross-format component totals have been inferred.
+
+Each numeric value is an author judgment for an illustrative 2026 online-content profile. Life impact interprets potential lasting influence on an engaged person, including reflection, identity, choices and habits. Research supporting the exact scores or their cross-medium ordering has not been found in the project review. No calibrated comparative procedure supports these judgments. They are not measured scientific scores, percentiles, probabilities or percentages. A source anchor informs a judgment without supplying a normalization formula. No total score is computed. Offline listening, cinema attendance and print consumption do not numerically support these online-content ratings. Historical changes are kept in the explicit audit below, separately from the current table.
 
 | category | reach | time | frequency | money | recognition | life_impact |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -13,7 +15,7 @@ Each numeric value below is an author judgment for an illustrative 2026 profile.
 | games | 7 | 8 | 7 | 9 | 8 | 8 |
 | pictures | 9 | 5 | 9 | 7 | 8 | 6 |
 
-The first four axes were reviewed across all eight categories. Pictures remain unchanged because their existing scope was already online. Recognition remains a qualitative hypothesis about online encounters. Life impact is now scored at the user's request as author interpretation; the scope revision does not supply a calibrated effect estimate.
+All eight categories use the same six-axis framework. Recognition is a qualitative hypothesis about online encounters; Life impact is author interpretation without a calibrated comparative effect estimate.
 
 ## Axes with numeric anchors
 
@@ -32,7 +34,7 @@ Filled markers are reserved for a numerical online-consumption proxy informing t
 
 Scores of 0, 5, and 10 indicate minimal, middle, and very high expression in this author model. Differences of one point should not be interpreted. A suggested latitude of approximately two points is a caution about judgment, not an estimated interval.
 
-The pictures profile is a new, low-confidence author judgment. All its markers are hollow: no matched numerical consumption or revenue anchor was selected. Research about memory, attention, and digital art viewing informs hypotheses, not a conversion to 0–10. In particular, the money score is a qualitative placeholder rather than a market estimate; no cross-medium ranking should rest on it.
+The pictures profile is a low-confidence author judgment. All its markers are hollow: no matched numerical consumption or revenue anchor was selected. Research about memory, attention, and curated image viewing informs hypotheses, not a conversion to 0–10. In particular, the money score is a qualitative placeholder rather than a market estimate; no cross-medium ranking should rest on it.
 
 ## Revision rule and audit
 
@@ -43,7 +45,7 @@ For categories without matched observations, revised values remain explicit low-
 | category | previous reach/time/frequency/money | revised reach/time/frequency/money | reason |
 | --- | --- | --- | --- |
 | short_video | 9/8/10/9 | 9/8/9/9 | Broad online use retained; 4.26 days/week does not warrant the previous ceiling judgment. |
-| long_video | 9/7/8/8 | 8/6/7/8 | Lower observed reach, time and frequency than short video; artistic-subset mismatch remains. |
+| long_video | 9/7/8/8 | 8/6/7/8 | Lower observed reach, time and frequency than short video; orientation-subset mismatch remains. |
 | music | 10/10/10/8 | 9/9/9/7 | Remove general listening and radio; retain substantial embedded online music as a separate qualitative component. No ceiling or measured leadership is justified. |
 | film | 8/6/5/8 | 7/5/5/7 | Online viewing only; cinema reach and box office removed from rating support. |
 | series | 8/8/8/9 | 7/6/6/8 | Use the TV-streaming proxy conservatively; total Netflix revenue cannot measure series alone. |
@@ -55,7 +57,7 @@ For categories without matched observations, revised values remain explicit low-
 
 The main music profile includes online music streaming, online music performances/videos, and audible music embedded in short vertical video, long horizontal video, online films, series and games. Embedded music is substantive exposure, including incidental/background contact; it is not an error term. Muted playback is not music exposure. No automatic attention discount is applied. Mere presence does not establish a belief change or a biographical effect.
 
-The [scenario table](music_online_scenarios.md) separates a streaming-only reference from the component-inclusive author scenario displayed on the radar. Its dashed three-axis reference is also drawn on the music radar. The inclusive 9/9/9 is a revisable qualitative choice, not a measured uplift over streaming or evidence that music exceeds short video. Other media may also contain music, images and narrative: primary-format exposure and secondary artistic-component exposure are different questions and must remain labeled.
+The [scenario table](music_online_scenarios.md) separates a streaming-only reference from the component-inclusive author scenario displayed on the radar. Its dashed three-axis reference is also drawn on the music radar. The inclusive 9/9/9 is a revisable qualitative choice, not a measured uplift over streaming or evidence that music exceeds short video. Other media may also contain music, images and narrative: primary-format exposure and secondary media-component exposure are different questions and must remain labeled.
 
 For a matched population and period, musical reach is the union of people with direct or embedded audible contact, not the sum of their percentages. Musical time is the duration of the union of audible musical intervals; include only the musical portions of video and deduplicate simultaneous contacts within music. Frequency is the union of days with such contact, capped at seven. A musical video minute can legitimately count for both video and music as separate exposure measures; do not add category totals into an exclusive time budget. The selected tables do not identify this union, embedded durations or overlapping days. They cannot determine whether inclusive musical reach exceeds 88.5%.
 

@@ -1,12 +1,20 @@
 # Literature review
 
-This is an exploratory evidence map with a moderate, documented targeted-search update, not a systematic review. The [search log](../sources/moderate_review_search_2026.md) records eight exact queries, selection rules, retrieval levels and candidate decisions on 9 November 2026. Original selections and new appraisals differ in depth. Search coverage remains incomplete; statements about missing evidence refer to this project's search, not the whole literature. Confidence in an individual conclusion is defined separately in [methods](05_methods_and_reproducibility.md#confidence-in-conclusions-and-search-coverage).
+This is a **moderate targeted literature review**, updated with [32 matched queries across eight formats](../sources/balanced_review_search_2026.md), 18 additional retrieval/gap queries, and a [common evidence matrix](09_balanced_literature_review.md). It is not a systematic review. The earlier search used different outcomes across categories; that presentation is superseded by the matched synthesis. Retrieval levels, null findings and remaining gaps are explicit. Search coverage and conclusion confidence are assessed separately.
+
+Applicability is separate from study quality. Broadcast-television cases and syntheses without an isolated online media-content contrast are contextual for H18/H22; they do not answer those online hypotheses. Image and mixed-platform findings likewise do not answer the short-video-specific causal-persistence question H12. The [common status rule](05_methods_and_reproducibility.md#hypothesis-answer-status-and-scope-fit) governs these transfers.
+
+## Matched-outcome corrective update, 9 November 2026
+
+The [balanced synthesis](09_balanced_literature_review.md) now organizes all eight formats by the same outcomes instead of comparing unrelated endpoints. Six new direct/provisional online-content appraisals cover short humorous video, a digital-series episode, music, feature films and two electronic-fiction studies. Six additional candidate records distinguish offline context, non-outcome creator analyses and targeted interventions. Existing game and image evidence remains in the common matrix.
+
+The new reading trials include nulls, short-video evidence includes affect rather than only persuasion, and film evidence distinguishes attitudes from a non-significant action proxy. No matched eight-format life-impact ranking follows. Verified causal coverage for long horizontal creator video remains incomplete. New source details and timing checks belong in the matrix, which supersedes the earlier selected-study table for comparative interpretation.
 
 ## Social breadth of short video: H27
 
 The [dedicated assessment](07_short_video_social_breadth.md) appraises PEWSOC26, OFCOM25, and CFPSSHORT25. These address platform adoption, digital access, and population-specific selection, respectively. The first provides a same-population proxy comparison; none establishes an eight-medium inequality ranking. Original tables, survey question wording and methodology, and the Chinese study's methods and descriptive table were inspected. Health effects are outside this assessment.
 
-The [cumulative-effects extension](08_cumulative_media_effects.md) adds studies of everyday regulation, self-evaluation, belonging-related outcomes, habits and norms, with [separate event and cumulative results](../results/06_event_and_cumulative_outcomes.md). It distinguishes repeated responses, during-exposure trajectories and post-exposure persistence.
+The [cumulative-effects appraisal](08_cumulative_media_effects.md) examines everyday regulation, self-evaluation, belonging-related outcomes, habits and norms, with [separate event and cumulative results](../results/06_event_and_cumulative_outcomes.md). It distinguishes repeated responses, during-exposure trajectories and post-exposure persistence.
 
 This targeted review distinguishes immediate experience, cumulative/everyday change, persuasion, and observed action. It does not estimate a universal book-versus-video effect.
 
@@ -28,11 +36,11 @@ La Ferrara, Chong, and Duryea (2012), *Soap Operas and Fertility: Evidence from 
 
 ## Short video and a measured behavioral step
 
-Hu and colleagues (2024), *Using Short-Form Videos to Get Clinical Trial Newcomers to Sign Up: Message-Testing Experiment*, varies message source and framing. The outcome includes clicking a sign-up option for future trials. It does **not** establish actual trial enrollment or completed participation. The study shows why “short video cannot affect behavior” is too strong, while also showing why an initial click cannot stand in for a life-changing decision. Health messaging is not the same as artistic short video. [Full article](https://pmc.ncbi.nlm.nih.gov/articles/PMC11362704/).
+Hu and colleagues (2024), *Using Short-Form Videos to Get Clinical Trial Newcomers to Sign Up: Message-Testing Experiment*, varies message source and framing. The outcome includes clicking a sign-up option for future trials. It does **not** establish actual trial enrollment or completed participation. The study shows why “short video cannot affect behavior” is too strong, while also showing why an initial click cannot stand in for a life-changing decision. Health messaging is not the same as short video. [Full article](https://pmc.ncbi.nlm.nih.gov/articles/PMC11362704/).
 
-## Applicability to the added long-video category
+## Applicability to long horizontal video
 
-No category-specific causal study was added with this extension. Narrative-entertainment findings may motivate hypotheses for narrative essays or authored vlogs, but do not automatically generalize to interviews, instruction, performances, or repeated creator relationships. Neither longer duration nor horizontal orientation establishes stronger persuasion or biographical influence. A new radar is not a new literature result.
+No category-specific causal comparison meeting the project definition was selected and appraised in the documented search. Narrative-entertainment findings may motivate hypotheses for narrative essays or authored vlogs, but do not automatically generalize to interviews, instruction, performances, or repeated creator relationships. Neither longer duration nor horizontal orientation establishes stronger persuasion or biographical influence. The subjective radar is not a literature result.
 
 ## What the selected evidence does not establish
 
@@ -40,44 +48,21 @@ No category-specific causal study was added with this extension. Narrative-enter
 - An experimentally established superiority of books over short-form video in lasting life influence.
 - A causal conversion from minutes, revenue, enjoyment, or meaningfulness into changed lives.
 - An adequate basis for extrapolating one isolated work's effects to years of consumption of an entire format.
-- A common cross-medium measure of cumulative affect, self-evaluation, habits, belonging and norms. Relevant bounded evidence is now appraised in the [cumulative-effects extension](08_cumulative_media_effects.md); its existence must not be confused with a universal effect estimate.
+- A common cross-medium measure of cumulative affect, self-evaluation, habits, belonging and norms. Relevant bounded evidence is appraised in the [cumulative-effects review](08_cumulative_media_effects.md); its existence must not be confused with a universal effect estimate.
 
-## Other leads encountered, not used for comparative estimates
+## Material removed from the influence synthesis
 
-| Lead | Why it was not used as a ranking input |
-| --- | --- |
-| [Book reading and longevity, 2016](https://pubmed.ncbi.nlm.nih.gov/27471129/) | Observational survival associations address a different question and do not identify a particular book's effect |
-| [UCL reading-for-pleasure research](https://cls.ucl.ac.uk/cls_research/reading-for-pleasure/) | Educational and vocabulary outcomes concern development, not a common comparison of artistic media |
-| [Transformative reading dissertation](https://www.hiof.no/lusp/slik/forskning/grupper/litteratur-og-narrativitet/seminarer/phd-tangeras.pdf) | Useful qualitative research lead; not a source of population probabilities |
-| [Short-video prospective-memory experiment](https://arxiv.org/abs/2302.03714) | A bounded cognitive-task outcome cannot be treated as overall cultural or life impact |
-| [Short-video persuasion and correction experiments, 2026](https://pubmed.ncbi.nlm.nih.gov/42093274/) | Attitudes and intentions in a specific messaging context do not measure completed major decisions |
-| [ByteDance advertising field experiment](https://pubsonline.informs.org/doi/10.1287/mksc.2023.0575) | Advertising response is not a direct measure of artistic transformation |
+Unappraised leads and attention, recall or circulation endpoints have been removed from the common influence comparison. The [archived notes](../sources/literature_leads_archive_2026.md) preserve their links and their relevance to other questions; the [decision register](../sources/balanced_review_search_2026.md#earlier-material-removed-from-the-main-influence-synthesis) states why they cannot fill influence-outcome cells.
 
-These were discovery leads in the original selection, not fully appraised studies. SHORT26 received a provisional abstract-level appraisal in the update below. The remaining leads retain their earlier status. No new pooled effect estimates were calculated.
+## Pictures research 2024-2026
 
-## Pictures research, 2024–2026
+Pictures are now evaluated under the same A/B/C families as the other formats in the [common matrix](09_balanced_literature_review.md). Attention, sharing-memory and circulation examples have moved to the [context archive](../sources/literature_leads_archive_2026.md); they can inform H25/H26 but are not influence-outcome substitutes.
 
 The later [daily image-exposure appraisal, IMGDAILY23](08_cumulative_media_effects.md#online-images-a-trajectory-experiment-imgdaily23), also belongs to the pictures category. Its selected Instagram images provide content-specific evidence, not a general effect estimate for social networks, feeds or videos.
 
 ### Curated online viewing: PICART24
 
-Cotter and colleagues (2024) compared repeated virtual gallery visits with reading about art in a four-week study, with 890 U.S. adults in the analyzed sample. The gallery group reported higher well-being, immersion, and aesthetic emotion. This supports studying online pictures as experiences in their own right. It does not establish lasting life changes or generalize automatically to scrolling memes. Original abstract and full-text methods were inspected. [Publisher](https://internationaljournalofwellbeing.org/index.php/ijow/article/view/3603).
-
-### Memes and attention: PICNEWS24
-
-Chmel, Savin, and Delli Carpini (2024) used an online student convenience experiment comparing news with satirical memes, nonsatirical visuals, or text alone. Memes increased attention to news, especially among politically interested participants. The outcome is attention, not durable belief change or completed political action. A news-plus-meme intervention also cannot isolate the effect of all pictures. [Original article](https://ijoc.org/index.php/ijoc/article/view/18119).
-
-### Sharing and memory: PICSHARE25
-
-Vasquez and colleagues (2025) conducted two selective-sharing experiments with supplied and personal photographs. Sharing supported recall of associated details; the personal-photo procedure measured later recall on day 14. This concerns remembering particular experiences, not the lifelong influence of someone else's artwork. Private-life photos also sit at the edge of the creative-content definition. [Publisher DOI](https://doi.org/10.1017/mem.2025.3).
-
-### Memorability and circulation: PICMEM26
-
-Peng and Bainbridge's author version (first posted 2024, revised 2025; repository journal reference 2026) analyzed 1,247 Reddit image posts. Neural-network-predicted memorability correlated with commenting across three observation times. This is observational evidence about circulation, not demonstrated human recall, unique reach, causal persuasion, or durable cultural recognition. Only the author abstract and version history were appraised here. [Author version v3](https://arxiv.org/abs/2409.14659v3).
-
-### Creation and access: PICCREATE26
-
-Creative Australia's 2026 report analyzes 985 AuSSA responses. Its main-content question reports photography at 20%, video at 19%, and memes at 1% among creators, not all surveyed adults. Only one main type is requested, so secondary practices are missed. Creation differs from consumption; income, education, and age differences mean technical availability is not equal participation. These data do not quantify perceived cultural belonging or calibrate any radar score. [Official report page](https://www.creative.gov.au/research/digital-creativity-online-creative-engagement-and-social-connection).
+Cotter and colleagues (2024) compared repeated virtual gallery visits with reading about the displayed images in a four-week study, with 890 U.S. adults in the analyzed sample. The gallery group reported higher well-being, immersion, and aesthetic emotion. This supports studying online pictures as experiences in their own right. It does not establish lasting life changes or generalize automatically to scrolling memes. Original abstract and full-text methods were inspected. [Publisher](https://internationaljournalofwellbeing.org/index.php/ijow/article/view/3603).
 
 ## Documented targeted update, 9 November 2026
 
@@ -88,9 +73,9 @@ The [candidate register](../sources/moderate_review_search_2026.md#selected-cand
 | READ24: [Wimmer et al., 2024](https://kar.kent.ac.uk/105137/) | Two preregistered syntheses distinguish experimental cognitive effects from correlates of fiction reading. Comparators and cognitive outcomes vary. | Institutional abstract inspected, manuscript not retrieved. Provisional support for a narrow cognitive question; follow-up and study-level bias not checked here. It does not establish digital-book superiority or major life changes. |
 | MUSICREV23: [Grimani et al., online 2023 / volume 2024](https://link.springer.com/article/10.1007/s12144-023-04406-6) | Rapid review of music-exposure interventions, including 19 studies in 15 articles; examines behavior-change techniques and mechanisms. | Publisher full-text sections inspected. Incomplete intervention reporting limits mechanism coding. This is contextual listening evidence, not an internet-only comparison or an independent sample to add to its component studies. |
 | MUSICEXP21: [Ruth and Schramm, 2021; online 2020](https://journals.sagepub.com/doi/10.1177/0305735620902534) | Random-assignment laboratory experiment with 136 students; prosocial/neutral lyrics crossed with production style in versions of an original song. Thoughts, emotions and behavior were distinguished. | Publisher abstract and experimental methods inspected. Prosocial lyrics affected thoughts but not the measured behavior; this is a bounded non-significant behavioral result, not evidence that music generally has no effect. It does not test years of listening. |
-| GAME14: [Greitemeyer and Mugge, 2014](https://pubmed.ncbi.nlm.nih.gov/24458215/) | Synthesis distinguishes violent/prosocial content and includes experimental, correlational and longitudinal designs with social outcomes. | Indexed original abstract only. Provisional contextual lead; design-specific bias, follow-up and applicability to online artistic games remain unverified. It cannot justify a causal estimate for community participation or an entire medium. |
-| SHORT26: [Xiao et al., 2026](https://pubmed.ncbi.nlm.nih.gov/42093274/) | Two experiments examine endorsement cues, narrative framing and correction labels in health-related short video. Outcomes concern credibility, attitudes and intentions. | Indexed original abstract only. Narrow evidence about messaging; completed vaccination, major decisions and durable artistic influence are not established by this appraisal. |
-| YTPSR26: [When YouTube-Specific Content Feels Positive, 2026](https://doi.org/10.1027/1864-1105/a000518) | Publisher abstract describes a three-wave parent-report/content-analysis study linking content features, parasocial relationships and later peer relationships. | Search-retrieved original abstract; direct access failed. Provisional association, not randomized causation. Video duration/orientation and the project's creative-work criteria were not verified; creator exposure is not a single-work comparison. |
+| GAME14: [Greitemeyer and Mugge, 2014](https://pubmed.ncbi.nlm.nih.gov/24458215/) | Synthesis distinguishes violent/prosocial content and includes experimental, correlational and longitudinal designs with social outcomes. | Indexed original abstract only. Provisional contextual lead; design-specific bias, follow-up and applicability to online games remain unverified. It cannot justify a causal estimate for community participation or an entire medium. |
+| SHORT26: [Xiao et al., 2026](https://pubmed.ncbi.nlm.nih.gov/42093274/) | Two experiments examine endorsement cues, narrative framing and correction labels in health-related short video. Outcomes concern credibility, attitudes and intentions. | Indexed original abstract only. Narrow evidence about messaging; completed vaccination, major decisions and durable media influence are not established by this appraisal. |
+| YTPSR26: [When YouTube-Specific Content Feels Positive, 2026](https://doi.org/10.1027/1864-1105/a000518) | Publisher abstract describes a three-wave parent-report/content-analysis study linking content features, parasocial relationships and later peer relationships. | Search-retrieved original abstract; direct access failed. Provisional association, not randomized causation. Video duration/orientation and the project's media-work criteria were not verified; creator exposure is not a single-work comparison. |
 
 The existing NARR25 synthesis was rechecked at publisher full-text level. It distinguishes beliefs, attitudes, intentions and behavior and includes delayed measurement, but these contrasts do not identify a common eight-medium effect. Existing PICART24 remains evidence about curated online viewing rather than ordinary mixed feeds. Neither body supplies a matched test of all formats on major life decisions.
 
@@ -98,4 +83,16 @@ The existing NARR25 synthesis was rechecked at publisher full-text level. It dis
 
 The update supports separating outcomes and exposure units; it does not change the unresolved status of comparative life influence. No eligible, directly applicable major-life-change comparison was selected and appraised in this bounded search. This is an evidence gap **within the search**, not proof of a gap in all science. Non-significant effects in a particular study must be reported with its design and precision, separately from missing or unretrieved evidence. No effect-size ranking across these rows is valid because controls, populations, doses and outcomes differ.
 
-Long-video coverage remains incomplete: related creator studies exist, but none appraised here verifies a causal contrast for the defined long horizontal creative-video category. Resolving that requires broader retrieval and full-text eligibility checks, not an inference that long video has no effect. The [further-work plan](../FURTHER_WORK.md) defines the next stage.
+Long-video coverage remains incomplete: related creator studies exist, but none appraised here verifies a causal contrast for the defined long horizontal online-video category. Resolving that requires broader retrieval and full-text eligibility checks, not an inference that long video has no effect. The [further-work plan](../FURTHER_WORK.md) defines the next stage.
+
+## Consumption hours and changes in well-being: H28
+
+Vuorre, Johannes, Magnusson and Przybylski (2022), *Time spent playing video games is unlikely to impact well-being*, link objective play data for 38,935 players across seven games with three survey waves over six weeks. The observational panel finds little evidence that ordinary changes in time played meaningfully affect well-being. This supports a bounded conclusion about play-time variation among existing players, not the absence of all gaming effects. It does not establish weak prediction for every medium, all doses or longer periods, and does not constitute an out-of-sample predictive-model evaluation. Content, motivation and circumstances remain candidate explanatory factors rather than established superior predictors in this appraisal. [Original full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC9326284/); [DOI](https://doi.org/10.1098/rsos.220411).
+
+Access: original full text retrieved in the targeted follow-up on 9 November 2026; methods, abstract and conclusions inspected. No independent reanalysis or formal risk-of-bias assessment was performed.
+
+## Attracting an audience versus persuading exposed viewers: H29
+
+The smaller comparative analysis in Rahmani et al. (2025) includes 14 experimental comparisons in 12 papers and detects no statistically significant advantage of narrative over information-equivalent non-narrative messages for the outcome categories. This does not establish equivalent effectiveness: the comparative evidence is limited. The authors suggest that attracting and engaging larger or different audiences could be an important advantage of narratives, but their meta-analysis does not test that audience-selection mechanism. Greater reach or retention and stronger persuasion conditional on exposure are distinct propositions. The former remains a testable hypothesis, not an established explanation. [Published full text](https://doi.org/10.1017/bpp.2025.10010).
+
+Access: publisher full-text comparative results and interpretation inspected in the targeted follow-up on 9 November 2026. This reuses NARR25 rather than adding an independent synthesis.

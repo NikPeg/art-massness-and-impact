@@ -4,11 +4,7 @@ Archived on 9 November 2026. These entries describe intermediate project version
 
 ## Long-video category
 
-The extension promotes previously retained long-online-video reach/time observations into a labeled proxy row and adds its reported weekly frequency. It defines a narrower horizontal creative-video category, adds ten new subjective scores and rationales without changing the other six retained profiles, and preserves five missing financial observations. The generator and checks now cover eight categories and 15 SVGs including the overview and participation charts. Source retrieval and the scope mismatch are recorded in the source register and limitations.
-
-## Participation extension
-
-The user selected Participation Survey and Special Eurobarometer 562 from a wider search. Only those two survey programmes were added. Final sample sizes were checked in technical reports; activity values were transcribed with their source categories into [a separate table file](../data/participation_and_breadth.md). England's earlier wave supplies sample-size context only. No microdata analysis, harmonization, causal estimation, or extrapolation to 2026 was performed. The [participation generator](../scripts/build_participation_figures.py) now reads these tables and produces two figures with TXT annotations, also included in the full gallery build. Existing radar inputs are unaffected. Both percentage axes are fixed at 0-100%; the England connectors compare groups, not time or uncertainty.
+The extension promotes previously retained long-online-video reach/time observations into a labeled proxy row and adds its reported weekly frequency. It defines a narrower horizontal online-video category, adds ten new subjective scores and rationales without changing the other six retained profiles, and preserves five missing financial observations. The generator and checks now cover eight categories and 15 SVGs including the overview and participation charts. Source retrieval and the scope mismatch are recorded in the source register and limitations.
 
 ## Rendering provenance
 
@@ -24,9 +20,9 @@ Added eight-category inputs: one all-NA snapshot row, five all-NA financial cell
 
 ## Online-scope revision, 9 November 2026
 
-Reviewed the first four axes of all eight profiles, updated 22 scores, and removed incompatible whole-market/offline numerical anchor flags. Pictures retain their prior values. Recognition retains its author hypothesis after checking the online interpretation; the general Life impact axis subsequently received separate subjective author scores at the user's request. The [revision audit](../data/subjective_scores_2026.md#revision-rule-and-audit) gives every before/after value. These remain ordinal judgments with no data-to-score formula.
+Reviewed the first four axes of all eight profiles, updated 22 scores, and removed incompatible whole-market/offline numerical anchor flags. Pictures retain their prior values. Recognition retains its author hypothesis after checking the online interpretation; the general Life impact axis subsequently received separate subjective author scores at the user's request. The [revision audit](../author-interpretations/subjective_scores_2026.md#revision-rule-and-audit) gives every before/after value. These remain ordinal judgments with no data-to-score formula.
 
-For music, the main profile covers direct and embedded online audible contact. A [separate scenario table](../data/music_online_scenarios.md) supplies a streaming-only reference drawn as a dashed segment on its first three axes. This records a change of exposure definition, not a fitted uplift. Embedded musical contact counts substantively, while unique people, intervals and days require within-music unions. No measured combined audience is inferred. Musical effects within video are not causally separated from other components. Original empirical tables and contextual figures retain their observations. Regenerated the gallery and all figures from the revised inputs.
+For music, the main profile covers direct and embedded online audible contact. A [separate scenario table](../author-interpretations/music_online_scenarios.md) supplies a streaming-only reference drawn as a dashed segment on its first three axes. This records a change of exposure definition, not a fitted uplift. Embedded musical contact counts substantively, while unique people, intervals and days require within-music unions. No measured combined audience is inferred. Musical effects within video are not causally separated from other components. Original empirical tables and contextual figures retain their observations. Regenerated the gallery and all figures from the revised inputs.
 
 ## Everyday and cumulative outcomes extension, 9 November 2026
 

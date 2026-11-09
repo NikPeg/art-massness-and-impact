@@ -22,9 +22,9 @@ Record direction, magnitude, duration, functional relevance and participant-rate
 
 Compare both single-work encounters and cumulative consumption over a common period. Match genres, baseline interest, exposure dose, and engagement where possible. Randomized encouragement can improve causal identification without requiring participants to make major life decisions. Report attrition and spillovers.
 
-## Coding the added long-video category
+## Coding long horizontal video
 
-Record duration, aspect ratio, original work type, platform, genre, artistic-content coding, creator identity, and whether exposure was a full work, excerpt, stream, or replay. Apply the [working inclusion rules](../research/01_scope_and_metrics.md#long-form-horizontal-online-video); test duration thresholds above 3 minutes, at 10 minutes, and at 20 minutes. Use independent coders and publish agreement and disputed cases. Separate completed creative works from raw streams and utilitarian instruction.
+Record duration, aspect ratio, original work type, platform, genre, content-type coding, creator identity, and whether exposure was a full work, excerpt, stream, or replay. Apply the [working inclusion rules](../research/01_scope_and_metrics.md#long-form-horizontal-online-video); test duration thresholds above 3 minutes, at 10 minutes, and at 20 minutes. Use independent coders and publish agreement and disputed cases. Include streams, instruction, news and entertainment, with explicit genre tags and separate source-work classifications.
 
 Record audible musical intervals within short vertical video, long horizontal video, films, series and games as substantive component exposure, including incidental contact. Retain primary-format and component tags. Deduplicate within-component exposure and do not attribute the entire audiovisual outcome to music or to video without a design that isolates their contributions.
 
@@ -39,3 +39,11 @@ Estimate absolute outcome differences and uncertainty within the actual target p
 Apply the [pictures inclusion rules](../research/01_scope_and_metrics.md#pictures). Record post, image, and carousel units; actual visible time; repeated exposure; source work and template identity; embedded text; creator; and AI assistance. Separate original creation, remixing, redistribution, and viewing. Do not assign all mixed-feed time to images. Test recall of a particular image separately from recognition of a reusable meme template.
 
 Measure costs, equipment, training, time, confidence, and access to communities as potential barriers. Ask separately whether the practice feels “for people like me.” Compare like-for-like population participation questions, not creator-only main-type shares. Link repeated measures of creation and consumption to the same predefined outcomes rather than assuming they have equal effects.
+
+## Separate format and component analyses
+
+Use the [two-level coding rules](../research/01_scope_and_metrics.md#units-of-comparison). Record a host exposure ID, primary work type, presentation/source-work relationship and elapsed interval. Link component records for music, images, text and speech using the same standalone-plus-embedded inclusion rule, with identifiable work/asset, start/end, audible/visible status, prominence, uncertainty and activity (viewing, creating, remixing or sharing).
+
+An creator's vertical video showing a painting must retain both the video host and the image component. Count only the painting's identifiable visible intervals; do not convert total views into unique painting viewers or allocate the full video duration to it. Apply the same rule to a soundtrack heard for only part of the video, and record muted viewing. Treat excerpts and adaptations separately from exposure to a whole source work.
+
+Produce one set of reach/time/frequency results by primary format and another by component across all hosts, with common population and period within each analysis. Deduplicate people, intervals and days within each component. Overlapping component time is not an exclusive time budget. Analyze outcome families at both levels, but use component-isolating designs (for example, preregistered visual-present/absent and music-present/absent variants with host content otherwise held constant) before attributing an audiovisual effect to an individual component. Preserve absent, uncertain and uncodable cases separately.

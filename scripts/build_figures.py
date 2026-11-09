@@ -7,12 +7,13 @@ import math
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"
+SUBJECTIVE = ROOT / "author-interpretations"
 YEARS = list(range(2021, 2026))
 AXES = ["reach", "time", "frequency", "money", "recognition", "life_impact"]
 AXIS_LABELS = {axis: axis.capitalize() for axis in AXES}
 AXIS_LABELS["life_impact"] = "Life impact"
 NAMES = {"short_video": "Short-form video", "long_video": "Long online video (proxy)", "music": "Music", "film": "Feature films",
-         "series": "Series / streaming proxy", "books": "Books / US fiction",
+         "series": "Series / streaming proxy", "books": "Books",
          "games": "Video games", "pictures": "Pictures"}
 RADAR_NAMES = {**NAMES, "long_video": "Long horizontal video", "series": "Series", "books": "Books"}
 COLORS = {"short_video": "#2463ad", "long_video": "#a33c31", "music": "#b96216", "film": "#93456e",
@@ -81,7 +82,8 @@ def svg_doc(width, height, title, body, description=""):
 
 
 def write(name, content):
-    (OUT / name).write_text(content, encoding="utf-8")
+    directory = SUBJECTIVE if name.startswith("radar-") else OUT
+    (directory / name).write_text(content, encoding="utf-8")
 
 
 def annotation(filename, title, paragraphs):
@@ -90,90 +92,129 @@ def annotation(filename, title, paragraphs):
 
 
 def time_series(title, subtitle, series, unit, filename, footer, width=1080):
-    height, left, right, top, bottom = 420, 70, 30, 80, 350
+    height, left, right, top, bottom = 575, 75, 35, 150, 430
     values = [p[1] for s in series for p in s["points"] if p[1] is not None]
-    maximum = max(values) * 1.12
-    x = lambda year: left + 6 + (year - 2021) / 4 * (width - left - right - 12)
-    y = lambda value: bottom - 6 - value / maximum * (bottom - top - 12)
-    body = text(22, 30, title, size=21, weight=500)
+    maximum = math.ceil(max(values) / 40) * 40
+    x = lambda year: left + 8 + (year - 2021) / 4 * (width - left - right - 16)
+    y = lambda value: bottom - value / maximum * (bottom - top)
+    body = text(24, 32, title, size=23, weight=500)
+    body += text(24, 57, subtitle, size=12)
     legend = []
-    for i, s in enumerate(series):
-        latest = next((p[1] for p in reversed(s["points"]) if p[1] is not None), None)
-        label = s["name"] + (f' | latest: {">" if s.get("reference") else ""}{fmt(latest)}' if latest is not None else " | no selected data")
-        legend.append(f'{s["color"]}: {label}')
-        lx = 80 + i * 320
-        body += line(lx, 50, lx+22, 50, s["color"], 2)
-        body += text(lx+30, 54, s.get("legend_name", s["name"]), size=12)
-    for i in range(5):
-        value = maximum * i / 4
+    for i, item in enumerate(series):
+        latest = next((v for _, v in reversed(item["points"]) if v is not None), None)
+        label = item.get("legend_name", item["name"])
+        lx = 26 + i * 350
+        body += line(lx, 87, lx+22, 87, item["color"], 2)
+        body += text(lx+30, 91, label, size=12)
+        if latest is not None:
+            body += text(lx+30, 110, f"2025: {fmt(latest, 1)} min/day", size=11)
+        legend.append(f'{item["color"]}: {item["name"]} | 2025: {fmt(latest, 1)}')
+    for i in range(6):
+        value = maximum * i / 5
         py = y(value)
-        body += line(left, py, width-right, py) + text(left-10, py+4, fmt(value, 1), "end")
-    body += text(left, top-12, unit)
+        body += line(left, py, width-right, py) + text(left-12, py+4, fmt(value, 1), "end")
+    body += text(left, top-14, unit, size=11)
     for year in YEARS:
-        body += text(x(year), bottom+23, year, "middle")
-    body += text(width-right, bottom+43, "Year", "end")
-    for s in series:
+        body += text(x(year), bottom+25, year, "middle")
+    for item in series:
         previous = None
-        for year, value in s["points"]:
+        for year, value in item["points"]:
             if value is None:
                 previous = None
                 continue
             px, py = x(year), y(value)
-            if previous and not s.get("reference") and year != s.get("break_year"):
-                body += line(previous[0], previous[1], px, py, s["color"], 2,
-                             "4 3" if s.get("dashed") else "")
-            body += mark(px, py, s["color"], s.get("reference", False))
+            if previous and year != item.get("break_year"):
+                body += line(*previous, px, py, item["color"], 2)
+            body += mark(px, py, item["color"])
             previous = (px, py)
-    write(filename, svg_doc(width, height, title, body))
-    annotation(filename, title, [subtitle, footer, "Series colors and latest values (" + unit + "):\n" + "\n".join(legend),
-               "Hollow diamond: annualized lower-bound reference point. Missing observations are not zeros; gaps are not connected.",
+    notes = [
+        "Source: BLS American Time Use Survey, annual table 11A, 2021–2025.",
+        "US civilian population aged 15+; all-person daily means; main activity only. Includes offline use.",
+        "TV includes films, series and other content; reading is broader than books; games/computer leisure is broader than video games.",
+        "Separate population and activity definitions from the international GWI snapshot; not an online-only media comparison."
+    ]
+    body += line(24, 478, width-24, 478)
+    for i, note in enumerate(notes):
+        body += text(24, 501+i*19, note, size=11)
+    write(filename, svg_doc(width, height, title, body, subtitle + "; " + " ".join(notes)))
+    annotation(filename, title, [subtitle, footer, "Series colors and 2025 values (" + unit + "):\n" + "\n".join(legend),
+               "Missing observations are not zeros; gaps are not connected.",
                "Data and sources: ../data/annual_indicators.md; ../sources/source_register.md."])
 
 
+# Labels describe the source observation, separately from the author radar names.
+SNAPSHOT_LABELS = {
+    "short_video": ("Short online video", "Source category; not Instagram Reels alone"),
+    "long_video": ("Long online video", "Source category; duration/orientation not isolated"),
+    "music": ("Music streaming", "Streaming listening only; no embedded-music union"),
+    "games": ("Video games", "Reach/time: all devices; frequency: device groups"),
+    "series": ("TV streaming (all content)", "Series proxy; includes films and other programmes"),
+    "film": ("Feature films", "No film-only observation"),
+    "books": ("Digital books", "No comparable reading observation"),
+    "pictures": ("Standalone pictures", "Not isolated from mixed platform use"),
+}
+
+
 def snapshot(rows, key, title, unit, filename):
-    width, left, right, top = 900, 245, 75, 70
-    grid_bottom = top + (len(rows)-1)*45 + 20
-    height = grid_bottom + 80
-    vals = [num(r[key]) for r in rows if num(r[key]) is not None]
-    if key == "days_per_week":
-        vals += [num(r["additional_days_per_week"]) for r in rows if num(r["additional_days_per_week"]) is not None]
-    if key == "weekly_minutes":
-        vals = [v/7 for v in vals]
-    maximum = max(vals) * 1.12
-    x = lambda v: left + v / maximum * (width-left-right)
-    body = text(24, 30, title, size=21, weight=500)
-    for i in range(5):
-        v = maximum * i / 4
-        body += line(x(v), top-12, x(v), grid_bottom) + text(x(v), grid_bottom+22, fmt(v, 1), "middle")
-    body += text(left, grid_bottom+49, unit)
-    if key == "days_per_week":
-        body += mark(left, grid_bottom+67, COLORS["games"])
-        body += text(left+12, grid_bottom+71, "Mobile", size=11)
-        body += mark(left+90, grid_bottom+67, COLORS["games"], diamond=True)
-        body += text(left+102, grid_bottom+71, "PC / console (games)", size=11)
+    width, left, right, top, step = 1100, 350, 85, 129, 57
+    grid_bottom = top + (len(rows)-1)*step + 24
+    height = grid_bottom + 203
+    maximum, ticks, page = {
+        "weekly_reach_percent": (100, [0, 25, 50, 75, 100], 38),
+        "weekly_minutes": (75, [0, 15, 30, 45, 60, 75], 40),
+        "days_per_week": (7, list(range(8)), 39),
+    }[key]
+    x = lambda value: left + value / maximum * (width-left-right)
+    population = "GWI Q2 2026 · Internet users aged 16+ in covered markets · Russia excluded"
+    body = text(24, 32, title, size=23, weight=500)
+    body += text(24, 57, population, size=12)
+    body += text(24, 80, "Source-defined categories; overlapping audiences, not a complete ranking of media formats.", size=12)
+    for value in ticks:
+        body += line(x(value), top-18, x(value), grid_bottom) + text(x(value), grid_bottom+24, str(value), "middle", size=11)
+    body += text(left, grid_bottom+48, unit, size=12)
     for i, row in enumerate(rows):
-        cy = top + i*45
+        cy = top + i*step
         category = row["category"]
-        body += text(left-16, cy+4, NAMES[category], "end")
-        v = num(row[key])
-        if v is None:
+        label, detail = SNAPSHOT_LABELS[category]
+        body += text(24, cy-1, label, size=13, weight=500)
+        body += text(24, cy+17, detail, size=10)
+        value = num(row[key])
+        if value is None:
+            body += text(left+12, cy+5, "Not available — no comparable observation", size=12)
             continue
         if key == "weekly_minutes":
-            v /= 7
+            value /= 7
         extra = num(row["additional_days_per_week"]) if key == "days_per_week" else None
-        for j, val in enumerate([v] + ([extra] if extra is not None else [])):
-            yy = cy + (-8 if j == 0 else 9) if extra is not None else cy
-            body += line(left, yy, x(val), yy) + mark(x(val), yy, COLORS[category], j == 1)
-            label = fmt(val)
-            body += text(x(val)+10, yy+4, label)
-    write(filename, svg_doc(width, height, title, body))
-    annotation(filename, title, [
-        "GWI Q2 2026 | Online adults 16+ in covered markets | Gaps are not zeros. Russia excluded.",
-        "Source: DataReportal Digital 2027, pages 38-40. Data and boundaries: ../data/media_use_2026.md.",
-        "Music here is streaming only. Audible music in short/long online videos, films, series and games is additional overlapping musical contact, not captured as a combined union in this table. Neither summing category audiences nor assigning all video minutes to music estimates that union.",
-        "Weekly time is divided by seven to obtain daily minutes. Frequency is days per week; device groups can overlap. For games frequency, the upper circle is mobile and the lower hollow diamond is PC/console; do not add them.",
-        "Blank rows have no comparable selected observation:\n" + "\n".join(NAMES[r["category"]] for r in rows if num(r[key]) is None),
-        "Category scopes:\n" + "\n".join(f'{NAMES[r["category"]]}: {r["scope"]}' for r in rows)])
+        for j, val in enumerate([value] + ([extra] if extra is not None else [])):
+            yy = cy + (-7 if j == 0 else 12) if extra is not None else cy
+            body += line(left, yy, x(val), yy, "#cbd3dc")
+            marker_title = ("Mobile games" if j == 0 else "PC/console games") if extra is not None else label
+            body += mark(x(val), yy, COLORS[category], j == 1, title=marker_title)
+            display = fmt(val) + ("%" if key == "weekly_reach_percent" else "")
+            body += text(x(val)+11, yy+4, display, size=12)
+    notes = [
+        f"Source: GWI via DataReportal, Digital 2027, p. {page}. Source values: data/media_use_2026.md.",
+        "Music means streaming only. TV streaming is not series-only. Missing rows are not zeros.",
+        "Weekly survey time / 7 gives the displayed daily mean." if key == "weekly_minutes" else
+        "Frequency means average days per week, not sessions; overlapping device groups must not be added." if key == "days_per_week" else
+        "Reach means reported weekly use within the surveyed online population, not a share of all people.",
+        "Standalone format proxies only; embedded images, music, text and speech have no measured combined totals here."
+    ]
+    legend_y = grid_bottom+74
+    if key == "days_per_week":
+        body += mark(30, legend_y-4, COLORS["games"])
+        body += text(42, legend_y, "Games: mobile", size=11)
+        body += mark(175, legend_y-4, COLORS["games"], diamond=True)
+        body += text(187, legend_y, "Games: PC / console", size=11)
+    body += line(24, grid_bottom+88, width-24, grid_bottom+88)
+    for i, note in enumerate(notes):
+        body += text(24, grid_bottom+111+i*19, note, size=11)
+    description = population + "; " + " ".join(notes) + "; " + "; ".join(
+        f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows)
+    write(filename, svg_doc(width, height, title, body, description))
+    annotation(filename, title, [population, *notes,
+        "Games frequency: filled circle = mobile; hollow diamond = PC/console. These groups overlap.",
+        "Category scopes:\n" + "\n".join(f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows)])
 
 
 def radar(row, anchors):
@@ -185,7 +226,7 @@ def radar(row, anchors):
         cy + math.sin(-math.pi/2 + i*math.tau/len(AXES))*rr*value/10)
     path = lambda vals: " ".join(("M" if i == 0 else "L") + f"{pos(i,v)[0]:.3f},{pos(i,v)[1]:.3f}" for i,v in enumerate(vals)) + "Z"
     body = text(24, 30, RADAR_NAMES[category], size=22, weight=500)
-    body += text(24, 51, "Author scores · not measured effects", size=11)
+    body += text(24, 51, "Mixed scopes · not a format/component comparison", size=11)
     for ring in [2,4,6,8,10]:
         body += f'<path d="{path([ring]*len(AXES))}" fill="none" stroke="#d3d9df"/>'
     for i in range(len(AXES)):
@@ -199,7 +240,7 @@ def radar(row, anchors):
     else:
         body += f'<path d="{observed_path}" fill="none" stroke="#2463ad" stroke-width="2"/>'
     if category == "music":
-        scenarios = table_with(ROOT / "data/music_online_scenarios.md", "scenario")
+        scenarios = table_with(ROOT / "author-interpretations/music_online_scenarios.md", "scenario")
         reference = next(r for r in scenarios if r["scenario"] == "streaming_reference")
         inclusive = next(r for r in scenarios if r["scenario"] == "inclusive_online")
         assert all(row[a] == inclusive[a] for a in AXES[:3])
@@ -229,13 +270,14 @@ def radar(row, anchors):
         body += mark(qx,qy,"#2463ad",not supported)
     name="radar-"+category.replace("_","-")+".svg"
     write(name,svg_doc(width,height,RADAR_NAMES[category]+" radar",body,
-          "Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review. " +
+          "Author interpretation with mixed comparison levels; not a harmonized format or component comparison. Research supporting these exact Life impact scores or their comparative ordering has not been found in the project review. " +
           "; ".join(f"{a}: {'not assessed' if v is None else str(int(v)) + '/10'}" for a,v in zip(AXES,scores))))
     annotation(name, RADAR_NAMES[category], [
+        "Mixed comparison levels: earlier author profiles, not a harmonized format or component comparison. See ../research/01_scope_and_metrics.md and ../data/media_components_2026.md.",
         "2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.",
-        *(["Blue: direct and embedded audible online music. Orange dashed: streaming-only reference (8/6/7), informed by GWI26. Different exposure definitions, not measured uplift. See ../data/music_online_scenarios.md."] if category == "music" else []),
+        *(["Blue: direct and embedded audible online music. Orange dashed: streaming-only reference (8/6/7), informed by GWI26. Different exposure definitions, not measured uplift. See music_online_scenarios.md."] if category == "music" else []),
         "Filled circle: numeric anchor | Hollow diamond: qualitative rationale.",
-        "No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: ../data/subjective_scores_2026.md; ../data/score_rationales.md."])
+        "No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: subjective_scores_2026.md; score_rationales.md."])
     return name
 
 
@@ -244,7 +286,7 @@ def radar_overview(radar_names):
     width, height = 2400, 1020
     body = ""
     for i, name in enumerate(radar_names):
-        panel = (OUT / name).read_text(encoding="utf-8").strip()
+        panel = (SUBJECTIVE / name).read_text(encoding="utf-8").strip()
         # Unique accessible names for every nested SVG in the standalone sheet.
         panel = panel.replace('id="title"', f'id="panel-{i}-title"')
         panel = panel.replace('id="desc"', f'id="panel-{i}-desc"')
@@ -254,28 +296,28 @@ def radar_overview(radar_names):
         body += panel
     write("radar-overview.svg", svg_doc(width, height, "All eight subjective radar profiles, 2026", body,
           "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales. Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review."))
-    write("radar-overview.txt", (ROOT / "data/radar_overview_annotation.txt").read_text(encoding="utf-8"))
+    write("radar-overview.txt", (ROOT / "author-interpretations/radar_overview_annotation.txt").read_text(encoding="utf-8"))
 
 
 def build():
-    from build_participation_figures import build as build_participation
     OUT.mkdir(exist_ok=True)
+    SUBJECTIVE.mkdir(exist_ok=True)
     # Remove obsolete outputs: incompatible financial scopes must not share an axis.
     for name in ("financial-landmarks.svg", "financial-landmarks.txt"):
         (OUT / name).unlink(missing_ok=True)
     time_rows=table_with(ROOT/"data/annual_indicators.md","tv_hours_day")
-    time_series("US time-use aggregates, 2021–2025","US population 15+ | All-person means | Main activity only",[
+    time_series("US time-use aggregates, 2021–2025","US population 15+ · All-person daily means · Main activity only",[
         {"name":name,"legend_name":short_name,"color":color,"points":[(int(r["year"]),float(r[key])*60) for r in time_rows]}
-        for key,name,short_name,color in [("tv_hours_day","TV: films, series and other content","TV (all content)",COLORS["series"]),
+        for key,name,short_name,color in [("tv_hours_day","TV: films, series and other content","Watching TV (all content)",COLORS["series"]),
                                ("reading_hours_day","Leisure reading","Leisure reading",COLORS["books"]),
-                               ("games_computer_hours_day","Games and computer leisure","Games / computer leisure",COLORS["games"])]] ,
-        "Minutes per day","us-time-use.svg","Source: BLS ATUS, table 11A. Categories are broader than the respective art forms.")
+                               ("games_computer_hours_day","Games and computer leisure","Playing games / leisure computer use",COLORS["games"])]] ,
+        "Minutes per day","us-time-use.svg","Source: BLS ATUS, table 11A. Categories are broader than the respective media categories.")
     media=table_with(ROOT/"data/media_use_2026.md","weekly_reach_percent")
-    for key,title,unit,name in [("weekly_reach_percent","Weekly reach, 2026","Percent of surveyed online adults","reach-2026.svg"),
-                                ("weekly_minutes","Average daily time, 2026","Minutes per day","time-2026.svg"),
-                                ("days_per_week","Frequency of use, 2026","Days per week","frequency-2026.svg")]:
+    for key,title,unit,name in [("weekly_reach_percent","Weekly reach: format proxies, 2026","Percent of surveyed online adults","reach-2026.svg"),
+                                ("weekly_minutes","Daily time: format proxies, 2026","Minutes per day","time-2026.svg"),
+                                ("days_per_week","Frequency: format proxies, 2026","Days per week","frequency-2026.svg")]:
         snapshot(media,key,title,unit,name)
-    score_path=ROOT/"data/subjective_scores_2026.md"
+    score_path=ROOT/"author-interpretations/subjective_scores_2026.md"
     score_rows=sorted(table_with(score_path,"recognition"),
                       key=lambda row: RADAR_NAMES[row["category"]].casefold())
     anchor_rows=next(records for header,records in tables(score_path) if header==["category","reach","time","frequency","money"])
@@ -283,24 +325,33 @@ def build():
     radar_names=[radar(r,anchors[r["category"]]) for r in score_rows]
     radar_overview(radar_names)
     figures=[("US time use","us-time-use.svg"),
-             ("Weekly reach","reach-2026.svg"),("Daily time","time-2026.svg"),("Frequency","frequency-2026.svg"),
-             ("All eight radar profiles","radar-overview.svg")]
-    figures += build_participation()
+             ("Weekly reach","reach-2026.svg"),("Daily time","time-2026.svg"),("Frequency","frequency-2026.svg")]
     panels="".join(f'<section><h2>{html.escape(title)}</h2><img src="{name}" alt="{html.escape(title)}" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>' for title,name in figures)
-    panels+='<p><a href="radar-overview.svg">Open full-size radar overview</a> · <a href="radar-overview.txt">Russian annotation (TXT)</a></p>'
-    panels+='<h2>Subjective 2026 radar profiles</h2><p>Author interpretation. Research supporting the exact Life impact scores or their comparative ordering has not been found in the project review.</p><div class="radars">'+"".join(
+    subjective_panels='<p><a href="radar-overview.svg">Open full-size radar overview</a> · <a href="radar-overview.txt">Russian annotation (TXT)</a></p>'
+    subjective_panels+='<h2>Subjective 2026 radar profiles</h2><p>Earlier mixed-scope author profiles: music includes embedded soundtracks while other profiles mostly use standalone formats. These profiles do not implement either the primary-format or media-component comparison. Scores have not been recalibrated. Author interpretation. Research supporting the exact Life impact scores or their comparative ordering has not been found in the project review.</p><div class="radars">'+"".join(
         f'<section><img src="{name}" alt="{html.escape(RADAR_NAMES[r["category"]])} radar" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>'
         for name,r in zip(radar_names,score_rows))+"</div>"
     page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Internet-distributed creative media, mass reach, and life impact</title><style>
+<title>Internet-distributed media, mass reach, and life impact</title><style>
 body{font:16px/1.55 system-ui,sans-serif;color:#202a34;background:white;margin:24px auto;padding:0 20px;max-width:1100px}
 img{display:block;width:100%;height:auto}section{margin:24px 0}.radars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 @media(max-width:760px){.radars{grid-template-columns:1fr}}a{color:#2463ad}</style>
-<h1>Internet-distributed creative media, mass reach, and life impact</h1><p>As of 9 November 2026. Eight categories of creative content distributed through the internet. Empirical landmarks and explicitly subjective profiles.</p>
-<p>Whole-market financial series and US diaries are contextual evidence, not online-only measurements. Financial observations are retained only in the source tables because their market and accounting scopes differ; no common financial chart is shown. The US diary and international survey are separate populations. Pictures have no matched consumption or revenue values. All pictures radar markers are qualitative. Long online video is a broader proxy for horizontal creative works; its financial series is missing. Radar consumption and money judgments have been revised for online distribution. Music includes embedded audible contact; its dashed streaming-only reference is a different exposure definition, not a measured uplift. Radar scores are author judgments, including points with numeric anchors.</p>
-<p><a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../data/score_rationales.md">Score rationales</a></p>'''+panels+"</html>\n"
+<h1>Internet-distributed media, mass reach, and life impact</h1><p>Two separate comparisons: primary work formats and media components across those formats. The snapshot figures below show broad format proxies, with music streaming explicitly labeled. Component totals are unmeasured; a painting shown in a vertical video remains image contact. <a href="../data/media_components_2026.md">Component comparison and gaps</a> · <a href="../research/01_scope_and_metrics.md">Coding rules</a>.</p><p>As of 9 November 2026. Eight categories of media content distributed through the internet. Empirical observations and contextual indicators.</p>
+<p>Whole-market financial series and US diaries are contextual evidence, not online-only measurements. Financial observations are retained only in the source tables because their market and accounting scopes differ; no common financial chart is shown. The US diary and international survey are separate populations. Pictures have no matched consumption or revenue values. Long online video is a broader proxy for horizontal media works; its financial series is missing. Author interpretations and radar profiles are presented separately.</p>
+<p><a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../author-interpretations/index.html">Author interpretations and radars</a></p>'''+panels+"</html>\n"
     write("index.html",page)
-    print(f"Generated {len(figures)+len(radar_names)} SVG figures and figures/index.html")
+    subjective_page = '''<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Author Interpretations</title><style>
+body{font:16px/1.55 system-ui,sans-serif;color:#202a34;background:white;margin:24px auto;padding:0 20px;max-width:1100px}
+img{display:block;width:100%;height:auto}.radars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media(max-width:760px){.radars{grid-template-columns:1fr}}a{color:#2463ad}</style>
+<h1>Author Interpretations</h1>
+<p>Здесь собраны субъективные выводы автора на основе существующих данных проекта. Выбор баллов и порядок форматов отражают авторскую интерпретацию. Исследования и статистика дают основания для размышлений, но не устанавливают эти оценки от 0 до 10.</p>
+<p>Радиальные диаграммы иллюстрируют авторскую модель. Они не измеряют эффекты и не доказывают превосходство одного формата над другим. Даже точка с числовой опорой остаётся авторской оценкой.</p>
+<p><a href="README.md">О разделе</a> · <a href="subjective_scores_2026.md">Баллы</a> · <a href="score_rationales.md">Обоснования</a> · <a href="02_radar_profiles.md">Разбор профилей</a> · <a href="../figures/index.html">Графики наблюдаемых данных</a></p>
+<section><h2>Все восемь профилей</h2><img src="radar-overview.svg" alt="Восемь субъективных радиальных диаграмм"></section>''' + subjective_panels + "</html>\n"
+    (SUBJECTIVE / "index.html").write_text(subjective_page, encoding="utf-8")
+    print(f"Generated {len(figures)} empirical/context SVGs, {len(radar_names)+1} subjective SVGs and two HTML galleries")
 
 
 if __name__=="__main__":

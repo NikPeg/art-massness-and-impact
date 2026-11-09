@@ -1,7 +1,0 @@
-Pictures
-
-2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.
-
-Filled circle: numeric anchor | Hollow diamond: qualitative rationale.
-
-No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: ../data/subjective_scores_2026.md; ../data/score_rationales.md.

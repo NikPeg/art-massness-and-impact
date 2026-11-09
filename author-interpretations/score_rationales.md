@@ -1,6 +1,8 @@
 # Subjective score rationales
 
-Read with the [score table](subjective_scores_2026.md), [source register](../sources/source_register.md), and [limitations](../research/04_limitations.md). These are interpretive justifications, not measured effects. Numeric anchors can concern narrower populations or markets than the artistic category.
+**Scope warning:** these earlier author profiles mix embedded music exposure with mostly standalone work formats. They are retained as author scenarios, not a harmonized comparison of either primary formats or media components. The [two-level framework](../research/01_scope_and_metrics.md#units-of-comparison) supersedes that comparative use. No replacement scores or cross-format component totals have been inferred.
+
+Read with the [score table](subjective_scores_2026.md), [source register](../sources/source_register.md), and [limitations](../research/04_limitations.md). These are interpretive justifications, not measured effects. Numeric anchors can concern narrower populations or markets than the media category.
 
 The underlying research questions are consolidated in [Project hypotheses](../research/06_hypotheses.md), especially H08–H19; their answers and evidence confidence are in [Findings](../results/01_findings.md#answers-to-the-project-hypotheses). The rationales below explain the revised online-content scores and do not constitute additional research findings.
 
@@ -36,16 +38,16 @@ The underlying research questions are consolidated in [Project hypotheses](../re
 | books | money | 5 is a low-confidence digital-fiction monetization judgment. Print-inclusive US fiction publisher revenue no longer anchors the rating. |
 | books | recognition | Online availability, digital reissues and adaptations may extend recognition of digitally distributed texts; physical sales are not rating support. |
 | books | life_impact | Author interpretation, 9/10: sustained reading and revisiting ideas may support reflection and major choices; this high score reflects author bias, not demonstrated superiority. No supporting research for this exact score or comparative ordering has been found in the project review. |
-| games | reach | 74.4% all-device gaming among online adults informs 7; this proxy does not isolate downloaded/streamed creative games or exclude physical distribution. |
+| games | reach | 74.4% all-device gaming among online adults informs 7; this proxy does not isolate downloaded/streamed games or exclude physical distribution. |
 | games | time | GWI combines mobile, PC, and console gaming time. |
 | games | frequency | 7 is a qualitative judgment informed by 2.80 mobile and 1.73 PC/console days/week. Their union is unknown and the two values are not added. |
 | games | money | 9 is a qualitative online-distributed-game commercial-scale judgment. The whole Newzoo market is not an isolated online-distribution numeric anchor. |
 | games | recognition | Characters, worlds, and franchises can become durable cultural references. |
 | games | life_impact | Author interpretation, 8/10: agency, practice, immersive stories, and communities may shape identity and choices. No supporting research for this exact score or comparative ordering has been found in the project review. |
-| long_video | reach | 81.2% weekly proxy reach is below short video (88.5%); revised to 8. The artistic horizontal subset remains unidentified. |
+| long_video | reach | 81.2% weekly proxy reach is below short video (88.5%); revised to 8. The horizontal-video subset remains unidentified. |
 | long_video | time | 299 minutes/week is below short video and games; revised to 6, tied with near-equal streaming music and TV-streaming proxies. |
 | long_video | frequency | 3.36 days/week supports a lower judgment than short video; revised to 7, with the broader-proxy caveat. |
-| long_video | money | Qualitative commercial-scale hypothesis only; no isolated long-form horizontal creative-video revenue series is selected. Total YouTube revenue would include other formats and content. |
+| long_video | money | Qualitative commercial-scale hypothesis only; no isolated long-form horizontal online-video revenue series is selected. Total YouTube revenue would include other formats and content. |
 | long_video | recognition | Hypothesis: distinctive essays, recurring creators, and memorable videos can persist, but recognition of a creator is not recognition of a particular work. |
 | long_video | life_impact | Author interpretation, 8/10: developed explanations and repeated creator contact may support reflection and consequential choices. No supporting research for this exact score or comparative ordering has been found in the project review. |
 | pictures | reach | Hypothesis of broad circulation across feeds and messaging; platform users cannot be counted as picture viewers. No matched reach estimate. |
@@ -57,4 +59,4 @@ The underlying research questions are consolidated in [Project hypotheses](../re
 
 ## Pictures: basis and uncertainty
 
-The added profile is low-confidence and heterogeneous. All scores are author judgments; the linked research does not establish a cross-medium ranking.
+The pictures profile is low-confidence and heterogeneous. All scores are author judgments; the linked research does not establish a cross-medium ranking.

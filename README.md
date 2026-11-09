@@ -1,18 +1,20 @@
-# Internet-distributed creative media: mass reach, participation, and life impact
+# Internet-distributed media: mass reach, participation, and life impact
 
-An exploratory research dossier, prepared on **9 November 2026**. All prose is in Markdown. Figures and executable reproduction scripts are stored separately. No LaTeX or paid datasets are required.
+A research dossier based on a **moderate targeted literature review**, updated on **9 November 2026**. All prose is in Markdown. Figures and executable reproduction scripts are stored separately. No LaTeX or paid datasets are required.
 
 ## Research question
 
-The project examines reach, consumption growth, participation, and life impact of creative media distributed through the internet. All research questions and interpretive hypotheses are collected in [Project hypotheses](research/06_hypotheses.md); numbered answers and confidence assessments are in [Findings](results/01_findings.md#answers-to-the-project-hypotheses).
+The project examines reach, consumption growth, participation, and life impact of media distributed through the internet. All research questions and interpretive hypotheses are collected in [Project hypotheses](research/06_hypotheses.md); numbered answers and confidence assessments are in [Findings](results/01_findings.md#answers-to-the-project-hypotheses).
 
 **Finding:** short video has exceptionally broad reach and frequent use in the available online-adult survey. Additional sources give moderate confidence in growth of short-video services within several measured audiences. GMI26 reports short video as its growth leader, but confidence in that comparative claim remains low pending a comparability audit. Absolute leadership across all eight media in consumption or growth is not established. Attention, commercial scale, durable cultural recognition, and life-changing influence are different outcomes. No comparable global series measures major life changes caused by all eight categories.
 
 ## Review status and search limits
 
-The literature component uses a **moderate review approach: an exploratory evidence map with a documented, bounded targeted search**. The update on 9 November 2026 added eight recorded web queries, selection decisions, retrieval levels and outcome-specific appraisals. It did not perform a systematic database search, independent screening or a formal risk-of-bias assessment. Earlier searches were less consistently documented and are not retroactively described as systematic.
+The literature component is a **moderate targeted review with matched outcome searches across all eight media formats**. The corrective search adds 24 common-block queries, eight synonym queries and 18 source-retrieval/gap searches. It replaces the earlier assignment of different outcomes to different categories with a common evidence matrix. New appraisals retain positive, null and mixed results; irrelevant leads are removed from the main influence synthesis. This is a documented bounded review, not a systematic review or evidence that all categories are equally well studied. No independent screening or formal risk-of-bias assessment was completed.
 
-See the [search procedure and candidate decisions](sources/moderate_review_search_2026.md), [literature synthesis](research/02_literature_review.md), and [limitations](research/04_limitations.md#literature-search-coverage-and-confidence). “Not found in this search” does not mean “no effect” or “no studies exist.” Confidence concerns a specified conclusion, not completeness of the literature; search coverage is reported separately. Different outcomes, exposure units and follow-ups cannot establish a comparative life-impact ranking.
+See the [matched search and decisions](sources/balanced_review_search_2026.md), [eight-format evidence matrix and new appraisals](research/09_balanced_literature_review.md), [earlier search record](sources/moderate_review_search_2026.md), and [limitations](research/04_limitations.md#literature-search-coverage-and-confidence). The same outcome families are searched for each category, but incompatible exposures, populations, instruments and follow-ups still prevent a medium ranking. “Not found in this search” does not mean “no studies exist.” Search coverage and confidence in a specified conclusion remain separate.
+
+Hypothesis answers use one [scope-fit rule](research/05_methods_and_reproducibility.md#hypothesis-answer-status-and-scope-fit): substantive answers must address the original online media-content question; partial answers identify the narrower result or proxy; contextual mechanisms alone leave the hypothesis unanswered. Status and confidence are separate. The findings record scope limits for each of H01–H29.
 
 The [further-work plan](FURTHER_WORK.md) describes how to advance to a full systematic review and, if still needed, a new causal comparison.
 
@@ -20,12 +22,13 @@ The [further-work plan](FURTHER_WORK.md) describes how to advance to a full syst
 
 - [Project hypotheses](research/06_hypotheses.md): questions only, without results or evidence assessments.
 - [Findings](results/01_findings.md): conclusions and empirical figures.
+- [Media components](data/media_components_2026.md): separate cross-format comparison, coding example and measurement gaps.
 - [Growth feasibility](results/05_growth_feasibility.md): updated confidence, independent service-use measurements, the attributed GMI26 growth finding, and remaining comparability checks.
 - [Growth evidence search](research/08_growth_evidence_search.md): source appraisals, retrieval limits, and additional leads.
-- [Social breadth and active participation](data/participation_and_breadth.md): selected England and EU surveys, with observation dates and methodological limits.
 - [Major events and cumulative changes](results/06_event_and_cumulative_outcomes.md): separate results for everyday influence, with [study appraisals](research/08_cumulative_media_effects.md).
-- [Radar profiles](results/02_radar_profiles.md): eight explicitly subjective profiles for 2026.
-- [All radar profiles in one image](figures/radar-overview.svg), with a [short Russian annotation (TXT)](figures/radar-overview.txt).
+- [Author interpretations](author-interpretations/README.md): subjective conclusions based on the project's research and statistics, with a [separate radar gallery](author-interpretations/index.html).
+- [Radar profiles](author-interpretations/02_radar_profiles.md): eight explicitly subjective profiles for 2026.
+- [All radar profiles in one image](author-interpretations/radar-overview.svg), with a [short Russian annotation (TXT)](author-interpretations/radar-overview.txt).
 - [Literature review](research/02_literature_review.md): what research on meaningful experiences, persuasion, and behavior actually measures.
 - [Source comparison](research/03_source_comparison.md): incompatible denominators, reporting vintages, and financial boundaries.
 - [Limitations](research/04_limitations.md): search coverage, overlap, causality, missing series, and radar assumptions.
@@ -36,13 +39,14 @@ The [further-work plan](FURTHER_WORK.md) describes how to advance to a full syst
 ```text
 research/    Scope, literature, source comparison, limitations, methods
 sources/     Source register and search/audit log
-data/        Observations, subjective scores, and score rationales in Markdown
+data/        Source observations in Markdown
 scripts/     Standard-library Python figure generator and validation
-figures/     Generated SVG figures and an English HTML gallery
-results/     Findings, radar interpretation, and proposed next study
+figures/     Empirical/context SVG figures and their HTML gallery
+author-interpretations/ Author interpretations, scores, rationales, and radar gallery
+results/     Research findings and proposed next study
 ```
 
-The eight categories are short-form video, long-form horizontal online video, music, feature films, series, books, video games, and pictures. The scope is creative content distributed through the internet. Categories overlap and are not a complete taxonomy. Pictures include online photography, illustration, drawings, collages, and image memes. Available consumption aggregates do not isolate artistic content or always isolate online distribution. The added long-video category covers creator-led horizontal creative works, separately from feature films and scripted series. Its survey anchors are broader long-online-video proxies; financial observations remain missing. See the [working definition](research/01_scope_and_metrics.md#long-form-horizontal-online-video) and [additional limitations](research/04_limitations.md#additional-limitations-introduced-by-long-horizontal-video).
+The project compares eight online media categories: short video, long video, music, feature films, series, digital books, video games and pictures. Entertainment, news, instructions, advertising and personal content are all within scope. Findings use the media categories actually measured by each source. TV streaming remains a proxy for series; source video categories do not establish vertical or horizontal orientation. The [scope](research/01_scope_and_metrics.md) separates primary formats from embedded media components without assigning an exclusive attention budget.
 
 ## Reproduce
 
@@ -53,7 +57,7 @@ python3 scripts/build_figures.py
 python3 scripts/validate.py
 ```
 
-Open `figures/index.html` in a browser. The generated figures use no external libraries or network requests. The source data are editable Markdown tables. A rerun replaces only generated files in `figures/`.
+Open `figures/index.html` in a browser. The generated figures use no external libraries or network requests. The source data are editable Markdown tables. Author interpretations have their own gallery at `author-interpretations/index.html`. A rerun replaces generated files in `figures/` and `author-interpretations/`.
 
 ## Evidence labels
 
@@ -64,8 +68,8 @@ Open `figures/index.html` in a browser. The generated figures use no external li
 
 The 2021–2025 financial observations have different market boundaries and remain in the source tables without a common chart. The US time-use series is kept separate from the international 2026 snapshot. Neither is a universal league table. In the radar figures, even a score with a numeric anchor remains subjective.
 
-## Provenance
+## Methods and provenance
 
-This dossier consolidates the research and visualizations developed in the accompanying conversation. Original chat charts used D3 7.9.0 for time series and handwritten SVG for radars. The scripts here reproduce their observations and current revised online-content radar judgments in English using deterministic, dependency-free SVG generation; they are not byte-identical copies of the chat interface. See [methods](research/05_methods_and_reproducibility.md) and [script notes](scripts/README.md).
+The [methods](research/05_methods_and_reproducibility.md) describe the current eight-category project. The [script notes](scripts/README.md) explain deterministic, dependency-free figure generation from local tables. Historical implementation and verification details are kept separately in the [method archive](sources/method_history.md), [validation archive](sources/validation_history.md) and [research log](sources/research_log.md).
 
 Published numbers were transcribed from the linked sources; original survey microdata and publisher accounting records were not obtained. This is a documented targeted review with the search limits stated above, not a systematic review or a new causal study.

@@ -4,9 +4,9 @@ Assessment date: **9 November 2026**. Addresses H27 in [Project hypotheses](06_h
 
 ## Assessment
 
-**Partial negative answer:** the evidence argues against treating short video as generally more evenly consumed across social groups than other media. A same-survey platform comparison supplies counterexamples to that broad claim, without establishing a universal ordering of creative media.
+**Partial proxy answer:** the same US survey reports different income-endpoint adoption gaps across platforms. TikTok has a larger gap than some comparators and a smaller gap than another. This answers a bounded platform-adoption comparison; it does not confirm or refute the original short-video consumption ranking. The [common status rule](05_methods_and_reproducibility.md#hypothesis-answer-status-and-scope-fit) keeps the proxy result separate from H27 as a whole.
 
-**Confidence:** moderate for the bounded platform comparison; low for generalization to short-video consumption across the project's media categories. Viewing time, the target format, and most non-platform comparison media are not isolated.
+**Confidence:** moderate for the reported bounded proxy contrasts; no confidence assigned to a full media ranking. Viewing time, the target format, and most non-platform comparison media are not isolated.
 
 ## Comparable platform evidence: PEWSOC26
 
@@ -29,7 +29,7 @@ The Pew question asks whether people ever use a platform, including rare use. It
 
 The address-based national survey included 5,511 US adults, January 30–June 18, 2026, using web, paper, and phone responses. Overall margin of error is ±1.8 percentage points; subgroup margins are larger. Overall precision is not the uncertainty of a difference between gaps. [Original methodology](https://www.pewresearch.org/wp-content/uploads/sites/20/2026/10/PI_2026.10.19_NPORS-Internet-Fact-Sheets_Methodology.pdf).
 
-Facebook, YouTube, and Instagram also distribute short video; TikTok contains noncreative content. These platforms are not disjoint media formats. Higher adoption in a lower-income group does not establish equality: reversing a gradient differs from reducing its magnitude. Cheap access is a possible explanation, not a cause identified here. Age composition and preferences could contribute.
+Facebook, YouTube, and Instagram also distribute short video; TikTok contains nonmedia content. These platforms are not disjoint media formats. Higher adoption in a lower-income group does not establish equality: reversing a gradient differs from reducing its magnitude. Cheap access is a possible explanation, not a cause identified here. Age composition and preferences could contribute.
 
 ## Additional original research
 
@@ -37,7 +37,6 @@ Facebook, YouTube, and Instagram also distribute short video; TikTok contains no
 
 **CFPSSHORT25:** *Digital gratification: short video consumption and mental health in rural China* uses CFPS and defines frequent use as watching short videos almost every day. Frequent users in its selected rural sample have more schooling than non-frequent users. This describes selected groups, not age-adjusted education-specific adoption rates or a comparison with other media. It cautions against transporting a social gradient across populations. Health-effect estimates are not used for H27. [Original methods and Table 1](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2025.1536191/full).
 
-The existing [England arts-participation aggregate](../data/participation_and_breadth.md) is context, not short-video evidence. Its 81%/95% contrast must not be compared numerically with US TikTok gaps. Australian creation evidence also measures a different activity.
 
 ## Requirements for a full test
 

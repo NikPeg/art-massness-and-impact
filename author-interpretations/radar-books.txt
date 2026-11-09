@@ -1,0 +1,9 @@
+Books
+
+Mixed comparison levels: earlier author profiles, not a harmonized format or component comparison. See ../research/01_scope_and_metrics.md and ../data/media_components_2026.md.
+
+2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.
+
+Filled circle: numeric anchor | Hollow diamond: qualitative rationale.
+
+No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: subjective_scores_2026.md; score_rationales.md.

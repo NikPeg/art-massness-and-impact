@@ -1,24 +1,23 @@
-Weekly reach, 2026
+Weekly reach: format proxies, 2026
 
-GWI Q2 2026 | Online adults 16+ in covered markets | Gaps are not zeros. Russia excluded.
+GWI Q2 2026 · Internet users aged 16+ in covered markets · Russia excluded
 
-Source: DataReportal Digital 2027, pages 38-40. Data and boundaries: ../data/media_use_2026.md.
+Source: GWI via DataReportal, Digital 2027, p. 38. Source values: data/media_use_2026.md.
 
-Music here is streaming only. Audible music in short/long online videos, films, series and games is additional overlapping musical contact, not captured as a combined union in this table. Neither summing category audiences nor assigning all video minutes to music estimates that union.
+Music means streaming only. TV streaming is not series-only. Missing rows are not zeros.
 
-Weekly time is divided by seven to obtain daily minutes. Frequency is days per week; device groups can overlap. For games frequency, the upper circle is mobile and the lower hollow diamond is PC/console; do not add them.
+Reach means reported weekly use within the surveyed online population, not a share of all people.
 
-Blank rows have no comparable selected observation:
-Feature films
-Books / US fiction
-Pictures
+Standalone format proxies only; embedded images, music, text and speech have no measured combined totals here.
+
+Games frequency: filled circle = mobile; hollow diamond = PC/console. These groups overlap.
 
 Category scopes:
-Short-form video: Short online video, not only Instagram Reels
-Long online video (proxy): Long online video proxy; duration, orientation and artistic subset not isolated
-Music: Music streaming only
+Short online video: Short online video, not only Instagram Reels
+Long online video: Long online video proxy; source-defined category; duration cutoff and orientation not isolated
+Music streaming: Music streaming only
 Video games: Reach/time all devices; frequency mobile, then PC/console
-Series / streaming proxy: All TV streaming, a proxy including films and other programs
+TV streaming (all content): All TV streaming, a proxy including films and other programs
 Feature films: Feature films not isolated
-Books / US fiction: Not reported as a comparable category
-Pictures: Pictures not isolated from mixed social-media and platform use
+Digital books: Not reported as a comparable category
+Standalone pictures: Pictures not isolated from mixed social-media and platform use

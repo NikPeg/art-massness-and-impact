@@ -49,7 +49,7 @@ Source IDs resolve in the [source register](../sources/source_register.md). Valu
 
 Long-form horizontal online video has no selected comparable financial series for 2021–2025. Its five explicit gaps above are not zeros. Neither total YouTube revenue nor total creator-economy revenue is substituted.
 
-Picture revenues remain gaps. Platform advertising mixes pictures with other formats; physical art sales and total stock-media licensing do not measure the chosen online creative-content category.
+Picture revenues remain gaps. Platform advertising mixes pictures with other formats; physical-image sales and total stock-media licensing do not measure the chosen online media-content category.
 
 ## US time use
 

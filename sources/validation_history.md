@@ -6,7 +6,7 @@ These records concern successive versions and include superseded configurations 
 
 ## Current eight-category package, 9 November 2026
 
-The target scope is creative content distributed through the internet. The full build produces 15 SVGs and the HTML gallery: eight individual radar profiles, one radar overview, four consumption context figures, and two participation figures. The data contain 40 financial cells, eight snapshot rows, and 48 subjective numeric scores, including eight author Life impact judgments, and 48 corresponding rationale entries. Radar consumption and money judgments have now been revised for online-only use; contextual empirical observations retain their original scopes. Music includes substantive embedded online musical contact, with a separately labeled streaming-only reference.
+The target scope is media content distributed through the internet. The full build produces 15 SVGs and the HTML gallery: eight individual radar profiles, one radar overview, four consumption context figures, and two participation figures. The data contain 40 financial cells, eight snapshot rows, and 48 subjective numeric scores, including eight author Life impact judgments, and 48 corresponding rationale entries. Radar consumption and money judgments have now been revised for online-only use; contextual empirical observations retain their original scopes. Music includes substantive embedded online musical contact, with a separately labeled streaming-only reference.
 
 Commands run from the project root:
 
@@ -21,7 +21,7 @@ The validator checks table categories and counts, selected observations, score b
 
 Visually inspected the pictures radar, complete eight-panel overview, and updated reach chart in a browser through a temporary loopback server. Labels, values, and hollow markers were visible without clipping. The pictures row was present without a fabricated observation. Other figures received structural checks; no new visual inspection of those figures is claimed.
 
-The project is a reproducible exploratory dossier, not a validated causal ranking of creative media.
+The project is a reproducible exploratory dossier, not a validated causal ranking of media.
 
 ## Social-breadth hypothesis extension
 
@@ -57,4 +57,4 @@ Added GMI26, IRIS25, QUST25 and GWI method documentation to the source register 
 
 ## Moderate literature-review documentation, 9 November 2026
 
-Added the eight-query targeted-search and selected-candidate register, outcome-specific literature update, explicit README status, search limitations, confidence definition and FURTHER_WORK.md. The full project validator passed after these documentation changes, including local Markdown links. No empirical table, radar rating or generated figure was changed for this update. Validation checks packaging and references, not search completeness or the truth of literature conclusions.
+Added the retained-query targeted-search and selected-candidate register, outcome-specific literature update, explicit README status, search limitations, confidence definition and FURTHER_WORK.md. The full project validator passed after these documentation changes, including local Markdown links. No empirical table, radar rating or generated figure was changed for this update. Validation checks packaging and references, not search completeness or the truth of literature conclusions.
