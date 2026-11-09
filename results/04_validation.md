@@ -1,5 +1,9 @@
 # Reproduction and validation record
 
+## Participation figures, 9 November 2026
+
+Added the standalone participation generator and validator. The full build now produces 16 SVGs and the gallery, including both participation charts and their TXT annotations. Ran the standalone build/check and the complete build/check successfully. The new validator checks displayed percentages against Markdown inputs, 0-100% tick scales, label coordinates, and sidecar presence. Both SVGs were visually inspected in a browser through a temporary loopback server; labels, markers, and full scales were visible without overlap or clipping. The server was stopped after inspection.
+
 ## Participation extension check
 
 On 9 November 2026, after adding the two selected survey programmes, `python3 scripts/validate.py` passed. It checks local links and English text in the new Markdown file as part of the package; it does not validate the new numerical observations. Those were manually checked against the DCMS main/technical reports and Eurobarometer QA3 and methodology. No figures were regenerated, because their inputs did not change.

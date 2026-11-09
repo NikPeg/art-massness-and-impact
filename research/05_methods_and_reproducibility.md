@@ -27,7 +27,7 @@ The extension promotes previously retained long-online-video reach/time observat
 
 ## Participation extension
 
-The user selected Participation Survey and Special Eurobarometer 562 from a wider search. Only those two survey programmes were added. Final sample sizes were checked in technical reports; activity values were transcribed with their source categories into [a separate table file](../data/participation_and_breadth.md). England's earlier wave supplies sample-size context only. No microdata analysis, harmonization, causal estimation, or extrapolation to 2026 was performed. Existing generated figures and radar inputs are unaffected; the new tables are not figure-generator inputs.
+The user selected Participation Survey and Special Eurobarometer 562 from a wider search. Only those two survey programmes were added. Final sample sizes were checked in technical reports; activity values were transcribed with their source categories into [a separate table file](../data/participation_and_breadth.md). England's earlier wave supplies sample-size context only. No microdata analysis, harmonization, causal estimation, or extrapolation to 2026 was performed. The [participation generator](../scripts/build_participation_figures.py) now reads these tables and produces two figures with TXT annotations, also included in the full gallery build. Existing radar inputs are unaffected. Both percentage axes are fixed at 0-100%; the England connectors compare groups, not time or uncertainty.
 
 ## Rendering provenance
 

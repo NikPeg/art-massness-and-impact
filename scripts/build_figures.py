@@ -232,6 +232,7 @@ def radar_overview(radar_names):
 
 
 def build():
+    from build_participation_figures import build as build_participation
     OUT.mkdir(exist_ok=True)
     financial=table_with(ROOT/"data/annual_indicators.md","value_billion_usd")
     financial_series=[]
@@ -267,6 +268,7 @@ def build():
     figures=[("Financial landmarks","financial-landmarks.svg"),("US time use","us-time-use.svg"),
              ("Weekly reach","reach-2026.svg"),("Daily time","time-2026.svg"),("Frequency","frequency-2026.svg"),
              ("All eight radar profiles","radar-overview.svg")]
+    figures += build_participation()
     panels="".join(f'<section><h2>{html.escape(title)}</h2><img src="{name}" alt="{html.escape(title)}" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>' for title,name in figures)
     panels+='<p><a href="radar-overview.svg">Open full-size radar overview</a> · <a href="radar-overview.txt">Russian annotation (TXT)</a></p>'
     panels+='<h2>Subjective 2026 radar profiles</h2><div class="radars">'+"".join(

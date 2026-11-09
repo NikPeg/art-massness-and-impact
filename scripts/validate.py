@@ -45,7 +45,7 @@ def main():
         height=float(tree.getroot().attrib["height"])
         assert all(0<=float(el.attrib["y"])<height for el in tree.iter() if el.tag.endswith("text"))
     svgs=list((ROOT/"figures").glob("*.svg"))
-    assert len(svgs)==14
+    assert len(svgs)==16
     for path in svgs:
         tree=ET.parse(path)
         assert tree.getroot().tag.endswith("svg")
@@ -73,7 +73,9 @@ def main():
     text_files=[p for p in ROOT.rglob("*") if p.suffix in {".md",".py",".html",".svg"}]
     for path in text_files:
         assert not re.search(r'[\u0400-\u04ff]',path.read_text(encoding="utf-8")),f"Non-English Cyrillic text: {path}"
-    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; 80 scores and rationales; 14 SVGs including overview; Russian TXT; local links; English figures.")
+    from validate_participation_figures import validate as validate_participation
+    validate_participation()
+    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; 80 scores and rationales; 16 SVGs including participation; Russian TXT; local links; English figures.")
 
 
 if __name__=="__main__":

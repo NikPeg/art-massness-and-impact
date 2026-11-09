@@ -34,6 +34,14 @@ Two selected recent official surveys add social and territorial breadth (England
 
 The England results show unequal participation across area-deprivation groups. The EU results measure creation and performance separately from audience consumption. These are additional dimensions of mass participation, not a new global ranking. Their survey periods precede 2026, and their categories do not match the eight art categories. Neither source measures common recognition of particular works or causal life impact.
 
+![Active artistic participation, EU27, 2025](../figures/active-participation-eu-2025.svg)
+
+[Annotation and sources](../figures/active-participation-eu-2025.txt).
+
+![Arts participation by area deprivation, England, 2024/25](../figures/social-breadth-england-2024-25.svg)
+
+[Annotation, marker legend, and sources](../figures/social-breadth-england-2024-25.txt).
+
 ## What can be said about life impact
 
 Research supports distinguishing a meaningful experience, changed beliefs, intentions, and actual behavior. Some narrative interventions influence behavior; a narrow short-video experiment also measured a behavioral step. These findings do not supply a common probability of major life change for each artistic medium. See the [literature review](../research/02_literature_review.md).

@@ -44,4 +44,4 @@ Film/photography and stage/screen acting are combined source categories. Writing
 
 ## Reuse
 
-Retain survey populations, periods, and categories. Do not compare the England and EU totals as identical measures, fill missing GWI cells, or infer an eight-form global winner. These tables are documented Markdown observations; the figure generator does not ingest them.
+Retain survey populations, periods, and categories. Do not compare the England and EU totals as identical measures, fill missing GWI cells, or infer an eight-form global winner. [The participation generator](../scripts/build_participation_figures.py) reads these tables to produce [EU activities](../figures/active-participation-eu-2025.svg) and [England social breadth](../figures/social-breadth-england-2024-25.svg), each with an adjacent TXT annotation. The two regional observations and survey-base table supply context and are not plotted.
