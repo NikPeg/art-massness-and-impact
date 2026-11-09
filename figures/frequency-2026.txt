@@ -1,0 +1,22 @@
+Frequency of use, 2026
+
+GWI Q2 2026 | Online adults 16+ in covered markets | Gaps are not zeros. Russia excluded.
+
+Source: DataReportal Digital 2027, pages 38-40. Data and boundaries: ../data/media_use_2026.md.
+
+Weekly time is divided by seven to obtain daily minutes. Frequency is days per week; device groups can overlap. For games frequency, the upper circle is mobile and the lower hollow diamond is PC/console; do not add them.
+
+Blank rows have no comparable selected observation:
+Feature films
+Books / US fiction
+Theater / Broadway plays
+
+Category scopes:
+Short-form video: Short online video, not only Instagram Reels
+Long online video (proxy): Long online video proxy; duration, orientation and artistic subset not isolated
+Music: Music streaming only
+Video games: Reach/time all devices; frequency mobile, then PC/console
+Series / streaming proxy: All TV streaming, a proxy including films and other programs
+Feature films: Feature films not isolated
+Books / US fiction: Not reported as a comparable category
+Theater / Broadway plays: Not reported as a comparable category

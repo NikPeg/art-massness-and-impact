@@ -1,0 +1,14 @@
+US time-use aggregates, 2021–2025
+
+US population 15+ | All-person means | Main activity only
+
+Source: BLS ATUS, table 11A. Categories are broader than the respective art forms.
+
+Series colors and latest values (Minutes per day):
+#7057a5: TV: films, series and other content | latest: 156.6
+#247b77: Leisure reading | latest: 16.2
+#3a824d: Games and computer leisure | latest: 37.2
+
+Hollow diamond: annualized lower-bound reference point. Dashed line: theater seasons. Missing observations are not zeros; gaps are not connected.
+
+Data and sources: ../data/annual_indicators.md; ../sources/source_register.md.

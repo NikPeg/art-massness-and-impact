@@ -1,0 +1,19 @@
+Financial landmarks, 2021–2025
+
+Different market boundaries; not a harmonized revenue ranking
+
+Reels: >50 run rate; books: US fiction; theater: Broadway seasons; Netflix: entire company. Games vintage break.
+
+Series colors and latest values (Billion USD):
+#2463ad: Short-form video | latest: >50
+#a33c31: Long online video (proxy) | no selected data
+#b96216: Music | latest: 31.7
+#93456e: Feature films | latest: 33.55
+#7057a5: Series / streaming proxy | latest: 45.18
+#247b77: Books / US fiction | latest: 12.5
+#383e45: Theater / Broadway plays | latest: 0.41
+#3a824d: Video games | latest: 201.6
+
+Hollow diamond: annualized lower-bound reference point. Dashed line: theater seasons. Missing observations are not zeros; gaps are not connected.
+
+Data and sources: ../data/annual_indicators.md; ../sources/source_register.md.
