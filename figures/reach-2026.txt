@@ -9,7 +9,7 @@ Weekly time is divided by seven to obtain daily minutes. Frequency is days per w
 Blank rows have no comparable selected observation:
 Feature films
 Books / US fiction
-Theater / Broadway plays
+Pictures
 
 Category scopes:
 Short-form video: Short online video, not only Instagram Reels
@@ -19,4 +19,4 @@ Video games: Reach/time all devices; frequency mobile, then PC/console
 Series / streaming proxy: All TV streaming, a proxy including films and other programs
 Feature films: Feature films not isolated
 Books / US fiction: Not reported as a comparable category
-Theater / Broadway plays: Not reported as a comparable category
+Pictures: Pictures not isolated from mixed social-media and platform use

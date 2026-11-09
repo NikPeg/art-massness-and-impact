@@ -11,7 +11,7 @@ Source: GWI, Q2 2026, reproduced in DataReportal *Digital 2027*, published Octob
 | series | 72.0 | 308 | 2.77 | NA | All TV streaming, a proxy including films and other programs |
 | film | NA | NA | NA | NA | Feature films not isolated |
 | books | NA | NA | NA | NA | Not reported as a comparable category |
-| theater | NA | NA | NA | NA | Not reported as a comparable category |
+| pictures | NA | NA | NA | NA | Pictures not isolated from mixed social-media and platform use |
 
 Other source categories: all TV, including streaming, has 86.1% weekly reach and 598 weekly minutes. These aggregates are not additional disjoint art forms. The game-frequency values overlap and must not be added. Long online video has been promoted from a contextual observation to an explicit proxy row; it is not a disjoint audience. The linked report also gives 3.36 for its weekly frequency. The report prose says "times"; the source-chart convention retained by this dossier is days per week, not sessions. See the [category definition](../research/01_scope_and_metrics.md).
 

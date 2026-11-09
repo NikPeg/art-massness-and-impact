@@ -27,3 +27,9 @@ Record creator attachment, cross-format pathways (for example, a Short leading t
 ## Reporting
 
 Estimate absolute outcome differences and uncertainty within the actual target population. Do not use view counts or revenue as substitutes. Publish cross-medium results only when measurement and denominators are sufficiently aligned. This proposal is not a study conducted for this dossier.
+
+## Coding pictures and participation
+
+Apply the [pictures inclusion rules](../research/01_scope_and_metrics.md#pictures). Record post, image, and carousel units; actual visible time; repeated exposure; source work and template identity; embedded text; creator; and AI assistance. Separate original creation, remixing, redistribution, and viewing. Do not assign all mixed-feed time to images. Test recall of a particular image separately from recognition of a reusable meme template.
+
+Measure costs, equipment, training, time, confidence, and access to communities as potential barriers. Ask separately whether the practice feels “for people like me.” Compare like-for-like population participation questions, not creator-only main-type shares. Link repeated measures of creation and consumption to the same predefined outcomes rather than assuming they have equal effects.

@@ -1,6 +1,10 @@
 # Subjective 2026 radar profiles
 
-All eight diagrams use the same 0–10 scale and axis order. Every score is an author judgment. Filled points have a numerical source anchor; hollow points have qualitative reasoning only. Neither kind is an objective score. Definitions and all 80 rationales are in [the data](../data/score_rationales.md).
+The comparison targets creative content distributed through the internet. Consumption and money judgments were revised on 9 November 2026, with offline anchors removed. See the [before/after audit](../data/subjective_scores_2026.md#revision-rule-and-audit). Unmeasured online-only values remain qualitative judgments.
+
+All eight diagrams use five scored axes on the same 0–10 scale, plus one general Life impact axis that is not assessed for any category. No point is drawn on that axis; the profile is open and unfilled. The five detailed personal-impact axes and their scores have been removed rather than combined. Every retained numeric score is an author judgment. Filled points have a numerical source anchor; hollow points have qualitative reasoning only. Neither kind is an objective score. Definitions and all 48 rationale entries are in [the data](../data/score_rationales.md).
+
+The interpretive questions underlying these profiles are centralized in [Project hypotheses](../research/06_hypotheses.md), with answers and confidence in [Findings](01_findings.md#answers-to-the-project-hypotheses). Profile descriptions below explain the model, not independent tests of those questions.
 
 ## All eight profiles together
 
@@ -12,19 +16,19 @@ All eight diagrams use the same 0–10 scale and axis order. Every score is an a
 
 ![Short-form video radar](../figures/radar-short-video.svg)
 
-The model emphasizes frequent, broad consumption and distinguishes an isolated clip from cumulative exposure to a feed. Its lower biographical score is a hypothesis, not a measured rate.
+The model emphasizes frequent, broad consumption. General influence on life is left unassessed, as it is for every other category.
 
 ## Long-form horizontal online video
 
 ![Long horizontal video radar](../figures/radar-long-video.svg)
 
-The model covers creator-led essays, authored vlogs, and other horizontal creative online works rather than feature films. It gives room for developed explanation, reflection, and repeated creator contact. Reach, time, and frequency are anchored to the broader GWI long-online-video proxy. Money and all impact scores are qualitative hypotheses; no long-video causal ranking is established. See the [working definition](../research/01_scope_and_metrics.md) and [new limitations](../research/04_limitations.md#additional-limitations-introduced-by-long-horizontal-video).
+The model covers creator-led essays, authored vlogs, and other horizontal creative online works rather than feature films. It gives room for developed explanation, reflection, and repeated creator contact. Reach, time, and frequency are anchored to the broader GWI long-online-video proxy. Money is a qualitative hypothesis; life impact is unassessed and no long-video causal ranking is established. See the [working definition](../research/01_scope_and_metrics.md) and [new limitations](../research/04_limitations.md#additional-limitations-introduced-by-long-horizontal-video).
 
 ## Music
 
 ![Music radar](../figures/radar-music.svg)
 
-The model includes music beyond streaming and emphasizes repeated listening and identity. That broader scope is also why its scores should not be read as a transformation of GWI's streaming-only values.
+The main profile includes direct online listening and audible music in short vertical videos, long horizontal videos, online films, series and games. Its reach/time/frequency are revised from 10/10/10 to a qualitative 9/9/9. A dashed streaming-only reference shows 8/6/7, informed by 77.4% reach, 301 weekly minutes and 3.10 days/week. These are two definitions, not a measured uplift or confidence interval. Combined exposure is a union, and its size is not identified. All music markers are hollow. The presence of embedded music is substantive; its exact audience and contribution to effects remain unmeasured. See [the scenarios](../data/music_online_scenarios.md).
 
 ## Feature films
 
@@ -36,19 +40,13 @@ The model separates episodic consumption from a work's potential for remembered 
 
 ![Series radar](../figures/radar-series.svg)
 
-The model emphasizes long contact with characters. Its empirical streaming and Netflix anchors also include other content.
+The model emphasizes long contact with characters. Its streaming-consumption proxy also includes other content; total Netflix revenue is no longer a numeric money anchor.
 
 ## Books
 
 ![Books radar](../figures/radar-books.svg)
 
-The model gives reflection and revisiting ideas high scores. This does not establish that an average book has greater causal impact than an average game, series, or feed.
-
-## Staged plays
-
-![Theater radar](../figures/radar-theater.svg)
-
-The model distinguishes limited aggregate attendance from potentially intense individual experiences and the long life of a repeatedly staged text.
+The model now concerns digitally distributed reading only; its first four scores are revised to 4/4/5/5 without using print-inclusive sales or all-format reading diaries. It gives reflection and revisiting ideas high qualitative scores. This does not establish that an average book has greater causal impact than an average game, series, or feed.
 
 ## Video games
 
@@ -56,6 +54,12 @@ The model distinguishes limited aggregate attendance from potentially intense in
 
 The model combines broad consumption with agency and shared experience. Applying qualities of artistically ambitious games to the full casual-game market is a limitation.
 
+## Pictures
+
+![Pictures radar](../figures/radar-pictures.svg)
+
+This profile covers online photography, illustration, drawings, collages, and image memes. It hypothesizes broad, recurrent exposure; life impact is unassessed. All five scored markers are hollow; no comparable numerical consumption/revenue anchor was selected. Memory, news attention, and curated-gallery findings do not calibrate these scores or establish major life effects. See the [pictures appraisals](../research/02_literature_review.md#pictures-research-2024-2026).
+
 ## Interpretation
 
-Differences of one point are not meaningful. Allowing roughly two points of judgment on uncertain axes could alter several apparent rankings. Do not rank polygon areas or add the axes into a single winner. The impact half describes potential for an engaged person, while the consumption half describes social scale.
+Differences of one point are not meaningful. Allowing roughly two points of judgment on uncertain axes could alter several apparent rankings. Do not add the axes into a single winner. The retained scores describe consumption, market scale, and cultural recognition. The general life-impact axis has no numeric comparison. These diagrams illustrate author assumptions, not research findings about comparative life influence.

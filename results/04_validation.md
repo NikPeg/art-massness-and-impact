@@ -1,14 +1,8 @@
 # Reproduction and validation record
 
-## Participation figures, 9 November 2026
+## Current eight-category package, 9 November 2026
 
-Added the standalone participation generator and validator. The full build now produces 16 SVGs and the gallery, including both participation charts and their TXT annotations. Ran the standalone build/check and the complete build/check successfully. The new validator checks displayed percentages against Markdown inputs, 0-100% tick scales, label coordinates, and sidecar presence. Both SVGs were visually inspected in a browser through a temporary loopback server; labels, markers, and full scales were visible without overlap or clipping. The server was stopped after inspection.
-
-## Participation extension check
-
-On 9 November 2026, after adding the two selected survey programmes, `python3 scripts/validate.py` passed. It checks local links and English text in the new Markdown file as part of the package; it does not validate the new numerical observations. Those were manually checked against the DCMS main/technical reports and Eurobarometer QA3 and methodology. No figures were regenerated, because their inputs did not change.
-
-Date: 9 November 2026.
+The target scope is creative content distributed through the internet. The full build produces 15 SVGs and the HTML gallery: eight individual radar profiles, one radar overview, four consumption context figures, and two participation figures. The data contain 40 financial cells, eight snapshot rows, and 40 subjective numeric scores, eight unassessed Life impact entries, and 48 corresponding rationale entries. Radar consumption and money judgments have now been revised for online-only use; contextual empirical observations retain their original scopes. Music includes substantive embedded online musical contact, with a separately labeled streaming-only reference.
 
 Commands run from the project root:
 
@@ -17,13 +11,22 @@ python3 scripts/build_figures.py
 python3 scripts/validate.py
 ```
 
-Results:
+Both commands passed after the radar simplification. The validator also checks pictures-only gaps, hollow markers, and 27 question/answer IDs.
 
-```text
-Generated 13 SVG figures and figures/index.html
-PASS: 40 financial cells; 5 US years; 8 snapshot rows; 80 scores and rationales; 13 SVGs; local links; English text.
-```
+The validator checks table categories and counts, selected observations, score bounds, rationale coverage, SVG syntax, overview panels, accessibility IDs, snapshot label bounds, participation values and scales, TXT annotations, local Markdown links, and English figure text. Structural checks do not establish pixel-level layout quality or validate subjective judgments and source producers' data. Scripts contain no network dependencies.
 
-Earlier project validation included browser inspection of the original seven-category gallery and chat radars. For this eight-category extension, the generator and validator were rerun successfully. Snapshot height and axis/footer positions now depend on row count so the eighth row remains inside the SVG. A new browser visual inspection was not completed: the browser policy blocked local file URLs. XML parsing and structural checks do not establish pixel-level layout quality, verify source producers' data, or validate subjective judgments. Scripts contain no network dependencies.
+Visually inspected the pictures radar, complete eight-panel overview, and updated reach chart in a browser through a temporary loopback server. Labels, values, and hollow markers were visible without clipping. The pictures row was present without a fabricated observation. Other figures received structural checks; no new visual inspection of those figures is claimed.
 
-The project is a reproducible exploratory dossier, not a validated causal ranking of artistic media.
+The project is a reproducible exploratory dossier, not a validated causal ranking of creative media.
+
+## Social-breadth hypothesis extension
+
+After adding H27 and its source assessment, `python3 scripts/validate.py` passed on 9 November 2026. No empirical figure inputs or radar scores changed; no new figure build or visual inspection was required.
+
+## Radar simplification, 9 November 2026
+
+Removed the five detailed personal-impact axes and their numerical scores. General Life impact is NA for every category; no scores were transferred or averaged. The generator leaves the profile open and unfilled, and the overview follows alphabetical category order. Updated rationale and missing-value validation; rebuilt all figures and ran the full validator. The visual inspection described above predates this revision.
+
+## Removal of the common financial chart
+
+Removed the financial SVG and annotation, its gallery entry, and its embedding in the findings. Financial source observations remain in the Markdown tables. The generator removes obsolete financial outputs on rebuild. The full build and validator passed after this removal; no chart geometry or empirical values changed.

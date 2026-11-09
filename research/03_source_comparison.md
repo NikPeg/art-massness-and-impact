@@ -6,14 +6,13 @@
 | --- | --- |
 | Music: 20.7 hours/week, IFPI 2023; music streaming: 5 hours 1 minute/week, GWI 2026 | Total listening versus one delivery channel; different samples and years |
 | Short video: 6 hours 42 minutes/week, July 2025 report; 7 hours 6 minutes/week, 2026 snapshot | Different survey/report vintages; a clean growth rate is not established |
-| Recorded music in 2021: $25.9 billion in the original release; $23.7 billion in the selected IFPI 2026 restatement | Revisions and exchange-rate/coverage treatment; the chart uses the restated series consistently |
+| Recorded music in 2021: $25.9 billion in the original release; $23.7 billion in the selected IFPI 2026 restatement | Revisions and exchange-rate/coverage treatment; the data table uses the restated series consistently |
 | Games in 2025: $188.8 billion forecast in the 2025 report; $201.6 billion in the June 2026 update | Forecast versus later revised estimate; not evidence of growth between two calendar years |
 | US publishing in 2025: $33.4 billion total; $21.7 billion consumer books; $12.5 billion selected fiction categories | Nested scopes, not rival estimates of one market |
-| Broadway 2025/26: 14.58 million total attendances versus 3.32 million straight-play attendances | All productions include musicals; the play subset is used for theater here |
 | Netflix 2025: over 95 billion viewing hours in the first half and 96 billion in the second | Different half-years, both service-wide; neither isolates series |
 | Reels: over $50 billion annualized pace; recorded music: $31.7 billion annual revenue | Timing and accounting boundaries differ; neither measures all artistic activity |
 
-These comparisons are grounded in the linked source register and the sources below. [Original IFPI 2021 revenue release](https://www.ifpi.org/ifpi-global-music-report-global-recorded-music-revenues-grew-18-5-in-2021/) supplies the superseded music number; it is not used as a point in the historical chart.
+These comparisons are grounded in the linked source register and the sources below. [Original IFPI 2021 revenue release](https://www.ifpi.org/ifpi-global-music-report-global-recorded-music-revenues-grew-18-5-in-2021/) supplies the superseded music number; it is not used in the selected historical data.
 
 ## International survey versus time-use diary
 
@@ -29,7 +28,7 @@ The financial series uses IFPI 2026's restated historical values reproduced in U
 
 ## Video games: reporting-vintage break
 
-The selected Newzoo 2025 report contains revised estimates for 2022–2024. Its 2025 value was a forecast and is not used as an actual result. The separate June 2026 article supplies an updated 2025 estimate. These vintages are not joined by a line segment. Earlier figures encountered in searches, such as 2021 at about $192.7 billion, were excluded from the plot because a consistent series was not established. [2025 report mirror](https://investgame.net/wp-content/uploads/2025/09/2025_Newzoo_Free_Global_Games_Market_Report.pdf); [2026 update](https://newzoo.com/articles/global-games-market-2025).
+The selected Newzoo 2025 report contains revised estimates for 2022–2024. Its 2025 value was a forecast and is not used as an actual result. The separate June 2026 article supplies an updated 2025 estimate. These vintages remain separately labeled in the data table. Earlier figures encountered in searches, such as 2021 at about $192.7 billion, were excluded from the selected data because a consistent series was not established. [2025 report mirror](https://investgame.net/wp-content/uploads/2025/09/2025_Newzoo_Free_Global_Games_Market_Report.pdf); [2026 update](https://newzoo.com/articles/global-games-market-2025).
 
 ## Financial boundaries
 
@@ -41,10 +40,10 @@ The selected Newzoo 2025 report contains revised estimates for 2022–2024. Its 
 | Feature film | Worldwide cinema ticket gross | All film consumption or all film-industry revenue |
 | Series | Total Netflix company revenue, as a proxy | Series-only revenue or the entire series market |
 | Books | US adult plus children's/YA fiction publisher revenue | Worldwide books or all reading |
-| Theater | Broadway straight-play grosses by season | All theater, unique people, or worldwide play performance |
 | Video games | Newzoo's market estimates | A direct measure of artistic value or human transformation |
+| Pictures | No comparable revenue selected | Platform advertising, physical art sales, and stock-media totals do not isolate the category |
 
-These are financial landmarks. The common dollar axis does not make their accounting scopes identical. Gower Street's annual estimates also come from different vintages and exchange-rate contexts; slopes should not be interpreted as clean real growth.
+These are financial landmarks, retained in the [source table](../data/annual_indicators.md). The common financial chart has been removed because a shared dollar axis visually implies comparable commercial scale despite incompatible market, geographic, and accounting boundaries. Gower Street's annual estimates also come from different vintages and exchange-rate contexts; slopes should not be interpreted as clean real growth.
 
 ## Long video: source category versus study category
 
@@ -58,9 +57,14 @@ Do not subtract Shorts totals from all-YouTube totals to estimate this category:
 | --- | --- |
 | Video start | Complete attentive viewing |
 | Paid membership | Unique individual viewer |
-| Theater attendance | Unique theatergoer |
 | Book sale | Completed reading |
 | Hours on Netflix | Hours of series only |
 | Meaningfulness rating | Completed life-changing action |
 | Trial sign-up click | Actual clinical-trial participation |
 | Association with reading | Causal effect of a particular book |
+
+## Pictures: platform activity, creation, and consumption
+
+Instagram/Pinterest/Reddit audience or revenue is not pictures-only activity. Mixed feeds include video, text, advertising, and messaging; gallery, licensing, and physical-art markets have other boundaries. No comparable picture-only financial series or 2026 consumption observation was selected, so the common figures display explicit gaps.
+
+PICCREATE26 measures main creative output among creators. EB25 combines film-making and photography. Neither is a picture-viewing rate. PICMEM26 measures a correlation with comments; PICSHARE25 measures photo-related recall. These outcomes cannot substitute for days/week, person-hours, common cultural recognition, or major life changes.

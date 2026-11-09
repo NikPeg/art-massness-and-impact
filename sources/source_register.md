@@ -1,5 +1,13 @@
 # Source register
 
+## Short-video social breadth, selected 9 November 2026
+
+| ID | Source | Access and use |
+| --- | --- | --- |
+| PEWSOC26 | [Pew, social media 2026](https://www.pewresearch.org/internet/fact-sheet/social-media/); [questionnaire](https://www.pewresearch.org/wp-content/uploads/sites/20/2026/10/PI_2026.10.19_NPORS-Internet-Fact-Sheets_Questionnaire.pdf); [methodology](https://www.pewresearch.org/wp-content/uploads/sites/20/2026/10/PI_2026.10.19_NPORS-Internet-Fact-Sheets_Methodology.pdf) | Original tables and linked PDF methods/question wording inspected. Live fact-sheet vintage: 19 October 2026. Platform adoption, not format-specific consumption |
+| OFCOM25 | [Adults' media use and attitudes 2025](https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/media-literacy-research/adults/adults-media-use-and-attitudes-2025/adults-media-use-and-attitudes-report-2025.pdf?v=396240) | Original report text inspected; 2024 fieldwork; digital-access context |
+| CFPSSHORT25 | [Digital gratification: short video consumption and mental health in rural China](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2025.1536191/full) | Original full-text methods and Table 1 inspected. Descriptive selection context, not a cross-medium equity test or validation of causal health claims |
+
 Access and selection date: **9 November 2026**. “Inspected” describes retrieval during this project, not independent verification of the producer's underlying records. Data source IDs resolve the Markdown tables.
 
 ## Media consumption
@@ -59,10 +67,19 @@ GWI26: the original Digital 2027 article and links to charts 38–40 were retrie
 | NFLX25 | [Netflix 2025 shareholder results](https://www.sec.gov/Archives/edgar/data/1065280/000106528026000033/ex991_q425.htm) | Original SEC-hosted disclosure inspected |
 | META25 | [Meta Q3 2025 call transcript](https://s21.q4cdn.com/399680738/files/doc_financials/2025/q3/META-Q3-2025-Earnings-Call-Transcript.pdf) | Original transcript extract retrieved; annualized pace, not annual realized revenue |
 | AAP25 | [AAP 2025 annual release, published August 2026](https://publishers.org/news/aap-statshot-annual-report-publishing-revenues-totaled-33-4-billion-for-calendar-year-2025/) | Original page inspected; US publisher revenue categories |
-| BWAY26 | [Broadway season detail, 2025/26](https://www.broadwayleague.com/static/user/admin/media/statistics_broadway_2025-2026_detail.pdf) | Original one-page table inspected; prior seasons and straight-play breakdown |
 
 The IFPI state-of-industry PDF itself exceeded the retrieval tool's size limit. Its press release and UMG's reproduced chart were used instead. No paywall or access control was bypassed.
 
 ## Research literature
 
-The five appraised works and six additional leads are linked and qualified in the [literature review](../research/02_literature_review.md). Only the first five review subsections make affirmative research claims. The remaining leads were not fully appraised.
+Appraised works and additional discovery leads are linked and qualified in the [literature review](../research/02_literature_review.md). Pictures-specific sources and their retrieval limits are listed below. Discovery leads are not treated as appraised evidence.
+
+## Pictures research, selected 9 November 2026
+
+| ID | Source | Access and use |
+| --- | --- | --- |
+| PICCREATE26 | [Creative Australia, Digital Creativity (2026)](https://www.creative.gov.au/research/digital-creativity-online-creative-engagement-and-social-connection); [full report](https://creative.gov.au/sites/creative-australia/files/documents/2026-09/CreativeAustralia_Digital%20Creativity%20Report_Tagged.pdf) | Official HTML and PDF text inspected, methodology and main-content question. PDF denominator retained where the HTML summary is ambiguous. A main-type composition, not population participation or consumption |
+| PICART24 | [Cotter et al. (2024), virtual art galleries](https://internationaljournalofwellbeing.org/index.php/ijow/article/view/3603); [full text](https://www.internationaljournalofwellbeing.org/index.php/ijow/article/download/3603/1205/12937) | Original publisher abstract and full-text methods inspected; curated online viewing, not social feeds |
+| PICNEWS24 | [Chmel, Savin and Delli Carpini (2024), Making Politics Attractive](https://ijoc.org/index.php/ijoc/article/view/18119); [full text](https://ijoc.org/index.php/ijoc/article/viewFile/18119/4627) | Original abstract and indexed original PDF design text inspected; student convenience experiment, news attention outcome |
+| PICSHARE25 | [Vasquez et al. (2025), Sharing photographs on social media enhances recollection of photograph-related details](https://doi.org/10.1017/mem.2025.3) | Original publisher PDF abstract and procedure text inspected; experimental selective sharing and recall, not major life decisions |
+| PICMEM26 | [Peng and Bainbridge, Image memorability predicts social media virality and externally-associated commenting](https://arxiv.org/abs/2409.14659v3); [journal DOI](https://doi.org/10.1016/j.chb.2025.108799) | Author abstract/version history inspected. First preprint 2024; v3 September 2025; repository lists Computers in Human Behavior 174 (2026), 108799. Claims follow v3; journal full text not independently checked. Observational model-predicted memorability, not a causal effect |

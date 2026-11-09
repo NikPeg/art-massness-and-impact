@@ -36,18 +36,20 @@ Source IDs resolve in the [source register](../sources/source_register.md). Valu
 | books | 2023 | NA | missing | AAP25 | No selected scope-consistent series |
 | books | 2024 | NA | missing | AAP25 | No selected scope-consistent series |
 | books | 2025 | 12.5 | derived_sum | AAP25 | US adult fiction 7.1 plus children/YA fiction 5.4 |
-| theater | 2021 | NA | missing | BWAY26 | Do not treat absent season as annual zero |
-| theater | 2022 | 0.135308691 | seasonal_proxy | BWAY26 | Broadway plays, season 2021/22, shortened |
-| theater | 2023 | 0.250046910 | seasonal_proxy | BWAY26 | Broadway plays, season 2022/23 |
-| theater | 2024 | 0.209645921 | seasonal_proxy | BWAY26 | Broadway plays, season 2023/24 |
-| theater | 2025 | 0.405473535 | seasonal_proxy | BWAY26 | Broadway plays, season 2024/25, 53 weeks |
 | long_video | 2021 | NA | missing | NA | No isolated comparable revenue observation selected |
 | long_video | 2022 | NA | missing | NA | No isolated comparable revenue observation selected |
 | long_video | 2023 | NA | missing | NA | No isolated comparable revenue observation selected |
 | long_video | 2024 | NA | missing | NA | No isolated comparable revenue observation selected |
 | long_video | 2025 | NA | missing | NA | No isolated comparable revenue observation selected |
+| pictures | 2021 | NA | missing | NA | No isolated comparable online-picture revenue selected |
+| pictures | 2022 | NA | missing | NA | No isolated comparable online-picture revenue selected |
+| pictures | 2023 | NA | missing | NA | No isolated comparable online-picture revenue selected |
+| pictures | 2024 | NA | missing | NA | No isolated comparable online-picture revenue selected |
+| pictures | 2025 | NA | missing | NA | No isolated comparable online-picture revenue selected |
 
 Long-form horizontal online video has no selected comparable financial series for 2021–2025. Its five explicit gaps above are not zeros. Neither total YouTube revenue nor total creator-economy revenue is substituted.
+
+Picture revenues remain gaps. Platform advertising mixes pictures with other formats; physical art sales and total stock-media licensing do not measure the chosen online creative-content category.
 
 ## US time use
 
@@ -65,5 +67,4 @@ Population: US civilian population aged 15+, all-person mean hours per day, main
 
 - IFPI average total music listening: 18.4 hours/week in 2021, 20.1 in 2022, and 20.7 in 2023. Coverage changes and the absence of later matched observations prevent a continuous 2021–2025 comparison with GWI. Sources: IFPI21 and IFPI23.
 - Netflix viewing: over 95 billion hours in the first half of 2025 and 96 billion in the second half. These are service-wide viewing hours, not series-only person-hours. Sources: NFLXVIEW1 and NFLXVIEW2.
-- Broadway plays in season 2025/26: 3,316,722 attendances and $462,851,706 gross. Attendance includes repeated visits and is not worldwide audience reach. Source: BWAY26.
 - YouTube's press page reports over 200 billion daily Shorts views. Source: YTPRESS. The counting-definition change prevents interpreting this as completed attentive consumption.

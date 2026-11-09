@@ -50,7 +50,6 @@ def active_participation():
         "Playing a musical instrument": "Playing an instrument",
         "Making films or doing photography": "Film / photography",
         "Writing poems, essays, novels, etc.": "Creative writing / essays",
-        "Acting on stage or in a film": "Stage / screen acting",
     }
     for i, row in enumerate(display):
         y = 82 if i == 0 else 134 + (i - 1) * 44
@@ -65,7 +64,7 @@ def active_participation():
     annotation(filename, title, [
         "Source: European Commission, Special Eurobarometer 562 (EB25), QA3, report pp. 43-44. Fieldwork: 18 February-16 March 2025; preceding-12-month recall. Total survey sample: 26,319; EU27 resident EU citizens aged 15+ under survey nationality rules. Weighted estimates, not counts.",
         "https://europa.eu/eurobarometer/surveys/detail/3364\nOriginal report copy: https://www.euskadi.eus/contenidos/informacion/keb_ber_argitalpenak_portada/eu_def/adjuntos/web01-keb_europeans_attitudes_towards_culture_SP562_report_en.pdf",
-        "The separated dark total includes activities omitted from this selection. Blue points are selected activities; multiple responses overlap and must not be added. Film and photography, and stage and screen acting, retain combined source categories. Writing includes essays.",
+        "The separated dark total includes activities omitted from this selection. Blue points are selected activities; multiple responses overlap and must not be added. Film and photography retain a combined source category. Writing includes essays.",
         "Creation/performance is distinct from audience consumption and life impact. This is not a 2026 global ranking of the eight art categories. No uncertainty intervals were calculated. Fixed 0-100% axis.",
         "Data: ../data/participation_and_breadth.md\nSource register: ../sources/source_register.md",
     ])

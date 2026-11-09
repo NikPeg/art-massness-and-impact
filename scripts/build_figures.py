@@ -8,14 +8,15 @@ import math
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"
 YEARS = list(range(2021, 2026))
-AXES = ["reach", "time", "frequency", "money", "recognition", "significance",
-        "beliefs", "actions", "persistence", "biography"]
+AXES = ["reach", "time", "frequency", "money", "recognition", "life_impact"]
+AXIS_LABELS = {axis: axis.capitalize() for axis in AXES}
+AXIS_LABELS["life_impact"] = "Life impact"
 NAMES = {"short_video": "Short-form video", "long_video": "Long online video (proxy)", "music": "Music", "film": "Feature films",
          "series": "Series / streaming proxy", "books": "Books / US fiction",
-         "theater": "Theater / Broadway plays", "games": "Video games"}
-RADAR_NAMES = {**NAMES, "long_video": "Long horizontal video", "series": "Series", "books": "Books", "theater": "Staged plays"}
+         "games": "Video games", "pictures": "Pictures"}
+RADAR_NAMES = {**NAMES, "long_video": "Long horizontal video", "series": "Series", "books": "Books"}
 COLORS = {"short_video": "#2463ad", "long_video": "#a33c31", "music": "#b96216", "film": "#93456e",
-          "series": "#7057a5", "books": "#247b77", "theater": "#383e45", "games": "#3a824d"}
+          "series": "#7057a5", "books": "#247b77", "games": "#3a824d", "pictures": "#926c24"}
 
 
 def tables(path):
@@ -122,7 +123,7 @@ def time_series(title, subtitle, series, unit, filename, footer, width=1080):
             previous = (px, py)
     write(filename, svg_doc(width, height, title, body))
     annotation(filename, title, [subtitle, footer, "Series colors and latest values (" + unit + "):\n" + "\n".join(legend),
-               "Hollow diamond: annualized lower-bound reference point. Dashed line: theater seasons. Missing observations are not zeros; gaps are not connected.",
+               "Hollow diamond: annualized lower-bound reference point. Missing observations are not zeros; gaps are not connected.",
                "Data and sources: ../data/annual_indicators.md; ../sources/source_register.md."])
 
 
@@ -168,49 +169,61 @@ def snapshot(rows, key, title, unit, filename):
 
 def radar(row, anchors):
     category = row["category"]
-    scores = [float(row[a]) for a in AXES]
+    scores = [None if row[a] == "NA" else float(row[a]) for a in AXES]
     width, height, cx, cy, radius = 600, 510, 300, 260, 170
     pos = lambda i, value, rr=radius: (
-        cx + math.cos(-math.pi/2 + i*math.tau/10)*rr*value/10,
-        cy + math.sin(-math.pi/2 + i*math.tau/10)*rr*value/10)
+        cx + math.cos(-math.pi/2 + i*math.tau/len(AXES))*rr*value/10,
+        cy + math.sin(-math.pi/2 + i*math.tau/len(AXES))*rr*value/10)
     path = lambda vals: " ".join(("M" if i == 0 else "L") + f"{pos(i,v)[0]:.3f},{pos(i,v)[1]:.3f}" for i,v in enumerate(vals)) + "Z"
     body = text(24, 30, RADAR_NAMES[category], size=22, weight=500)
     for ring in [2,4,6,8,10]:
-        body += f'<path d="{path([ring]*10)}" fill="none" stroke="#d3d9df"/>'
-    for i in range(10):
+        body += f'<path d="{path([ring]*len(AXES))}" fill="none" stroke="#d3d9df"/>'
+    for i in range(len(AXES)):
         px, py = pos(i,10)
         body += line(cx,cy,px,py)
-    body += f'<path d="{path(scores)}" fill="#2463ad" fill-opacity="0.11" stroke="#2463ad" stroke-width="2"/>'
+    # Leave the unassessed axis open: neither zero nor a fabricated score.
+    observed_path = " ".join(("M" if i == 0 else "L") + f"{pos(i,v)[0]:.3f},{pos(i,v)[1]:.3f}"
+                             for i,v in enumerate(scores) if v is not None)
+    body += f'<path d="{observed_path}" fill="none" stroke="#2463ad" stroke-width="2"/>'
+    if category == "music":
+        scenarios = table_with(ROOT / "data/music_online_scenarios.md", "scenario")
+        reference = next(r for r in scenarios if r["scenario"] == "streaming_reference")
+        inclusive = next(r for r in scenarios if r["scenario"] == "inclusive_online")
+        assert all(row[a] == inclusive[a] for a in AXES[:3])
+        points = [pos(i, float(reference[a])) for i, a in enumerate(AXES[:3])]
+        segment = " ".join(("M" if i == 0 else "L") + f"{x:.3f},{y:.3f}"
+                           for i, (x, y) in enumerate(points))
+        body += (f'<path id="music-streaming-reference" d="{segment}" fill="none" '
+                 'stroke="#b96216" stroke-width="2" stroke-dasharray="6 4">'
+                 '<title>Streaming-only reference: reach 8, time 6, frequency 7; author judgments</title></path>')
+        for (x, y), axis in zip(points, AXES[:3]):
+            body += mark(x, y, "#b96216", title=f"Streaming-only {axis}: {reference[axis]}/10")
+        body += text(300, 480, "Dashed: streaming only (8 / 6 / 7)", "middle", size=12)
     for v in [2,6,10]:
         px,py=pos(0,v)
         body += text(px+6,py+4,str(v))
     for i, (axis, score) in enumerate(zip(AXES,scores)):
-        angle=-math.pi/2+i*math.tau/10
+        angle=-math.pi/2+i*math.tau/len(AXES)
         px,py=pos(i,10,radius+28)
         cos=math.cos(angle)
         anchor="start" if cos>.25 else "end" if cos<-.25 else "middle"
-        body += text(px,py,axis.capitalize(),anchor) + text(px,py+16,f"{int(score)}/10",anchor)
+        body += text(px,py,AXIS_LABELS[axis],anchor) + text(px,py+16,"Not assessed" if score is None else f"{int(score)}/10",anchor)
+        if score is None:
+            continue
         qx,qy=pos(i,score)
         supported=anchors.get(axis,"NA")!="NA"
         body += mark(qx,qy,"#2463ad",not supported)
     name="radar-"+category.replace("_","-")+".svg"
     write(name,svg_doc(width,height,RADAR_NAMES[category]+" radar",body,
-          "; ".join(f"{a}: {int(v)}/10" for a,v in zip(AXES,scores))))
+          "; ".join(f"{a}: {'not assessed' if v is None else str(int(v)) + '/10'}" for a,v in zip(AXES,scores))))
     guide = (ROOT / "data/radar_overview_annotation.txt").read_text(encoding="utf-8")
     annotation(name, RADAR_NAMES[category], [
         "2026 subjective profile | All scores are author judgments.",
+        *(["Main blue profile: direct and embedded audible online music, including short/long video, films, series and games. Hollow main markers: unmeasured union. Dashed orange segment and filled reference points: streaming-only author judgments, reach 8 / time 6 / frequency 7, informed by GWI26 (77.4%; 301 minutes/week; 3.10 days/week). Different exposure definitions, not a measured uplift or confidence interval. See ../data/music_online_scenarios.md."] if category == "music" else []),
         "Filled circle: numeric anchor | Hollow diamond: qualitative rationale.",
-        "Do not rank polygon areas. See ../data/score_rationales.md and ../research/04_limitations.md.",
+        "Life impact is not assessed. The profile is open and unfilled; missing is not zero. See ../data/score_rationales.md.",
         guide.split("\n\n", 2)[2]])
     return name
-
-
-def radar_area(row):
-    """Polygon area for equally spaced axes, in score units squared."""
-    scores = [float(row[axis]) for axis in AXES]
-    return 0.5 * math.sin(math.tau / len(scores)) * sum(
-        score * scores[(i + 1) % len(scores)] for i, score in enumerate(scores)
-    )
 
 
 def radar_overview(radar_names):
@@ -227,23 +240,16 @@ def radar_overview(radar_names):
         panel = panel.replace('<svg ', f'<svg x="{(i % 4) * 600}" y="{(i // 4) * 510}" ', 1)
         body += panel
     write("radar-overview.svg", svg_doc(width, height, "All eight subjective radar profiles, 2026", body,
-          "Eight profiles in descending polygon area, left to right, then top to bottom. Identical axes and scales; geometric order is not an overall impact ranking."))
+          "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales; Life impact is unassessed, with no marker or closed polygon."))
     write("radar-overview.txt", (ROOT / "data/radar_overview_annotation.txt").read_text(encoding="utf-8"))
 
 
 def build():
     from build_participation_figures import build as build_participation
     OUT.mkdir(exist_ok=True)
-    financial=table_with(ROOT/"data/annual_indicators.md","value_billion_usd")
-    financial_series=[]
-    for category in NAMES:
-        selected=[r for r in financial if r["series"]==category]
-        financial_series.append({"name":NAMES[category],"color":COLORS[category],
-            "points":[(int(r["year"]),num(r["value_billion_usd"])) for r in selected],
-            "reference":category=="short_video","break_year":2025 if category=="games" else None,
-            "dashed":category=="theater"})
-    time_series("Financial landmarks, 2021–2025","Different market boundaries; not a harmonized revenue ranking",financial_series,
-                "Billion USD","financial-landmarks.svg","Reels: >50 run rate; books: US fiction; theater: Broadway seasons; Netflix: entire company. Games vintage break.")
+    # Remove obsolete outputs: incompatible financial scopes must not share an axis.
+    for name in ("financial-landmarks.svg", "financial-landmarks.txt"):
+        (OUT / name).unlink(missing_ok=True)
     time_rows=table_with(ROOT/"data/annual_indicators.md","tv_hours_day")
     time_series("US time-use aggregates, 2021–2025","US population 15+ | All-person means | Main activity only",[
         {"name":name,"color":color,"points":[(int(r["year"]),float(r[key])*60) for r in time_rows]}
@@ -257,15 +263,13 @@ def build():
                                 ("days_per_week","Frequency of use, 2026","Days per week","frequency-2026.svg")]:
         snapshot(media,key,title,unit,name)
     score_path=ROOT/"data/subjective_scores_2026.md"
-    score_rows=table_with(score_path,"recognition")
+    score_rows=sorted(table_with(score_path,"recognition"),
+                      key=lambda row: RADAR_NAMES[row["category"]].casefold())
     anchor_rows=next(records for header,records in tables(score_path) if header==["category","reach","time","frequency","money"])
     anchors={r["category"]:r for r in anchor_rows}
     radar_names=[radar(r,anchors[r["category"]]) for r in score_rows]
-    overview_names = [name for name, row in sorted(
-        zip(radar_names, score_rows), key=lambda item: radar_area(item[1]), reverse=True
-    )]
-    radar_overview(overview_names)
-    figures=[("Financial landmarks","financial-landmarks.svg"),("US time use","us-time-use.svg"),
+    radar_overview(radar_names)
+    figures=[("US time use","us-time-use.svg"),
              ("Weekly reach","reach-2026.svg"),("Daily time","time-2026.svg"),("Frequency","frequency-2026.svg"),
              ("All eight radar profiles","radar-overview.svg")]
     figures += build_participation()
@@ -275,12 +279,12 @@ def build():
         f'<section><img src="{name}" alt="{html.escape(RADAR_NAMES[r["category"]])} radar" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>'
         for name,r in zip(radar_names,score_rows))+"</div>"
     page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Art, mass reach, and life impact</title><style>
+<title>Internet-distributed creative media, mass reach, and life impact</title><style>
 body{font:16px/1.55 system-ui,sans-serif;color:#202a34;background:white;margin:24px auto;padding:0 20px;max-width:1100px}
 img{display:block;width:100%;height:auto}section{margin:24px 0}.radars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 @media(max-width:760px){.radars{grid-template-columns:1fr}}a{color:#2463ad}</style>
-<h1>Art, mass reach, and life impact</h1><p>As of 9 November 2026. Empirical landmarks and explicitly subjective profiles.</p>
-<p>Financial series have different scopes. The US diary and international survey are separate populations. Long online video is a broader proxy for horizontal creative works; its financial series is missing. Radar scores are author judgments, including points with numeric anchors.</p>
+<h1>Internet-distributed creative media, mass reach, and life impact</h1><p>As of 9 November 2026. Eight categories of creative content distributed through the internet. Empirical landmarks and explicitly subjective profiles.</p>
+<p>Whole-market financial series and US diaries are contextual evidence, not online-only measurements. Financial observations are retained only in the source tables because their market and accounting scopes differ; no common financial chart is shown. The US diary and international survey are separate populations. Pictures have no matched consumption or revenue values. All pictures radar markers are qualitative. Long online video is a broader proxy for horizontal creative works; its financial series is missing. Radar consumption and money judgments have been revised for online distribution. Music includes embedded audible contact; its dashed streaming-only reference is a different exposure definition, not a measured uplift. Radar scores are author judgments, including points with numeric anchors.</p>
 <p><a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../data/score_rationales.md">Score rationales</a></p>'''+panels+"</html>\n"
     write("index.html",page)
     print(f"Generated {len(figures)+len(radar_names)} SVG figures and figures/index.html")

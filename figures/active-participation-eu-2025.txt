@@ -5,7 +5,7 @@ Source: European Commission, Special Eurobarometer 562 (EB25), QA3, report pp. 4
 https://europa.eu/eurobarometer/surveys/detail/3364
 Original report copy: https://www.euskadi.eus/contenidos/informacion/keb_ber_argitalpenak_portada/eu_def/adjuntos/web01-keb_europeans_attitudes_towards_culture_SP562_report_en.pdf
 
-The separated dark total includes activities omitted from this selection. Blue points are selected activities; multiple responses overlap and must not be added. Film and photography, and stage and screen acting, retain combined source categories. Writing includes essays.
+The separated dark total includes activities omitted from this selection. Blue points are selected activities; multiple responses overlap and must not be added. Film and photography retain a combined source category. Writing includes essays.
 
 Creation/performance is distinct from audience consumption and life impact. This is not a 2026 global ranking of the eight art categories. No uncertainty intervals were calculated. Fixed 0-100% axis.
 
