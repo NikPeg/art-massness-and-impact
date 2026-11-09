@@ -2,7 +2,7 @@
 
 Run `python3 scripts/build_figures.py` from the project root to regenerate these files.
 
-Every SVG has a same-named TXT sidecar containing its annotation, sources, scope notes, and any legend. Images show only chart titles, axis labels, and values. The HTML gallery links to each TXT.
+Every SVG has a same-named TXT sidecar with explanations, sources, and scope notes. Images retain brief color/marker keys where needed; radars also show "Author scores · not measured effects". The HTML gallery links to each TXT.
 
 - `us-time-use.svg`: US main-activity minutes per day, 2021–2025.
 - `reach-2026.svg`, `time-2026.svg`, `frequency-2026.svg`: international online-adult snapshot and explicit gaps.

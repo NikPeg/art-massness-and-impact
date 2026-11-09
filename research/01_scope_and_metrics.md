@@ -30,7 +30,7 @@ GWI's **long online video** is only a consumption proxy: it does not establish t
 
 ## Research dimensions
 
-These distinguish possible research outcomes, not current radar axes. The radars retain five scored axes and a general Life impact axis with no numerical assessment; the detailed personal-impact ratings have been removed.
+Life influence is studied through two separately reported outcome families: major events and everyday/cumulative changes. These distinguish possible research outcomes, not current radar axes. The radars retain five scored axes and a general Life impact axis with no numerical assessment; the detailed personal-impact ratings have been removed.
 
 | Dimension | Preferred measurement | Principal qualification |
 | --- | --- | --- |
@@ -40,6 +40,11 @@ These distinguish possible research outcomes, not current radar axes. The radars
 | Money | Revenue under an explicit industry boundary | Platform revenue, trade income, and ticket gross differ |
 | Cultural recognition | Recognition of specified works after a stated interval | Catalog age and adaptation complicate comparisons |
 | Personal significance | Validated meaningfulness or appreciation measures | A strong experience is not demonstrated life change |
+| Everyday affect | Repeated mood level, variability and recovery measures during ordinary use | A repeated state response is not automatically a lasting baseline shift |
+| Self-evaluation | Separate repeated state self-esteem/body-evaluation measures from trait measures | Body satisfaction is not a complete measure of self-worth |
+| Habits | Repeated observed behavior and validated automaticity measures | Frequent use and intentions alone do not establish a habit |
+| Belonging | Repeated connection, loneliness and group-identification measures, kept distinct | Friendship closeness is not identical to cultural belonging |
+| Perceived norms | Repeated estimates of what others do and approve, alongside personal endorsement | Descriptive norms, injunctive norms and one's own beliefs are different |
 | Belief change | Baseline-to-follow-up change against a comparison group | Direction, magnitude, and durability should be reported |
 | Action | Observed, predefined consequential behavior | Intention, clicking, and completed action must remain distinct |
 | Persistence | Retained effect at later follow-ups | Retrospective memory is a different outcome |
@@ -53,7 +58,7 @@ Total person-hours equal population size multiplied by average time across that 
 - **Territorial breadth:** participation rates within defined regions, using a common questionnaire and population. A country's inclusion in a survey does not by itself show widespread participation there.
 - **Active artistic participation:** the population share creating or performing art over a fixed period, distinct from consuming it. Overlapping activities require a measured union, not addition of percentages.
 
-Selected observations from England and the EU are recorded in the [participation tables](../data/participation_and_breadth.md). They supplement the ten-dimension framework; no composite score or additional radar axis is introduced.
+Selected observations from England and the EU are recorded in the [participation tables](../data/participation_and_breadth.md). They supplement the research-dimension framework; no composite score or additional radar axis is introduced.
 
 ## Why view counts are unsuitable
 
@@ -63,6 +68,17 @@ YouTube changed Shorts views on 31 March 2025 to count starts and replays withou
 
 ## What “life-changing” would require
 
-Predefine events such as a completed move, actual job change, relationship decision, or a persistent habit change. Measure whether they occurred, when they occurred, and whether the work contributed. Separate the magnitude of change from whether the participant regards it as beneficial. A large change can be harmful; a small change can be valuable.
+Life influence includes major events and changes in everyday experience. A biographical turning point is one possible outcome, not the admission criterion for influence. Report the following two families separately, without converting one into the other or an overall score.
 
-An illustrative population-impact calculation is reach multiplied by the probability of a defined attributable outcome. No comparable probability is available here. The calculation is a proposed framework, not an established cross-art index or an estimate produced by this dossier.
+| Outcome family | What to record | Required distinction |
+| --- | --- | --- |
+| Major events | Completed move, job change, relationship decision, or another predefined event; occurrence, timing and contribution attributed to the work | Intention and retrospective attribution are not completed action or causal proof |
+| Everyday and cumulative changes | Mood and its variability, self-esteem, habits, perceived belonging, and perceived descriptive/injunctive norms; repeated measures of level, trajectory, duration and personal importance | Immediate response, repeated response, baseline shift and post-exposure persistence are different results |
+
+A recurring small change in mood or belonging can matter without a major event. It can be beneficial, harmful, mixed or null; event magnitude does not determine value. Record state self-esteem separately from stable self-evaluation, friendship closeness separately from cultural belonging, and beliefs about what others do/approve separately from personal endorsement. Report unsuccessful regulation and opposing individual trajectories as well as favorable averages.
+
+Use baseline plus repeated diary or experience-sampling measurements to assess everyday influence. Preregister time windows, outcomes and meaningful-change criteria; use comparable validated measures where available. Estimate within-person deviations and longer-term changes separately from differences between people. Repeated short-lived responses do not establish a lasting baseline shift, while failure to find persistence does not erase a recurrent effect during use. Include follow-up after exposure changes or ends when making a persistence claim.
+
+The [cumulative-effects review](08_cumulative_media_effects.md) and [separate results](../results/06_event_and_cumulative_outcomes.md) distinguish direct online evidence, broader platform evidence and out-of-scope mechanisms. For mixed audiovisual works, record audible embedded music and other components; the presence of music is substantive, while causal component attribution requires a separate design.
+
+For an event outcome, reach multiplied by the probability of a defined attributable event is one proposed population calculation. It does not measure total life impact or replace everyday trajectories. For everyday outcomes, report population coverage and outcome-specific repeated-measure effects over a stated interval; do not sum correlated states, invent a common unit across scales, or treat the absence of an event as zero influence. Neither calculation is estimated as a cross-art index here.

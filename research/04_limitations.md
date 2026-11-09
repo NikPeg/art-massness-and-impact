@@ -1,5 +1,13 @@
 # Limitations
 
+## Literature search coverage and confidence
+
+The literature review is exploratory, with a moderate documented targeted update on 9 November 2026. The [log](../sources/moderate_review_search_2026.md) records eight web queries and selected candidate decisions. It is not a systematic database search: English-language discovery, search-engine ranking, selective follow-up and variable full-text access can omit relevant positive, null or conflicting studies. Earlier searches lack a complete retrospective screening record. There was no independent second screener, exhaustive citation chasing, complete hit export or formal study-level risk-of-bias assessment.
+
+Coverage and appraisal depth differ across categories. Several new candidates are abstract-only; long-video creator studies do not verify the duration/orientation or artistic-content criteria. Outcomes range from cognition and intentions to observed behavior and delayed responses. This evidence cannot support a cross-medium life-impact ranking. “Not found in the documented search” is not evidence that a study does not exist, and missing evidence is not evidence of no effect. Non-significant findings also do not by themselves establish a practically negligible effect.
+
+Confidence labels describe a specified conclusion using available design quality, directness, consistency and precision. They are informal narrative assessments, not calibrated probabilities or a completed standardized certainty appraisal. Search completeness is a separate limitation and cannot be repaired by raising or lowering a confidence label. The [further-work plan](../FURTHER_WORK.md) sets out the protocol, database search, independent screening, bias appraisal and synthesis needed for a full review.
+
 ## Overlapping art forms
 
 Music is present in short vertical and long horizontal videos, online films, series and games. This is a substantive part of online musical exposure, not measurement noise. A minute of a music-driven video can be both video exposure and music exposure. Counting both is legitimate for separate artistic-contact questions; adding them into a person's exclusive time budget double-counts the minute. Books also circulate through adaptations. The same intellectual property can generate multiple revenues and audiences.
@@ -30,13 +38,23 @@ The empirical materials mix international online-adult surveys, US population di
 
 Five complete years means 2021–2025. The 2026 survey is a separate partial-year snapshot. Historical survey redesigns, revised market estimates, exchange rates, pandemic closures prevent simple trend comparisons. Missing observations remain gaps. No yearly series of life-changing influence is fabricated.
 
+## Limits of the updated growth evidence
+
+The [additional growth appraisal](08_growth_evidence_search.md) supports moderate confidence in service growth within several measured audiences. Ofcom/Ipsos iris covers UK online adults and whole services; Qustodio covers monitored children and app use. Neither directly compares artistic short vertical video with all other media. GMI26 reports leading growth for short video, but shares the GWI survey family with DataReportal. Its public release does not resolve paired waves, common country/age coverage, aggregate weights, uncertainty, or absolute-versus-percentage ranking. H04 and H05 therefore remain low-confidence tentative answers. The older +5.97% and +0.67% are published-value differences, establishing neither consumption direction nor relative growth. CNNIC/QuestMobile and Sensor Tower leads remain unaudited and do not increase confidence.
+
 ## Selection, attribution, and causality
 
 People may select books or videos because they are already considering a decision. A work can be a catalyst, a justification, a source of language, or one influence among many. Retrospective statements do not isolate its causal contribution. An intervention's effect on a narrow behavior cannot be assumed to generalize to migration, career changes, or relationships.
 
+## Event-centered outcomes and cumulative change
+
+The earlier central framing emphasized conspicuous moves, jobs and relationships. This could systematically undercount ordinary changes in mood, self-esteem, habits, social belonging and perceived norms, especially for music, images and feeds. The [measurement definition](01_scope_and_metrics.md#what-life-changing-would-require) now requires separate event and everyday/cumulative outputs, and the [new review](08_cumulative_media_effects.md) adds relevant evidence. A lack of major events is not evidence of no everyday impact.
+
+The correction does not close the evidence gap. Repeated state reactions are not automatically persistent changes; a long observation period is not itself evidence of accumulation. Temporal aggregation, reverse selection, concurrent offline experiences and person-specific differences can change associations. Null average trajectories and unsuccessful regulation must remain visible. Much of the new online evidence measures entire platforms or messaging rather than artistic content; selected music data do not isolate streaming or embedded soundtracks. The norm-change example uses offline radio and remains contextual only. Evidence is insufficient for a calibrated eight-medium comparison of cumulative life influence.
+
 ## Contact versus cumulative environment
 
-One book versus one 30-second clip compares different doses. A year of reading versus a year of using a feed asks a different question. Repetition may make individually minor contacts consequential. This dossier does not estimate exposure-response functions or cumulative causal effects.
+One book versus one 30-second clip compares different doses. A year of reading versus a year of using a feed asks a different question. Repetition may make individually minor contacts consequential. This dossier does not estimate exposure-response functions or cumulative causal effects. The new review distinguishes observed repeated-measure patterns from causal accumulation and from persistence after exposure; it includes null and mixed findings.
 
 ## Background exposure versus attention
 
@@ -63,6 +81,8 @@ The two added official survey programmes measure different participation concept
 ## Evidence and retrieval limits
 
 This is a targeted review without preregistration or exhaustive screening. Some material was available as a publisher abstract, indexed search extract, or a third-party mirror of an original report. Public pages may change. No full source archive, survey microdata, independent re-analysis, or peer review is included. Retrieval status is documented in the source register.
+
+**Figure reproducibility is stronger than source-data reproducibility.** The scripts deterministically regenerate visualizations from the transcribed Markdown tables, but this does not reproduce or independently verify the extraction of those numbers from the original sources. Some evidence is retained only through mutable web pages, search extracts, or materials without archived copies. Available original tables, exact supporting excerpts, and source-version dates have not been systematically preserved. A retrieval date alone does not identify the exact content or version consulted. Consequently, a reader can reproduce the visualization of the transcribed values more confidently than repeat their extraction and check their original context. The [source register](../sources/source_register.md) records access and use, but is not a complete versioned source archive.
 
 ## Pictures-specific limitations
 

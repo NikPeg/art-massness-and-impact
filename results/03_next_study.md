@@ -6,13 +6,17 @@ Recruit a population-based panel with offline participants and age coverage stat
 
 ## Outcomes
 
-1. Personal significance using an established scale.
-2. Predefined belief changes and whether they persist.
-3. Completed consequential actions, separated from intentions and clicks.
-4. Continued change in habits or behavior at follow-up.
-5. A reported contribution to identity or a biographical turning point.
+Preregister two outcome families with separate results, neither requiring success on the other.
 
-Specify whether a move, job change, or relationship decision counts, and record beneficial and harmful outcomes separately. Use corroboration where feasible and consented. Treat retrospective attribution as its own variable rather than as causal proof.
+**Major events:** predefined completed moves, job changes, relationship decisions or other events. Record timing, whether already contemplated, perceived contribution, and corroboration where feasible and consented. Keep intentions, completed actions and retrospective causal attribution separate.
+
+**Everyday and cumulative changes:** affect, state and more stable self-esteem, behavioral habits, belonging, and perceived descriptive/injunctive norms. Use comparable validated measures for each construct where available; treat personal significance and identity reports as additional variables. Do not assume that frequency establishes automatic habit, that friendship closeness measures cultural belonging, or that perceived social approval equals personal belief.
+
+Add a proposed 14-day experience-sampling burst at baseline and at follow-ups, with up to four short prompts per day plus a brief daily diary. Pilot burden and missingness before fixing the schedule. Combine these with the one-, six- and twelve-month assessments; add assessments after meaningful exposure reduction or cessation where feasible. This is a proposed protocol, not a schedule or validation supplied by the reviewed studies.
+
+Report immediate within-episode changes, recurring during-use burden/benefit, changes in usual levels or trajectories, and post-exposure persistence separately. Specify temporal lags and meaningful-change thresholds in advance. Estimate within-person associations separately from between-person differences; model nonlinearity and person-specific heterogeneity where data support it. Test rather than assume a link from repeated reactions to longer-term trajectories. Separate state shifts from durable trait change and account for multiple outcomes, attrition, baseline trends, reverse selection and time-varying circumstances. Include null results, unsuccessful regulation and opposing trajectories. A transient recurring effect may still matter while exposure continues.
+
+Record direction, magnitude, duration, functional relevance and participant-rated importance separately in both families. Lack of a major event is not a zero on everyday impact. Retrospective attribution remains its own variable rather than causal proof. The [new review](../research/08_cumulative_media_effects.md) supplies design examples and counterexamples.
 
 ## Fair comparisons
 
@@ -21,6 +25,8 @@ Compare both single-work encounters and cumulative consumption over a common per
 ## Coding the added long-video category
 
 Record duration, aspect ratio, original work type, platform, genre, artistic-content coding, creator identity, and whether exposure was a full work, excerpt, stream, or replay. Apply the [working inclusion rules](../research/01_scope_and_metrics.md#long-form-horizontal-online-video); test duration thresholds above 3 minutes, at 10 minutes, and at 20 minutes. Use independent coders and publish agreement and disputed cases. Separate completed creative works from raw streams and utilitarian instruction.
+
+Record audible musical intervals within short vertical video, long horizontal video, films, series and games as substantive component exposure, including incidental contact. Retain primary-format and component tags. Deduplicate within-component exposure and do not attribute the entire audiovisual outcome to music or to video without a design that isolates their contributions.
 
 Record creator attachment, cross-format pathways (for example, a Short leading to a long essay), playback speed, background use, and actual watched time. Compare equal-time exposure as well as complete works and cumulative habits. Analyze genre and creator effects before attributing differences to video length or horizontal orientation.
 

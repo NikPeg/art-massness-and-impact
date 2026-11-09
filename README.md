@@ -6,19 +6,30 @@ An exploratory research dossier, prepared on **9 November 2026**. All prose is i
 
 The project examines reach, consumption growth, participation, and life impact of creative media distributed through the internet. All research questions and interpretive hypotheses are collected in [Project hypotheses](research/06_hypotheses.md); numbered answers and confidence assessments are in [Findings](results/01_findings.md#answers-to-the-project-hypotheses).
 
-**Finding:** short video has exceptionally broad reach and frequent use in the available online-adult survey. Absolute leadership in consumption or its growth across media is not established. Attention, commercial scale, durable cultural recognition, and life-changing influence are different outcomes. No comparable global series measures major life changes caused by all eight categories.
+**Finding:** short video has exceptionally broad reach and frequent use in the available online-adult survey. Additional sources give moderate confidence in growth of short-video services within several measured audiences. GMI26 reports short video as its growth leader, but confidence in that comparative claim remains low pending a comparability audit. Absolute leadership across all eight media in consumption or growth is not established. Attention, commercial scale, durable cultural recognition, and life-changing influence are different outcomes. No comparable global series measures major life changes caused by all eight categories.
+
+## Review status and search limits
+
+The literature component uses a **moderate review approach: an exploratory evidence map with a documented, bounded targeted search**. The update on 9 November 2026 added eight recorded web queries, selection decisions, retrieval levels and outcome-specific appraisals. It did not perform a systematic database search, independent screening or a formal risk-of-bias assessment. Earlier searches were less consistently documented and are not retroactively described as systematic.
+
+See the [search procedure and candidate decisions](sources/moderate_review_search_2026.md), [literature synthesis](research/02_literature_review.md), and [limitations](research/04_limitations.md#literature-search-coverage-and-confidence). “Not found in this search” does not mean “no effect” or “no studies exist.” Confidence concerns a specified conclusion, not completeness of the literature; search coverage is reported separately. Different outcomes, exposure units and follow-ups cannot establish a comparative life-impact ranking.
+
+The [further-work plan](FURTHER_WORK.md) describes how to advance to a full systematic review and, if still needed, a new causal comparison.
 
 ## Read first
 
 - [Project hypotheses](research/06_hypotheses.md): questions only, without results or evidence assessments.
 - [Findings](results/01_findings.md): conclusions and empirical figures.
-- [Growth feasibility](results/05_growth_feasibility.md): provisional time differences, recent platform evidence, and requirements for a fastest-growth claim.
+- [Growth feasibility](results/05_growth_feasibility.md): updated confidence, independent service-use measurements, the attributed GMI26 growth finding, and remaining comparability checks.
+- [Growth evidence search](research/08_growth_evidence_search.md): source appraisals, retrieval limits, and additional leads.
 - [Social breadth and active participation](data/participation_and_breadth.md): selected England and EU surveys, with observation dates and methodological limits.
+- [Major events and cumulative changes](results/06_event_and_cumulative_outcomes.md): separate results for everyday influence, with [study appraisals](research/08_cumulative_media_effects.md).
 - [Radar profiles](results/02_radar_profiles.md): eight explicitly subjective profiles for 2026.
 - [All radar profiles in one image](figures/radar-overview.svg), with a [short Russian annotation (TXT)](figures/radar-overview.txt).
 - [Literature review](research/02_literature_review.md): what research on meaningful experiences, persuasion, and behavior actually measures.
 - [Source comparison](research/03_source_comparison.md): incompatible denominators, reporting vintages, and financial boundaries.
-- [Limitations](research/04_limitations.md): overlap, causality, missing series, and radar assumptions.
+- [Limitations](research/04_limitations.md): search coverage, overlap, causality, missing series, and radar assumptions.
+- [Further work](FURTHER_WORK.md): steps and completion criteria for a full systematic review and a separate primary study.
 
 ## Contents
 
@@ -57,4 +68,4 @@ The 2021–2025 financial observations have different market boundaries and rema
 
 This dossier consolidates the research and visualizations developed in the accompanying conversation. Original chat charts used D3 7.9.0 for time series and handwritten SVG for radars. The scripts here reproduce their observations and current revised online-content radar judgments in English using deterministic, dependency-free SVG generation; they are not byte-identical copies of the chat interface. See [methods](research/05_methods_and_reproducibility.md) and [script notes](scripts/README.md).
 
-Published numbers were transcribed from the linked sources; original survey microdata and publisher accounting records were not obtained. This is a targeted review, not a systematic review or a new causal study.
+Published numbers were transcribed from the linked sources; original survey microdata and publisher accounting records were not obtained. This is a documented targeted review with the search limits stated above, not a systematic review or a new causal study.

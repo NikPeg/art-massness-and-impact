@@ -97,10 +97,13 @@ def time_series(title, subtitle, series, unit, filename, footer, width=1080):
     y = lambda value: bottom - 6 - value / maximum * (bottom - top - 12)
     body = text(22, 30, title, size=21, weight=500)
     legend = []
-    for s in series:
+    for i, s in enumerate(series):
         latest = next((p[1] for p in reversed(s["points"]) if p[1] is not None), None)
         label = s["name"] + (f' | latest: {">" if s.get("reference") else ""}{fmt(latest)}' if latest is not None else " | no selected data")
         legend.append(f'{s["color"]}: {label}')
+        lx = 80 + i * 320
+        body += line(lx, 50, lx+22, 50, s["color"], 2)
+        body += text(lx+30, 54, s.get("legend_name", s["name"]), size=12)
     for i in range(5):
         value = maximum * i / 4
         py = y(value)
@@ -143,6 +146,11 @@ def snapshot(rows, key, title, unit, filename):
         v = maximum * i / 4
         body += line(x(v), top-12, x(v), grid_bottom) + text(x(v), grid_bottom+22, fmt(v, 1), "middle")
     body += text(left, grid_bottom+49, unit)
+    if key == "days_per_week":
+        body += mark(left, grid_bottom+67, COLORS["games"])
+        body += text(left+12, grid_bottom+71, "Mobile", size=11)
+        body += mark(left+90, grid_bottom+67, COLORS["games"], diamond=True)
+        body += text(left+102, grid_bottom+71, "PC / console (games)", size=11)
     for i, row in enumerate(rows):
         cy = top + i*45
         category = row["category"]
@@ -177,6 +185,7 @@ def radar(row, anchors):
         cy + math.sin(-math.pi/2 + i*math.tau/len(AXES))*rr*value/10)
     path = lambda vals: " ".join(("M" if i == 0 else "L") + f"{pos(i,v)[0]:.3f},{pos(i,v)[1]:.3f}" for i,v in enumerate(vals)) + "Z"
     body = text(24, 30, RADAR_NAMES[category], size=22, weight=500)
+    body += text(24, 51, "Author scores · not measured effects", size=11)
     for ring in [2,4,6,8,10]:
         body += f'<path d="{path([ring]*len(AXES))}" fill="none" stroke="#d3d9df"/>'
     for i in range(len(AXES)):
@@ -202,7 +211,8 @@ def radar(row, anchors):
                  '<title>Streaming-only reference: reach 8, time 6, frequency 7; author judgments</title></path>')
         for (x, y), axis in zip(points, AXES[:3]):
             body += mark(x, y, "#b96216", title=f"Streaming-only {axis}: {reference[axis]}/10")
-        body += text(300, 500, "Dashed: streaming only (8 / 6 / 7)", "middle", size=12)
+        body += line(24, 68, 44, 68, "#2463ad", 2) + text(50, 72, "All online music", size=11)
+        body += line(24, 84, 44, 84, "#b96216", 2, "6 4") + text(50, 88, "Streaming only", size=11)
     for v in [2,6,10]:
         px,py=pos(0,v)
         body += text(px+6,py+4,str(v))
@@ -221,13 +231,11 @@ def radar(row, anchors):
     write(name,svg_doc(width,height,RADAR_NAMES[category]+" radar",body,
           "Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review. " +
           "; ".join(f"{a}: {'not assessed' if v is None else str(int(v)) + '/10'}" for a,v in zip(AXES,scores))))
-    guide = (ROOT / "data/radar_overview_annotation.txt").read_text(encoding="utf-8")
     annotation(name, RADAR_NAMES[category], [
-        "2026 subjective profile | All scores are author judgments.",
-        *(["Main blue profile: direct and embedded audible online music, including short/long video, films, series and games. Hollow main markers: unmeasured union. Dashed orange segment and filled reference points: streaming-only author judgments, reach 8 / time 6 / frequency 7, informed by GWI26 (77.4%; 301 minutes/week; 3.10 days/week). Different exposure definitions, not a measured uplift or confidence interval. See ../data/music_online_scenarios.md."] if category == "music" else []),
+        "2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.",
+        *(["Blue: direct and embedded audible online music. Orange dashed: streaming-only reference (8/6/7), informed by GWI26. Different exposure definitions, not measured uplift. See ../data/music_online_scenarios.md."] if category == "music" else []),
         "Filled circle: numeric anchor | Hollow diamond: qualitative rationale.",
-        "Life impact is author interpretation. Research supporting these exact scores or their comparative ordering has not been found in the project review. See ../data/score_rationales.md.",
-        guide.split("\n\n", 2)[2]])
+        "No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: ../data/subjective_scores_2026.md; ../data/score_rationales.md."])
     return name
 
 
@@ -257,10 +265,10 @@ def build():
         (OUT / name).unlink(missing_ok=True)
     time_rows=table_with(ROOT/"data/annual_indicators.md","tv_hours_day")
     time_series("US time-use aggregates, 2021–2025","US population 15+ | All-person means | Main activity only",[
-        {"name":name,"color":color,"points":[(int(r["year"]),float(r[key])*60) for r in time_rows]}
-        for key,name,color in [("tv_hours_day","TV: films, series and other content",COLORS["series"]),
-                               ("reading_hours_day","Leisure reading",COLORS["books"]),
-                               ("games_computer_hours_day","Games and computer leisure",COLORS["games"])]] ,
+        {"name":name,"legend_name":short_name,"color":color,"points":[(int(r["year"]),float(r[key])*60) for r in time_rows]}
+        for key,name,short_name,color in [("tv_hours_day","TV: films, series and other content","TV (all content)",COLORS["series"]),
+                               ("reading_hours_day","Leisure reading","Leisure reading",COLORS["books"]),
+                               ("games_computer_hours_day","Games and computer leisure","Games / computer leisure",COLORS["games"])]] ,
         "Minutes per day","us-time-use.svg","Source: BLS ATUS, table 11A. Categories are broader than the respective art forms.")
     media=table_with(ROOT/"data/media_use_2026.md","weekly_reach_percent")
     for key,title,unit,name in [("weekly_reach_percent","Weekly reach, 2026","Percent of surveyed online adults","reach-2026.svg"),

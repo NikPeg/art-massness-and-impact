@@ -5,7 +5,7 @@ The authoritative inputs are Markdown tables under `../data/`.
 - `build_figures.py`: reads those tables, converts selected units, and writes English SVG figures and `figures/index.html`.
 - `build_participation_figures.py`: independently generates the EU active-participation and England social-breadth SVGs with adjacent TXT annotations. Also called by `build_figures.py`, which includes them in the gallery.
 - `validate_participation_figures.py`: independently checks displayed percentages against the source tables, 0-100% scales, label coordinates, and annotations. Also called by `validate.py`.
-- Each SVG has a matching TXT annotation generated alongside it. Chart images retain only titles, axis labels, and values; explanatory text and color/marker legends are in the TXT files, linked from the gallery.
+- Each SVG has a matching TXT annotation generated alongside it. Images retain brief color/marker keys and radars visibly identify author scores. Explanations and sources are in the adjacent TXT files, linked from the gallery.
 - `validate.py`: checks selected values, missing observations, score bounds, eight radar outputs and their combined overview, SVG syntax, and local Markdown links.
 
 Run both with Python 3.9+. No pip packages, browser libraries, external chart CDN, network requests, or credentials are used.

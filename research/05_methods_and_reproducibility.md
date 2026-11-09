@@ -1,54 +1,70 @@
 # Methods and reproduction
 
-## Research procedure
+## Scope and comparison units
 
-1. Separate reach, time, frequency, money, cultural recognition, and five kinds of personal impact.
-2. Search for public original reports, company disclosures, and research papers. Prefer these over unattributed compilations.
-3. Record observation date, population, geography, unit, and reporting vintage.
-4. Keep incompatible surveys and narrow industry proxies visibly separate.
-5. Preserve gaps instead of interpolating a five-year research result.
-6. Add subjective radar judgments only after the user explicitly requested them.
+The project is an exploratory dossier on eight categories of internet-distributed creative content: short-form video, long-form horizontal creator video, music, feature films, series, books and video games, and pictures. These categories overlap; they are not exclusive shares of a common market or attention budget. Definitions and inclusion rules are in [scope and measurement](01_scope_and_metrics.md).
 
-## Transcription and transformations
+Keep reach, consumption time, frequency, commercial scale, cultural recognition and life influence distinct. Life influence has two separately reported outcome families: major events and everyday/cumulative changes. Within everyday outcomes, distinguish immediate responses, repeated responses, during-exposure trajectories and persistence after exposure changes or ends. No common cross-medium life-impact index is estimated.
 
-The Markdown tables in `data/` are the data source for the scripts. `NA` means missing. Annual dollars are stored in billions. BLS hours are stored as reported and multiplied by 60 for the figure. GWI weekly hours and minutes are converted into weekly minutes, then divided by seven for a daily mean. Its frequency values remain days per week, not visits or sessions.
+For comparisons of influence, distinguish equal attentive time, complete works and repeated practices over a common period. Creator relationships and community participation are separate exposure units. A single clip is not equivalent to years of participation in a community. The [proposed primary study](../results/03_next_study.md) specifies measurements needed for these comparisons; that study has not been conducted.
 
-Book fiction revenue is the sum of two AAP categories. Source dates and narrow boundaries remain attached to the values. Financial observations are retained as tables only: their incompatible market and accounting scopes cannot support a common monetary axis.
+## Evidence selection and literature-review procedure
 
-## Radars
+The literature component is an exploratory evidence map with a moderate, documented targeted search. Public original reports, company disclosures, research papers and methodologically described syntheses supply evidence. Record observation date, population, geography, unit, reporting vintage and retrieval level. Study findings are classified by exposure, comparator, design, outcome, follow-up and applicability to the question.
 
-Each radar has the same six axes and order: reach, time, frequency, money, recognition, and general Life impact. All six have subjective 0–10 scores; profiles are closed and lightly filled. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. These are fresh judgments requested by the user, not averages of the former detailed axes. Panels follow alphabetical category order rather than polygon area. No normalization against the largest observed revenue or consumption value is used. Current revised scores are recorded in `data/subjective_scores_2026.md`. The distinction between a filled numeric-anchor point and a hollow qualitative point applies to the evidence behind the score, not to whether the score itself is objective.
+The [documented search](../sources/moderate_review_search_2026.md) records eight exact web queries, search date, selection rules, candidate decisions and access limits on 9 November 2026. The corpus also includes targeted searches recorded in the [research log](../sources/research_log.md), including the [everyday/cumulative appraisal](08_cumulative_media_effects.md). The eight-query record covers its specified search, not every source in the dossier. Documentation and appraisal depth vary across the corpus; no retrospective uniform protocol or complete screening record is claimed.
 
-Rationales are reproduced in `data/score_rationales.md`. Empirical references are deliberately not used to claim that they validate a particular score. The general Life impact axis is a conceptual placeholder, with no numerical estimate or comparative ranking.
+This bounded search procedure is repeatable, but web rankings may change and a complete export of returned hits is unavailable. There was no systematic database search, exhaustive citation chasing, independent screening or formal study-level risk-of-bias assessment. Original full-text, abstract-only and discovery-only sources remain distinguishable in the [source register](../sources/source_register.md). No effect-direction filter is used for the documented search. Missing or unretrieved evidence is not evidence of no effect.
 
-## Long-video category
+## Confidence in conclusions and search coverage
 
-The extension promotes previously retained long-online-video reach/time observations into a labeled proxy row and adds its reported weekly frequency. It defines a narrower horizontal creative-video category, adds ten new subjective scores and rationales without changing the other six retained profiles, and preserves five missing financial observations. The generator and checks now cover eight categories and 15 SVGs including the overview and participation charts. Source retrieval and the scope mismatch are recorded in the source register and limitations.
+Confidence attaches to the exact claim and population, not to a medium as a whole. Consider design quality and causal identification, directness of exposure/comparator/outcome/follow-up, consistency across relevant evidence, and precision where checked. High/Moderate/Low labels are informal reasoned assessments, not scores, calibrated probabilities or a completed standardized certainty framework. High confidence in a reported survey observation does not imply high confidence in a broad causal comparison.
 
-## Participation extension
+Use Not assigned when no comparable body supports the requested conclusion. Abstract-only evidence is provisional, with unverified details stated; a causal conclusion cannot be upgraded from an abstract alone. Report search coverage separately, including languages, retrieval failures and unsearched databases. A non-significant result does not establish a negligible effect without considering precision. Studies sharing participants, and reviews containing the same primary studies, are not independent replications.
 
-The user selected Participation Survey and Special Eurobarometer 562 from a wider search. Only those two survey programmes were added. Final sample sizes were checked in technical reports; activity values were transcribed with their source categories into [a separate table file](../data/participation_and_breadth.md). England's earlier wave supplies sample-size context only. No microdata analysis, harmonization, causal estimation, or extrapolation to 2026 was performed. The [participation generator](../scripts/build_participation_figures.py) now reads these tables and produces two figures with TXT annotations, also included in the full gallery build. Existing radar inputs are unaffected. Both percentage axes are fixed at 0-100%; the England connectors compare groups, not time or uncertainty.
+## Empirical inputs and transformations
 
-## Rendering provenance
+Markdown tables in `data/` are the authoritative script inputs. `NA` means missing, not zero. Incompatible populations and reporting vintages remain separate; no five-year series is interpolated or inferred from platform totals.
 
-The original chat trend chart used D3 7.9.0, responsive SVG, series toggles, and interpolated hover details. Those hover interpolations were visual conveniences, not additional observed data. The original radar fragment used direct SVG geometry with identical scales. Chat charts were visually inspected in a local browser.
+| Input | Treatment | Boundary |
+| --- | --- | --- |
+| [2026 media use](../data/media_use_2026.md) | Convert reported weekly hours/minutes to weekly minutes, then divide by seven for a daily mean; frequency stays days per week | International online-adult survey proxies do not consistently isolate artistic content or the project's categories |
+| [Annual context](../data/annual_indicators.md) | Store annual dollars in billions; sum the two AAP fiction categories; multiply reported BLS hours by 60 for the US time-use figure | Market totals, company revenue, box office and annualized revenue pace are incompatible; financial values appear in tables without a common chart |
+| [Participation](../data/participation_and_breadth.md) | Preserve published activity categories, recall periods, denominators and achieved sample sizes | England and EU surveys describe different populations and activities; no harmonization, microdata analysis or extrapolation to 2026 is performed |
 
-This project supplies a fresh English reproduction from the selected observations and current versioned-in-Git radar judgments. `scripts/build_figures.py` uses only Python's standard library and writes SVG plus an HTML gallery. It does not scrape sources, estimate missing observations, or call an external service. Differences from the chat interface are layout, language, and interaction; a line is broken at the Newzoo reporting-vintage boundary in both versions.
+Whole-market revenues, print-inclusive publishing, cinema attendance, broad listening and US diaries are contextual evidence, not matched online-only observations. Missing online-only measures remain gaps. Consumer participation, original creation, remixing and redistribution are distinct activities.
 
-## Validation
+## Category-specific measurement
 
-`scripts/validate.py` checks table shape, score bounds, selected numerical anchors, missing-value preservation, generated SVG parsing, local Markdown links, and the presence of all eight radar figures. These checks detect transcription or packaging errors, not whether the research's judgments are true.
+**Long horizontal video.** The working category requires landscape orientation, at least ten minutes and authored creative treatment, with alternative duration thresholds proposed for sensitivity checks. Feature films and scripted series have separate primary categories. GWI long online video is a broader reach/time/frequency proxy that does not verify these inclusion rules. All five financial observations for this category are missing. Creator attachment, genre and duration are not causally separated by the available aggregate observations.
 
-To change an empirical input, edit the corresponding Markdown table, update its source or method note, rebuild, and validate. To change a subjective score, also revise its rationale. Do not silently replace a missing observation with an opinion in the empirical tables.
+**Pictures.** Online photography, illustration, drawings, collages and image memes follow the scope rules. No matched picture-only observation supplies reach, time, frequency or revenue for the common tables. Empirical values remain missing; all six radar data markers are qualitative. Gallery experience, memory, news attention and creator-only main-type shares answer different questions and do not calibrate the radar.
 
-## Pictures extension, 9 November 2026
+**Music.** The main profile covers direct listening and audible music embedded in online short/long video, films, series and games. Combined reach, time and days require within-music unions, not summed platform audiences. The [music scenario table](../data/music_online_scenarios.md) provides a streaming-only reference, drawn as a dashed segment on the first three radar axes. This is a difference in exposure definition, not a measured uplift. The literature does not causally isolate musical contributions from the host audiovisual work.
 
-Added a working pictures definition and five primary research/report sources from 2024–2026, with retrieval levels recorded. The literature review separates memory, attention, viewing experience, and creation. Main-type creation shares remain in a separate table with their conditional denominator; no GWI values or revenue estimates are inferred from them.
+**Participation.** Special Eurobarometer 562 and England's Participation Survey supply the two participation figures. Percentage axes run from 0 to 100. England's connectors compare deprivation groups, not change over time or uncertainty. An earlier survey wave supplies sample-size context only; repeated cross-sections do not measure individual retention.
 
-Added eight-category inputs: one all-NA snapshot row, five all-NA financial cells, ten subjective scores and rationales, and all-NA numeric-anchor flags for pictures. The other seven score rows are unchanged. Regenerated all figures, the eight-panel overview, annotations, and gallery. The current total is 15 SVGs after removal of the common financial chart. Updated count, category, gap, and rationale checks. No new radar axis or empirical normalization was introduced.
+## Subjective radar profiles
 
-## Online-scope revision, 9 November 2026
+All eight profiles have the same six axes in order: reach, time, frequency, money, cultural recognition and general Life impact. Each axis has a subjective 0–10 author score, giving 48 scores and 48 rationale entries. The [score table](../data/subjective_scores_2026.md) and [rationales](../data/score_rationales.md) define the current inputs. Profiles are closed and lightly filled; the overview and gallery follow alphabetical English category names, without area ranking or a composite total.
 
-Reviewed the first four axes of all eight profiles, updated 22 scores, and removed incompatible whole-market/offline numerical anchor flags. Pictures retain their prior values. Recognition retains its author hypothesis after checking the online interpretation; the general Life impact axis subsequently received separate subjective author scores at the user's request. The [revision audit](../data/subjective_scores_2026.md#revision-rule-and-audit) gives every before/after value. These remain ordinal judgments with no data-to-score formula.
+The radius is linear on the author scale. No normalization against observed consumption or revenue, calibrated evidence-to-score formula, independent assessor procedure or empirical validation of the point differences is claimed. A filled circle means a numerical source informed a judgment; a hollow diamond means qualitative reasoning only. Both remain subjective scores. The general Life impact score represents author interpretation of potential lasting influence on an engaged person, not a measured effect or an established comparative ordering. It is not an average of detailed research outcomes. The illustrative profiles are separate from the literature-based findings.
 
-For music, the main profile covers direct and embedded online audible contact. A [separate scenario table](../data/music_online_scenarios.md) supplies a streaming-only reference drawn as a dashed segment on its first three axes. This records a change of exposure definition, not a fitted uplift. Embedded musical contact counts substantively, while unique people, intervals and days require within-music unions. No measured combined audience is inferred. Musical effects within video are not causally separated from other components. Original empirical tables and contextual figures retain their observations. Regenerated the gallery and all figures from the revised inputs.
+## Figure generation and reproduction
+
+Run from the project root with Python 3.9 or newer:
+
+```sh
+python3 scripts/build_figures.py
+python3 scripts/validate.py
+```
+
+The standard-library generator reads local tables and writes 15 standalone SVGs, adjacent TXT annotations and `figures/index.html`: eight individual radars, one eight-panel overview, four consumption-context figures and two participation figures. No network request, external chart library or empirical re-estimation occurs during the build. Figures and gallery are in English; the radar reading guide is Russian TXT. The [script notes](../scripts/README.md) describe output and marker conventions.
+
+## Validation and maintenance
+
+The validator checks input categories and counts, selected numerical anchors, missing values, score bounds, rationale coverage, music-scenario consistency, SVG structure, overview panels, accessibility IDs, label bounds, participation percentages and scales, TXT consistency, local file links and figure language. The [validation record](../results/04_validation.md) states current checks and limits. These checks establish packaging and internal consistency, not pixel-perfect layout, source accuracy, search completeness or scientific validity of author judgments.
+
+For an empirical input change, update its table, source and method note, rebuild affected outputs and validate. For an author score change, update its rationale and audit as well. Do not fill a missing empirical observation with an opinion. The [further-work plan](../FURTHER_WORK.md) specifies the protocol, comprehensive search, independent appraisal and synthesis required for a full systematic review.
+
+Historical implementation notes are kept in [the method archive](../sources/method_history.md) and [research log](../sources/research_log.md), separately from this description of the current methods.

@@ -58,7 +58,7 @@ def main():
     assert all(next(r for r in anchor_rows if r["category"]==cat)["money"]=="NA"
                for cat in ("music","film","series","books","games"))
     picture_svg=ET.parse(ROOT/"figures/radar-pictures.svg").getroot()
-    assert not [el for el in picture_svg.iter() if el.tag.endswith("circle")], "Pictures must have no numeric-anchor circles"
+    assert not [el for el in picture_svg if el.tag.endswith("circle")], "Pictures data must have no numeric-anchor circles (legend excluded)"
     questions=re.findall(r"^(\d+)\.", (ROOT/"research/06_hypotheses.md").read_text(), re.M)
     answers=re.findall(r"^\| H(\d+) \|", (ROOT/"results/01_findings.md").read_text(), re.M)
     assert list(map(int,questions))==list(range(1,28))

@@ -1,5 +1,9 @@
 # Findings
 
+Literature-based answers come from an exploratory review with a documented bounded targeted update, not exhaustive literature coverage. Confidence describes the specific conclusion, using [the methods definition](../research/05_methods_and_reproducibility.md#confidence-in-conclusions-and-search-coverage); completeness of the search is separate. Unresolved means not established within the selected evidence, not no effect or no relevant studies anywhere. See [the search and appraisal record](../sources/moderate_review_search_2026.md).
+
+Life influence includes major events and everyday/cumulative changes; [the separate outcome results](06_event_and_cumulative_outcomes.md) cover the latter without requiring a biographical turning point.
+
 ## Answers to the project hypotheses
 
 The numbered questions are collected in [Project hypotheses](../research/06_hypotheses.md). H01–H27 retain their question numbers and are grouped below by answer status. The hypotheses file contains questions only.
@@ -32,14 +36,14 @@ For substantive, partial, and tentative answers, confidence is qualitative: **hi
 
 | ID | Answer from the research | Confidence and reason | Evidence in the project |
 | --- | --- | --- | --- |
-| H05 | The provisional arithmetic points in that direction: short-video time rises 5.97%, long online video 0.67%, and all TV falls 2.76% between the selected snapshots. Actual relative growth remains unresolved. | Low: populations and media questions were not harmonized, the interval is not a verified one-year comparison, and uncertainty was not estimated. | [Provisional comparison](05_growth_feasibility.md#a-provisional-numerical-comparison) |
-| H12 | Plausible, but not demonstrated for cumulative short-video-feed exposure by this dossier. | Low: narrative-persuasion evidence supports a possible mechanism, but does not estimate years of feed exposure or its durable causal effects. | [Literature review](../research/02_literature_review.md), [cumulative exposure limits](../research/04_limitations.md#contact-versus-cumulative-environment) |
+| H04 | Tentative support from the GMI26 publisher analysis: its authors report short video as the fastest-growing measured format. Worldwide leadership across the project's eight creative-media categories remains unestablished. | Low for the comparative hypothesis: common waves, populations, uncertainty and the growth metric were not independently audited; GMI26 and DataReportal share GWI data. Moderate confidence applies only to growth of services in several measured settings, corroborated by Ipsos iris and Qustodio. | [Updated growth assessment](05_growth_feasibility.md#additional-evidence-and-updated-confidence), [source appraisal](../research/08_growth_evidence_search.md) |
+| H05 | Tentative support comes from GMI26's reported leadership among its measured formats. The dossier has not independently established faster short-video growth than long online video and TV. The +5.97% and +0.67% published-value differences establish neither consumption direction nor relative growth. | Low for this comparison: GMI26's paired series and absolute-versus-percentage ranking remain unaudited. Independent TikTok measurements strengthen bounded service-growth evidence but do not test this format comparison. | [Updated growth assessment](05_growth_feasibility.md#additional-evidence-and-updated-confidence) |
+| H12 | Plausible, with added repeated-exposure and timescale evidence; cumulative causal effects specific to creative short-video feeds remain unresolved. | Low for the actual hypothesis: the new studies distinguish trajectories from repeated responses, include null carryover, and often measure images or mixed platforms rather than the target feed. | [Cumulative-effects appraisal](../research/08_cumulative_media_effects.md), [separate outcomes](06_event_and_cumulative_outcomes.md) |
 
 ### No answer from the available evidence
 
 | ID | Answer from the research | Confidence and reason | Evidence in the project |
 | --- | --- | --- | --- |
-| H04 | Not established. The dossier cannot identify short vertical video as the fastest-growing medium by consumption time. | Not assigned: there is no harmonized recent consumption-time series spanning the comparison set. Platform growth does not isolate the target format. | [Growth assessment](05_growth_feasibility.md) |
 | H07 | Not established. The financial landmarks cannot identify the largest medium under a common market boundary. | Not assigned: reels is an annualized pace for one company; other values mix global markets, company revenue, US publishing. | [Financial observations](../data/annual_indicators.md), [source comparison](../research/03_source_comparison.md) |
 | H08 | Unresolved. The idea that individual clips are recognized for less time is an interpretive assumption in the radar rationale. | Not assigned: no matched longitudinal recognition test of specified works was selected. Recognition of memes, franchises, creators, and individual works must be distinguished. | [Recognition rationales](../data/score_rationales.md), [limitations](../research/04_limitations.md) |
 | H09 | Unresolved. No comparable incidence of turning points is established. Detailed impact scores have been removed from the radars; the replacement general life-impact scores are author interpretation, not an answer established by research. | Not assigned: no comparable population rates or causal estimates exist in the selected material. | [Radar profiles](02_radar_profiles.md), [limitations](../research/04_limitations.md#bias-in-the-impact-ratings) |
@@ -57,7 +61,7 @@ For substantive, partial, and tentative answers, confidence is qualitative: **hi
 
 ## Answer to the initial question
 
-Short-form vertical video is one of the central forms of everyday mass culture by 2026. The available online-adult snapshot supports broad reach and frequent use, but not absolute leadership across every definition of massness. Music also circulates inside other media. A complete global art-only ranking cannot be calculated from the selected evidence.
+Short-form vertical video is one of the central forms of everyday mass culture by 2026. Additional evidence gives moderate confidence that short-video services grew in several measured audiences; the fastest-growth ranking remains a low-confidence tentative interpretation of the GMI26 publisher analysis. See the [growth assessment](05_growth_feasibility.md#additional-evidence-and-updated-confidence). The available online-adult snapshot supports broad reach and frequent use, but not absolute leadership across every definition of massness. Music also circulates inside other media. A complete global art-only ranking cannot be calculated from the selected evidence.
 
 ## What can be compared empirically
 

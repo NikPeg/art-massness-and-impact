@@ -2,7 +2,7 @@
 
 Assessment date: **9 November 2026**.
 
-**Finding:** growth can be estimated, but the selected evidence does not establish first place across media by consumption time. Recent platform disclosures support continued growth in video consumption. A provisional comparison of survey snapshots suggests a much smaller increase in short-video time than popular view-count comparisons imply.
+**Finding:** confidence is now **moderate** that short-video services grew in several measured audiences and settings. Independent UK adult audience measurement and monitored children's app-use records supplement the GWI survey evidence. EMARKETER, Starcom and GWI report short video's leading growth among their measured formats, but confidence in a positive answer to the project's global fastest-growth question remains **low**: the underlying comparison has not been independently audited and does not isolate artistic vertical video. The older cross-snapshot arithmetic establishes neither the direction of consumption change nor relative growth.
 
 ## What the existing project establishes
 
@@ -10,7 +10,7 @@ The [2026 snapshot](../data/media_use_2026.md) gives short video 88.5% weekly re
 
 The financial table has only one short-video landmark, an annualized Reels revenue pace in 2025. Its derivative cannot be estimated. Revenue growth would measure monetization as well as consumption. Subjective radar scores have no measured historical trajectory.
 
-## A provisional numerical comparison
+## Differences between published values
 
 The July 2025 DataReportal article reports 6 hours 42 minutes for short video, 4 hours 57 minutes for long online video, and 10 hours 15 minutes for all TV per week. The current project retains the later short/long values; the Digital 2027 article also reports all-TV time of 9 hours 58 minutes.
 
@@ -22,9 +22,25 @@ The July 2025 DataReportal article reports 6 hours 42 minutes for short video, 4
 
 Sources: [Digital 2025 July](https://datareportal.com/reports/digital-2025-july-global-statshot), [Digital 2027](https://datareportal.com/reports/digital-2027-global-overview-report), and the [retained snapshot](../data/media_use_2026.md).
 
-**These are conditional arithmetic differences, not validated population growth estimates or year-on-year rates.** The earlier article warns of expanded coverage of people aged 65+. The later report excludes Russia and describes revised media-time questions. Exact earlier chart footnotes, matching country/age coverage, weights and question wording were not independently resolved in this extension. Publication dates must not substitute for fieldwork dates. Sampling uncertainty was not available for these differences.
+**These are arithmetic differences between published values. They establish neither the direction of consumption change nor relative growth.** The earlier article warns of expanded coverage of people aged 65+. The later report excludes Russia and describes revised media-time questions. Exact earlier chart footnotes, matching country/age coverage, weights and question wording were not independently resolved in this extension. Publication dates must not substitute for fieldwork dates. Sampling uncertainty was not available for these differences.
 
-If the observations can be harmonized, short video would have grown faster than these two video aggregates over this interval. This would still leave music, games, books and other art forms unranked. All TV also overlaps the project's film/series categories.
+Harmonization could change the differences and their ordering. These percentages are not evidence for H04 or H05, even with a low-confidence label. All TV also overlaps the project's film/series categories.
+
+## Additional evidence and updated confidence
+
+| Evidence | Reported result and scope | What it adds and what remains unresolved |
+| --- | --- | --- |
+| GMI26: EMARKETER / Starcom / GWI, 29 October 2026 | The 49-country report announces an increase of 21 weekly minutes for short video and describes it as the fastest-growing measured format. | An attributable publisher growth finding, rather than our subtraction of separate releases. It uses the same GWI survey family as DataReportal, so it is not independent replication. Exact paired waves, common country/age coverage, aggregation, uncertainty and absolute-versus-percentage ranking were not independently audited. The 21-minute finding must not be substituted for the older 24-minute difference. |
+| IRIS25: Ofcom / Ipsos iris, UK internet users aged 18+ | May 2024 to May 2025: TikTok monthly audience 24.0 to 27.3 million (+14% as reported); rounded daily time per monthly visitor 27 to 28 minutes. | Independent repeated measurement supports audience growth and a small increase in visitor-average service time. It covers smartphones, tablets and computers, excluding TV sets and smart displays. A changing visitor denominator and mixed app activities prevent treating this as a population short-video growth rate. |
+| QUST25: Qustodio, monitored children aged 4–18 | The publisher reports 10% more TikTok time in 2025 and a daily average of 2.2 hours. Its app/web records cover over 400,000 families. | Behavioral records corroborate growth in a different measured audience. Families using parental-control software are not representative of all children. App time does not isolate short-video viewing; full denominator and sample-composition rules remain unaudited. |
+
+Sources: [GMI26 release](https://www.emarketer.com/press-releases/emarketer-starcom-gwi-release-global-media-intelligence-report-2026/), [author discussion](https://www.emarketer.com/content/podcast-digital-lives-lifestyles-of-everyone-world-short-form-video-surges-ai-use-cases-more), [IRIS25, Figure 22, printed p. 35](https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/online-research/online-nation/2025/online-nations-report-2025.pdf?v=409837), [QUST25 results](https://www.qustodio.com/en/lost-in-the-scroll/), [Qustodio methodology summary](https://www.qustodio.com/en/research/annual-report-2025/).
+
+**Confidence assessment:** moderate for growth of short-video services within several measured settings; low for a tentative positive answer to H04 (fastest growth across media) and H05 (faster than long online video and TV). The publisher's reported ranking supplies a directional lead, but its underlying comparisons remain unaudited. Moderate confidence in bounded service growth must not be transferred to either comparative hypothesis. These are qualitative judgments, not probabilities or confidence intervals.
+
+GWI's own documentation records the [Q4 2024 question redesign](https://help.globalwebindex.com/en/articles/10725990-time-spent-on-media), [Q1 2025 expansion of 65+ coverage](https://help.globalwebindex.com/en/articles/11679923-gwi-core), and [Russia's removal from Q1 2026](https://help.globalwebindex.com/en/articles/15362711-release-notes-june-2026). Exact common-wave and population checks are required before adopting the ranking as a project finding.
+
+The [search appraisal](../research/08_growth_evidence_search.md) records access limits and further CNNIC/QuestMobile and Sensor Tower leads. Their full charts and methods were not retrieved successfully, so they do not contribute to the confidence upgrade. This was a targeted search, not a systematic review.
 
 ## Recent platform evidence and its limits
 
@@ -53,8 +69,10 @@ For artistic consumption specifically, estimate the artistic fraction `a(t)` of 
 
 ## Wording supported by this extension
 
-Use: **Short video combines very broad reach with evidence of continued consumption growth.**
+Use: **Short video has very broad reach, and several sources support growth of short-video services within their measured audiences. Confidence in this bounded growth conclusion is moderate.**
+
+For the comparison, attribute the claim: **EMARKETER, Starcom and GWI report the largest growth for short video among the formats they measure. This dossier has not independently validated that ranking or established worldwide leadership across all eight creative-media categories.**
 
 The growth questions are centralized as H04–H05 in [Project hypotheses](../research/06_hypotheses.md), with answers and confidence in [Findings](01_findings.md#answers-to-the-project-hypotheses). Establishing a growth leader requires a specified interval, geography, metric and comparison set, harmonized series, and an assessment of measurement uncertainty. A largest observed estimate in an incomplete set does not establish a universal winner.
 
-This extension adds no interpolated history, harmonized growth ranking, or changes to the radar scores. The provisional table is not an input to the figure generator.
+This extension adds no interpolated history, harmonized growth ranking, or changes to the radar scores. The published-value difference table and new growth evidence are not inputs to the figure generator.

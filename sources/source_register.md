@@ -1,5 +1,20 @@
 # Source register
 
+## Moderate literature update, 9 November 2026
+
+New source IDs, original links, access levels and inclusion/context/exclusion decisions are registered in the [selected candidate table](moderate_review_search_2026.md#selected-candidate-and-decision-register): NARR25, SHORT26, YTPSR26, READ18, READ24, MUSICREV23, MUSICEXP21, GAME14, GAME09, GAMEPRE26, PICART24 and PICSLOW25. This supplementary register does not overwrite earlier retrieval histories. Abstract-only candidates remain provisional, and a discovery lead is not a fully appraised result.
+
+## Consumption-growth evidence, reviewed 9 November 2026
+
+| ID | Source | Access and use |
+| --- | --- | --- |
+| GMI26 | [EMARKETER / Starcom / GWI release, 29 October 2026](https://www.emarketer.com/press-releases/emarketer-starcom-gwi-release-global-media-intelligence-report-2026/); [author discussion, 30 October](https://www.emarketer.com/content/podcast-digital-lives-lifestyles-of-everyone-world-short-form-video-surges-ai-use-cases-more) | Public release and transcript inspected. Publisher reports +21 weekly minutes and leading short-video growth across its measured formats in a 49-country report. Underlying paired tables, harmonization and uncertainty not independently audited. Same GWI survey family as DataReportal; not independent replication |
+| IRIS25 | [Ofcom, Online Nation 2025](https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/online-research/online-nation/2025/online-nations-report-2025.pdf?v=409837) | Original PDF text inspected, Figure 22, printed p. 35. UK online adults 18+, May 2024/2025; TikTok monthly audience 24.0/27.3 million and rounded daily minutes per monthly visitor 27/28. TV sets and smart displays excluded; whole-service use, not isolated short-video viewing |
+| QUST25 | [Qustodio, Lost in the Scroll](https://www.qustodio.com/en/lost-in-the-scroll/); [methodology summary](https://www.qustodio.com/en/research/annual-report-2025/) | Publisher HTML results and methodology inspected; full PDF exceeded retrieval size limit. Publisher reports +10% TikTok time in 2025, to 2.2 hours/day, in monitored children. Over 400,000 families with children 4-18; selected monitoring-software households, not a representative worldwide child sample. Detailed denominator rules unaudited |
+| GWIMETHOD26 | [Time spent on media](https://help.globalwebindex.com/en/articles/10725990-time-spent-on-media); [Core release history](https://help.globalwebindex.com/en/articles/11679923-gwi-core); [June 2026 release notes](https://help.globalwebindex.com/en/articles/15362711-release-notes-june-2026) | Original help articles inspected. Q4 2024 redesign, Q1 2025 expansion of 65+ coverage, and Russia removal from Q1 2026. Require exact common-wave checks; no automatic validation of GMI26 or cross-release arithmetic |
+
+Discovery leads only: [CNNIC 57th report / QuestMobile](https://www.cnnic.cn/n4/2026/0304/c88-11549.html) and [Sensor Tower State of Web 2026](https://sensortower.com/report/state-of-web-2026). Landing pages and indexed extracts were available; full PDFs repeatedly timed out. Their growth figures remain candidates requiring chart and methodology checks and do not support the confidence upgrade. Detailed assessment: [growth search note](../research/08_growth_evidence_search.md).
+
 ## Short-video social breadth, selected 9 November 2026
 
 | ID | Source | Access and use |
@@ -83,3 +98,17 @@ Appraised works and additional discovery leads are linked and qualified in the [
 | PICNEWS24 | [Chmel, Savin and Delli Carpini (2024), Making Politics Attractive](https://ijoc.org/index.php/ijoc/article/view/18119); [full text](https://ijoc.org/index.php/ijoc/article/viewFile/18119/4627) | Original abstract and indexed original PDF design text inspected; student convenience experiment, news attention outcome |
 | PICSHARE25 | [Vasquez et al. (2025), Sharing photographs on social media enhances recollection of photograph-related details](https://doi.org/10.1017/mem.2025.3) | Original publisher PDF abstract and procedure text inspected; experimental selective sharing and recall, not major life decisions |
 | PICMEM26 | [Peng and Bainbridge, Image memorability predicts social media virality and externally-associated commenting](https://arxiv.org/abs/2409.14659v3); [journal DOI](https://doi.org/10.1016/j.chb.2025.108799) | Author abstract/version history inspected. First preprint 2024; v3 September 2025; repository lists Computers in Human Behavior 174 (2026), 108799. Claims follow v3; journal full text not independently checked. Observational model-predicted memorability, not a causal effect |
+
+## Everyday and cumulative influence, selected 9 November 2026
+
+Study-level appraisal and confidence: [cumulative-effects review](../research/08_cumulative_media_effects.md). These are literature inputs, not numerical radar anchors.
+
+| ID | Original source | Access and use |
+| --- | --- | --- |
+| IMGDAILY23 | Fioravanti et al., online 2021 / issue 2023, [daily Instagram image exposure](https://doi.org/10.1177/14614448211038904); [university-hosted published PDF](https://internet.psych.wisc.edu/wp-content/uploads/532-Master/532-UnitPages/Unit-07/Fioravanti_NMS_2023.pdf) | Abstract, full-text methods and detailed results inspected; qualified contrasts retained, not just the abstract summary |
+| MUSICREG23 | Randall, Baltazar and Saarikallio, online 2023 / volume 2022, [affect-regulation goals in everyday listening](https://doi.org/10.1080/09298215.2023.2187310) | Publisher abstract and indexed methods/results inspected; direct full-text/PDF returned 403; episodic evidence |
+| SMDAILY26 | Van der Wal et al., online 2025 / issue 2026, [Diverse platforms, diverse effects](https://doi.org/10.1007/s12144-025-08893-7) | Publisher full text inspected, including descriptive-design qualification; not causal proof |
+| SMSTRESS26 | Siebers et al., online 30 September 2026, [From Days to Months](https://pubmed.ncbi.nlm.nih.gov/42820885/); [DOI](https://doi.org/10.1016/j.jadohealth.2026.07.021) | Original indexed abstract inspected; publisher full text returned 403; possible shared sample with SMDAILY26 |
+| SMCLOSE21 | Pouwels et al. (2021), [friendship closeness across timescales](https://pmc.ncbi.nlm.nih.gov/articles/PMC8551228/) | Full text inspected, including null follow-up and short-to-long-term linkage results |
+| SMHABIT23 | Ceylan, Anderson and Wood (2023), [Sharing of misinformation is habitual, not just lazy or biased](https://doi.org/10.1073/pnas.2216614120) | Original full-text methods/results inspected; news-sharing task is adjacent mechanism evidence |
+| NORMRAD09 | Paluck (2009), [Reducing Intergroup Prejudice and Conflict Using the Media](https://sparq.stanford.edu/sites/g/files/sbiybj19021/files/media/file/paluck_2009_-_reducing_intergroup_prejudice_and_conflict_using_the_media.pdf) | Published full text inspected; offline radio is contextual only, outside online-distribution target |

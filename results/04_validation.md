@@ -1,42 +1,26 @@
-# Reproduction and validation record
+# Reproduction and validation
 
-## Current eight-category package, 9 November 2026
+## Current package, 9 November 2026
 
-The target scope is creative content distributed through the internet. The full build produces 15 SVGs and the HTML gallery: eight individual radar profiles, one radar overview, four consumption context figures, and two participation figures. The data contain 40 financial cells, eight snapshot rows, and 48 subjective numeric scores, including eight author Life impact judgments, and 48 corresponding rationale entries. Radar consumption and money judgments have now been revised for online-only use; contextual empirical observations retain their original scopes. Music includes substantive embedded online musical contact, with a separately labeled streaming-only reference.
+The project covers eight categories of internet-distributed creative content. Inputs contain 40 financial cells (including missing values), eight 2026 snapshot rows, 48 subjective radar scores and 48 rationale entries. The full build produces 15 SVGs and an HTML gallery: eight individual radars, one overview, four consumption-context figures and two participation figures. Financial context remains in tables without a common chart.
 
-Commands run from the project root:
+All radars have six scored axes, including general Life impact. Scores illustrate author judgments; they are not empirical estimates or research findings. Music has a separate dashed streaming-only reference alongside its inclusive-online profile. Pictures have no matched empirical consumption/revenue observations or numerical radar anchors.
+
+## Checks
+
+Run from the project root:
 
 ```sh
 python3 scripts/build_figures.py
 python3 scripts/validate.py
 ```
 
-Both commands passed after the radar simplification. The validator also checks pictures-only gaps, hollow markers, and 27 question/answer IDs.
+The validator checks categories/counts, selected source observations, missing values, score bounds, rationale coverage, music scenario consistency, qualitative pictures data markers, 27 question/answer IDs, SVG syntax, overview panels, accessibility IDs, label bounds, participation values/scales, TXT annotations, local Markdown file links and English figure text. A source-anchor legend circle is distinct from a data marker.
 
-The validator checks table categories and counts, selected observations, score bounds, rationale coverage, SVG syntax, overview panels, accessibility IDs, snapshot label bounds, participation values and scales, TXT annotations, local Markdown links, and English figure text. Structural checks do not establish pixel-level layout quality or validate subjective judgments and source producers' data. Scripts contain no network dependencies.
+The full build and validator passed for the current documentation consolidation on 9 November 2026. Documentation links and whitespace were checked separately. No empirical observation, radar score or rendering rule was changed by that consolidation.
 
-Visually inspected the pictures radar, complete eight-panel overview, and updated reach chart in a browser through a temporary loopback server. Labels, values, and hollow markers were visible without clipping. The pictures row was present without a fabricated observation. Other figures received structural checks; no new visual inspection of those figures is claimed.
+## Limits of verification
 
-The project is a reproducible exploratory dossier, not a validated causal ranking of creative media.
+Automated checks establish structural consistency and packaging. They do not validate source producers' data, literature completeness, causal conclusions or author scores; local file checks do not test external URLs or every section anchor. Historical visual checks covered selected figures and earlier versions; they do not certify every current figure or this documentation revision. No new visual inspection is claimed for this revision.
 
-## Social-breadth hypothesis extension
-
-After adding H27 and its source assessment, `python3 scripts/validate.py` passed on 9 November 2026. No empirical figure inputs or radar scores changed; no new figure build or visual inspection was required.
-
-## Radar simplification, 9 November 2026
-
-Removed the five detailed personal-impact axes and their numerical scores. General Life impact is NA for every category; no scores were transferred or averaged. The generator leaves the profile open and unfilled, and the overview follows alphabetical category order. Updated rationale and missing-value validation; rebuilt all figures and ran the full validator. The visual inspection described above predates this revision.
-
-## Removal of the common financial chart
-
-Removed the financial SVG and annotation, its gallery entry, and its embedding in the findings. Financial source observations remain in the Markdown tables. The generator removes obsolete financial outputs on rebuild. The full build and validator passed after this removal; no chart geometry or empirical values changed.
-
-## Online-scope score revision
-
-Rebuilt the current gallery after revising 22 consumption/money author scores and removing incompatible numeric anchor flags. Added a data-driven streaming-only reference segment on the music radar, alongside the qualitative inclusive-online music profile. The validator checks that the inclusive scenario matches the main profile, that its consumption/money markers remain qualitative, that the dashed reference exists, and that whole-market revenues do not reappear as numeric anchors.
-
-The full build and validator passed on 9 November 2026. Rendered the music radar and complete overview to PNG with the bundled Sharp SVG renderer and visually inspected them. Moved the streaming-reference caption below the money-axis score to prevent overlap. This checks rendering and consistency, not the validity of the subjective point choices.
-
-## Subjective Life impact completion, 9 November 2026
-
-At the user's request, assigned Life impact scores of 5/8/8/8/8/9/8/6 in source-table category order. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. These are fresh judgments requested by the user, not averages of the former detailed axes. Profiles are now closed and lightly filled. Updated SVG descriptions, Russian annotations, gallery notes, rationales, and score validation.
+Detailed past runs, visual checks and superseded failures are retained in [the validation archive](../sources/validation_history.md). The [methods](../research/05_methods_and_reproducibility.md) describe the current workflow. This remains an exploratory dossier, not a validated causal ranking of media.

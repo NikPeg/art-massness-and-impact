@@ -77,6 +77,8 @@ def social_breadth():
     groups = ["Most deprived areas, IMD decile 1", "Least deprived areas, IMD decile 10"]
     title = "Arts participation by area deprivation | England, 2024/25"
     width, height, x, body = frame(title, 230, left=245)
+    body += mark(250, 49, "#2463ad") + text(262, 53, "Most deprived areas", size=11)
+    body += mark(460, 49, "#b96216", diamond=True) + text(472, 53, "Least deprived areas", size=11)
     description, comparisons = [], []
     for i, (measure, label) in enumerate(measures):
         values = []
@@ -91,7 +93,7 @@ def social_breadth():
         body += text(229, y + 4, label, "end")
         body += line(x(values[0]), y, x(values[1]), y, "#9da9b5", 2)
         for j, value in enumerate(values):
-            # Distinct shapes remain readable in grayscale; legend is in TXT.
+            # Distinct shapes remain readable in grayscale.
             body += mark(x(value), y, "#2463ad" if j == 0 else "#b96216", diamond=j == 1)
             body += text(x(value), y - 13 if j == 0 else y + 25, f"{value:g}%", "middle")
             description.append(f"{label}, {groups[j]}: {value:g}%")
