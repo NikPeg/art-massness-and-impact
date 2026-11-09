@@ -1,5 +1,9 @@
 # Search and audit log
 
+## 9 November 2026 — inspected GMI26 growth chart
+
+Archived the user-supplied screenshot of EMARKETER chart 573622 and transcribed all 12 rows. Confirmed H1 2026, ages 16–64 and percentage change; distinguished the author-described year-on-year baseline from the labels printed on the chart. Recorded the search for open copies, adjacent publications, commercial survey basis, method and format mapping. Raised bounded H04/H05 proxy confidence from low to moderate; retained partial status and unresolved universal/vertical comparisons. Added a dependency-free Russian SVG/HTML renderer and integrated it into the empirical gallery. Earlier entries retain their historical confidence assessments.
+
 This file records historical searches and decisions, not a sequential description of the current methods. Superseded category counts and configurations below belong to the date/version discussed. Use [current methods](../research/05_methods_and_reproducibility.md), [current validation](../results/04_validation.md), [method history](method_history.md) and [validation history](validation_history.md) to distinguish present state from the audit trail.
 
 ## Standalone empirical chart labeling, 9 November 2026

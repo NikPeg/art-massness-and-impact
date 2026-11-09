@@ -45,7 +45,7 @@ Markdown tables in `data/` are the authoritative script inputs. `NA` means missi
 | Input | Treatment | Boundary |
 | --- | --- | --- |
 | [2026 media use](../data/media_use_2026.md) | Convert reported weekly hours/minutes to weekly minutes, then divide by seven for a daily mean; frequency stays days per week | International online-adult survey categories do not consistently isolate all eight project categories or online distribution |
-| [Annual context](../data/annual_indicators.md) | Store annual dollars in billions; sum the two AAP fiction categories; multiply reported BLS hours by 60 for the US time-use figure | Market totals, company revenue, box office and annualized revenue pace are incompatible; financial values appear in tables without a common chart |
+| [Annual context](../data/annual_indicators.md) | Store annual dollars in billions; sum the two AAP fiction categories; multiply reported BLS hours by 60 for the US time-use figure | Market totals, company revenue, box office and annualized revenue pace are incompatible; financial values remain in tables without a chart |
 
 Whole-market revenues, print-inclusive publishing, cinema attendance, broad listening and US diaries are contextual evidence, not matched online-only observations. Missing online-only measures remain gaps. Consumer participation, original creation, remixing and redistribution are distinct activities.
 
@@ -77,7 +77,7 @@ python3 scripts/build_figures.py
 python3 scripts/validate.py
 ```
 
-The standard-library generator reads local tables and writes 13 standalone SVGs, adjacent TXT annotations and two HTML galleries (`figures/index.html` for empirical/context charts and `author-interpretations/index.html` for author interpretations): eight individual radars, one eight-panel overview, four consumption-context figures. No network request, external chart library or empirical re-estimation occurs during the build. SVG figures are in English; the author-interpretation gallery, its README and radar reading guide are in Russian. The [script notes](../scripts/README.md) describe output and marker conventions.
+The standard-library generators read local tables and write 15 standalone SVGs, adjacent TXT annotations and two HTML galleries (`figures/index.html` for empirical/context charts and `author-interpretations/index.html` for author interpretations): eight individual radars, one eight-panel overview, four consumption-context figures, a reach/time scatter and a media-growth chart. The compact reach/time figure retains minimal visible text and moves full sources and interpretation limits to its adjacent TXT file. No network request, external chart library or empirical re-estimation occurs during the build. SVG figures are in English; the author-interpretation gallery, its README and radar reading guide are in Russian. The [script notes](../scripts/README.md) describe output and marker conventions.
 
 Empirical SVGs include precise source-category labels, explicit missing observations, population, period, units, source and essential scope limits directly in the image. TXT sidecars provide extended context rather than carrying the only explanation. Snapshot categories and the US diary activities have separate labels reflecting their different measurements.
 

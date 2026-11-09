@@ -89,7 +89,39 @@ def main():
         assert all(0<=float(el.attrib["y"])<height for el in tree.iter() if el.tag.endswith("text"))
     svgs=list((ROOT/"figures").glob("*.svg")) + list(SUBJECTIVE.glob("*.svg"))
     assert not list((ROOT/"figures").glob("radar-*")), "Radars belong in the author-interpretation folder"
-    assert len(svgs)==13
+    # Compact comparisons preserve exact point coordinates and ship detailed sidecars.
+    scatter = ET.parse(ROOT/"figures/reach-time-2026.svg").getroot()
+    circles = [el for el in scatter if el.tag.endswith("circle")]
+    observed = [r for r in snapshot if r["weekly_reach_percent"] != "NA" and r["weekly_minutes"] != "NA"]
+    assert len(circles) == len(observed) == 5
+    for point, row in zip(circles, observed):
+        assert abs(float(point.attrib["cx"]) - (85 + float(row["weekly_reach_percent"]) / 100 * 845)) < 1e-8
+        assert abs(float(point.attrib["cy"]) - (550 - float(row["weekly_minutes"]) / 500 * 455)) < 1e-8
+    for name in ("reach-time-2026",):
+        assert (ROOT/"figures"/(name + ".txt")).is_file()
+        assert "https://" in (ROOT/"figures"/(name + ".txt")).read_text()
+        tree = ET.parse(ROOT/"figures"/(name + ".svg")).getroot()
+        assert all(0 <= float(el.attrib["x"]) <= float(tree.attrib["width"])
+                   and 0 <= float(el.attrib["y"]) <= float(tree.attrib["height"])
+                   for el in tree.iter() if el.tag.endswith("text"))
+    # GMI26 transcription and plotted percentage signs must agree.
+    growth = table_with(ROOT/"data/media_growth_h1_2026.md", "change_percent")
+    assert len(growth) == 12
+    assert growth[0]["weekly_hhmm"] == "7:06" and growth[0]["change_percent"] == "5.2"
+    assert growth[-1]["weekly_hhmm"] == "4:15" and growth[-1]["change_percent"] == "-5.9"
+    chart = ET.parse(ROOT/"figures/media-growth-h1-2026.svg").getroot()
+    bars = [el for el in chart.iter() if "data-category" in el.attrib]
+    assert len(bars) == 12
+    for bar, row in zip(bars, sorted(growth, key=lambda r: float(r["change_percent"]), reverse=True)):
+        value = float(row["change_percent"])
+        assert bar.attrib["data-category"] == row["category"]
+        assert float(bar.attrib["data-value"]) == value
+        assert abs(float(bar.attrib["width"]) - abs(value)*36) < 1e-8
+        assert abs(float(bar.attrib["x"]) - min(850, 850+value*36)) < 1e-8
+    assert all(0 <= float(el.attrib["x"]) <= 1120 and 0 <= float(el.attrib["y"]) <= 1030
+               for el in chart.iter() if el.tag.endswith("text"))
+    assert (ROOT/"sources/assets/gmi26-chart-573622.png").is_file()
+    assert len(svgs)==15
     for path in svgs:
         tree=ET.parse(path)
         assert tree.getroot().tag.endswith("svg")
@@ -114,10 +146,12 @@ def main():
     broken = check_local_links(ROOT)
     assert not broken, "Broken local Markdown links (file, line, target, reason):\n" + "\n".join(map(str, broken))
     for path in svgs:
+        if path.name == "media-growth-h1-2026.svg":
+            continue  # Explicitly Russian GMI26 reproduction.
         assert not re.search(r'[\u0400-\u04ff]', " ".join(ET.parse(path).getroot().itertext())), f"Non-English SVG text: {path}"
     assert (SUBJECTIVE/"README.md").is_file()
     assert (SUBJECTIVE/"index.html").is_file()
-    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; 48 subjective scores and rationales; 13 SVGs; Russian TXT; local files and section anchors; English figures.")
+    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; exact comparison coordinates; 48 subjective scores and rationales; 15 SVGs; TXT annotations; local files and section anchors; English figures plus Russian growth chart.")
 
 
 if __name__=="__main__":

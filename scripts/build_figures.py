@@ -300,6 +300,10 @@ def radar_overview(radar_names):
 
 
 def build():
+    from build_comparison_figures import build as build_comparisons
+    from build_growth_figure import build as build_growth
+    from build_gwi_figures import build as build_gwi
+
     OUT.mkdir(exist_ok=True)
     SUBJECTIVE.mkdir(exist_ok=True)
     # Remove obsolete outputs: incompatible financial scopes must not share an axis.
@@ -324,7 +328,11 @@ def build():
     anchors={r["category"]:r for r in anchor_rows}
     radar_names=[radar(r,anchors[r["category"]]) for r in score_rows]
     radar_overview(radar_names)
-    figures=[("US time use","us-time-use.svg"),
+    build_comparisons()
+    build_growth()
+    build_gwi()
+    figures=[("Рост потребления медиа: H1 2026 (RU)", "media-growth-h1-2026.svg"),("Reach and consumption time", "reach-time-2026.svg"),
+             ("US time use","us-time-use.svg"),
              ("Weekly reach","reach-2026.svg"),("Daily time","time-2026.svg"),("Frequency","frequency-2026.svg")]
     panels="".join(f'<section><h2>{html.escape(title)}</h2><img src="{name}" alt="{html.escape(title)}" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>' for title,name in figures)
     subjective_panels='<p><a href="radar-overview.svg">Open full-size radar overview</a> · <a href="radar-overview.txt">Russian annotation (TXT)</a></p>'
@@ -337,8 +345,8 @@ body{font:16px/1.55 system-ui,sans-serif;color:#202a34;background:white;margin:2
 img{display:block;width:100%;height:auto}section{margin:24px 0}.radars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 @media(max-width:760px){.radars{grid-template-columns:1fr}}a{color:#2463ad}</style>
 <h1>Internet-distributed media, mass reach, and life impact</h1><p>Two separate comparisons: primary work formats and media components across those formats. The snapshot figures below show broad format proxies, with music streaming explicitly labeled. Component totals are unmeasured; a painting shown in a vertical video remains image contact. <a href="../data/media_components_2026.md">Component comparison and gaps</a> · <a href="../research/01_scope_and_metrics.md">Coding rules</a>.</p><p>As of 9 November 2026. Eight categories of media content distributed through the internet. Empirical observations and contextual indicators.</p>
-<p>Whole-market financial series and US diaries are contextual evidence, not online-only measurements. Financial observations are retained only in the source tables because their market and accounting scopes differ; no common financial chart is shown. The US diary and international survey are separate populations. Pictures have no matched consumption or revenue values. Long online video is a broader proxy for horizontal media works; its financial series is missing. Author interpretations and radar profiles are presented separately.</p>
-<p><a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../author-interpretations/index.html">Author interpretations and radars</a></p>'''+panels+"</html>\n"
+<p>Whole-market financial series and US diaries are contextual evidence, not online-only measurements. Financial observations remain in the source tables. The compact reach/time figure has detailed sources and limitations in its adjacent TXT annotation. The US diary and international survey are separate populations. Pictures have no matched consumption or revenue values. Long online video is a broader proxy for horizontal media works; its financial series is missing. Author interpretations and radar profiles are presented separately.</p>
+<p><a href="gwi/index.html">Графики GWI на русском</a> · <a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../author-interpretations/index.html">Author interpretations and radars</a></p>'''+panels+"</html>\n"
     write("index.html",page)
     subjective_page = '''<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Author Interpretations</title><style>

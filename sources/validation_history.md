@@ -1,5 +1,9 @@
 # Historical validation records
 
+## 9 November 2026 — GMI26 chart reproduction
+
+Full figure build and project validation passed after adding the Russian growth chart. Checks cover 12 input rows, source screenshot existence, percentage values, signed bar geometry, SVG syntax, text-coordinate bounds, local links and output count (16 SVGs). Standalone generator and Python compilation also passed. Browser visual inspection was unavailable: local file URLs were blocked by browser policy; Quick Look failed in the sandbox. No visual-render verification is claimed.
+
 These records concern successive versions and include superseded configurations and failures. They do not describe current status. See [current validation](../results/04_validation.md). Relative links in the archived text retain the same sibling depth as the original results file.
 
 # Reproduction and validation record
