@@ -2,7 +2,7 @@
 
 ## Current eight-category package, 9 November 2026
 
-The target scope is creative content distributed through the internet. The full build produces 15 SVGs and the HTML gallery: eight individual radar profiles, one radar overview, four consumption context figures, and two participation figures. The data contain 40 financial cells, eight snapshot rows, and 40 subjective numeric scores, eight unassessed Life impact entries, and 48 corresponding rationale entries. Radar consumption and money judgments have now been revised for online-only use; contextual empirical observations retain their original scopes. Music includes substantive embedded online musical contact, with a separately labeled streaming-only reference.
+The target scope is creative content distributed through the internet. The full build produces 15 SVGs and the HTML gallery: eight individual radar profiles, one radar overview, four consumption context figures, and two participation figures. The data contain 40 financial cells, eight snapshot rows, and 48 subjective numeric scores, including eight author Life impact judgments, and 48 corresponding rationale entries. Radar consumption and money judgments have now been revised for online-only use; contextual empirical observations retain their original scopes. Music includes substantive embedded online musical contact, with a separately labeled streaming-only reference.
 
 Commands run from the project root:
 
@@ -30,3 +30,13 @@ Removed the five detailed personal-impact axes and their numerical scores. Gener
 ## Removal of the common financial chart
 
 Removed the financial SVG and annotation, its gallery entry, and its embedding in the findings. Financial source observations remain in the Markdown tables. The generator removes obsolete financial outputs on rebuild. The full build and validator passed after this removal; no chart geometry or empirical values changed.
+
+## Online-scope score revision
+
+Rebuilt the current gallery after revising 22 consumption/money author scores and removing incompatible numeric anchor flags. Added a data-driven streaming-only reference segment on the music radar, alongside the qualitative inclusive-online music profile. The validator checks that the inclusive scenario matches the main profile, that its consumption/money markers remain qualitative, that the dashed reference exists, and that whole-market revenues do not reappear as numeric anchors.
+
+The full build and validator passed on 9 November 2026. Rendered the music radar and complete overview to PNG with the bundled Sharp SVG renderer and visually inspected them. Moved the streaming-reference caption below the money-axis score to prevent overlap. This checks rendering and consistency, not the validity of the subjective point choices.
+
+## Subjective Life impact completion, 9 November 2026
+
+At the user's request, assigned Life impact scores of 5/8/8/8/8/9/8/6 in source-table category order. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. These are fresh judgments requested by the user, not averages of the former detailed axes. Profiles are now closed and lightly filled. Updated SVG descriptions, Russian annotations, gallery notes, rationales, and score validation.

@@ -4,6 +4,8 @@ GWI Q2 2026 | Online adults 16+ in covered markets | Gaps are not zeros. Russia 
 
 Source: DataReportal Digital 2027, pages 38-40. Data and boundaries: ../data/media_use_2026.md.
 
+Music here is streaming only. Audible music in short/long online videos, films, series and games is additional overlapping musical contact, not captured as a combined union in this table. Neither summing category audiences nor assigning all video minutes to music estimates that union.
+
 Weekly time is divided by seven to obtain daily minutes. Frequency is days per week; device groups can overlap. For games frequency, the upper circle is mobile and the lower hollow diamond is PC/console; do not add them.
 
 Blank rows have no comparable selected observation:

@@ -2,7 +2,7 @@
 
 The comparison targets creative content distributed through the internet. Consumption and money judgments were revised on 9 November 2026, with offline anchors removed. See the [before/after audit](../data/subjective_scores_2026.md#revision-rule-and-audit). Unmeasured online-only values remain qualitative judgments.
 
-All eight diagrams use five scored axes on the same 0–10 scale, plus one general Life impact axis that is not assessed for any category. No point is drawn on that axis; the profile is open and unfilled. The five detailed personal-impact axes and their scores have been removed rather than combined. Every retained numeric score is an author judgment. Filled points have a numerical source anchor; hollow points have qualitative reasoning only. Neither kind is an objective score. Definitions and all 48 rationale entries are in [the data](../data/score_rationales.md).
+All eight diagrams use six scored axes on the same 0–10 scale, forming closed, lightly filled profiles. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. These are fresh judgments requested by the user, not averages of the former detailed axes. Every retained numeric score is an author judgment. Filled points have a numerical source anchor; hollow points have qualitative reasoning only. Neither kind is an objective score. Definitions and all 48 rationale entries are in [the data](../data/score_rationales.md).
 
 The interpretive questions underlying these profiles are centralized in [Project hypotheses](../research/06_hypotheses.md), with answers and confidence in [Findings](01_findings.md#answers-to-the-project-hypotheses). Profile descriptions below explain the model, not independent tests of those questions.
 
@@ -16,13 +16,13 @@ The interpretive questions underlying these profiles are centralized in [Project
 
 ![Short-form video radar](../figures/radar-short-video.svg)
 
-The model emphasizes frequent, broad consumption. General influence on life is left unassessed, as it is for every other category.
+The model emphasizes frequent, broad consumption. Life impact is a subjective 5/10, reflecting possible cumulative habit and perspective changes.
 
 ## Long-form horizontal online video
 
 ![Long horizontal video radar](../figures/radar-long-video.svg)
 
-The model covers creator-led essays, authored vlogs, and other horizontal creative online works rather than feature films. It gives room for developed explanation, reflection, and repeated creator contact. Reach, time, and frequency are anchored to the broader GWI long-online-video proxy. Money is a qualitative hypothesis; life impact is unassessed and no long-video causal ranking is established. See the [working definition](../research/01_scope_and_metrics.md) and [new limitations](../research/04_limitations.md#additional-limitations-introduced-by-long-horizontal-video).
+The model covers creator-led essays, authored vlogs, and other horizontal creative online works rather than feature films. It gives room for developed explanation, reflection, and repeated creator contact. Reach, time, and frequency are anchored to the broader GWI long-online-video proxy. Money is a qualitative hypothesis; life impact is a subjective 8/10 and no long-video causal ranking is established. See the [working definition](../research/01_scope_and_metrics.md) and [new limitations](../research/04_limitations.md#additional-limitations-introduced-by-long-horizontal-video).
 
 ## Music
 
@@ -58,8 +58,8 @@ The model combines broad consumption with agency and shared experience. Applying
 
 ![Pictures radar](../figures/radar-pictures.svg)
 
-This profile covers online photography, illustration, drawings, collages, and image memes. It hypothesizes broad, recurrent exposure; life impact is unassessed. All five scored markers are hollow; no comparable numerical consumption/revenue anchor was selected. Memory, news attention, and curated-gallery findings do not calibrate these scores or establish major life effects. See the [pictures appraisals](../research/02_literature_review.md#pictures-research-2024-2026).
+This profile covers online photography, illustration, drawings, collages, and image memes. It hypothesizes broad, recurrent exposure; life impact is a subjective 6/10. All six scored markers are hollow; no comparable numerical consumption/revenue anchor was selected. Memory, news attention, and curated-gallery findings do not calibrate these scores or establish major life effects. See the [pictures appraisals](../research/02_literature_review.md#pictures-research-2024-2026).
 
 ## Interpretation
 
-Differences of one point are not meaningful. Allowing roughly two points of judgment on uncertain axes could alter several apparent rankings. Do not add the axes into a single winner. The retained scores describe consumption, market scale, and cultural recognition. The general life-impact axis has no numeric comparison. These diagrams illustrate author assumptions, not research findings about comparative life influence.
+Differences of one point are not meaningful. Allowing roughly two points of judgment on uncertain axes could alter several apparent rankings. Do not add the axes into a single winner. The retained scores describe consumption, market scale, and cultural recognition. The general life-impact scores are author assumptions, with no supporting comparative research found in the project review. These diagrams illustrate author assumptions, not research findings about comparative life influence.

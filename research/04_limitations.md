@@ -16,7 +16,7 @@ Platform and television totals contain non-artistic material. A vertical orienta
 - **Mixed mechanisms:** essays, vlogs, performances, explainers, and interviews vary in narrative, factual information, and creator relationships. A useful tutorial's effect on a career is not automatically an artistic effect. The existing narrative-persuasion literature does not validate an effect estimate for this new category.
 - **Dose and creator confounding:** a longer work has more exposure time, while repeated contact with a creator or community may explain significance. Duration, genre, prior interest, attention, and creator attachment need separate measurement. Autoplay, skipped segments, playback speed, and background listening further separate reported minutes from attentive exposure.
 - **Financial and historical gaps:** no isolated 2021–2025 revenue or matched consumption series is selected for the new category. Platform totals mix formats and revenue streams; sponsorship, memberships, and off-platform income can overlap. Adding the category increases missing coverage rather than completing the market comparison.
-- **Additional subjective judgments:** the extension originally added ten radar values and rationales. After removal of detailed personal-impact scores, the current package retains 40 numeric scores and eight unassessed general Life impact entries. Three consumption anchors are broader proxies and the money rating is qualitative. The apparent position of long video relative to books, films, or short video is an author hypothesis, not new empirical evidence about life change.
+- **Additional subjective judgments:** the extension originally added ten radar values and rationales. After removal of detailed personal-impact scores, the current package retains 48 subjective numeric scores, including eight general Life impact judgments. Three consumption anchors are broader proxies and the money rating is qualitative. The apparent position of long video relative to books, films, or short video is an author hypothesis, not new empirical evidence about life change.
 
 ## Online-distribution scope
 
@@ -44,17 +44,17 @@ Listening can occur while working or traveling. Watching a film can involve conc
 
 ## What the radar scores are
 
-The 40 retained numeric radar values are subjective judgments. The general Life impact axis is unassessed for all eight categories. A numeric anchor informs a judgment but is not a mathematical conversion. Broad-format judgments are sometimes informed by narrower proxies. The score rationale explicitly identifies those proxies.
+All 48 numeric radar values are subjective judgments. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. These are fresh judgments requested by the user, not averages of the former detailed axes. A numeric anchor informs a judgment but is not a mathematical conversion. Broad-format judgments are sometimes informed by narrower proxies. The score rationale explicitly identifies those proxies.
 
-The model shows aggregate reach, consumption, market scale, and cultural recognition; general life impact remains a missing value. It is a profile, not a latent scientific index. The suggested ±2-point latitude is a qualitative caution, not a confidence interval, expert-consensus range, or computed uncertainty estimate.
+The model shows aggregate reach, consumption, market scale, and cultural recognition; general life impact reflects author interpretation of potential influence on an engaged person. It is a profile, not a latent scientific index. The suggested ±2-point latitude is a qualitative caution, not a confidence interval, expert-consensus range, or computed uncertainty estimate.
 
 ## Bias in the impact ratings
 
-The former detailed impact scores implied an unsupported comparative advantage, particularly for books over short video. Those axes and scores have been removed. Their replacement, general Life impact, is unassessed for every category: there is no calibrated evidence-to-score procedure or matched comparison. No former impact scores were averaged or transferred. Genres and individual works vary greatly within each category.
+The former detailed impact scores implied an unsupported comparative advantage, particularly for books over short video. Those axes and scores have been removed. Their replacement, general Life impact, now has author scores at the user's request. There is no calibrated evidence-to-score procedure or matched comparison. The higher book score is an author assumption and may reflect bias. No former impact scores were averaged or transferred. Genres and individual works vary greatly within each category.
 
 ## Radar geometry
 
-Polygon area depends on axis order and on an arbitrary ordinal scale. Adjacent dimensions are correlated. The current profiles remain open and unfilled at the missing Life impact axis and are displayed in alphabetical category order. No area ranking or sum is computed. The axis order and scale are held constant only to make profile differences readable.
+Polygon area depends on axis order and on an arbitrary ordinal scale. Adjacent dimensions are correlated. The current profiles are closed and lightly filled and are displayed in alphabetical category order. Their filled areas do not establish overall superiority. No area ranking or sum is computed. The axis order and scale are held constant only to make profile differences readable.
 
 ## Limits of the participation extension
 

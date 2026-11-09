@@ -1,19 +1,19 @@
 # Revised subjective online-content radar scores
 
-Each numeric value below is an author judgment for an illustrative 2026 profile. The general Life impact axis is NA (not assessed) for every category. The former significance, beliefs, actions, persistence, and biography scores have been removed; they are neither averaged nor transferred into the new axis. No calibrated comparative procedure supports a life-impact score. None is a measured scientific score, a percentile, a probability, or a percentage. A source anchor is evidence informing the judgment, not a normalization formula. No total score is computed. Reassessed on 9 November 2026 for internet-distributed content. Offline listening, cinema attendance and print consumption do not support these ratings. The revision is a new author assessment, not a statistical re-estimation from microdata.
+Each numeric value below is an author judgment for an illustrative 2026 profile. Life impact is a new subjective author interpretation of potential lasting influence on an engaged person, including reflection, identity, choices, and habits. Research supporting these exact scores or their cross-medium ordering has not been found in the project review. The earlier five detailed impact axes were inspected in Git history (5de5c35); the new scores are fresh judgments, not restored values, averages, or measured effects. No calibrated comparative procedure supports them. None is a measured scientific score, a percentile, a probability, or a percentage. A source anchor is evidence informing the judgment, not a normalization formula. No total score is computed. Reassessed on 9 November 2026 for internet-distributed content. Offline listening, cinema attendance and print consumption do not support these ratings. The revision is a new author assessment, not a statistical re-estimation from microdata.
 
 | category | reach | time | frequency | money | recognition | life_impact |
 | --- | --- | --- | --- | --- | --- | --- |
-| short_video | 9 | 8 | 9 | 9 | 5 | NA |
-| long_video | 8 | 6 | 7 | 8 | 7 | NA |
-| music | 9 | 9 | 9 | 7 | 10 | NA |
-| film | 7 | 5 | 5 | 7 | 9 | NA |
-| series | 7 | 6 | 6 | 8 | 9 | NA |
-| books | 4 | 4 | 5 | 5 | 9 | NA |
-| games | 7 | 8 | 7 | 9 | 8 | NA |
-| pictures | 9 | 5 | 9 | 7 | 8 | NA |
+| short_video | 9 | 8 | 9 | 9 | 5 | 5 |
+| long_video | 8 | 6 | 7 | 8 | 7 | 8 |
+| music | 9 | 9 | 9 | 7 | 10 | 8 |
+| film | 7 | 5 | 5 | 7 | 9 | 8 |
+| series | 7 | 6 | 6 | 8 | 9 | 8 |
+| books | 4 | 4 | 5 | 5 | 9 | 9 |
+| games | 7 | 8 | 7 | 9 | 8 | 8 |
+| pictures | 9 | 5 | 9 | 7 | 8 | 6 |
 
-The first four axes were reviewed across all eight categories. Pictures remain unchanged because their existing scope was already online. Recognition remains a qualitative hypothesis about online encounters. Life impact is not assessed in the current axis model; the scope revision does not supply a calibrated effect estimate.
+The first four axes were reviewed across all eight categories. Pictures remain unchanged because their existing scope was already online. Recognition remains a qualitative hypothesis about online encounters. Life impact is now scored at the user's request as author interpretation; the scope revision does not supply a calibrated effect estimate.
 
 ## Axes with numeric anchors
 

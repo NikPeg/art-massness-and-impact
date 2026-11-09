@@ -28,8 +28,7 @@ def main():
     score_rows=table_with(ROOT/"data/subjective_scores_2026.md","recognition")
     assert len(score_rows)==8
     for row in score_rows:
-        assert row["life_impact"] == "NA"
-        assert all(0<=float(row[a])<=10 for a in AXES if a != "life_impact")
+        assert all(0<=float(row[a])<=10 for a in AXES)
         assert (ROOT/"figures"/("radar-"+row["category"].replace("_","-")+".svg")).is_file()
     rationales=table_with(ROOT/"data/score_rationales.md","rationale")
     assert len(rationales)==48
@@ -80,6 +79,11 @@ def main():
     for panel, row in zip(panels, sorted(score_rows, key=lambda row: RADAR_NAMES[row["category"]].casefold())):
         individual=ET.parse(ROOT/"figures"/("radar-"+row["category"].replace("_","-")+".svg")).getroot()
         assert panel.find(f"{ns}desc").text==individual.find(f"{ns}desc").text
+        profile=[p for p in individual.findall(f"{ns}path") if p.attrib.get("fill-opacity")=="0.11"]
+        assert len(profile)==1 and profile[0].attrib["d"].endswith("Z"), "Scored profile must be closed"
+        assert profile[0].attrib["d"].count("L")==len(AXES)-1
+        assert "Author interpretation" in individual.find(f"{ns}desc").text
+        assert "Not assessed" not in " ".join(individual.itertext())
     ids=[el.attrib["id"] for el in overview.iter() if "id" in el.attrib]
     assert len(ids)==len(set(ids)), "Duplicate SVG accessibility IDs"
     assert not overview.findall(f".//{ns}image"), "Overview must be self-contained"
@@ -99,7 +103,7 @@ def main():
         assert not re.search(r'[\u0400-\u04ff]',path.read_text(encoding="utf-8")),f"Non-English Cyrillic text: {path}"
     from validate_participation_figures import validate as validate_participation
     validate_participation()
-    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; 40 scores; 8 unassessed life-impact entries; 48 rationales; 15 SVGs including participation; Russian TXT; local links; English figures.")
+    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; 48 subjective scores and rationales; 15 SVGs including participation; Russian TXT; local links; English figures.")
 
 
 if __name__=="__main__":

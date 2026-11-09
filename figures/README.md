@@ -10,7 +10,7 @@ Every SVG has a same-named TXT sidecar containing its annotation, sources, scope
 - `radar-pictures.svg`: Pictures profile, with qualitative markers on every axis and no matched numeric consumption or revenue anchors.
 - `radar-long-video.svg`: the added horizontal creative-video profile; broader consumption proxies and no numeric money anchor.
 - `radar-overview.svg`: all eight radar profiles in one standalone 4-by-2 sheet, with identical axes and scales.
-- `radar-overview.txt`: short Russian reading guide and definitions of all six axes, including the unassessed general Life impact axis. Its editable source is `data/radar_overview_annotation.txt`.
+- `radar-overview.txt`: short Russian reading guide and definitions of all six axes, including the subjective general Life impact axis and its lack of supporting comparative research. Its editable source is `data/radar_overview_annotation.txt`.
 - `index.html`: English browser gallery with all figures and evidence notes.
 - `active-participation-eu-2025.svg`: selected active artistic activities, EU27, with an overall rate separated above them.
 - `social-breadth-england-2024-25.svg`: physical and digital participation by area-deprivation extremes, England; connected pairs on a 0-100% scale.

@@ -162,6 +162,7 @@ def snapshot(rows, key, title, unit, filename):
     annotation(filename, title, [
         "GWI Q2 2026 | Online adults 16+ in covered markets | Gaps are not zeros. Russia excluded.",
         "Source: DataReportal Digital 2027, pages 38-40. Data and boundaries: ../data/media_use_2026.md.",
+        "Music here is streaming only. Audible music in short/long online videos, films, series and games is additional overlapping musical contact, not captured as a combined union in this table. Neither summing category audiences nor assigning all video minutes to music estimates that union.",
         "Weekly time is divided by seven to obtain daily minutes. Frequency is days per week; device groups can overlap. For games frequency, the upper circle is mobile and the lower hollow diamond is PC/console; do not add them.",
         "Blank rows have no comparable selected observation:\n" + "\n".join(NAMES[r["category"]] for r in rows if num(r[key]) is None),
         "Category scopes:\n" + "\n".join(f'{NAMES[r["category"]]}: {r["scope"]}' for r in rows)])
@@ -181,10 +182,13 @@ def radar(row, anchors):
     for i in range(len(AXES)):
         px, py = pos(i,10)
         body += line(cx,cy,px,py)
-    # Leave the unassessed axis open: neither zero nor a fabricated score.
+    # Close the profile only when all axes have explicit author scores.
     observed_path = " ".join(("M" if i == 0 else "L") + f"{pos(i,v)[0]:.3f},{pos(i,v)[1]:.3f}"
                              for i,v in enumerate(scores) if v is not None)
-    body += f'<path d="{observed_path}" fill="none" stroke="#2463ad" stroke-width="2"/>'
+    if all(score is not None for score in scores):
+        body += f'<path d="{path(scores)}" fill="#2463ad" fill-opacity="0.11" stroke="#2463ad" stroke-width="2"/>'
+    else:
+        body += f'<path d="{observed_path}" fill="none" stroke="#2463ad" stroke-width="2"/>'
     if category == "music":
         scenarios = table_with(ROOT / "data/music_online_scenarios.md", "scenario")
         reference = next(r for r in scenarios if r["scenario"] == "streaming_reference")
@@ -198,7 +202,7 @@ def radar(row, anchors):
                  '<title>Streaming-only reference: reach 8, time 6, frequency 7; author judgments</title></path>')
         for (x, y), axis in zip(points, AXES[:3]):
             body += mark(x, y, "#b96216", title=f"Streaming-only {axis}: {reference[axis]}/10")
-        body += text(300, 480, "Dashed: streaming only (8 / 6 / 7)", "middle", size=12)
+        body += text(300, 500, "Dashed: streaming only (8 / 6 / 7)", "middle", size=12)
     for v in [2,6,10]:
         px,py=pos(0,v)
         body += text(px+6,py+4,str(v))
@@ -215,13 +219,14 @@ def radar(row, anchors):
         body += mark(qx,qy,"#2463ad",not supported)
     name="radar-"+category.replace("_","-")+".svg"
     write(name,svg_doc(width,height,RADAR_NAMES[category]+" radar",body,
+          "Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review. " +
           "; ".join(f"{a}: {'not assessed' if v is None else str(int(v)) + '/10'}" for a,v in zip(AXES,scores))))
     guide = (ROOT / "data/radar_overview_annotation.txt").read_text(encoding="utf-8")
     annotation(name, RADAR_NAMES[category], [
         "2026 subjective profile | All scores are author judgments.",
         *(["Main blue profile: direct and embedded audible online music, including short/long video, films, series and games. Hollow main markers: unmeasured union. Dashed orange segment and filled reference points: streaming-only author judgments, reach 8 / time 6 / frequency 7, informed by GWI26 (77.4%; 301 minutes/week; 3.10 days/week). Different exposure definitions, not a measured uplift or confidence interval. See ../data/music_online_scenarios.md."] if category == "music" else []),
         "Filled circle: numeric anchor | Hollow diamond: qualitative rationale.",
-        "Life impact is not assessed. The profile is open and unfilled; missing is not zero. See ../data/score_rationales.md.",
+        "Life impact is author interpretation. Research supporting these exact scores or their comparative ordering has not been found in the project review. See ../data/score_rationales.md.",
         guide.split("\n\n", 2)[2]])
     return name
 
@@ -240,7 +245,7 @@ def radar_overview(radar_names):
         panel = panel.replace('<svg ', f'<svg x="{(i % 4) * 600}" y="{(i // 4) * 510}" ', 1)
         body += panel
     write("radar-overview.svg", svg_doc(width, height, "All eight subjective radar profiles, 2026", body,
-          "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales; Life impact is unassessed, with no marker or closed polygon."))
+          "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales. Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review."))
     write("radar-overview.txt", (ROOT / "data/radar_overview_annotation.txt").read_text(encoding="utf-8"))
 
 
@@ -275,7 +280,7 @@ def build():
     figures += build_participation()
     panels="".join(f'<section><h2>{html.escape(title)}</h2><img src="{name}" alt="{html.escape(title)}" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>' for title,name in figures)
     panels+='<p><a href="radar-overview.svg">Open full-size radar overview</a> · <a href="radar-overview.txt">Russian annotation (TXT)</a></p>'
-    panels+='<h2>Subjective 2026 radar profiles</h2><div class="radars">'+"".join(
+    panels+='<h2>Subjective 2026 radar profiles</h2><p>Author interpretation. Research supporting the exact Life impact scores or their comparative ordering has not been found in the project review.</p><div class="radars">'+"".join(
         f'<section><img src="{name}" alt="{html.escape(RADAR_NAMES[r["category"]])} radar" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>'
         for name,r in zip(radar_names,score_rows))+"</div>"
     page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
