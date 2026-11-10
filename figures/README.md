@@ -2,7 +2,7 @@
 
 Run `python3 scripts/build_figures.py` from the project root to regenerate these files.
 
-Existing empirical SVGs visibly include extended measurement context. The compact reach/time figure keeps only titles, essential scope labels, axes, units and short annotation references on the image; its matching TXT file provides the full population, sources, exact observations and interpretation limits. The HTML gallery links to each TXT.
+Snapshot SVGs (`reach-2026.svg`, `time-2026.svg`, `frequency-2026.svg`) contain only a title, category-axis values and numeric-axis values with units. Sources, population, category details, missing observations, marker keys and plotted values are in matching TXT files. The US time-use SVG retains extended measurement context. The compact reach/time figure keeps only titles, essential scope labels, axes, units and short annotation references on the image; its matching TXT file provides the full population, sources, exact observations and interpretation limits. The HTML gallery links to each TXT.
 
 - `us-time-use.svg`: US main-activity minutes per day, 2021–2025.
 - `reach-2026.svg`, `time-2026.svg`, `frequency-2026.svg`: international online-adult snapshot and explicit gaps.
@@ -20,7 +20,7 @@ Author interpretations, score inputs, and all radial diagrams are in [their own 
 
 The three snapshot charts show broad primary-format proxies, with music streaming, digital books and standalone pictures labeled explicitly. Media components across formats have a [separate evidence inventory](../data/media_components_2026.md); unmeasured component totals are not plotted or inferred from video audiences.
 
-The snapshot uses a 0–100% reach axis, 0–7 days/week frequency axis and a shared 0–75 minutes/day time axis across its rows. Three missing categories are explicitly marked as unavailable, with no fabricated zero points. TV streaming includes films and other programmes, so it is not labeled as measured series-only use. The US time-use image identifies broad diary activities and offline coverage directly in the SVG.
+The snapshot uses a 0–100% reach axis, 0–7 days/week frequency axis and a shared 0–75 minutes/day time axis across its rows. Three missing categories are omitted from the images and documented as unavailable in TXT, with no fabricated zero points. TV streaming includes films and other programmes, so it is not labeled as measured series-only use. The US time-use image identifies broad diary activities and offline coverage directly in the SVG.
 
 ## GMI26 growth chart (Russian)
 

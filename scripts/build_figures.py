@@ -156,9 +156,10 @@ SNAPSHOT_LABELS = {
 
 
 def snapshot(rows, key, title, unit, filename):
-    width, left, right, top, step = 1100, 350, 85, 129, 57
-    grid_bottom = top + (len(rows)-1)*step + 24
-    height = grid_bottom + 203
+    observed = [row for row in rows if num(row[key]) is not None]
+    width, left, right, top, step = 1100, 290, 60, 90, 57
+    grid_bottom = top + (len(observed)-1)*step + 24
+    height = grid_bottom + 50
     maximum, ticks, page = {
         "weekly_reach_percent": (100, [0, 25, 50, 75, 100], 38),
         "weekly_minutes": (75, [0, 15, 30, 45, 60, 75], 40),
@@ -167,21 +168,16 @@ def snapshot(rows, key, title, unit, filename):
     x = lambda value: left + value / maximum * (width-left-right)
     population = "GWI Q2 2026 · Internet users aged 16+ in covered markets · Russia excluded"
     body = text(24, 32, title, size=23, weight=500)
-    body += text(24, 57, population, size=12)
-    body += text(24, 80, "Source-defined categories; overlapping audiences, not a complete ranking of media formats.", size=12)
+    tick_unit = {"weekly_reach_percent": "%", "weekly_minutes": " min/day", "days_per_week": " days/week"}[key]
     for value in ticks:
-        body += line(x(value), top-18, x(value), grid_bottom) + text(x(value), grid_bottom+24, str(value), "middle", size=11)
-    body += text(left, grid_bottom+48, unit, size=12)
-    for i, row in enumerate(rows):
+        body += line(x(value), top-18, x(value), grid_bottom)
+        body += text(x(value), grid_bottom+24, str(value) + tick_unit, "middle", size=11)
+    for i, row in enumerate(observed):
         cy = top + i*step
         category = row["category"]
-        label, detail = SNAPSHOT_LABELS[category]
-        body += text(24, cy-1, label, size=13, weight=500)
-        body += text(24, cy+17, detail, size=10)
+        label = SNAPSHOT_LABELS[category][0]
+        body += text(24, cy+4, label, size=13, weight=500)
         value = num(row[key])
-        if value is None:
-            body += text(left+12, cy+5, "Not available — no comparable observation", size=12)
-            continue
         if key == "weekly_minutes":
             value /= 7
         extra = num(row["additional_days_per_week"]) if key == "days_per_week" else None
@@ -190,8 +186,6 @@ def snapshot(rows, key, title, unit, filename):
             body += line(left, yy, x(val), yy, "#cbd3dc")
             marker_title = ("Mobile games" if j == 0 else "PC/console games") if extra is not None else label
             body += mark(x(val), yy, COLORS[category], j == 1, title=marker_title)
-            display = fmt(val) + ("%" if key == "weekly_reach_percent" else "")
-            body += text(x(val)+11, yy+4, display, size=12)
     notes = [
         f"Source: GWI via DataReportal, Digital 2027, p. {page}. Source values: data/media_use_2026.md.",
         "Music means streaming only. TV streaming is not series-only. Missing rows are not zeros.",
@@ -200,21 +194,25 @@ def snapshot(rows, key, title, unit, filename):
         "Reach means reported weekly use within the surveyed online population, not a share of all people.",
         "Standalone format proxies only; embedded images, music, text and speech have no measured combined totals here."
     ]
-    legend_y = grid_bottom+74
-    if key == "days_per_week":
-        body += mark(30, legend_y-4, COLORS["games"])
-        body += text(42, legend_y, "Games: mobile", size=11)
-        body += mark(175, legend_y-4, COLORS["games"], diamond=True)
-        body += text(187, legend_y, "Games: PC / console", size=11)
-    body += line(24, grid_bottom+88, width-24, grid_bottom+88)
-    for i, note in enumerate(notes):
-        body += text(24, grid_bottom+111+i*19, note, size=11)
     description = population + "; " + " ".join(notes) + "; " + "; ".join(
         f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows)
     write(filename, svg_doc(width, height, title, body, description))
-    annotation(filename, title, [population, *notes,
-        "Games frequency: filled circle = mobile; hollow diamond = PC/console. These groups overlap.",
-        "Category scopes:\n" + "\n".join(f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows)])
+    annotation(filename, title, [population,
+        "Source-defined categories; overlapping audiences, not a complete ranking of media formats.",
+        "Horizontal axis: " + unit + ".", *notes,
+        "Unavailable categories are omitted, not plotted as zeros: " + ", ".join(
+            SNAPSHOT_LABELS[r["category"]][0] for r in rows if num(r[key]) is None) + ".",
+        *(["Games frequency: filled circle = mobile; hollow diamond = PC/console. These groups overlap."]
+          if key == "days_per_week" else []),
+        "Category details:\n" + "\n".join(
+            f'{SNAPSHOT_LABELS[r["category"]][0]}: {SNAPSHOT_LABELS[r["category"]][1]}' for r in rows),
+        "Category scopes:\n" + "\n".join(f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows),
+        "Plotted values, rounded to two decimals (" + unit + "):\n" + "\n".join(
+            f'{SNAPSHOT_LABELS[r["category"]][0]}: '
+            + fmt(float(r[key]) / 7 if key == "weekly_minutes" else float(r[key]))
+            + (" (mobile); " + fmt(float(r["additional_days_per_week"])) + " (PC/console)"
+               if key == "days_per_week" and num(r["additional_days_per_week"]) is not None else "")
+            for r in observed)])
 
 
 def radar(row, anchors):

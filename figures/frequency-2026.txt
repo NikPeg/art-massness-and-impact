@@ -2,6 +2,10 @@ Frequency: format proxies, 2026
 
 GWI Q2 2026 · Internet users aged 16+ in covered markets · Russia excluded
 
+Source-defined categories; overlapping audiences, not a complete ranking of media formats.
+
+Horizontal axis: Days per week.
+
 Source: GWI via DataReportal, Digital 2027, p. 39. Source values: data/media_use_2026.md.
 
 Music means streaming only. TV streaming is not series-only. Missing rows are not zeros.
@@ -10,7 +14,19 @@ Frequency means average days per week, not sessions; overlapping device groups m
 
 Standalone format proxies only; embedded images, music, text and speech have no measured combined totals here.
 
+Unavailable categories are omitted, not plotted as zeros: Feature films, Digital books, Standalone pictures.
+
 Games frequency: filled circle = mobile; hollow diamond = PC/console. These groups overlap.
+
+Category details:
+Short online video: Source category; not Instagram Reels alone
+Long online video: Source category; duration/orientation not isolated
+Music streaming: Streaming listening only; no embedded-music union
+Video games: Reach/time: all devices; frequency: device groups
+TV streaming (all content): Series proxy; includes films and other programmes
+Feature films: No film-only observation
+Digital books: No comparable reading observation
+Standalone pictures: Not isolated from mixed platform use
 
 Category scopes:
 Short online video: Short online video, not only Instagram Reels
@@ -21,3 +37,10 @@ TV streaming (all content): All TV streaming, a proxy including films and other 
 Feature films: Feature films not isolated
 Digital books: Not reported as a comparable category
 Standalone pictures: Pictures not isolated from mixed social-media and platform use
+
+Plotted values, rounded to two decimals (Days per week):
+Short online video: 4.26
+Long online video: 3.36
+Music streaming: 3.1
+Video games: 2.8 (mobile); 1.73 (PC/console)
+TV streaming (all content): 2.77

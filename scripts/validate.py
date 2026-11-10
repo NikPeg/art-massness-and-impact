@@ -30,17 +30,22 @@ def main():
     components=table_with(ROOT/"data/media_components_2026.md","component")
     assert {r["component"] for r in components}=={"music","images","text","speech"}
     assert all(r[k]=="NA" for r in components for k in ("reach","time","frequency"))
-    for name in ("reach-2026.svg","time-2026.svg","frequency-2026.svg"):
-        displayed=" ".join(ET.parse(ROOT/"figures"/name).getroot().itertext())
-        assert all(label in displayed for label in ("Music streaming","Digital books","Standalone pictures"))
-        assert "format proxies" in displayed
-        visible = [el.text or "" for el in ET.parse(ROOT/"figures"/name).getroot().iter()
-                   if el.tag.endswith("text")]
-        assert "TV streaming (all content)" in visible
-        assert visible.count("Not available — no comparable observation") == 3
-        assert any("GWI Q2 2026" in label and "16+" in label for label in visible)
-        assert any(label.startswith("Source: GWI via DataReportal") for label in visible)
-        assert "Books / US fiction" not in visible and "Music" not in visible
+    # Snapshot images contain only the title and axis values; context stays in TXT.
+    for name, ticks in (
+        ("reach-2026", ["0%", "25%", "50%", "75%", "100%"]),
+        ("time-2026", [f"{i} min/day" for i in (0, 15, 30, 45, 60, 75)]),
+        ("frequency-2026", [f"{i} days/week" for i in range(8)]),
+    ):
+        chart = ET.parse(ROOT/"figures"/(name + ".svg")).getroot()
+        visible = [el.text or "" for el in chart.iter() if el.tag.endswith("text")]
+        title = chart.find("{http://www.w3.org/2000/svg}title").text
+        assert visible == [title, *ticks, "Short online video", "Long online video",
+                           "Music streaming", "Video games", "TV streaming (all content)"]
+        note = (ROOT/"figures"/(name + ".txt")).read_text()
+        assert all(label in note for label in (
+            "GWI Q2 2026", "16+", "Source: GWI via DataReportal", "Horizontal axis:",
+            "Digital books", "Standalone pictures", "Feature films", "Plotted values, rounded to two decimals",
+            "Source category; duration/orientation not isolated"))
     us_visible = [el.text or "" for el in ET.parse(ROOT/"figures/us-time-use.svg").getroot().iter()
                   if el.tag.endswith("text")]
     assert any("Source: BLS" in label for label in us_visible)

@@ -4,7 +4,7 @@ Empirical inputs are Markdown tables under `../data/`. Author scores, rationales
 
 - `build_figures.py`: reads those tables, converts selected units, and writes empirical/context SVGs and `figures/index.html`, plus radar SVGs and a separate `author-interpretations/index.html` gallery.
 - `build_comparison_figures.py`: builds the compact `reach-time-2026.svg` and its TXT annotation. Can run independently; also called by the full build. Reads the Markdown inputs directly, keeps scatter coordinates exact and skips missing pairs.
-- Each SVG has a matching TXT annotation generated alongside it. Existing empirical images retain extended visible context. The compact reach/time figure puts full sources, definitions, omissions and caveats in TXT; the image retains only essential labels, axes, units and an annotation reference. Radars visibly identify author scores.
+- Each SVG has a matching TXT annotation generated alongside it. The three snapshot images show only titles and axis values with units; all measurement context and point values are in their TXT files. The US time-use image retains extended visible context. The compact reach/time figure puts full sources, definitions, omissions and caveats in TXT; the image retains only essential labels, axes, units and an annotation reference. Radars visibly identify author scores.
 - `validate.py`: checks selected values, missing observations, score bounds, eight radar outputs and their combined overview, SVG syntax, and both files and section anchors in local Markdown links.
 
 Run both with Python 3.9+. No pip packages, browser libraries, external chart CDN, network requests, or credentials are used.
@@ -37,7 +37,7 @@ python3 -m unittest discover -s scripts -p 'test_markdown_links.py'
 
 ## Standalone empirical figure context
 
-Snapshot labels are defined in `SNAPSHOT_LABELS`, separately from author radar names. Source-specific labels include Music streaming and TV streaming (all content); digital books, feature films and standalone pictures carry explicit unavailable notices. GWI population/date, metric definition and report page are visible inside each SVG, with a description for accessibility. Reach uses 0–100%, frequency 0–7 days, and daily time is weekly reported minutes divided by seven. The US diary chart visibly states its BLS source, all-person main-activity denominator and offline coverage.
+Snapshot labels are defined in `SNAPSHOT_LABELS`, separately from author radar names. Source-specific labels include Music streaming and TV streaming (all content); digital books, feature films and standalone pictures are omitted from the images and documented as unavailable in TXT. GWI population/date, metric definition, report page, category details, marker keys and plotted values are in each matching TXT, with an SVG description for accessibility. Reach uses 0–100%, frequency 0–7 days, and daily time is weekly reported minutes divided by seven. The US diary chart visibly states its BLS source, all-person main-activity denominator and offline coverage.
 
 ## GMI26 growth chart (Russian)
 
