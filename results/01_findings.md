@@ -10,7 +10,7 @@ The [two-level framework](../research/01_scope_and_metrics.md#units-of-compariso
 
 ## Answers to the project hypotheses
 
-The numbered questions are collected in [Project hypotheses](../research/06_hypotheses.md). H01–H29 retain their question numbers and are grouped below by answer status. The hypotheses file contains questions only.
+The numbered questions are collected in [Project hypotheses](../research/06_hypotheses.md). H01–H30 retain their question numbers and are grouped below by answer status. The hypotheses file contains questions only.
 
 **Status is determined before confidence**, using the same [scope-fit rule](../research/05_methods_and_reproducibility.md#hypothesis-answer-status-and-scope-fit) for every question. All questions inherit the online media-content scope. Check content/distribution, exposure unit, population, comparator, outcome/follow-up and required causal identification. The Scope fit column states the decisive limits; it is not a quality score.
 
@@ -20,7 +20,7 @@ Confidence is qualitative and applies only to the stated bounded finding, not au
 
 ### Substantive answers
 
-None of H01–H29 currently meets the full-scope criterion on the selected and appraised evidence. This does not invalidate narrower observations or contextual studies.
+None of H01–H30 currently meets the full-scope criterion on the selected and appraised evidence. This does not invalidate narrower observations or contextual studies.
 
 ### Partial answers
 
@@ -61,6 +61,7 @@ None of H01–H29 currently meets the full-scope criterion on the selected and a
 | H29 | Not established. The comparative synthesis detects no significant persuasion advantage after information-equivalent exposure, but does not test attraction or retention, their relative contribution, or equivalence in persuasion. | Not assigned to H29: the proposed audience-selection mechanism and relative-advantage comparison are untested. A non-significant persuasion contrast cannot determine why narratives might have an advantage. | No audience-attraction/retention test or relative-mechanism comparison. | [Audience attraction versus persuasion](../research/02_literature_review.md#attracting-an-audience-versus-persuading-exposed-viewers-h29) |
 | H23 | Unresolved for media formats: no harmonized comparison of participation across social groups and regions was selected. | Not assigned: platform adoption and format-specific consumption are different measures. | No retained matched format-specific social-group and regional comparison. | [Social-breadth assessment](../research/07_short_video_social_breadth.md) |
 | H24 | Unresolved: no matched population comparison of video creation, music production and writing was retained. | Not assigned: creation rates require common population questions and denominators. | No retained comparison with common population, creation questions and denominators. | [Measurement dimensions](../research/01_scope_and_metrics.md#additional-dimensions-of-mass-participation) |
+| H30 | Unresolved. No direct comparative study addressing this combined hypothesis was found in the project's existing evidence: greater lasting life influence of online books, feature films and games versus short-video feeds, and more frequent relaxation-oriented, low-reflection use of short videos. | Not assigned: neither the comparative influence ranking, the motivation/reflection contrast, nor their proposed explanatory relationship is established. | Compare the same population, defined exposure doses and follow-up; measure motivation, reflection and lasting outcomes separately. Relaxation or little deliberate reflection does not imply absence of influence. | [Hypothesis H30](../research/06_hypotheses.md), [life-impact discussion](#what-can-be-said-about-life-impact), [review coverage limits](../research/05_methods_and_reproducibility.md#evidence-selection-and-literature-review-procedure) |
 
 ## Answer to the initial question
 
@@ -93,6 +94,8 @@ The financial table preserves five missing long-video observations; YouTube tota
 Research supports distinguishing a meaningful experience, changed beliefs, intentions, and actual behavior. Some narrative interventions influence behavior; a narrow short-video experiment also measured a behavioral step. These findings do not supply a common probability of major life change for each medium. See the [literature review](../research/02_literature_review.md).
 
 “Books change lives more than reels” remains a plausible personal or author hypothesis, not an established conclusion of this dossier. “Reels cannot change lives” is also unsupported. A feed's cumulative influence and a single work's influence are different research objects.
+
+**H30, added 10 November 2026:** books, feature films and video games may have greater lasting influence on people's lives than short-video feeds, while short videos may more often be consumed for relaxation with little deliberate reflection. This is a proposed comparison and possible explanation, not a finding. No direct comparative study testing this combined hypothesis was found in the project's existing evidence; this addition involved no new literature search and does not establish that such studies do not exist. The review contains adjacent work on individual media and outcomes, but it does not establish this ranking or the proposed motivation/reflection difference. Viewing motivation, deliberate reflection and lasting effects require separate measurements: relaxation-oriented use can still affect mood, habits, norms or beliefs. See the [review's coverage and selection limits](../research/05_methods_and_reproducibility.md#evidence-selection-and-literature-review-procedure).
 
 ## Working conclusion
 

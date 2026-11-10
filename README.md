@@ -14,7 +14,7 @@ The literature component is a **moderate targeted review with matched outcome se
 
 See the [matched search and decisions](sources/balanced_review_search_2026.md), [eight-format evidence matrix and new appraisals](research/09_balanced_literature_review.md), [earlier search record](sources/moderate_review_search_2026.md), and [limitations](research/04_limitations.md#literature-search-coverage-and-confidence). The same outcome families are searched for each category, but incompatible exposures, populations, instruments and follow-ups still prevent a medium ranking. “Not found in this search” does not mean “no studies exist.” Search coverage and confidence in a specified conclusion remain separate.
 
-Hypothesis answers use one [scope-fit rule](research/05_methods_and_reproducibility.md#hypothesis-answer-status-and-scope-fit): substantive answers must address the original online media-content question; partial answers identify the narrower result or proxy; contextual mechanisms alone leave the hypothesis unanswered. Status and confidence are separate. The findings record scope limits for each of H01–H29.
+Hypothesis answers use one [scope-fit rule](research/05_methods_and_reproducibility.md#hypothesis-answer-status-and-scope-fit): substantive answers must address the original online media-content question; partial answers identify the narrower result or proxy; contextual mechanisms alone leave the hypothesis unanswered. Status and confidence are separate. The findings record scope limits for each of H01–H30.
 
 The [further-work plan](FURTHER_WORK.md) describes how to advance to a full systematic review and, if still needed, a new causal comparison.
 

@@ -81,8 +81,8 @@ def main():
     assert not [el for el in picture_svg if el.tag.endswith("circle")], "Pictures data must have no numeric-anchor circles (legend excluded)"
     questions=re.findall(r"^(\d+)\.", (ROOT/"research/06_hypotheses.md").read_text(), re.M)
     answers=re.findall(r"^\| H(\d+) \|", (ROOT/"results/01_findings.md").read_text(), re.M)
-    assert list(map(int,questions))==list(range(1,30))
-    assert sorted(map(int,answers))==list(range(1,30))
+    assert list(map(int,questions))==list(range(1,31))
+    assert sorted(map(int,answers))==list(range(1,31))
     for name in ("reach-2026.svg","time-2026.svg","frequency-2026.svg"):
         tree=ET.parse(ROOT/"figures"/name)
         height=float(tree.getroot().attrib["height"])

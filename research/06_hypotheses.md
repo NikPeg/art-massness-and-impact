@@ -28,3 +28,4 @@
 27. Are short videos consumed more evenly across social groups than other media?
 28. Are hours of media consumption only weakly associated with subsequent changes in well-being?
 29. Does the advantage of narrative messages lie more in attracting and retaining an audience than in stronger persuasion after comparable exposure?
+30. Do internet-distributed books, feature films and video games have greater lasting influence on people's lives than short-video feeds, and are short videos more often consumed for relaxation with little deliberate reflection? If these differences exist, does viewing motivation or reflection help explain the difference in lasting influence?
