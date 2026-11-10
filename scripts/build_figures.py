@@ -4,11 +4,11 @@
 from pathlib import Path
 import html
 import math
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"
 SUBJECTIVE = ROOT / "author-interpretations"
-YEARS = list(range(2021, 2026))
 AXES = ["reach", "time", "frequency", "money", "recognition", "life_impact"]
 AXIS_LABELS = {axis: axis.capitalize() for axis in AXES}
 AXIS_LABELS["life_impact"] = "Life impact"
@@ -89,57 +89,6 @@ def write(name, content):
 def annotation(filename, title, paragraphs):
     write(Path(filename).with_suffix(".txt").name,
           title + "\n\n" + "\n\n".join(paragraphs) + "\n")
-
-
-def time_series(title, subtitle, series, unit, filename, footer, width=1080):
-    height, left, right, top, bottom = 575, 75, 35, 150, 430
-    values = [p[1] for s in series for p in s["points"] if p[1] is not None]
-    maximum = math.ceil(max(values) / 40) * 40
-    x = lambda year: left + 8 + (year - 2021) / 4 * (width - left - right - 16)
-    y = lambda value: bottom - value / maximum * (bottom - top)
-    body = text(24, 32, title, size=23, weight=500)
-    body += text(24, 57, subtitle, size=12)
-    legend = []
-    for i, item in enumerate(series):
-        latest = next((v for _, v in reversed(item["points"]) if v is not None), None)
-        label = item.get("legend_name", item["name"])
-        lx = 26 + i * 350
-        body += line(lx, 87, lx+22, 87, item["color"], 2)
-        body += text(lx+30, 91, label, size=12)
-        if latest is not None:
-            body += text(lx+30, 110, f"2025: {fmt(latest, 1)} min/day", size=11)
-        legend.append(f'{item["color"]}: {item["name"]} | 2025: {fmt(latest, 1)}')
-    for i in range(6):
-        value = maximum * i / 5
-        py = y(value)
-        body += line(left, py, width-right, py) + text(left-12, py+4, fmt(value, 1), "end")
-    body += text(left, top-14, unit, size=11)
-    for year in YEARS:
-        body += text(x(year), bottom+25, year, "middle")
-    for item in series:
-        previous = None
-        for year, value in item["points"]:
-            if value is None:
-                previous = None
-                continue
-            px, py = x(year), y(value)
-            if previous and year != item.get("break_year"):
-                body += line(*previous, px, py, item["color"], 2)
-            body += mark(px, py, item["color"])
-            previous = (px, py)
-    notes = [
-        "Source: BLS American Time Use Survey, annual table 11A, 2021–2025.",
-        "US civilian population aged 15+; all-person daily means; main activity only. Includes offline use.",
-        "TV includes films, series and other content; reading is broader than books; games/computer leisure is broader than video games.",
-        "Separate population and activity definitions from the international GWI snapshot; not an online-only media comparison."
-    ]
-    body += line(24, 478, width-24, 478)
-    for i, note in enumerate(notes):
-        body += text(24, 501+i*19, note, size=11)
-    write(filename, svg_doc(width, height, title, body, subtitle + "; " + " ".join(notes)))
-    annotation(filename, title, [subtitle, footer, "Series colors and 2025 values (" + unit + "):\n" + "\n".join(legend),
-               "Missing observations are not zeros; gaps are not connected.",
-               "Data and sources: ../data/annual_indicators.md; ../sources/source_register.md."])
 
 
 # Labels describe the source observation, separately from the author radar names.
@@ -304,16 +253,9 @@ def build():
 
     OUT.mkdir(exist_ok=True)
     SUBJECTIVE.mkdir(exist_ok=True)
-    # Remove obsolete outputs: incompatible financial scopes must not share an axis.
-    for name in ("financial-landmarks.svg", "financial-landmarks.txt"):
+    # Remove retired charts so rebuilds cannot reintroduce them into the gallery.
+    for name in ("financial-landmarks.svg", "financial-landmarks.txt", "us-time-use.svg", "us-time-use.txt"):
         (OUT / name).unlink(missing_ok=True)
-    time_rows=table_with(ROOT/"data/annual_indicators.md","tv_hours_day")
-    time_series("US time-use aggregates, 2021–2025","US population 15+ · All-person daily means · Main activity only",[
-        {"name":name,"legend_name":short_name,"color":color,"points":[(int(r["year"]),float(r[key])*60) for r in time_rows]}
-        for key,name,short_name,color in [("tv_hours_day","TV: films, series and other content","Watching TV (all content)",COLORS["series"]),
-                               ("reading_hours_day","Leisure reading","Leisure reading",COLORS["books"]),
-                               ("games_computer_hours_day","Games and computer leisure","Playing games / leisure computer use",COLORS["games"])]] ,
-        "Minutes per day","us-time-use.svg","Source: BLS ATUS, table 11A. Categories are broader than the respective media categories.")
     media=table_with(ROOT/"data/media_use_2026.md","weekly_reach_percent")
     for key,title,unit,name in [("weekly_reach_percent","Weekly reach: format proxies, 2026","Percent of surveyed online adults","reach-2026.svg"),
                                 ("weekly_minutes","Daily time: format proxies, 2026","Minutes per day","time-2026.svg"),
@@ -329,10 +271,16 @@ def build():
     build_comparisons()
     build_growth()
     build_gwi()
-    figures=[("Рост потребления медиа: H1 2026 (RU)", "media-growth-h1-2026.svg"),("Reach and consumption time", "reach-time-2026.svg"),
-             ("US time use","us-time-use.svg"),
-             ("Weekly reach","reach-2026.svg"),("Daily time","time-2026.svg"),("Frequency","frequency-2026.svg")]
-    panels="".join(f'<section><h2>{html.escape(title)}</h2><img src="{name}" alt="{html.escape(title)}" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>' for title,name in figures)
+    # Discover every chart, including nested galleries, after all generators finish.
+    figures = []
+    for path in sorted(OUT.rglob("*.svg")):
+        chart_title = ET.parse(path).getroot().find("{http://www.w3.org/2000/svg}title")
+        title = chart_title.text if chart_title is not None else path.stem
+        figures.append((title, path.relative_to(OUT).as_posix()))
+    panels = "".join(
+        f'<section><h2>{html.escape(title)}</h2><img src="{html.escape(name)}" '
+        f'alt="{html.escape(title)}" loading="lazy"><a href="{html.escape(Path(name).with_suffix(".txt").as_posix())}">'
+        'Annotation (TXT)</a></section>' for title, name in figures)
     subjective_panels='<p><a href="radar-overview.svg">Open full-size radar overview</a> · <a href="radar-overview.txt">Russian annotation (TXT)</a></p>'
     subjective_panels+='<h2>Subjective 2026 radar profiles</h2><p>Earlier mixed-scope author profiles: music includes embedded soundtracks while other profiles mostly use standalone formats. These profiles do not implement either the primary-format or media-component comparison. Scores have not been recalibrated. Author interpretation. Research supporting the exact Life impact scores or their comparative ordering has not been found in the project review.</p><div class="radars">'+"".join(
         f'<section><img src="{name}" alt="{html.escape(RADAR_NAMES[r["category"]])} radar" loading="lazy"><a href="{Path(name).stem}.txt">Annotation (TXT)</a></section>'
@@ -343,7 +291,7 @@ body{font:16px/1.55 system-ui,sans-serif;color:#202a34;background:white;margin:2
 img{display:block;width:100%;height:auto}section{margin:24px 0}.radars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 @media(max-width:760px){.radars{grid-template-columns:1fr}}a{color:#2463ad}</style>
 <h1>Internet-distributed media, mass reach, and life impact</h1><p>Two separate comparisons: primary work formats and media components across those formats. The snapshot figures below show broad format proxies, with music streaming explicitly labeled. Component totals are unmeasured; a painting shown in a vertical video remains image contact. <a href="../data/media_components_2026.md">Component comparison and gaps</a> · <a href="../research/01_scope_and_metrics.md">Coding rules</a>.</p><p>As of 9 November 2026. Eight categories of media content distributed through the internet. Empirical observations and contextual indicators.</p>
-<p>Whole-market financial series and US diaries are contextual evidence, not online-only measurements. Financial observations remain in the source tables. The compact reach/time figure has detailed sources and limitations in its adjacent TXT annotation. The US diary and international survey are separate populations. Pictures have no matched consumption or revenue values. Long online video is a broader proxy for horizontal media works; its financial series is missing. Author interpretations and radar profiles are presented separately.</p>
+<p>Financial observations remain in the source tables without a common-axis chart. The compact reach/time figure has detailed sources and limitations in its adjacent TXT annotation. Pictures have no matched consumption or revenue values. Long online video is a broader proxy for horizontal media works; its financial series is missing. Author interpretations and radar profiles are presented separately.</p>
 <p><a href="gwi/index.html">Графики GWI на русском</a> · <a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../author-interpretations/index.html">Author interpretations and radars</a></p>'''+panels+"</html>\n"
     write("index.html",page)
     subjective_page = '''<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

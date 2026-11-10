@@ -4,12 +4,12 @@ Empirical inputs are Markdown tables under `../data/`. Author scores, rationales
 
 - `build_figures.py`: reads those tables, converts selected units, and writes empirical/context SVGs and `figures/index.html`, plus radar SVGs and a separate `author-interpretations/index.html` gallery.
 - `build_comparison_figures.py`: builds the compact `reach-time-2026.svg` and its TXT annotation. Can run independently; also called by the full build. Reads the Markdown inputs directly, keeps scatter coordinates exact and skips missing pairs.
-- Each SVG has a matching TXT annotation generated alongside it. The three snapshot images show only titles and axis values with units; all measurement context and point values are in their TXT files. The US time-use image retains extended visible context. The compact reach/time figure puts full sources, definitions, omissions and caveats in TXT; the image retains only essential labels, axes, units and an annotation reference. Radars visibly identify author scores.
+- Each SVG has a matching TXT annotation generated alongside it. The three snapshot images show only titles and axis values with units; all measurement context and point values are in their TXT files. The compact reach/time figure puts full sources, definitions, omissions and caveats in TXT; the image retains only essential labels, axes, units and an annotation reference. Radars visibly identify author scores.
 - `validate.py`: checks selected values, missing observations, score bounds, eight radar outputs and their combined overview, SVG syntax, and both files and section anchors in local Markdown links.
 
 Run both with Python 3.9+. No pip packages, browser libraries, external chart CDN, network requests, or credentials are used.
 
-The common financial chart has been removed: market totals, company revenue, cinema gross, and an annualized revenue pace cannot support a shared commercial-scale comparison. Financial observations remain in the source tables. The build still removes the obsolete common-axis financial SVG and TXT outputs. The original time-series renderer is used for US time use.
+The common financial chart has been removed: market totals, company revenue, cinema gross, and an annualized revenue pace cannot support a shared commercial-scale comparison. Financial observations remain in the source tables. The build still removes the obsolete common-axis financial SVG and TXT outputs. The US time-use chart and its renderer have been removed; full builds delete obsolete chart outputs. The main figures gallery discovers every SVG recursively and links each matching TXT.
 
 The radar renderer uses fixed 0–10 radii and the same six-axis order for all eight categories. All six axes have author scores and form a closed, lightly filled polygon. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. There is no calibrated procedure translating evidence into these judgments. Point shape distinguishes numeric anchors from qualitative judgments. Both types remain subjective ratings.
 
@@ -37,7 +37,7 @@ python3 -m unittest discover -s scripts -p 'test_markdown_links.py'
 
 ## Standalone empirical figure context
 
-Snapshot labels are defined in `SNAPSHOT_LABELS`, separately from author radar names. Source-specific labels include Music streaming and TV streaming (all content); digital books, feature films and standalone pictures are omitted from the images and documented as unavailable in TXT. GWI population/date, metric definition, report page, category details, marker keys and plotted values are in each matching TXT, with an SVG description for accessibility. Reach uses 0–100%, frequency 0–7 days, and daily time is weekly reported minutes divided by seven. The US diary chart visibly states its BLS source, all-person main-activity denominator and offline coverage.
+Snapshot labels are defined in `SNAPSHOT_LABELS`, separately from author radar names. Source-specific labels include Music streaming and TV streaming (all content); digital books, feature films and standalone pictures are omitted from the images and documented as unavailable in TXT. GWI population/date, metric definition, report page, category details, marker keys and plotted values are in each matching TXT, with an SVG description for accessibility. Reach uses 0–100%, frequency 0–7 days, and daily time is weekly reported minutes divided by seven.
 
 ## GMI26 growth chart (Russian)
 

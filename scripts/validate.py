@@ -2,6 +2,7 @@
 """Validate the package's data, local references, and generated figures."""
 
 from pathlib import Path
+from html.parser import HTMLParser
 import re
 import xml.etree.ElementTree as ET
 from markdown_links import check_local_links
@@ -46,10 +47,32 @@ def main():
             "GWI Q2 2026", "16+", "Source: GWI via DataReportal", "Horizontal axis:",
             "Digital books", "Standalone pictures", "Feature films", "Plotted values, rounded to two decimals",
             "Source category; duration/orientation not isolated"))
-    us_visible = [el.text or "" for el in ET.parse(ROOT/"figures/us-time-use.svg").getroot().iter()
-                  if el.tag.endswith("text")]
-    assert any("Source: BLS" in label for label in us_visible)
-    assert any("Includes offline use" in label for label in us_visible)
+    assert not (ROOT/"figures/us-time-use.svg").exists()
+    assert not (ROOT/"figures/us-time-use.txt").exists()
+    # Every SVG under figures must appear once in the main gallery with its TXT.
+    class GalleryParser(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.images = []
+            self.links = []
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == "img":
+                self.images.append(attrs["src"])
+            elif tag == "a":
+                self.links.append(attrs["href"])
+
+    gallery = GalleryParser()
+    gallery.feed((ROOT/"figures/index.html").read_text())
+    expected = {p.relative_to(ROOT/"figures").as_posix()
+                for p in (ROOT/"figures").rglob("*.svg")}
+    assert set(gallery.images) == expected, "Gallery must contain every figure"
+    assert len(gallery.images) == len(expected), "Duplicate gallery images"
+    for name in expected:
+        note = Path(name).with_suffix(".txt").as_posix()
+        assert note in gallery.links and (ROOT/"figures"/note).is_file()
+    assert all((ROOT/"figures"/link.split("#")[0]).exists() for link in gallery.links)
     score_rows=table_with(ROOT/"author-interpretations/subjective_scores_2026.md","recognition")
     assert len(score_rows)==8
     for row in score_rows:
@@ -126,7 +149,7 @@ def main():
     assert all(0 <= float(el.attrib["x"]) <= 1120 and 0 <= float(el.attrib["y"]) <= 1030
                for el in chart.iter() if el.tag.endswith("text"))
     assert (ROOT/"sources/assets/gmi26-chart-573622.png").is_file()
-    assert len(svgs)==15
+    assert len(svgs)==14
     for path in svgs:
         tree=ET.parse(path)
         assert tree.getroot().tag.endswith("svg")
@@ -156,7 +179,7 @@ def main():
         assert not re.search(r'[\u0400-\u04ff]', " ".join(ET.parse(path).getroot().itertext())), f"Non-English SVG text: {path}"
     assert (SUBJECTIVE/"README.md").is_file()
     assert (SUBJECTIVE/"index.html").is_file()
-    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; exact comparison coordinates; 48 subjective scores and rationales; 15 SVGs; TXT annotations; local files and section anchors; English figures plus Russian growth chart.")
+    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; exact comparison coordinates; 48 subjective scores and rationales; 14 top-level SVGs; complete recursive gallery; TXT annotations; local files and section anchors; English figures plus Russian growth chart.")
 
 
 if __name__=="__main__":
