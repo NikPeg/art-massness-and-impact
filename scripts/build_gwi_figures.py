@@ -27,7 +27,7 @@ def build(lang="en"):
     panels = []
     configs = [
         ("reach", "Недельный охват медиа", "weekly_reach_percent", 100, 20, "Охват, %", "%"),
-        ("time", "Время потребления медиа", "weekly_minutes", 500, 100, "Минут в неделю", " мин"),
+        ("time", "Время потребления медиа", "weekly_minutes", 500, 100, "Минут в неделю", ""),
         ("frequency", "Частота потребления медиа", "days_per_week", 7, 1, "Дней в неделю", ""),
     ]
     for stem, title, key, maximum, step, axis, suffix in configs:
@@ -66,9 +66,10 @@ def build(lang="en"):
                         f'y="{y-18}" width="{length}" height="32" rx="3" fill="{color}"/>')
             label = f"{value:g}".replace(".", ",") + suffix
             if key == "weekly_minutes":
-                label = f"{int(value)//60}:{int(value)%60:02}"
+                hours, minutes = divmod(int(value), 60)
+                label = f"{hours}ч {minutes}м" if lang == "ru" else f"{hours}h {minutes}m"
             text(left+length+12, y+5, label, 17, 600)
-        text(left+plot_width, bottom+54, axis + (" · подписи Ч:ММ" if key == "weekly_minutes" else ""), 14, anchor="end")
+        text(left+plot_width, bottom+54, axis, 14, anchor="end")
         svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="{height}" '
                f'viewBox="0 0 1040 {height}" role="img" aria-labelledby="title desc" xml:lang="ru">'
                f'<title id="title">{title}</title><desc id="desc">Оценки GWI по измеренным категориям. '

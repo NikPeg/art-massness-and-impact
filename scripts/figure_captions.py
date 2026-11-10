@@ -62,9 +62,9 @@ def caption(kind, lang="en"):
     metrics = {
         "reach": ("Охват: заявленное использование за неделю, % опрошенных.",
                   "Reach: reported weekly use, % of respondents."),
-        "time": (("Время: минуты в неделю; подписи в часах и минутах." if gwi else
+        "time": (("Время по оси — минуты в неделю; подписи столбцов — часы и минуты." if gwi else
                   "Время: минуты в день, полученные делением недельного времени на 7."),
-                 ("Time: minutes per week; labels in hours and minutes." if gwi else
+                 ("The axis shows minutes per week; bar labels show hours and minutes." if gwi else
                   "Time: minutes per day, calculated as weekly time divided by seven.")),
         "frequency": ("Частота: среднее число дней использования в неделю, а не сеансов.",
                       "Frequency: average days of use per week, not sessions."),

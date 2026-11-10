@@ -31,3 +31,5 @@ The growth image contains only a short title/period, category labels, weekly val
 ## Compact Russian GWI gallery
 
 `python3 scripts/build_gwi_figures.py --lang ru` generates `figures/gwi/index-ru.html`, with compact Russian reach, weekly-time and frequency SVGs plus per-chart TXT explanations, sources and color keys. The gallery also references the H1 2026 growth chart, built by `build_growth_figure.py`; `build_figures.py` builds both. The existing `figures/` directory is the project's visualization folder. No OUTFRONT historical values are spliced into a growth series. Missing categories are omitted with explanations in TXT. Device-specific game frequencies are not shown as all-game frequency.
+
+The weekly-time bar chart (`gwi/time.svg`, `gwi/time-ru.svg`) uses minutes per week on the horizontal axis and explicit hours/minutes on the bars (`7h 13m` / `7ч 13м`).

@@ -47,6 +47,15 @@ def main():
     assert all(label in note for label in (
         "GWI Q2 2026", "16+", "DataReportal", "Russia excluded", "Self-reports",
         "digital books", "pictures", "Standalone films"))
+    for lang in ("en", "ru"):
+        suffix = "-ru" if lang == "ru" else ""
+        weekly_chart = ET.parse(ROOT/"figures/gwi"/f"time{suffix}.svg").getroot()
+        labels = [el.text or "" for el in weekly_chart.iter() if el.tag.endswith("text")]
+        for row in measured:
+            hours, minutes = divmod(int(row["weekly_minutes"]), 60)
+            expected_label = f"{hours}ч {minutes}м" if lang == "ru" else f"{hours}h {minutes}m"
+            assert expected_label in labels
+        assert not any(re.search(r"\d+:\d+", label) for label in labels)
     for stem in ("frequency-2026", "frequency-2026-ru", "reach-2026", "reach-2026-ru"):
         assert not (ROOT/"figures"/(stem + ".svg")).exists()
         assert not (ROOT/"figures"/(stem + ".txt")).exists()
