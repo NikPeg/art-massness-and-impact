@@ -280,6 +280,8 @@ def main():
     for directory in (ROOT/"figures", SUBJECTIVE):
         for note in directory.rglob("*.txt"):
             contents = note.read_text()
+            if note.stem.startswith("media-growth-h1-2026"):
+                assert "https://www.emarketer.com/content/" in contents, note
             assert ".md" not in contents, (note, "Caption links to an internal Markdown file")
             assert len(contents.split()) <= 150, (note, "Caption is too long")
             assert not re.search(r"(?m)^\s*[|#]", contents), (note, "Source table or document copied into caption")

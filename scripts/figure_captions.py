@@ -1,6 +1,8 @@
 """Short research-style captions; detailed data stay in the source documents."""
 
 REPORT = "https://datareportal.com/reports/digital-2027-global-overview-report"
+GROWTH_SOURCE = ("https://www.emarketer.com/content/podcast-digital-lives-lifestyles-of-everyone-world-"
+                 "short-form-video-surges-ai-use-cases-more")
 
 
 def caption(kind, lang="en"):
@@ -38,14 +40,15 @@ def caption(kind, lang="en"):
     if kind == "growth":
         return ((
             "Источник: GWI, август 2026; EMARKETER, график 573622. Первое полугодие 2026; "
-            "интернет-пользователи 16–64 лет.\n\n"
+            "интернет-пользователи 16–64 лет.\n"
+            f"{GROWTH_SOURCE}\n\n"
             "Столбцы: годовое изменение времени, %; подписи Ч:ММ: текущее время в неделю. "
             "Синий означает рост, серый — снижение. Годовое сравнение следует из обсуждения авторов; "
             "базовый период на исходном графике не указан. Самоотчёты; погрешности не опубликованы, "
             "значимость различий не установлена. Категории пересекаются.\n"
         ) if ru else (
-            "Source: GWI, August 2026; EMARKETER chart 573622. H1 2026; internet users aged 16–64."
-            "\n\n"
+            "Source: GWI, August 2026; EMARKETER chart 573622. H1 2026; internet users aged 16–64.\n"
+            f"{GROWTH_SOURCE}\n\n"
             "Bars: year-on-year time change, %; HH:MM labels: current weekly time. "
             "Blue indicates growth, grey decline. Year-on-year comparison follows the authors' discussion; "
             "the source chart does not label the base period. Self-reports; uncertainty is unpublished "
