@@ -36,12 +36,14 @@ def main():
     for name, ticks in (
         ("reach-2026", ["0%", "25%", "50%", "75%", "100%"]),
         ("time-2026", [f"{i} min/day" for i in (0, 15, 30, 45, 60, 75)]),
-        ("frequency-2026", [f"{i} days/week" for i in range(8)]),
+        ("frequency-2026", [str(i) for i in range(8)]),
     ):
         chart = ET.parse(ROOT/"figures"/(name + ".svg")).getroot()
         visible = [el.text or "" for el in chart.iter() if el.tag.endswith("text")]
         title = chart.find("{http://www.w3.org/2000/svg}title").text
         expected = [title, *ticks]
+        if name == "frequency-2026":
+            expected.append("Days per week")
         for label, values in (
             ("Short online video", ["4.26"]), ("Long online video", ["3.36"]),
             ("Music streaming", ["3.1"]), ("Video games", ["2.8", "1.73"]),

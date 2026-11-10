@@ -105,7 +105,7 @@ def snapshot(rows, key, title, unit, filename, lang="en"):
     observed = [row for row in rows if num(row[key]) is not None]
     width, left, right, top, step = 1100, 290, 60, 90, 57
     grid_bottom = top + (len(observed)-1)*step + 24
-    height = grid_bottom + 50
+    height = grid_bottom + (75 if key == "days_per_week" else 50)
     maximum, ticks = {
         "weekly_reach_percent": (100, [0, 25, 50, 75, 100]),
         "weekly_minutes": (75, [0, 15, 30, 45, 60, 75]),
@@ -113,10 +113,12 @@ def snapshot(rows, key, title, unit, filename, lang="en"):
     }[key]
     x = lambda value: left + value / maximum * (width-left-right)
     body = text(24, 32, title, size=23, weight=500)
-    tick_unit = {"weekly_reach_percent": "%", "weekly_minutes": " min/day", "days_per_week": " days/week"}[key]
+    tick_unit = {"weekly_reach_percent": "%", "weekly_minutes": " min/day", "days_per_week": ""}[key]
     for value in ticks:
         body += line(x(value), top-18, x(value), grid_bottom)
         body += text(x(value), grid_bottom+24, str(value) + tick_unit, "middle", size=11)
+    if key == "days_per_week":
+        body += text((left + width - right)/2, grid_bottom+52, unit, "middle", size=12)
     for i, row in enumerate(observed):
         cy = top + i*step
         category = row["category"]
