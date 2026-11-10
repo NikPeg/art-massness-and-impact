@@ -81,11 +81,11 @@ def caption(kind, lang="en"):
               "Short/long videos do not isolate orientation. Standalone films, digital books and pictures "
               "lack comparable data. Self-reports; audiences overlap and missing values are not zeros.")
     if metric == "frequency":
-        notes += ((" Игры исключены: источник даёт частоту по устройствам, а не по всем играм."
-                   if gwi else " Игры: круг — мобильные устройства; пустой ромб — ПК/консоли. Группы нельзя складывать.")
+        notes += (" Игры показаны отдельно для мобильных устройств и ПК/консолей. "
+                  "Общей частоты для всех игр нет; пересекающиеся группы нельзя складывать."
                   if ru else
-                  (" Games are omitted: the source reports device-specific, not all-game frequency."
-                   if gwi else " Games: circle = mobile; hollow diamond = PC/console. Do not add these overlapping groups."))
+                  " Games are shown separately for mobile and PC/console devices. "
+                  "No all-game frequency is available; do not add these overlapping groups.")
     if gwi:
         notes += (" Синий: короткие видео; серый: остальные категории." if ru else
                   " Blue: short videos; grey: other categories.")

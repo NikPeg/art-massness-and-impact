@@ -59,7 +59,7 @@ def reach_time(lang="en"):
         body += line(px, py, lx - 8 if anchor == "start" else lx + 8, ly - 5, "#aab4be")
         label = SNAPSHOT_LABELS[category][0]
         body += text(lx, ly, label, anchor, size=15, weight=500)
-        body += mark(px, py, COLORS[category], title=f"{label}: {reach}% / {minutes} min/week")
+        body += mark(px, py, COLORS[category], title=f"{label}: {reach}% / {minutes} min/week", radius=8)
     body += text(30, 630, "GWI · Details: reach-time-2026.txt", size=12)
     note = caption("scatter", lang)
     write("reach-time-2026.svg", svg_doc(width, height, "Reach and consumption time", body, note), lang)

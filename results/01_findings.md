@@ -75,7 +75,7 @@ Financial observations are retained in the [source table](../data/annual_indicat
 
 ![Daily average time, 2026](../figures/time-2026.svg)
 
-![Days per week, 2026](../figures/frequency-2026.svg)
+![Days per week, 2026](../figures/gwi/frequency.svg)
 
 The snapshot separates observed categories from missing data. It does not isolate feature films or books, and TV streaming is only a proxy for series. Source: [GWI / DataReportal](https://datareportal.com/reports/digital-2027-global-overview-report).
 

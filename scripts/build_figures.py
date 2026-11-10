@@ -66,12 +66,12 @@ def line(x1, y1, x2, y2, stroke="#d3d9df", width=1, dash=""):
             f'stroke="{stroke}" stroke-width="{width}" stroke-dasharray="{dash}"/>')
 
 
-def mark(x, y, color, diamond=False, title=""):
+def mark(x, y, color, diamond=False, title="", radius=3.7):
     desc = f"<title>{html.escape(title)}</title>" if title else ""
     if diamond:
         return (f'<path d="M{x},{y-5}L{x+5},{y}L{x},{y+5}L{x-5},{y}Z" '
                 f'fill="white" stroke="{color}" stroke-width="1.7">{desc}</path>')
-    return f'<circle cx="{x}" cy="{y}" r="3.7" fill="{color}">{desc}</circle>'
+    return f'<circle cx="{x}" cy="{y}" r="{radius}" fill="{color}">{desc}</circle>'
 
 
 def svg_doc(width, height, title, body, description=""):
@@ -228,12 +228,12 @@ def build(lang="en"):
     OUT.mkdir(exist_ok=True)
     SUBJECTIVE.mkdir(exist_ok=True)
     # Remove retired charts so rebuilds cannot reintroduce them into the gallery.
-    for name in ("financial-landmarks.svg", "financial-landmarks.txt", "us-time-use.svg", "us-time-use.txt"):
+    for name in ("financial-landmarks.svg", "financial-landmarks.txt", "us-time-use.svg", "us-time-use.txt",
+                 "frequency-2026.svg", "frequency-2026.txt", "frequency-2026-ru.svg", "frequency-2026-ru.txt"):
         (OUT / name).unlink(missing_ok=True)
     media=table_with(ROOT/"data/media_use_2026.md","weekly_reach_percent")
     for key,title,unit,name in [("weekly_reach_percent","Weekly reach: format proxies, 2026","Percent of surveyed online adults","reach-2026.svg"),
-                                ("weekly_minutes","Daily time: format proxies, 2026","Minutes per day","time-2026.svg"),
-                                ("days_per_week","Frequency: format proxies, 2026","Days per week","frequency-2026.svg")]:
+                                ("weekly_minutes","Daily time: format proxies, 2026","Minutes per day","time-2026.svg")]:
         snapshot(media,key,title,unit,name,lang)
     score_path=ROOT/"author-interpretations/subjective_scores_2026.md"
     score_rows=sorted(table_with(score_path,"recognition"),

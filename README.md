@@ -76,4 +76,4 @@ Published numbers were transcribed from the linked sources; original survey micr
 
 [Графики GWI на русском: охват, время, частота и рост](figures/gwi/index.html). Краткие подписи на изображениях; источники, легенды и ограничения — в TXT рядом.
 
-Russian chart variants: run `python3 scripts/build_figures.py --lang ru` and open [the Russian gallery](figures/index-ru.html). The default build remains English. Both galleries include all eight empirical charts; [Russian author profiles](author-interpretations/index-ru.html) remain separate.
+Russian chart variants: run `python3 scripts/build_figures.py --lang ru` and open [the Russian gallery](figures/index-ru.html). The default build remains English. Both galleries include all seven empirical charts; [Russian author profiles](author-interpretations/index-ru.html) remain separate.

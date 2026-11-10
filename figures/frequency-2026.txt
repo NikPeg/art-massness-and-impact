@@ -1,4 +1,0 @@
-Source: GWI Q2 2026; DataReportal, Digital 2027, pp. 39. Internet users aged 16+ in covered markets; Russia excluded. Data: ../data/media_use_2026.md.
-https://datareportal.com/reports/digital-2027-global-overview-report
-
-Frequency: average days of use per week, not sessions. Music is streaming only; TV streaming includes films and other programmes. Short/long videos do not isolate orientation. Standalone films, digital books and pictures lack comparable data. Self-reports; audiences overlap and missing values are not zeros. Games: circle = mobile; hollow diamond = PC/console. Do not add these overlapping groups.

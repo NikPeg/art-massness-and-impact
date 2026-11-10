@@ -2,9 +2,9 @@
 
 Run `python3 scripts/build_figures.py` from the project root for English output (the default), and `python3 scripts/build_figures.py --lang ru` for Russian output. Both sets coexist. Russian charts and TXT files have the suffix `-ru`; open `index-ru.html` for the fully Russian gallery.
 
-Snapshot SVGs (`reach-2026.svg`, `time-2026.svg`, `frequency-2026.svg`) contain a title, category-axis values and numeric-axis values with units. The reach and frequency images also label each point. Matching TXT files contain concise sources, measurement definitions, marker keys and essential caveats, without tables or lists of plotted values. The compact reach/time figure keeps only titles, essential scope labels, axes, units and short annotation references on the image; its matching TXT file provides a short source and measurement caption. The HTML gallery links to each TXT.
+Snapshot SVGs (`reach-2026.svg`, `time-2026.svg`) contain a title, category-axis values and numeric-axis values with units. The reach image also labels each point. Frequency is shown only as the bar chart `gwi/frequency.svg`, with mobile games and PC/console games as separate rows. Matching TXT files contain concise sources, measurement definitions, marker keys and essential caveats, without tables or lists of plotted values. The compact reach/time figure keeps only titles, essential scope labels, axes, units and short annotation references on the image; its matching TXT file provides a short source and measurement caption. The HTML gallery links to each TXT.
 
-- `reach-2026.svg`, `time-2026.svg`, `frequency-2026.svg`: international online-adult snapshot and explicit gaps.
+- `reach-2026.svg`, `time-2026.svg`: international online-adult snapshot and explicit gaps.
 - `reach-time-2026.svg`: exact weekly reach/time coordinates, with displaced labels and leader lines.
 - `index.html`: browser gallery of every English SVG in this folder and its subfolders, with matching TXT links. `index-ru.html` contains the matching Russian set. The file list is discovered automatically on each full build.
 
@@ -17,7 +17,7 @@ To rebuild just the compact reach/time figure and its TXT annotation, run `pytho
 
 Author interpretations, score inputs, and all radial diagrams are in [their own section](../author-interpretations/README.md), with a [separate gallery](../author-interpretations/index.html).
 
-The three snapshot charts show broad primary-format proxies, with music streaming, digital books and standalone pictures labeled explicitly. Media components across formats have a [separate evidence inventory](../data/media_components_2026.md); unmeasured component totals are not plotted or inferred from video audiences.
+The snapshot charts show broad primary-format proxies, with music streaming, digital books and standalone pictures labeled explicitly. Media components across formats have a [separate evidence inventory](../data/media_components_2026.md); unmeasured component totals are not plotted or inferred from video audiences.
 
 The snapshot uses a 0–100% reach axis, 0–7 days/week frequency axis and a shared 0–75 minutes/day time axis across its rows. Three missing categories are omitted from the images and documented as unavailable in TXT, with no fabricated zero points. TV streaming includes films and other programmes, so it is not labeled as measured series-only use.
 

@@ -15,6 +15,8 @@ LABELS = {
     "long_video": "Длинные онлайн-видео",
     "music": "Музыкальный стриминг",
     "games": "Видеоигры",
+    "games_mobile": "Видеоигры: мобильные",
+    "games_pc_console": "Видеоигры: ПК и консоли",
     "series": "ТВ-стриминг: весь контент",
 }
 
@@ -31,8 +33,12 @@ def build(lang="en"):
     for stem, title, key, maximum, step, axis, suffix in configs:
         selected = [r for r in rows if r[key] != "NA"]
         if key == "days_per_week":
-            # Device-specific gaming frequency cannot stand in for all gaming.
-            selected = [r for r in selected if r["category"] != "games"]
+            # Keep device-specific observations separate; no all-game mean is available.
+            games = next(r for r in selected if r["category"] == "games")
+            selected = [r for r in selected if r["category"] != "games"] + [
+                {**games, "category": "games_mobile"},
+                {**games, "category": "games_pc_console", "days_per_week": games["additional_days_per_week"]},
+            ]
         selected.sort(key=lambda r: float(r[key]), reverse=True)
         bottom = 146 + len(selected) * 64
         height = bottom + 70
