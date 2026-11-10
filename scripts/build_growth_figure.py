@@ -3,6 +3,7 @@
 
 import html
 from figure_i18n import cli_language, save
+from figure_captions import caption
 from pathlib import Path
 
 from build_figures import table_with
@@ -54,18 +55,7 @@ def build(lang="en"):
            + "".join(parts) + '</svg>\n')
     OUT.mkdir(exist_ok=True)
     save(OUT / f"{STEM}.svg", svg, lang, source_lang="ru")
-    source = (ROOT / "data/media_growth_h1_2026.md").read_text(encoding="utf-8")
-    annotation = ("Рост времени потребления медиа — первое полугодие 2026\n\n"
-                  "Как читать график: столбцы показывают годовое изменение времени, %. "
-                  "Ч:ММ / неделю — текущая оценка недельного потребления. "
-                  "Синий цвет — рост, серый — снижение; знак и значение подписаны. "
-                  "Категории упорядочены по изменению, без объединения пересекающихся аудиторий.\n\n"
-                  "Население: интернет-пользователи 16–64 лет. Источник: GWI, август 2026; "
-                  "EMARKETER, график 573622. Перерисовано по скриншоту из видео авторов. "
-                  "Годовое сравнение уточняется в обсуждении авторов; базовый период на графике не подписан. "
-                  "Самоотчёты, среднее через середины интервалов; погрешности не опубликованы на графике. "
-                  "Лидерство относится к 12 измеренным категориям, без отдельных цифровых книг и изображений.\n\n")
-    save(OUT / f"{STEM}.txt", annotation + source, lang, source_lang="ru")
+    save(OUT / f"{STEM}.txt", caption("growth", lang), lang, source_lang=lang)
     page = ('<!doctype html><html lang="ru"><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>Рост потребления медиа — первое полугодие 2026</title>'

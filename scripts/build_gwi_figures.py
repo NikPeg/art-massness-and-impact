@@ -4,6 +4,7 @@
 from pathlib import Path
 import html
 from figure_i18n import cli_language, save
+from figure_captions import caption
 import xml.etree.ElementTree as ET
 
 from build_figures import ROOT, table_with
@@ -70,26 +71,7 @@ def build(lang="en"):
                '<rect width="100%" height="100%" fill="white"/>' + "".join(body) + '</svg>\n')
         ET.fromstring(svg)
         save(OUT / f"{stem}.svg", svg, lang, source_lang="ru")
-        note = (f"{title}\n\n"
-                "Самостоятельная визуализация опубликованных оценок GWI, не оригинальный график издателя.\n"
-                "Источник: GWI Q2 2026, DataReportal Digital 2027, страницы 38–40.\n"
-                "https://datareportal.com/reports/digital-2027-global-overview-report\n"
-                "Исходная таблица проекта: ../../data/media_use_2026.md\n\n"
-                "Легенда: синий — короткие видео, серый — остальные категории. Цвет не обозначает качество или влияние.\n"
-                "Популяция: интернет-пользователи 16+ в охваченных рынках; Россия исключена. "
-                "Самоотчёты, не перепись населения и не экранные логи. Погрешности здесь не показаны.\n"
-                "Короткие/длинные видео не выделяют вертикальную/горизонтальную ориентацию. "
-                "Музыка — только стриминг; ТВ-стриминг включает фильмы, сериалы и другие программы. "
-                "Цифровые книги, отдельные фильмы и самостоятельные изображения не имеют сопоставимых наблюдений; "
-                "они пропущены, а не приравнены к нулю. Аудитории пересекаются; столбцы нельзя суммировать.\n")
-        if key == "days_per_week":
-            note += ("\nИгры исключены только из этого графика: источник даёт частоту по устройствам "
-                     "(мобильные — 2,80 дня, ПК/консоли — 1,73), а не общую частоту игр. "
-                     "Эти показатели нельзя складывать. Дни не означают число сессий.\n")
-        if key == "weekly_minutes":
-            note += "\nДлина столбца — минуты в неделю; подпись — часы:минуты. Игры включают все устройства.\n"
-        note += "\nЗначения:\n" + "\n".join(f'{LABELS[r["category"]]}: {r[key]}' for r in selected) + "\n"
-        save(OUT / f"{stem}.txt", note, lang, source_lang="ru")
+        save(OUT / f"{stem}.txt", caption("gwi-" + stem, lang), lang, source_lang=lang)
         panels.append(f'<section><img src="{stem}.svg" alt="{title}"><a href="{stem}.txt">Пояснение, источники и легенда</a></section>')
     panels.append('<section><img src="../media-growth-h1-2026.svg" alt="Рост потребления медиа: первое полугодие 2026">'
                   '<a href="../media-growth-h1-2026.txt">Пояснение, источники и легенда</a></section>')

@@ -32,7 +32,7 @@ def main():
     components=table_with(ROOT/"data/media_components_2026.md","component")
     assert {r["component"] for r in components}=={"music","images","text","speech"}
     assert all(r[k]=="NA" for r in components for k in ("reach","time","frequency"))
-    # Snapshot images contain only the title and axis values; context stays in TXT.
+    # Snapshot frequency also labels each point; detailed data stay in source tables.
     for name, ticks in (
         ("reach-2026", ["0%", "25%", "50%", "75%", "100%"]),
         ("time-2026", [f"{i} min/day" for i in (0, 15, 30, 45, 60, 75)]),
@@ -41,13 +41,20 @@ def main():
         chart = ET.parse(ROOT/"figures"/(name + ".svg")).getroot()
         visible = [el.text or "" for el in chart.iter() if el.tag.endswith("text")]
         title = chart.find("{http://www.w3.org/2000/svg}title").text
-        assert visible == [title, *ticks, "Short online video", "Long online video",
-                           "Music streaming", "Video games", "TV streaming (all content)"]
+        expected = [title, *ticks]
+        for label, values in (
+            ("Short online video", ["4.26"]), ("Long online video", ["3.36"]),
+            ("Music streaming", ["3.1"]), ("Video games", ["2.8", "1.73"]),
+            ("TV streaming (all content)", ["2.77"]),
+        ):
+            expected.append(label)
+            if name == "frequency-2026":
+                expected.extend(values)
+        assert visible == expected
         note = (ROOT/"figures"/(name + ".txt")).read_text()
         assert all(label in note for label in (
-            "GWI Q2 2026", "16+", "Source: GWI via DataReportal", "Horizontal axis:",
-            "Digital books", "Standalone pictures", "Feature films", "Plotted values, rounded to two decimals",
-            "Source category; duration/orientation not isolated"))
+            "GWI Q2 2026", "16+", "DataReportal", "Russia excluded", "Self-reports",
+            "digital books", "pictures", "Standalone films"))
     assert not (ROOT/"figures/us-time-use.svg").exists()
     assert not (ROOT/"figures/us-time-use.txt").exists()
     # Every SVG under figures must appear once in the main gallery with its TXT.
@@ -186,7 +193,7 @@ def main():
     assert not overview.findall(f".//{ns}image"), "Overview must be self-contained"
     annotation=(SUBJECTIVE/"radar-overview.txt").read_text(encoding="utf-8")
     assert annotation==(SUBJECTIVE/"radar_overview_annotation-en.txt").read_text(encoding="utf-8")
-    assert all(f"{AXIS_LABELS[axis]}:" in annotation for axis in AXES)
+    assert all(AXIS_LABELS[axis] in annotation for axis in AXES)
     broken = check_local_links(ROOT)
     assert not broken, "Broken local Markdown links (file, line, target, reason):\n" + "\n".join(map(str, broken))
     for path in svgs:
@@ -246,6 +253,15 @@ def main():
         individual = ET.parse(SUBJECTIVE/("radar-" + row["category"].replace("_", "-") + "-ru.svg")).getroot()
         assert panel.find(f"{ns}title").text == individual.find(f"{ns}title").text
         assert panel.find(f"{ns}desc").text == individual.find(f"{ns}desc").text
+    # Captions stay short and never duplicate source tables or per-category values.
+    for directory in (ROOT/"figures", SUBJECTIVE):
+        for note in directory.rglob("*.txt"):
+            contents = note.read_text()
+            assert len(contents.split()) <= 150, (note, "Caption is too long")
+            assert not re.search(r"(?m)^\s*[|#]", contents), (note, "Source table or document copied into caption")
+            assert not any(label in contents for label in (
+                "Values:\n", "Observations:\n", "Category scopes:", "Plotted values",
+                "Значения:\n", "Наблюдения:\n", "Границы категорий:")), note
     assert (SUBJECTIVE/"README.md").is_file()
     print("PASS: source data; 17 English/Russian chart pairs; identical geometry; complete language-specific galleries; TXT annotations; local files and section anchors.")
 

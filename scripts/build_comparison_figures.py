@@ -3,8 +3,9 @@
 
 import math
 from figure_i18n import cli_language
+from figure_captions import caption
 
-from build_figures import (ROOT, OUT, COLORS, SNAPSHOT_LABELS, annotation, fmt,
+from build_figures import (ROOT, OUT, COLORS, SNAPSHOT_LABELS,
                            line, mark, svg_doc, table_with, text, write)
 
 
@@ -18,21 +19,14 @@ def observation(value):
     return result
 
 
-def source_notes(ids):
-    lines = (ROOT / "sources/source_register.md").read_text(encoding="utf-8").splitlines()
-    return "Source register entries:\n" + "\n".join(
-        row for row in lines if any(row.startswith(f"| {sid} |") for sid in ids))
-
-
 def reach_time(lang="en"):
     rows = table_with(ROOT / "data/media_use_2026.md", "weekly_reach_percent")
     width, height = 1200, 650
     left, right, top, bottom = 85, 930, 95, 550
-    values, missing = [], []
+    values = []
     for row in rows:
         reach, minutes = (observation(row[k]) for k in ("weekly_reach_percent", "weekly_minutes"))
         if reach is None or minutes is None:
-            missing.append(row)
             continue
         if reach > 100:
             raise ValueError("Reach cannot exceed 100 percent")
@@ -58,7 +52,6 @@ def reach_time(lang="en"):
         "music": (970, 405, "start"),
         "series": (650, 350, "end"),
     }
-    records = []
     for row, reach, minutes in values:
         category = row["category"]
         px, py = x(reach), y(minutes)
@@ -67,27 +60,10 @@ def reach_time(lang="en"):
         label = SNAPSHOT_LABELS[category][0]
         body += text(lx, ly, label, anchor, size=15, weight=500)
         body += mark(px, py, COLORS[category], title=f"{label}: {reach}% / {minutes} min/week")
-        records.append(f"{label}: {fmt(reach)}% weekly reach; {fmt(minutes)} minutes/week. {row['scope']}")
     body += text(30, 630, "GWI · Details: reach-time-2026.txt", size=12)
-    notes = [
-        "Source: GWI Q2 2026, reproduced in DataReportal Digital 2027, pages 38 and 40. "
-        "Internet users aged 16+ in covered markets; Russia excluded. Not a census of all humans.",
-        "Axes: reported weekly reach (%) and reported weekly minutes, as transcribed in "
-        "../data/media_use_2026.md. No division by reach, multiplication by audience, or time conversion. "
-        "Data points are not jittered; leader lines connect displaced labels to exact points.",
-        "Observations:\n" + "\n".join(records),
-        "Omitted because one or both coordinates are unavailable:\n" + "\n".join(
-            f"{SNAPSHOT_LABELS[r['category']][0]}: {r['scope']}" for r in missing),
-        "Missing observations are not zeros. Music is streaming-only. TV streaming includes films "
-        "and other programmes and does not isolate series. Source short/long video categories do not "
-        "isolate vertical/horizontal orientation. Audiences overlap; embedded components are not added.",
-        "The selected point estimates put short video first in reach and games first in time. "
-        "The 433 versus 426 minute contrast has not been tested for statistical significance. "
-        "No complete eight-format ranking, causal effect, or life-impact estimate follows.",
-        source_notes({"GWI26"}),
-    ]
-    write("reach-time-2026.svg", svg_doc(width, height, "Reach and consumption time", body, "\n\n".join(notes)), lang)
-    annotation("reach-time-2026.svg", "Reach and consumption time", notes, lang)
+    note = caption("scatter", lang)
+    write("reach-time-2026.svg", svg_doc(width, height, "Reach and consumption time", body, note), lang)
+    write("reach-time-2026.txt", note, lang, source_lang=lang)
 
 
 def build(lang="en"):

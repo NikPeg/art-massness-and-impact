@@ -1,24 +1,4 @@
-Reach and consumption time
+Source: GWI Q2 2026; DataReportal, Digital 2027, pp. 38, 40. Internet users aged 16+ in covered markets; Russia excluded. Data: ../data/media_use_2026.md.
+https://datareportal.com/reports/digital-2027-global-overview-report
 
-Source: GWI Q2 2026, reproduced in DataReportal Digital 2027, pages 38 and 40. Internet users aged 16+ in covered markets; Russia excluded. Not a census of all humans.
-
-Axes: reported weekly reach (%) and reported weekly minutes, as transcribed in ../data/media_use_2026.md. No division by reach, multiplication by audience, or time conversion. Data points are not jittered; leader lines connect displaced labels to exact points.
-
-Observations:
-Short online video: 88.5% weekly reach; 426 minutes/week. Short online video, not only Instagram Reels
-Long online video: 81.2% weekly reach; 299 minutes/week. Long online video proxy; source-defined category; duration cutoff and orientation not isolated
-Music streaming: 77.4% weekly reach; 301 minutes/week. Music streaming only
-Video games: 74.4% weekly reach; 433 minutes/week. Reach/time all devices; frequency mobile, then PC/console
-TV streaming (all content): 72% weekly reach; 308 minutes/week. All TV streaming, a proxy including films and other programs
-
-Omitted because one or both coordinates are unavailable:
-Feature films: Feature films not isolated
-Digital books: Not reported as a comparable category
-Standalone pictures: Pictures not isolated from mixed social-media and platform use
-
-Missing observations are not zeros. Music is streaming-only. TV streaming includes films and other programmes and does not isolate series. Source short/long video categories do not isolate vertical/horizontal orientation. Audiences overlap; embedded components are not added.
-
-The selected point estimates put short video first in reach and games first in time. The 433 versus 426 minute contrast has not been tested for statistical significance. No complete eight-format ranking, causal effect, or life-impact estimate follows.
-
-Source register entries:
-| GWI26 | [DataReportal Digital 2027](https://datareportal.com/reports/digital-2027-global-overview-report), GWI Q2 2026, pages 38–40 | Web article and original chart images inspected; source of reach, weekly minutes, and days/week |
+Axes: weekly reach, % of respondents, and minutes per week. Lines connect displaced labels to exact points. Music is streaming only; TV streaming includes films and other programmes. Short/long videos do not isolate orientation. Standalone films, digital books and pictures lack comparable data. Self-reports; audiences overlap and missing values are not zeros. Differences have not been tested for statistical significance.

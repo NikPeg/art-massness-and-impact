@@ -4,7 +4,7 @@ Empirical inputs are Markdown tables under `../data/`. Author scores, rationales
 
 - `build_figures.py`: reads those tables, converts selected units, and writes empirical/context SVGs and `figures/index.html`, plus radar SVGs and a separate `author-interpretations/index.html` gallery.
 - `build_comparison_figures.py`: builds the compact `reach-time-2026.svg` and its TXT annotation. Can run independently; also called by the full build. Reads the Markdown inputs directly, keeps scatter coordinates exact and skips missing pairs.
-- Each SVG has a matching TXT annotation generated alongside it. The three snapshot images show only titles and axis values with units; all measurement context and point values are in their TXT files. The compact reach/time figure puts full sources, definitions, omissions and caveats in TXT; the image retains only essential labels, axes, units and an annotation reference. Radars visibly identify author scores.
+- Each SVG has a matching TXT annotation generated alongside it. The snapshot images show titles and axis values with units; the frequency image also labels each data point. TXT files contain short research-style captions: sources, measurement definitions, legends and essential caveats. Full observations remain in the data tables. The compact reach/time figure puts its source, units and essential caveats in TXT; the image retains only essential labels, axes, units and an annotation reference. Radars visibly identify author scores.
 - `validate.py`: checks selected values, missing observations, score bounds, eight radar outputs and their combined overview, SVG syntax, and both files and section anchors in local Markdown links.
 
 Run both with Python 3.9+. No pip packages, browser libraries, external chart CDN, network requests, or credentials are used.
@@ -13,7 +13,7 @@ The common financial chart has been removed: market totals, company revenue, cin
 
 The radar renderer uses fixed 0–10 radii and the same six-axis order for all eight categories. All six axes have author scores and form a closed, lightly filled polygon. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. There is no calibrated procedure translating evidence into these judgments. Point shape distinguishes numeric anchors from qualitative judgments. Both types remain subjective ratings.
 
-The combined `radar-overview.svg` embeds all eight profiles in a 4-by-2 sheet without external image references. Category names, axis labels, scores and brief author-score/marker keys are shown. Detailed explanations remain in adjacent TXT files. The overview reading guide is built from the matching English or Russian source annotation; Russian axis names and alphabetical order follow the selected language.
+The combined `radar-overview.svg` embeds all eight profiles in a 4-by-2 sheet without external image references. Category names, axis labels, scores and brief author-score/marker keys are shown. Short captions remain in adjacent TXT files. The overview reading guide is built from the matching English or Russian source annotation; Russian axis names and alphabetical order follow the selected language.
 
 The overview and individual profiles in the gallery are ordered alphabetically by their displayed category names in the selected language, left to right, then top to bottom. This order does not imply a ranking.
 
@@ -37,7 +37,7 @@ python3 -m unittest discover -s scripts -p 'test_markdown_links.py'
 
 ## Standalone empirical figure context
 
-Snapshot labels are defined in `SNAPSHOT_LABELS`, separately from author radar names. Source-specific labels include Music streaming and TV streaming (all content); digital books, feature films and standalone pictures are omitted from the images and documented as unavailable in TXT. GWI population/date, metric definition, report page, category details, marker keys and plotted values are in each matching TXT, with an SVG description for accessibility. Reach uses 0–100%, frequency 0–7 days, and daily time is weekly reported minutes divided by seven.
+Snapshot labels are defined in `SNAPSHOT_LABELS`, separately from author radar names. Source-specific labels include Music streaming and TV streaming (all content); digital books, feature films and standalone pictures are omitted from the images and documented as unavailable in TXT. GWI population/date, metric definition, report page and essential marker keys are in each matching TXT, with an SVG description for accessibility. Reach uses 0–100%, frequency 0–7 days, and daily time is weekly reported minutes divided by seven.
 
 ## GMI26 growth chart (Russian)
 
@@ -60,6 +60,6 @@ python3 scripts/build_figures.py --lang ru
 
 The first command writes English charts and `index.html`. The second writes the same charts with Russian labels to adjacent `*-ru.svg` files, matching `*-ru.txt` annotations and `index-ru.html` galleries. It covers all eight empirical charts (including `gwi/`) and all nine author radar diagrams. English and Russian outputs coexist; running either mode preserves the other language's files. Each main gallery discovers only the assets for its own language, including subfolders. Author diagrams remain in their own gallery.
 
-The same option works independently with `build_comparison_figures.py`, `build_growth_figure.py`, and `build_gwi_figures.py`. `figure_i18n.py` and `figure_translations.json` supply shared labels, text localization, decimal punctuation and asset-link naming. Localization changes rendered text and language metadata, preserving numeric SVG coordinates and source tables. Source excerpts in TXT retain their original document structure and identifiers. The editable radar guide has English and Russian source files under `author-interpretations/`.
+The same option works independently with `build_comparison_figures.py`, `build_growth_figure.py`, and `build_gwi_figures.py`. `figure_i18n.py` and `figure_translations.json` supply shared labels, text localization, decimal punctuation and asset-link naming. Localization changes rendered text and language metadata, preserving numeric SVG coordinates and source tables. Captions do not copy tables or repeat plotted values; `figure_captions.py` supplies compact English and Russian text. The editable radar guide has English and Russian source files under `author-interpretations/`.
 
 After building both languages, run `python3 scripts/validate.py` to check matching chart sets, unchanged geometry, label languages and gallery links. Run localization regression tests with `python3 -m unittest discover -s scripts -p 'test_figure_i18n.py'`.

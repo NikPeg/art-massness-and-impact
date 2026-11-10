@@ -1,44 +1,4 @@
-Weekly reach: format proxies, 2026
+Source: GWI Q2 2026; DataReportal, Digital 2027, pp. 38. Internet users aged 16+ in covered markets; Russia excluded. Data: ../data/media_use_2026.md.
+https://datareportal.com/reports/digital-2027-global-overview-report
 
-GWI Q2 2026 · Internet users aged 16+ in covered markets · Russia excluded
-
-Source-defined categories; overlapping audiences, not a complete ranking of media formats.
-
-Horizontal axis: Percent of surveyed online adults.
-
-Source: GWI via DataReportal, Digital 2027, p. 38. Source values: data/media_use_2026.md.
-
-Music means streaming only. TV streaming is not series-only. Missing rows are not zeros.
-
-Reach means reported weekly use within the surveyed online population, not a share of all people.
-
-Standalone format proxies only; embedded images, music, text and speech have no measured combined totals here.
-
-Unavailable categories are omitted, not plotted as zeros: Feature films, Digital books, Standalone pictures.
-
-Category details:
-Short online video: Source category; not Instagram Reels alone
-Long online video: Source category; duration/orientation not isolated
-Music streaming: Streaming listening only; no embedded-music union
-Video games: Reach/time: all devices; frequency: device groups
-TV streaming (all content): Series proxy; includes films and other programmes
-Feature films: No film-only observation
-Digital books: No comparable reading observation
-Standalone pictures: Not isolated from mixed platform use
-
-Category scopes:
-Short online video: Short online video, not only Instagram Reels
-Long online video: Long online video proxy; source-defined category; duration cutoff and orientation not isolated
-Music streaming: Music streaming only
-Video games: Reach/time all devices; frequency mobile, then PC/console
-TV streaming (all content): All TV streaming, a proxy including films and other programs
-Feature films: Feature films not isolated
-Digital books: Not reported as a comparable category
-Standalone pictures: Pictures not isolated from mixed social-media and platform use
-
-Plotted values, rounded to two decimals (Percent of surveyed online adults):
-Short online video: 88.5
-Long online video: 81.2
-Music streaming: 77.4
-Video games: 74.4
-TV streaming (all content): 72
+Reach: reported weekly use, % of respondents. Music is streaming only; TV streaming includes films and other programmes. Short/long videos do not isolate orientation. Standalone films, digital books and pictures lack comparable data. Self-reports; audiences overlap and missing values are not zeros.

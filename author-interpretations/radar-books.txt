@@ -1,9 +1,3 @@
-Books
+Source: author ratings in subjective_scores_2026.md; rationales in score_rationales.md. The 0–10 scale represents subjective judgments, not measured effects. Mixed scope limits comparison; the exact Life impact scores have no established research basis.
 
-Mixed comparison levels: earlier author profiles, not a harmonized format or component comparison. See ../research/01_scope_and_metrics.md and ../data/media_components_2026.md.
-
-2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.
-
-Filled circle: numeric anchor | Hollow diamond: qualitative rationale.
-
-No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: subjective_scores_2026.md; score_rationales.md.
+Circle: numeric anchor; hollow diamond: qualitative rationale. Both types are subjective; area does not represent an overall ranking.

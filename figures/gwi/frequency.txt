@@ -1,18 +1,4 @@
-Media consumption frequency
-
-Independent visualization of published GWI estimates, not the publisher's original chart.
-Source: GWI Q2 2026, DataReportal Digital 2027, pages 38–40.
+Source: GWI Q2 2026; DataReportal, Digital 2027, pp. 39. Internet users aged 16+ in covered markets; Russia excluded. Data: ../../data/media_use_2026.md.
 https://datareportal.com/reports/digital-2027-global-overview-report
-Project source table: ../../data/media_use_2026.md
 
-Legend: blue = short videos; grey = other categories. Color does not indicate quality or impact.
-Population: internet users aged 16+ in covered markets; Russia excluded. Self-reports, not a census or screen logs. Uncertainty is not shown here.
-Short/long videos do not isolate vertical/horizontal orientation. Music is streaming only; TV streaming includes films, series and other programmes. Digital books, standalone films and pictures have no comparable observations; they are omitted, not treated as zeros. Audiences overlap; bars must not be summed.
-
-Games are excluded only from this frequency chart: the source reports device-specific frequency (mobile: 2.80 days; PC/console: 1.73), not all-game frequency. These values must not be added. Days are not sessions.
-
-Values:
-Short videos: 4.26
-Long online videos: 3.36
-Music streaming: 3.10
-TV streaming: all content: 2.77
+Frequency: average days of use per week, not sessions. Music is streaming only; TV streaming includes films and other programmes. Short/long videos do not isolate orientation. Standalone films, digital books and pictures lack comparable data. Self-reports; audiences overlap and missing values are not zeros. Games are omitted: the source reports device-specific, not all-game frequency. Blue: short videos; grey: other categories.

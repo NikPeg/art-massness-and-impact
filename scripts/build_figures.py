@@ -6,6 +6,7 @@ import html
 import math
 import xml.etree.ElementTree as ET
 from figure_i18n import cli_language, localized_path, save, translate
+from figure_captions import caption
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"
@@ -87,11 +88,6 @@ def write(name, content, lang="en", source_lang="en"):
     save(directory / name, content, lang, source_lang)
 
 
-def annotation(filename, title, paragraphs, lang="en"):
-    write(Path(filename).with_suffix(".txt").name,
-          title + "\n\n" + "\n\n".join(paragraphs) + "\n", lang)
-
-
 # Labels describe the source observation, separately from the author radar names.
 SNAPSHOT_LABELS = {
     "short_video": ("Short online video", "Source category; not Instagram Reels alone"),
@@ -110,13 +106,12 @@ def snapshot(rows, key, title, unit, filename, lang="en"):
     width, left, right, top, step = 1100, 290, 60, 90, 57
     grid_bottom = top + (len(observed)-1)*step + 24
     height = grid_bottom + 50
-    maximum, ticks, page = {
-        "weekly_reach_percent": (100, [0, 25, 50, 75, 100], 38),
-        "weekly_minutes": (75, [0, 15, 30, 45, 60, 75], 40),
-        "days_per_week": (7, list(range(8)), 39),
+    maximum, ticks = {
+        "weekly_reach_percent": (100, [0, 25, 50, 75, 100]),
+        "weekly_minutes": (75, [0, 15, 30, 45, 60, 75]),
+        "days_per_week": (7, list(range(8))),
     }[key]
     x = lambda value: left + value / maximum * (width-left-right)
-    population = "GWI Q2 2026 · Internet users aged 16+ in covered markets · Russia excluded"
     body = text(24, 32, title, size=23, weight=500)
     tick_unit = {"weekly_reach_percent": "%", "weekly_minutes": " min/day", "days_per_week": " days/week"}[key]
     for value in ticks:
@@ -136,33 +131,12 @@ def snapshot(rows, key, title, unit, filename, lang="en"):
             body += line(left, yy, x(val), yy, "#cbd3dc")
             marker_title = ("Mobile games" if j == 0 else "PC/console games") if extra is not None else label
             body += mark(x(val), yy, COLORS[category], j == 1, title=marker_title)
-    notes = [
-        f"Source: GWI via DataReportal, Digital 2027, p. {page}. Source values: data/media_use_2026.md.",
-        "Music means streaming only. TV streaming is not series-only. Missing rows are not zeros.",
-        "Weekly survey time / 7 gives the displayed daily mean." if key == "weekly_minutes" else
-        "Frequency means average days per week, not sessions; overlapping device groups must not be added." if key == "days_per_week" else
-        "Reach means reported weekly use within the surveyed online population, not a share of all people.",
-        "Standalone format proxies only; embedded images, music, text and speech have no measured combined totals here."
-    ]
-    description = population + "; " + " ".join(notes) + "; " + "; ".join(
-        f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows)
-    write(filename, svg_doc(width, height, title, body, description), lang)
-    annotation(filename, title, [population,
-        "Source-defined categories; overlapping audiences, not a complete ranking of media formats.",
-        "Horizontal axis: " + unit + ".", *notes,
-        "Unavailable categories are omitted, not plotted as zeros: " + ", ".join(
-            SNAPSHOT_LABELS[r["category"]][0] for r in rows if num(r[key]) is None) + ".",
-        *(["Games frequency: filled circle = mobile; hollow diamond = PC/console. These groups overlap."]
-          if key == "days_per_week" else []),
-        "Category details:\n" + "\n".join(
-            f'{SNAPSHOT_LABELS[r["category"]][0]}: {SNAPSHOT_LABELS[r["category"]][1]}' for r in rows),
-        "Category scopes:\n" + "\n".join(f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows),
-        "Plotted values, rounded to two decimals (" + unit + "):\n" + "\n".join(
-            f'{SNAPSHOT_LABELS[r["category"]][0]}: '
-            + fmt(float(r[key]) / 7 if key == "weekly_minutes" else float(r[key]))
-            + (" (mobile); " + fmt(float(r["additional_days_per_week"])) + " (PC/console)"
-               if key == "days_per_week" and num(r["additional_days_per_week"]) is not None else "")
-            for r in observed)], lang)
+            if key == "days_per_week":
+                body += text(x(val)+11, yy+4, fmt(val), size=12)
+    kind = {"weekly_reach_percent": "reach", "weekly_minutes": "time", "days_per_week": "frequency"}[key]
+    note = caption(kind, lang)
+    write(filename, svg_doc(width, height, title, body, note), lang)
+    write(Path(filename).with_suffix(".txt").name, note, lang, source_lang=lang)
 
 
 def radar(row, anchors, lang="en"):
@@ -220,12 +194,7 @@ def radar(row, anchors, lang="en"):
     write(name,svg_doc(width,height,RADAR_NAMES[category]+" radar",body,
           "Author interpretation with mixed comparison levels; not a harmonized format or component comparison. Research supporting these exact Life impact scores or their comparative ordering has not been found in the project review. " +
           "; ".join(f"{AXIS_LABELS[a]}: {'Not assessed' if v is None else str(int(v)) + '/10'}" for a,v in zip(AXES,scores))), lang)
-    annotation(name, RADAR_NAMES[category], [
-        "Mixed comparison levels: earlier author profiles, not a harmonized format or component comparison. See ../research/01_scope_and_metrics.md and ../data/media_components_2026.md.",
-        "2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.",
-        *(["Blue: direct and embedded audible online music. Orange dashed: streaming-only reference (8/6/7), informed by GWI26. Different exposure definitions, not measured uplift. See music_online_scenarios.md."] if category == "music" else []),
-        "Filled circle: numeric anchor | Hollow diamond: qualitative rationale.",
-        "No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: subjective_scores_2026.md; score_rationales.md."], lang)
+    write(Path(name).with_suffix(".txt").name, caption(Path(name).stem, lang), lang, source_lang=lang)
     return name
 
 
@@ -245,10 +214,7 @@ def radar_overview(radar_names, lang="en"):
     write("radar-overview.svg", svg_doc(width, height, "All eight subjective radar profiles, 2026", body,
           "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales. Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review."), lang)
     guide_name = "radar_overview_annotation.txt" if lang == "ru" else "radar_overview_annotation-en.txt"
-    guide = (SUBJECTIVE / guide_name).read_text(encoding="utf-8")
-    if lang == "ru":
-        guide = guide.replace("Алфавитный порядок английских названий", "Алфавитный порядок русских названий")
-    write("radar-overview.txt", guide, lang)
+    write("radar-overview.txt", (SUBJECTIVE / guide_name).read_text(encoding="utf-8"), lang, source_lang=lang)
 
 
 def build(lang="en"):
