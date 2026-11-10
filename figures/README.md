@@ -2,9 +2,10 @@
 
 Run `python3 scripts/build_figures.py` from the project root for English output (the default), and `python3 scripts/build_figures.py --lang ru` for Russian output. Both sets coexist. Russian charts and TXT files have the suffix `-ru`; open `index-ru.html` for the fully Russian gallery.
 
-Snapshot SVGs (`reach-2026.svg`, `time-2026.svg`) contain a title, category-axis values and numeric-axis values with units. The reach image also labels each point. Frequency is shown only as the bar chart `gwi/frequency.svg`, with mobile games and PC/console games as separate rows. Matching TXT files contain concise sources, measurement definitions, marker keys and essential caveats, without tables or lists of plotted values. The compact reach/time figure keeps only titles, essential scope labels, axes, units and short annotation references on the image; its matching TXT file provides a short source and measurement caption. The HTML gallery links to each TXT.
+The daily-time SVG (`time-2026.svg`) contains a title, category-axis values and numeric-axis values with units. Reach is shown only as the bar chart `gwi/reach.svg`. Frequency is shown only as the bar chart `gwi/frequency.svg`, with mobile games and PC/console games as separate rows. Matching TXT files contain concise sources, measurement definitions, marker keys and essential caveats, without tables or lists of plotted values. The compact reach/time figure keeps only titles, essential scope labels, axes, units and short annotation references on the image; its matching TXT file provides a short source and measurement caption. The HTML gallery links to each TXT.
 
-- `reach-2026.svg`, `time-2026.svg`: international online-adult snapshot and explicit gaps.
+- `time-2026.svg`: daily time for international online adults.
+- `gwi/reach.svg`, `gwi/time.svg`, `gwi/frequency.svg`: weekly reach, weekly time and frequency bar charts.
 - `reach-time-2026.svg`: exact weekly reach/time coordinates, with displaced labels and leader lines.
 - `index.html`: browser gallery of every English SVG in this folder and its subfolders, with matching TXT links. `index-ru.html` contains the matching Russian set. The file list is discovered automatically on each full build.
 

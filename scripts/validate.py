@@ -32,29 +32,17 @@ def main():
     components=table_with(ROOT/"data/media_components_2026.md","component")
     assert {r["component"] for r in components}=={"music","images","text","speech"}
     assert all(r[k]=="NA" for r in components for k in ("reach","time","frequency"))
-    # Snapshot reach labels each point; detailed data stay in source tables.
-    for name, ticks in (
-        ("reach-2026", ["0%", "25%", "50%", "75%", "100%"]),
-        ("time-2026", [f"{i} min/day" for i in (0, 15, 30, 45, 60, 75)]),
-    ):
-        chart = ET.parse(ROOT/"figures"/(name + ".svg")).getroot()
-        visible = [el.text or "" for el in chart.iter() if el.tag.endswith("text")]
-        title = chart.find("{http://www.w3.org/2000/svg}title").text
-        expected = [title, *ticks]
-        for label, reach in (
-            ("Short online video", "88.5%"), ("Long online video", "81.2%"),
-            ("Music streaming", "77.4%"), ("Video games", "74.4%"),
-            ("TV streaming (all content)", "72%"),
-        ):
-            expected.append(label)
-            if name == "reach-2026":
-                expected.append(reach)
-        assert visible == expected
-        note = (ROOT/"figures"/(name + ".txt")).read_text()
-        assert all(label in note for label in (
-            "GWI Q2 2026", "16+", "DataReportal", "Russia excluded", "Self-reports",
-            "digital books", "pictures", "Standalone films"))
-    for stem in ("frequency-2026", "frequency-2026-ru"):
+    chart = ET.parse(ROOT/"figures/time-2026.svg").getroot()
+    visible = [el.text or "" for el in chart.iter() if el.tag.endswith("text")]
+    title = chart.find("{http://www.w3.org/2000/svg}title").text
+    assert visible == [title, *[f"{i} min/day" for i in (0, 15, 30, 45, 60, 75)],
+                       "Short online video", "Long online video", "Music streaming",
+                       "Video games", "TV streaming (all content)"]
+    note = (ROOT/"figures/time-2026.txt").read_text()
+    assert all(label in note for label in (
+        "GWI Q2 2026", "16+", "DataReportal", "Russia excluded", "Self-reports",
+        "digital books", "pictures", "Standalone films"))
+    for stem in ("frequency-2026", "frequency-2026-ru", "reach-2026", "reach-2026-ru"):
         assert not (ROOT/"figures"/(stem + ".svg")).exists()
         assert not (ROOT/"figures"/(stem + ".txt")).exists()
     for lang in ("en", "ru"):
@@ -150,7 +138,7 @@ def main():
     answers=re.findall(r"^\| H(\d+) \|", (ROOT/"results/01_findings.md").read_text(), re.M)
     assert list(map(int,questions))==list(range(1,31))
     assert sorted(map(int,answers))==list(range(1,31))
-    for name in ("reach-2026.svg","time-2026.svg"):
+    for name in ("time-2026.svg",):
         tree=ET.parse(ROOT/"figures"/name)
         height=float(tree.getroot().attrib["height"])
         assert all(0<=float(el.attrib["y"])<height for el in tree.iter() if el.tag.endswith("text"))
@@ -190,7 +178,7 @@ def main():
     assert all(0 <= float(el.attrib["x"]) <= 1120 and 0 <= float(el.attrib["y"]) <= 1030
                for el in chart.iter() if el.tag.endswith("text"))
     assert (ROOT/"sources/assets/gmi26-chart-573622.png").is_file()
-    assert len(svgs)==13
+    assert len(svgs)==12
     for path in svgs:
         tree=ET.parse(path)
         assert tree.getroot().tag.endswith("svg")
@@ -219,7 +207,7 @@ def main():
     # Both language variants cover the same charts and retain exact geometry/data.
     all_en = [p for directory in (ROOT/"figures", SUBJECTIVE)
               for p in directory.rglob("*.svg") if not p.stem.endswith("-ru")]
-    assert len(all_en) == 16
+    assert len(all_en) == 15
     for path in all_en:
         ru = path.with_name(path.stem + "-ru.svg")
         assert ru.is_file() and ru.with_suffix(".txt").is_file(), path
@@ -259,7 +247,7 @@ def main():
             if directory == ROOT/"figures":
                 expected = {p.relative_to(directory).as_posix() for p in directory.rglob("*.svg")
                             if p.stem.endswith("-ru") == (lang == "ru")}
-                assert len(parser.images) == len(expected) == 7
+                assert len(parser.images) == len(expected) == 6
                 assert set(parser.images) == expected
             elif directory == SUBJECTIVE:
                 assert len(parser.images) == 9
@@ -281,7 +269,7 @@ def main():
                 "Values:\n", "Observations:\n", "Category scopes:", "Plotted values",
                 "Значения:\n", "Наблюдения:\n", "Границы категорий:")), note
     assert (SUBJECTIVE/"README.md").is_file()
-    print("PASS: source data; 16 English/Russian chart pairs; identical geometry; complete language-specific galleries; TXT annotations; local files and section anchors.")
+    print("PASS: source data; 15 English/Russian chart pairs; identical geometry; complete language-specific galleries; TXT annotations; local files and section anchors.")
 
 
 

@@ -71,7 +71,7 @@ Short-form vertical video is one of the central forms of everyday mass culture b
 
 Financial observations are retained in the [source table](../data/annual_indicators.md), with their [measurement boundaries](../research/03_source_comparison.md#financial-boundaries). They cover different markets, geographies, and accounting periods, so no common financial ranking is plotted. The [reach/time scatter](../figures/reach-time-2026.svg), with its [annotation](../figures/reach-time-2026.txt), combines two snapshot measures without converting them into an overall score.
 
-![Weekly reach, 2026](../figures/reach-2026.svg)
+![Weekly reach, 2026](../figures/gwi/reach.svg)
 
 ![Daily average time, 2026](../figures/time-2026.svg)
 

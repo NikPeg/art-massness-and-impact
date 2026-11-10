@@ -48,14 +48,6 @@ def table_with(path, column):
     return matches[0]
 
 
-def num(value):
-    return None if value == "NA" else float(value)
-
-
-def fmt(value, decimals=2):
-    return f"{value:,.{decimals}f}".rstrip("0").rstrip(".")
-
-
 def text(x, y, value, anchor="start", size=12, weight=400):
     return (f'<text x="{x:.2f}" y="{y:.2f}" text-anchor="{anchor}" '
             f'font-size="{size}" font-weight="{weight}">{html.escape(str(value))}</text>')
@@ -101,43 +93,27 @@ SNAPSHOT_LABELS = {
 }
 
 
-def snapshot(rows, key, title, unit, filename, lang="en"):
-    observed = [row for row in rows if num(row[key]) is not None]
+def daily_time(rows, lang="en"):
+    """Render daily time only; reach and frequency use the GWI bar charts."""
+    observed = [row for row in rows if row["weekly_minutes"] != "NA"]
+    title, filename = "Daily time: format proxies, 2026", "time-2026.svg"
     width, left, right, top, step = 1100, 290, 60, 90, 57
     grid_bottom = top + (len(observed)-1)*step + 24
-    height = grid_bottom + (75 if key == "days_per_week" else 50)
-    maximum, ticks = {
-        "weekly_reach_percent": (100, [0, 25, 50, 75, 100]),
-        "weekly_minutes": (75, [0, 15, 30, 45, 60, 75]),
-        "days_per_week": (7, list(range(8))),
-    }[key]
-    x = lambda value: left + value / maximum * (width-left-right)
+    height = grid_bottom + 50
+    x = lambda value: left + value / 75 * (width-left-right)
     body = text(24, 32, title, size=23, weight=500)
-    tick_unit = {"weekly_reach_percent": "%", "weekly_minutes": " min/day", "days_per_week": ""}[key]
-    for value in ticks:
+    for value in (0, 15, 30, 45, 60, 75):
         body += line(x(value), top-18, x(value), grid_bottom)
-        body += text(x(value), grid_bottom+24, str(value) + tick_unit, "middle", size=11)
-    if key == "days_per_week":
-        body += text((left + width - right)/2, grid_bottom+52, unit, "middle", size=12)
+        body += text(x(value), grid_bottom+24, str(value) + " min/day", "middle", size=11)
     for i, row in enumerate(observed):
         cy = top + i*step
         category = row["category"]
         label = SNAPSHOT_LABELS[category][0]
         body += text(24, cy+4, label, size=13, weight=500)
-        value = num(row[key])
-        if key == "weekly_minutes":
-            value /= 7
-        extra = num(row["additional_days_per_week"]) if key == "days_per_week" else None
-        for j, val in enumerate([value] + ([extra] if extra is not None else [])):
-            yy = cy + (-7 if j == 0 else 12) if extra is not None else cy
-            body += line(left, yy, x(val), yy, "#cbd3dc")
-            marker_title = ("Mobile games" if j == 0 else "PC/console games") if extra is not None else label
-            body += mark(x(val), yy, COLORS[category], j == 1, title=marker_title)
-            if key in ("days_per_week", "weekly_reach_percent"):
-                display = fmt(val) + ("%" if key == "weekly_reach_percent" else "")
-                body += text(x(val)+11, yy+4, display, size=12)
-    kind = {"weekly_reach_percent": "reach", "weekly_minutes": "time", "days_per_week": "frequency"}[key]
-    note = caption(kind, lang)
+        value = float(row["weekly_minutes"]) / 7
+        body += line(left, cy, x(value), cy, "#cbd3dc")
+        body += mark(x(value), cy, COLORS[category], title=label)
+    note = caption("time", lang)
     write(filename, svg_doc(width, height, title, body, note), lang)
     write(Path(filename).with_suffix(".txt").name, note, lang, source_lang=lang)
 
@@ -229,12 +205,11 @@ def build(lang="en"):
     SUBJECTIVE.mkdir(exist_ok=True)
     # Remove retired charts so rebuilds cannot reintroduce them into the gallery.
     for name in ("financial-landmarks.svg", "financial-landmarks.txt", "us-time-use.svg", "us-time-use.txt",
-                 "frequency-2026.svg", "frequency-2026.txt", "frequency-2026-ru.svg", "frequency-2026-ru.txt"):
+                 "frequency-2026.svg", "frequency-2026.txt", "frequency-2026-ru.svg", "frequency-2026-ru.txt",
+                 "reach-2026.svg", "reach-2026.txt", "reach-2026-ru.svg", "reach-2026-ru.txt"):
         (OUT / name).unlink(missing_ok=True)
     media=table_with(ROOT/"data/media_use_2026.md","weekly_reach_percent")
-    for key,title,unit,name in [("weekly_reach_percent","Weekly reach: format proxies, 2026","Percent of surveyed online adults","reach-2026.svg"),
-                                ("weekly_minutes","Daily time: format proxies, 2026","Minutes per day","time-2026.svg")]:
-        snapshot(media,key,title,unit,name,lang)
+    daily_time(media,lang)
     score_path=ROOT/"author-interpretations/subjective_scores_2026.md"
     score_rows=sorted(table_with(score_path,"recognition"),
                       key=lambda row: translate(RADAR_NAMES[row["category"]], lang).casefold())
