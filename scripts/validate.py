@@ -32,7 +32,7 @@ def main():
     components=table_with(ROOT/"data/media_components_2026.md","component")
     assert {r["component"] for r in components}=={"music","images","text","speech"}
     assert all(r[k]=="NA" for r in components for k in ("reach","time","frequency"))
-    # Snapshot frequency also labels each point; detailed data stay in source tables.
+    # Snapshot reach and frequency also label each point; detailed data stay in source tables.
     for name, ticks in (
         ("reach-2026", ["0%", "25%", "50%", "75%", "100%"]),
         ("time-2026", [f"{i} min/day" for i in (0, 15, 30, 45, 60, 75)]),
@@ -44,14 +44,16 @@ def main():
         expected = [title, *ticks]
         if name == "frequency-2026":
             expected.append("Days per week")
-        for label, values in (
-            ("Short online video", ["4.26"]), ("Long online video", ["3.36"]),
-            ("Music streaming", ["3.1"]), ("Video games", ["2.8", "1.73"]),
-            ("TV streaming (all content)", ["2.77"]),
+        for label, values, reach in (
+            ("Short online video", ["4.26"], "88.5%"), ("Long online video", ["3.36"], "81.2%"),
+            ("Music streaming", ["3.1"], "77.4%"), ("Video games", ["2.8", "1.73"], "74.4%"),
+            ("TV streaming (all content)", ["2.77"], "72%"),
         ):
             expected.append(label)
             if name == "frequency-2026":
                 expected.extend(values)
+            elif name == "reach-2026":
+                expected.append(reach)
         assert visible == expected
         note = (ROOT/"figures"/(name + ".txt")).read_text()
         assert all(label in note for label in (

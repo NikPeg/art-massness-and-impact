@@ -133,8 +133,9 @@ def snapshot(rows, key, title, unit, filename, lang="en"):
             body += line(left, yy, x(val), yy, "#cbd3dc")
             marker_title = ("Mobile games" if j == 0 else "PC/console games") if extra is not None else label
             body += mark(x(val), yy, COLORS[category], j == 1, title=marker_title)
-            if key == "days_per_week":
-                body += text(x(val)+11, yy+4, fmt(val), size=12)
+            if key in ("days_per_week", "weekly_reach_percent"):
+                display = fmt(val) + ("%" if key == "weekly_reach_percent" else "")
+                body += text(x(val)+11, yy+4, display, size=12)
     kind = {"weekly_reach_percent": "reach", "weekly_minutes": "time", "days_per_week": "frequency"}[key]
     note = caption(kind, lang)
     write(filename, svg_doc(width, height, title, body, note), lang)
