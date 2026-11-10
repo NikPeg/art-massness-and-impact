@@ -94,25 +94,31 @@ SNAPSHOT_LABELS = {
 
 
 def daily_time(rows, lang="en"):
-    """Render daily time only; reach and frequency use the GWI bar charts."""
-    observed = [row for row in rows if row["weekly_minutes"] != "NA"]
+    """Render daily minutes using the same bar style as the GWI charts."""
+    observed = sorted((row for row in rows if row["weekly_minutes"] != "NA"),
+                      key=lambda row: float(row["weekly_minutes"]), reverse=True)
     title, filename = "Daily time: format proxies, 2026", "time-2026.svg"
-    width, left, right, top, step = 1100, 290, 60, 90, 57
-    grid_bottom = top + (len(observed)-1)*step + 24
-    height = grid_bottom + 50
-    x = lambda value: left + value / 75 * (width-left-right)
-    body = text(24, 32, title, size=23, weight=500)
+    width, left, plot_width, top, step = 1040, 345, 560, 105, 64
+    grid_bottom = top + (len(observed)-1)*step + 32
+    height = grid_bottom + 70
+    x = lambda value: left + value / 75 * plot_width
+    body = text(30, 43, title, size=27, weight=700)
     for value in (0, 15, 30, 45, 60, 75):
-        body += line(x(value), top-18, x(value), grid_bottom)
-        body += text(x(value), grid_bottom+24, str(value) + " min/day", "middle", size=11)
+        body += line(x(value), top-30, x(value), grid_bottom, "#e3e8ee")
+        body += text(x(value), grid_bottom+24, str(value), "middle", size=13)
+    body += text(left+plot_width, grid_bottom+54, "Minutes per day", "end", size=14)
     for i, row in enumerate(observed):
         cy = top + i*step
         category = row["category"]
+        is_short = category == "short_video"
         label = SNAPSHOT_LABELS[category][0]
-        body += text(24, cy+4, label, size=13, weight=500)
+        body += text(30, cy+6, label, size=17, weight=700 if is_short else 400)
         value = float(row["weekly_minutes"]) / 7
-        body += line(left, cy, x(value), cy, "#cbd3dc")
-        body += mark(x(value), cy, COLORS[category], title=label)
+        color = "#1768b5" if is_short else "#8b9bad"
+        body += (f'<rect data-category="{category}" data-value="{value}" x="{left}" '
+                 f'y="{cy-18}" width="{value/75*plot_width}" height="32" rx="3" fill="{color}"/>')
+        display = f"{value:.2f}".rstrip("0").rstrip(".")
+        body += text(x(value)+12, cy+5, display, size=17, weight=600)
     note = caption("time", lang)
     write(filename, svg_doc(width, height, title, body, note), lang)
     write(Path(filename).with_suffix(".txt").name, note, lang, source_lang=lang)

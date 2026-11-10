@@ -1,3 +1,3 @@
-Source: GWI, August 2026; EMARKETER chart 573622. H1 2026; internet users aged 16–64. Data: ../data/media_growth_h1_2026.md.
+Source: GWI, August 2026; EMARKETER chart 573622. H1 2026; internet users aged 16–64.
 
 Bars: year-on-year time change, %; HH:MM labels: current weekly time. Blue indicates growth, grey decline. Year-on-year comparison follows the authors' discussion; the source chart does not label the base period. Self-reports; uncertainty is unpublished and differences have not been tested for significance. Categories overlap.

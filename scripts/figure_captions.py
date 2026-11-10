@@ -9,11 +9,11 @@ def caption(kind, lang="en"):
     ru = lang == "ru"
     if kind.startswith("radar"):
         source = (
-            "Источник: авторские оценки, subjective_scores_2026.md; основания: score_rationales.md. "
+            "Источник: авторские оценки. "
             "Шкала от 0 до 10 отражает субъективные суждения, а не измеренные эффекты. "
             "Разные границы учёта ограничивают сравнение; научного обоснования точных баллов влияния на жизнь нет."
             if ru else
-            "Source: author ratings in subjective_scores_2026.md; rationales in score_rationales.md. "
+            "Source: author ratings. "
             "The 0–10 scale represents subjective judgments, not measured effects. "
             "Mixed scope limits comparison; the exact Life impact scores have no established research basis."
         )
@@ -38,14 +38,14 @@ def caption(kind, lang="en"):
     if kind == "growth":
         return ((
             "Источник: GWI, август 2026; EMARKETER, график 573622. Первое полугодие 2026; "
-            "интернет-пользователи 16–64 лет. Данные: ../data/media_growth_h1_2026.md.\n\n"
+            "интернет-пользователи 16–64 лет.\n\n"
             "Столбцы: годовое изменение времени, %; подписи Ч:ММ: текущее время в неделю. "
             "Синий означает рост, серый — снижение. Годовое сравнение следует из обсуждения авторов; "
             "базовый период на исходном графике не указан. Самоотчёты; погрешности не опубликованы, "
             "значимость различий не установлена. Категории пересекаются.\n"
         ) if ru else (
-            "Source: GWI, August 2026; EMARKETER chart 573622. H1 2026; internet users aged 16–64. "
-            "Data: ../data/media_growth_h1_2026.md.\n\n"
+            "Source: GWI, August 2026; EMARKETER chart 573622. H1 2026; internet users aged 16–64."
+            "\n\n"
             "Bars: year-on-year time change, %; HH:MM labels: current weekly time. "
             "Blue indicates growth, grey decline. Year-on-year comparison follows the authors' discussion; "
             "the source chart does not label the base period. Self-reports; uncertainty is unpublished "
@@ -54,12 +54,11 @@ def caption(kind, lang="en"):
     gwi = kind.startswith("gwi-")
     metric = kind[4:] if gwi else kind
     pages = {"reach": "38", "time": "40", "frequency": "39", "scatter": "38, 40"}[metric]
-    path = "../../data/media_use_2026.md" if gwi else "../data/media_use_2026.md"
     source = (f"Источник: GWI, II квартал 2026; DataReportal, Digital 2027, стр. {pages}. "
-              f"Интернет-пользователи 16+ в охваченных рынках; Россия исключена. Данные: {path}."
+              f"Интернет-пользователи 16+ в охваченных рынках; Россия исключена."
               if ru else
               f"Source: GWI Q2 2026; DataReportal, Digital 2027, pp. {pages}. "
-              f"Internet users aged 16+ in covered markets; Russia excluded. Data: {path}.")
+              f"Internet users aged 16+ in covered markets; Russia excluded.")
     metrics = {
         "reach": ("Охват: заявленное использование за неделю, % опрошенных.",
                   "Reach: reported weekly use, % of respondents."),
@@ -86,7 +85,7 @@ def caption(kind, lang="en"):
                   if ru else
                   " Games are shown separately for mobile and PC/console devices. "
                   "No all-game frequency is available; do not add these overlapping groups.")
-    if gwi:
+    if gwi or kind == "time":
         notes += (" Синий: короткие видео; серый: остальные категории." if ru else
                   " Blue: short videos; grey: other categories.")
     if metric == "scatter":

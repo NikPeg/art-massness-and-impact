@@ -1,3 +1,3 @@
-Source: author ratings in subjective_scores_2026.md; rationales in score_rationales.md. The 0–10 scale represents subjective judgments, not measured effects. Mixed scope limits comparison; the exact Life impact scores have no established research basis.
+Source: author ratings. The 0–10 scale represents subjective judgments, not measured effects. Mixed scope limits comparison; the exact Life impact scores have no established research basis.
 
 Circle: numeric anchor; hollow diamond: qualitative rationale. Both types are subjective; area does not represent an overall ranking. Music: blue includes embedded sound; orange dashed shows streaming only. These are different exposure definitions, not a measured increase.

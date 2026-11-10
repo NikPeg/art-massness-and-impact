@@ -33,11 +33,16 @@ def main():
     assert {r["component"] for r in components}=={"music","images","text","speech"}
     assert all(r[k]=="NA" for r in components for k in ("reach","time","frequency"))
     chart = ET.parse(ROOT/"figures/time-2026.svg").getroot()
-    visible = [el.text or "" for el in chart.iter() if el.tag.endswith("text")]
-    title = chart.find("{http://www.w3.org/2000/svg}title").text
-    assert visible == [title, *[f"{i} min/day" for i in (0, 15, 30, 45, 60, 75)],
-                       "Short online video", "Long online video", "Music streaming",
-                       "Video games", "TV streaming (all content)"]
+    bars = [el for el in chart.iter() if "data-category" in el.attrib]
+    measured = sorted((row for row in snapshot if row["weekly_minutes"] != "NA"),
+                      key=lambda row: float(row["weekly_minutes"]), reverse=True)
+    assert len(bars) == len(measured) == 5
+    assert not [el for el in chart.iter() if el.tag.endswith("circle")]
+    for bar, row in zip(bars, measured):
+        daily = float(row["weekly_minutes"])/7
+        assert bar.attrib["data-category"] == row["category"]
+        assert float(bar.attrib["data-value"]) == daily
+        assert abs(float(bar.attrib["width"]) - daily/75*560) < 1e-8
     note = (ROOT/"figures/time-2026.txt").read_text()
     assert all(label in note for label in (
         "GWI Q2 2026", "16+", "DataReportal", "Russia excluded", "Self-reports",
@@ -263,6 +268,7 @@ def main():
     for directory in (ROOT/"figures", SUBJECTIVE):
         for note in directory.rglob("*.txt"):
             contents = note.read_text()
+            assert ".md" not in contents, (note, "Caption links to an internal Markdown file")
             assert len(contents.split()) <= 150, (note, "Caption is too long")
             assert not re.search(r"(?m)^\s*[|#]", contents), (note, "Source table or document copied into caption")
             assert not any(label in contents for label in (

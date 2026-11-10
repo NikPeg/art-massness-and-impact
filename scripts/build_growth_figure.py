@@ -61,8 +61,7 @@ def build(lang="en"):
             '<title>Рост потребления медиа — первое полугодие 2026</title>'
             '<style>body{max-width:1120px;margin:20px auto;padding:0 12px;font-family:system-ui}img{width:100%;height:auto}</style>'
             f'<img src="{STEM}.svg" alt="Рост времени потребления 12 категорий медиа">'
-            f'<p><a href="{STEM}.txt">Данные, источники и ограничения</a> · '
-            '<a href="../data/media_growth_h1_2026.md">Исходная таблица</a></p></html>\n')
+            f'<p><a href="{STEM}.txt">Данные, источники и ограничения</a></p></html>\n')
     save(OUT / f"{STEM}.html", page, lang, source_lang="ru")
 
 

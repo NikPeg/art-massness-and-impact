@@ -1,4 +1,4 @@
-Source: GWI Q2 2026; DataReportal, Digital 2027, pp. 40. Internet users aged 16+ in covered markets; Russia excluded. Data: ../data/media_use_2026.md.
+Source: GWI Q2 2026; DataReportal, Digital 2027, pp. 40. Internet users aged 16+ in covered markets; Russia excluded.
 https://datareportal.com/reports/digital-2027-global-overview-report
 
-Time: minutes per day, calculated as weekly time divided by seven. Music is streaming only; TV streaming includes films and other programmes. Short/long videos do not isolate orientation. Standalone films, digital books and pictures lack comparable data. Self-reports; audiences overlap and missing values are not zeros.
+Time: minutes per day, calculated as weekly time divided by seven. Music is streaming only; TV streaming includes films and other programmes. Short/long videos do not isolate orientation. Standalone films, digital books and pictures lack comparable data. Self-reports; audiences overlap and missing values are not zeros. Blue: short videos; grey: other categories.
