@@ -7,7 +7,7 @@ The daily-time SVG (`time-2026.svg`) uses horizontal bars with daily-minute labe
 - `time-2026.svg`: daily time for international online adults.
 - `gwi/reach.svg`, `gwi/time.svg`, `gwi/frequency.svg`: weekly reach, weekly time and frequency bar charts.
 - `reach-time-2026.svg`: exact weekly reach/time coordinates, with displaced labels and leader lines.
-- `index.html`: browser gallery of every English SVG in this folder and its subfolders, with matching TXT links. `index-ru.html` contains the matching Russian set. The file list is discovered automatically on each full build.
+- `index.html`: browser gallery of every English SVG in this folder and its subfolders, with matching TXT links. `index-ru.html` contains the matching Russian set. The file list is discovered automatically on each full build. Charts are ordered by metric: reach, daily time, weekly time, frequency, reach/time comparison, growth.
 
 
 The Markdown data and research files contain sources, boundaries, and rationales. SVG files are standalone; the HTML gallery has no external dependencies. Generated files may be replaced on a rebuild.

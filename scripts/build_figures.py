@@ -234,6 +234,11 @@ def build(lang="en"):
         chart_title = ET.parse(path).getroot().find("{http://www.w3.org/2000/svg}title")
         title = chart_title.text if chart_title is not None else path.stem
         figures.append((title, path.relative_to(OUT).as_posix()))
+    order = {name: i for i, name in enumerate((
+        "gwi/reach.svg", "time-2026.svg", "gwi/time.svg", "gwi/frequency.svg",
+        "reach-time-2026.svg", "media-growth-h1-2026.svg",
+    ))}
+    figures.sort(key=lambda item: (order.get(item[1].replace("-ru.svg", ".svg"), len(order)), item[1]))
     panels = "".join(
         f'<section><h2>{html.escape(title)}</h2><img src="{html.escape(name)}" '
         f'alt="{html.escape(title)}" loading="lazy"><a href="{html.escape(Path(name).with_suffix(".txt").as_posix())}">'

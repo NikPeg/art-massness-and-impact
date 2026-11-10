@@ -254,6 +254,9 @@ def main():
                             if p.stem.endswith("-ru") == (lang == "ru")}
                 assert len(parser.images) == len(expected) == 6
                 assert set(parser.images) == expected
+                daily = "time-2026-ru.svg" if lang == "ru" else "time-2026.svg"
+                weekly = "gwi/time-ru.svg" if lang == "ru" else "gwi/time.svg"
+                assert parser.images.index(weekly) == parser.images.index(daily) + 1
             elif directory == SUBJECTIVE:
                 assert len(parser.images) == 9
     ru_overview = ET.parse(SUBJECTIVE/"radar-overview-ru.svg").getroot()
