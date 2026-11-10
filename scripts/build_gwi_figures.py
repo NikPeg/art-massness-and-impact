@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Build compact Russian GWI charts from the project's transcribed observations."""
+"""Build compact English or Russian GWI charts from the project's transcribed observations."""
 
 from pathlib import Path
 import html
+from figure_i18n import cli_language, save
 import xml.etree.ElementTree as ET
 
 from build_figures import ROOT, table_with
@@ -17,7 +18,7 @@ LABELS = {
 }
 
 
-def build():
+def build(lang="en"):
     OUT.mkdir(parents=True, exist_ok=True)
     rows = table_with(ROOT / "data/media_use_2026.md", "weekly_reach_percent")
     panels = []
@@ -68,7 +69,7 @@ def build():
                '<style>text{font-family:Arial,Helvetica,sans-serif;fill:#253247;font-variant-numeric:tabular-nums}</style>'
                '<rect width="100%" height="100%" fill="white"/>' + "".join(body) + '</svg>\n')
         ET.fromstring(svg)
-        (OUT / f"{stem}.svg").write_text(svg, encoding="utf-8")
+        save(OUT / f"{stem}.svg", svg, lang, source_lang="ru")
         note = (f"{title}\n\n"
                 "Самостоятельная визуализация опубликованных оценок GWI, не оригинальный график издателя.\n"
                 "Источник: GWI Q2 2026, DataReportal Digital 2027, страницы 38–40.\n"
@@ -88,17 +89,17 @@ def build():
         if key == "weekly_minutes":
             note += "\nДлина столбца — минуты в неделю; подпись — часы:минуты. Игры включают все устройства.\n"
         note += "\nЗначения:\n" + "\n".join(f'{LABELS[r["category"]]}: {r[key]}' for r in selected) + "\n"
-        (OUT / f"{stem}.txt").write_text(note, encoding="utf-8")
+        save(OUT / f"{stem}.txt", note, lang, source_lang="ru")
         panels.append(f'<section><img src="{stem}.svg" alt="{title}"><a href="{stem}.txt">Пояснение, источники и легенда</a></section>')
-    panels.append('<section><img src="../media-growth-h1-2026.svg" alt="Рост потребления медиа: H1 2026">'
+    panels.append('<section><img src="../media-growth-h1-2026.svg" alt="Рост потребления медиа: первое полугодие 2026">'
                   '<a href="../media-growth-h1-2026.txt">Пояснение, источники и легенда</a></section>')
     page = ('<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>Медиа: данные GWI</title><style>body{max-width:1040px;margin:24px auto;padding:0 16px;font-family:system-ui;line-height:1.5}'
             'img{width:100%;height:auto}section{margin:32px 0}a{color:#1768b5}</style>'
             '<h1>Медиа: данные GWI</h1><p>Охват, время и частота — II квартал 2026; рост — первое полугодие 2026. '
             'Источники и ограничения указаны в пояснениях к каждому графику.</p>' + "".join(panels) + '</html>\n')
-    (OUT / "index.html").write_text(page, encoding="utf-8")
+    save(OUT / "index.html", page, lang, source_lang="ru")
 
 
 if __name__ == "__main__":
-    build()
+    build(cli_language())

@@ -2,6 +2,7 @@
 """Build a compact reach/time figure from local tables."""
 
 import math
+from figure_i18n import cli_language
 
 from build_figures import (ROOT, OUT, COLORS, SNAPSHOT_LABELS, annotation, fmt,
                            line, mark, svg_doc, table_with, text, write)
@@ -23,7 +24,7 @@ def source_notes(ids):
         row for row in lines if any(row.startswith(f"| {sid} |") for sid in ids))
 
 
-def reach_time():
+def reach_time(lang="en"):
     rows = table_with(ROOT / "data/media_use_2026.md", "weekly_reach_percent")
     width, height = 1200, 650
     left, right, top, bottom = 85, 930, 95, 550
@@ -85,15 +86,15 @@ def reach_time():
         "No complete eight-format ranking, causal effect, or life-impact estimate follows.",
         source_notes({"GWI26"}),
     ]
-    write("reach-time-2026.svg", svg_doc(width, height, "Reach and consumption time", body, "\n\n".join(notes)))
-    annotation("reach-time-2026.svg", "Reach and consumption time", notes)
+    write("reach-time-2026.svg", svg_doc(width, height, "Reach and consumption time", body, "\n\n".join(notes)), lang)
+    annotation("reach-time-2026.svg", "Reach and consumption time", notes, lang)
 
 
-def build():
+def build(lang="en"):
     OUT.mkdir(exist_ok=True)
-    reach_time()
+    reach_time(lang)
 
 
 if __name__ == "__main__":
-    build()
+    build(cli_language())
     print("Generated reach/time SVG and adjacent TXT annotation")

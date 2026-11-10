@@ -1,8 +1,8 @@
-Рост времени потребления медиа — первое полугодие 2026
+Media consumption time growth — H1 2026
 
-Как читать график: столбцы показывают годовое изменение времени, %. Ч:ММ / неделю — текущая оценка недельного потребления. Синий цвет — рост, серый — снижение; знак и значение подписаны. Категории упорядочены по изменению, без объединения пересекающихся аудиторий.
+Reading guide: bars show year-on-year time change, %. HH:MM / week is the current weekly estimate. Blue means growth, grey means decline; signs and values are labeled. Categories are ordered by change without combining overlapping audiences.
 
-Население: интернет-пользователи 16–64 лет. Источник: GWI, август 2026; EMARKETER, график 573622. Перерисовано по скриншоту из видео авторов. Годовое сравнение уточняется в обсуждении авторов; базовый период на графике не подписан. Самоотчёты, среднее через середины интервалов; погрешности не опубликованы на графике. Лидерство относится к 12 измеренным категориям, без отдельных цифровых книг и изображений.
+Population: internet users aged 16–64. Source: GWI, August 2026; EMARKETER, chart 573622. Redrawn from a screenshot of the authors' video. Year-on-year comparison is clarified in the authors' discussion; the base period is not printed on the chart. Self-reports averaged using interval midpoints; uncertainty is not published on the chart. Leadership applies to the 12 measured categories, without separate digital books or pictures.
 
 # GMI26: weekly media consumption and reported growth
 
@@ -12,18 +12,18 @@ The screenshot labels the change column only “% change”. The author discussi
 
 | category | label_ru | weekly_hhmm | change_percent |
 | --- | --- | --- | --- |
-| short_video | Короткие видео | 7:06 | 5.2 |
-| mobile_games | Мобильные игры | 4:35 | 4.2 |
-| podcasts | Подкасты | 1:58 | 2.6 |
-| social_media | Социальные сети | 7:07 | 1.7 |
-| long_video | Длинные онлайн-видео | 4:59 | 1.4 |
-| video_streaming | Видеостриминг | 5:08 | 1.3 |
-| music_streaming | Музыкальный стриминг | 5:01 | 0.3 |
-| pc_console_games | Игры на ПК и консолях | 2:45 | 0.0 |
-| print | Печатные издания | 1:33 | -3.1 |
-| online_press | Онлайн-пресса | 2:47 | -3.5 |
-| broadcast_radio | Эфирное радио | 2:11 | -5.1 |
-| broadcast_tv | Обычное телевидение | 4:15 | -5.9 |
+| short_video | Short videos | 7:06 | 5.2 |
+| mobile_games | Mobile gaming | 4:35 | 4.2 |
+| podcasts | Podcasts | 1:58 | 2.6 |
+| social_media | Social media | 7:07 | 1.7 |
+| long_video | Long online videos | 4:59 | 1.4 |
+| video_streaming | Video streaming | 5:08 | 1.3 |
+| music_streaming | Music streaming | 5:01 | 0.3 |
+| pc_console_games | PC and console games | 2:45 | 0.0 |
+| print | Print media | 1:33 | -3.1 |
+| online_press | Online press | 2:47 | -3.5 |
+| broadcast_radio | Broadcast radio | 2:11 | -5.1 |
+| broadcast_tv | Broadcast television | 4:15 | -5.9 |
 
 ## Measurement and interpretation
 

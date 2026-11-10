@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Render the transcribed GMI26 chart in Russian, without dependencies/network."""
+"""Render the transcribed GMI26 chart in English or Russian, without dependencies/network."""
 
 import html
+from figure_i18n import cli_language, save
 from pathlib import Path
 
 from build_figures import table_with
@@ -11,7 +12,7 @@ OUT = ROOT / "figures"
 STEM = "media-growth-h1-2026"
 
 
-def build():
+def build(lang="en"):
     rows = table_with(ROOT / "data/media_growth_h1_2026.md", "change_percent")
     rows = sorted(rows, key=lambda r: float(r["change_percent"]), reverse=True)
     width, height, zero, scale = 1120, 880, 850, 36
@@ -46,13 +47,13 @@ def build():
         text(end + (9 if value >= 0 else -9), y+3, label, 16, 600, "start" if value >= 0 else "end")
     svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="880" viewBox="0 0 1120 880" '
            'role="img" aria-labelledby="growth-title growth-desc" xml:lang="ru">'
-           '<title id="growth-title">Рост времени потребления медиа, H1 2026</title>'
+           '<title id="growth-title">Рост времени потребления медиа, первое полугодие 2026</title>'
            '<desc id="growth-desc">Короткие видео: +5,2%, мобильные игры: +4,2%. '
            'Рейтинг оценок GWI по 12 категориям; статистическая значимость различий не установлена.</desc>'
            '<style>text{font-family:Arial,Helvetica,sans-serif;font-variant-numeric:tabular-nums}</style>'
            + "".join(parts) + '</svg>\n')
     OUT.mkdir(exist_ok=True)
-    (OUT / f"{STEM}.svg").write_text(svg, encoding="utf-8")
+    save(OUT / f"{STEM}.svg", svg, lang, source_lang="ru")
     source = (ROOT / "data/media_growth_h1_2026.md").read_text(encoding="utf-8")
     annotation = ("Рост времени потребления медиа — первое полугодие 2026\n\n"
                   "Как читать график: столбцы показывают годовое изменение времени, %. "
@@ -64,16 +65,16 @@ def build():
                   "Годовое сравнение уточняется в обсуждении авторов; базовый период на графике не подписан. "
                   "Самоотчёты, среднее через середины интервалов; погрешности не опубликованы на графике. "
                   "Лидерство относится к 12 измеренным категориям, без отдельных цифровых книг и изображений.\n\n")
-    (OUT / f"{STEM}.txt").write_text(annotation + source, encoding="utf-8")
+    save(OUT / f"{STEM}.txt", annotation + source, lang, source_lang="ru")
     page = ('<!doctype html><html lang="ru"><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>Рост потребления медиа — H1 2026</title>'
+            '<title>Рост потребления медиа — первое полугодие 2026</title>'
             '<style>body{max-width:1120px;margin:20px auto;padding:0 12px;font-family:system-ui}img{width:100%;height:auto}</style>'
             f'<img src="{STEM}.svg" alt="Рост времени потребления 12 категорий медиа">'
             f'<p><a href="{STEM}.txt">Данные, источники и ограничения</a> · '
             '<a href="../data/media_growth_h1_2026.md">Исходная таблица</a></p></html>\n')
-    (OUT / f"{STEM}.html").write_text(page, encoding="utf-8")
+    save(OUT / f"{STEM}.html", page, lang, source_lang="ru")
 
 
 if __name__ == "__main__":
-    build()
+    build(cli_language())

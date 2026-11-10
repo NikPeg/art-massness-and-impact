@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Render this dossier's Markdown data as standalone English SVG figures."""
+"""Render local Markdown data as English (default) or Russian SVG figures."""
 
 from pathlib import Path
 import html
 import math
 import xml.etree.ElementTree as ET
+from figure_i18n import cli_language, localized_path, save, translate
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "figures"
@@ -81,14 +82,14 @@ def svg_doc(width, height, title, body, description=""):
             f'<rect width="100%" height="100%" fill="white"/>{body}</svg>\n')
 
 
-def write(name, content):
+def write(name, content, lang="en", source_lang="en"):
     directory = SUBJECTIVE if name.startswith("radar-") else OUT
-    (directory / name).write_text(content, encoding="utf-8")
+    save(directory / name, content, lang, source_lang)
 
 
-def annotation(filename, title, paragraphs):
+def annotation(filename, title, paragraphs, lang="en"):
     write(Path(filename).with_suffix(".txt").name,
-          title + "\n\n" + "\n\n".join(paragraphs) + "\n")
+          title + "\n\n" + "\n\n".join(paragraphs) + "\n", lang)
 
 
 # Labels describe the source observation, separately from the author radar names.
@@ -104,7 +105,7 @@ SNAPSHOT_LABELS = {
 }
 
 
-def snapshot(rows, key, title, unit, filename):
+def snapshot(rows, key, title, unit, filename, lang="en"):
     observed = [row for row in rows if num(row[key]) is not None]
     width, left, right, top, step = 1100, 290, 60, 90, 57
     grid_bottom = top + (len(observed)-1)*step + 24
@@ -145,7 +146,7 @@ def snapshot(rows, key, title, unit, filename):
     ]
     description = population + "; " + " ".join(notes) + "; " + "; ".join(
         f'{SNAPSHOT_LABELS[r["category"]][0]}: {r["scope"]}' for r in rows)
-    write(filename, svg_doc(width, height, title, body, description))
+    write(filename, svg_doc(width, height, title, body, description), lang)
     annotation(filename, title, [population,
         "Source-defined categories; overlapping audiences, not a complete ranking of media formats.",
         "Horizontal axis: " + unit + ".", *notes,
@@ -161,10 +162,10 @@ def snapshot(rows, key, title, unit, filename):
             + fmt(float(r[key]) / 7 if key == "weekly_minutes" else float(r[key]))
             + (" (mobile); " + fmt(float(r["additional_days_per_week"])) + " (PC/console)"
                if key == "days_per_week" and num(r["additional_days_per_week"]) is not None else "")
-            for r in observed)])
+            for r in observed)], lang)
 
 
-def radar(row, anchors):
+def radar(row, anchors, lang="en"):
     category = row["category"]
     scores = [None if row[a] == "NA" else float(row[a]) for a in AXES]
     width, height, cx, cy, radius = 600, 510, 300, 260, 170
@@ -218,22 +219,22 @@ def radar(row, anchors):
     name="radar-"+category.replace("_","-")+".svg"
     write(name,svg_doc(width,height,RADAR_NAMES[category]+" radar",body,
           "Author interpretation with mixed comparison levels; not a harmonized format or component comparison. Research supporting these exact Life impact scores or their comparative ordering has not been found in the project review. " +
-          "; ".join(f"{a}: {'not assessed' if v is None else str(int(v)) + '/10'}" for a,v in zip(AXES,scores))))
+          "; ".join(f"{AXIS_LABELS[a]}: {'Not assessed' if v is None else str(int(v)) + '/10'}" for a,v in zip(AXES,scores))), lang)
     annotation(name, RADAR_NAMES[category], [
         "Mixed comparison levels: earlier author profiles, not a harmonized format or component comparison. See ../research/01_scope_and_metrics.md and ../data/media_components_2026.md.",
         "2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.",
         *(["Blue: direct and embedded audible online music. Orange dashed: streaming-only reference (8/6/7), informed by GWI26. Different exposure definitions, not measured uplift. See music_online_scenarios.md."] if category == "music" else []),
         "Filled circle: numeric anchor | Hollow diamond: qualitative rationale.",
-        "No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: subjective_scores_2026.md; score_rationales.md."])
+        "No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: subjective_scores_2026.md; score_rationales.md."], lang)
     return name
 
 
-def radar_overview(radar_names):
+def radar_overview(radar_names, lang="en"):
     """Combine profiles with category names, axis labels, and scores."""
     width, height = 2400, 1020
     body = ""
     for i, name in enumerate(radar_names):
-        panel = (SUBJECTIVE / name).read_text(encoding="utf-8").strip()
+        panel = localized_path(SUBJECTIVE / name, lang).read_text(encoding="utf-8").strip()
         # Unique accessible names for every nested SVG in the standalone sheet.
         panel = panel.replace('id="title"', f'id="panel-{i}-title"')
         panel = panel.replace('id="desc"', f'id="panel-{i}-desc"')
@@ -242,11 +243,15 @@ def radar_overview(radar_names):
         panel = panel.replace('<svg ', f'<svg x="{(i % 4) * 600}" y="{(i // 4) * 510}" ', 1)
         body += panel
     write("radar-overview.svg", svg_doc(width, height, "All eight subjective radar profiles, 2026", body,
-          "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales. Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review."))
-    write("radar-overview.txt", (ROOT / "author-interpretations/radar_overview_annotation.txt").read_text(encoding="utf-8"))
+          "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales. Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review."), lang)
+    guide_name = "radar_overview_annotation.txt" if lang == "ru" else "radar_overview_annotation-en.txt"
+    guide = (SUBJECTIVE / guide_name).read_text(encoding="utf-8")
+    if lang == "ru":
+        guide = guide.replace("Алфавитный порядок английских названий", "Алфавитный порядок русских названий")
+    write("radar-overview.txt", guide, lang)
 
 
-def build():
+def build(lang="en"):
     from build_comparison_figures import build as build_comparisons
     from build_growth_figure import build as build_growth
     from build_gwi_figures import build as build_gwi
@@ -260,20 +265,22 @@ def build():
     for key,title,unit,name in [("weekly_reach_percent","Weekly reach: format proxies, 2026","Percent of surveyed online adults","reach-2026.svg"),
                                 ("weekly_minutes","Daily time: format proxies, 2026","Minutes per day","time-2026.svg"),
                                 ("days_per_week","Frequency: format proxies, 2026","Days per week","frequency-2026.svg")]:
-        snapshot(media,key,title,unit,name)
+        snapshot(media,key,title,unit,name,lang)
     score_path=ROOT/"author-interpretations/subjective_scores_2026.md"
     score_rows=sorted(table_with(score_path,"recognition"),
-                      key=lambda row: RADAR_NAMES[row["category"]].casefold())
+                      key=lambda row: translate(RADAR_NAMES[row["category"]], lang).casefold())
     anchor_rows=next(records for header,records in tables(score_path) if header==["category","reach","time","frequency","money"])
     anchors={r["category"]:r for r in anchor_rows}
-    radar_names=[radar(r,anchors[r["category"]]) for r in score_rows]
-    radar_overview(radar_names)
-    build_comparisons()
-    build_growth()
-    build_gwi()
+    radar_names=[radar(r,anchors[r["category"]],lang) for r in score_rows]
+    radar_overview(radar_names,lang)
+    build_comparisons(lang)
+    build_growth(lang)
+    build_gwi(lang)
     # Discover every chart, including nested galleries, after all generators finish.
     figures = []
     for path in sorted(OUT.rglob("*.svg")):
+        if path.stem.endswith("-ru") != (lang == "ru"):
+            continue
         chart_title = ET.parse(path).getroot().find("{http://www.w3.org/2000/svg}title")
         title = chart_title.text if chart_title is not None else path.stem
         figures.append((title, path.relative_to(OUT).as_posix()))
@@ -292,21 +299,21 @@ img{display:block;width:100%;height:auto}section{margin:24px 0}.radars{display:g
 @media(max-width:760px){.radars{grid-template-columns:1fr}}a{color:#2463ad}</style>
 <h1>Internet-distributed media, mass reach, and life impact</h1><p>Two separate comparisons: primary work formats and media components across those formats. The snapshot figures below show broad format proxies, with music streaming explicitly labeled. Component totals are unmeasured; a painting shown in a vertical video remains image contact. <a href="../data/media_components_2026.md">Component comparison and gaps</a> · <a href="../research/01_scope_and_metrics.md">Coding rules</a>.</p><p>As of 9 November 2026. Eight categories of media content distributed through the internet. Empirical observations and contextual indicators.</p>
 <p>Financial observations remain in the source tables without a common-axis chart. The compact reach/time figure has detailed sources and limitations in its adjacent TXT annotation. Pictures have no matched consumption or revenue values. Long online video is a broader proxy for horizontal media works; its financial series is missing. Author interpretations and radar profiles are presented separately.</p>
-<p><a href="gwi/index.html">Графики GWI на русском</a> · <a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../author-interpretations/index.html">Author interpretations and radars</a></p>'''+panels+"</html>\n"
-    write("index.html",page)
-    subjective_page = '''<!doctype html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<p><a href="gwi/index.html">GWI charts</a> · <a href="../README.md">Research README</a> · <a href="../research/04_limitations.md">Limitations</a> · <a href="../sources/source_register.md">Sources</a> · <a href="../author-interpretations/index.html">Author interpretations and radars</a></p>'''+panels+"</html>\n"
+    write("index.html",page,lang)
+    subjective_page = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Author Interpretations</title><style>
 body{font:16px/1.55 system-ui,sans-serif;color:#202a34;background:white;margin:24px auto;padding:0 20px;max-width:1100px}
 img{display:block;width:100%;height:auto}.radars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 @media(max-width:760px){.radars{grid-template-columns:1fr}}a{color:#2463ad}</style>
 <h1>Author Interpretations</h1>
-<p>Здесь собраны субъективные выводы автора на основе существующих данных проекта. Выбор баллов и порядок форматов отражают авторскую интерпретацию. Исследования и статистика дают основания для размышлений, но не устанавливают эти оценки от 0 до 10.</p>
-<p>Радиальные диаграммы иллюстрируют авторскую модель. Они не измеряют эффекты и не доказывают превосходство одного формата над другим. Даже точка с числовой опорой остаётся авторской оценкой.</p>
-<p><a href="README.md">О разделе</a> · <a href="subjective_scores_2026.md">Баллы</a> · <a href="score_rationales.md">Обоснования</a> · <a href="02_radar_profiles.md">Разбор профилей</a> · <a href="../figures/index.html">Графики наблюдаемых данных</a></p>
-<section><h2>Все восемь профилей</h2><img src="radar-overview.svg" alt="Восемь субъективных радиальных диаграмм"></section>''' + subjective_panels + "</html>\n"
-    (SUBJECTIVE / "index.html").write_text(subjective_page, encoding="utf-8")
+<p>Author scores reflect the author's interpretation of the project's existing data. The choice of scores and ordering of formats is subjective. Research and statistics inform the discussion but do not establish these 0–10 ratings.</p>
+<p>Radar diagrams illustrate the author's model. They do not measure effects or establish the superiority of a format. Even a point with a numeric source anchor remains a subjective rating.</p>
+<p><a href="README.md">About this section</a> · <a href="subjective_scores_2026.md">Scores</a> · <a href="score_rationales.md">Score rationales</a> · <a href="02_radar_profiles.md">Profile discussion</a> · <a href="../figures/index.html">Observed-data charts</a></p>
+<section><h2>All eight profiles</h2><img src="radar-overview.svg" alt="Eight subjective radar profiles"></section>''' + subjective_panels + "</html>\n"
+    save(SUBJECTIVE / "index.html", subjective_page, lang)
     print(f"Generated {len(figures)} empirical/context SVGs, {len(radar_names)+1} subjective SVGs and two HTML galleries")
 
 
 if __name__=="__main__":
-    build()
+    build(cli_language())

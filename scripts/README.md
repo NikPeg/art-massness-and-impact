@@ -13,13 +13,13 @@ The common financial chart has been removed: market totals, company revenue, cin
 
 The radar renderer uses fixed 0–10 radii and the same six-axis order for all eight categories. All six axes have author scores and form a closed, lightly filled polygon. Life impact is subjective author interpretation of potential lasting influence on an engaged person. Research supporting these exact scores or their comparative ordering has not been found in the project review. There is no calibrated procedure translating evidence into these judgments. Point shape distinguishes numeric anchors from qualitative judgments. Both types remain subjective ratings.
 
-The combined `radar-overview.svg` embeds all eight profiles in a 4-by-2 sheet without external image references. Category names, axis labels, scores and brief author-score/marker keys are shown. Detailed explanations remain in adjacent TXT files. The adjacent Russian reading guide, `radar-overview.txt`, is copied from `author-interpretations/radar_overview_annotation.txt` on each rebuild. SVG figures remain in English; the author-interpretation gallery and its README are in Russian.
+The combined `radar-overview.svg` embeds all eight profiles in a 4-by-2 sheet without external image references. Category names, axis labels, scores and brief author-score/marker keys are shown. Detailed explanations remain in adjacent TXT files. The overview reading guide is built from the matching English or Russian source annotation; Russian axis names and alphabetical order follow the selected language.
 
-The overview and individual profiles in the gallery are ordered alphabetically by their displayed English category names, left to right, then top to bottom. This order does not imply a ranking.
+The overview and individual profiles in the gallery are ordered alphabetically by their displayed category names in the selected language, left to right, then top to bottom. This order does not imply a ranking.
 
-The scripts render the current local inputs in English. They do not scrape sources, estimate missing observations or validate author ratings. The music radar also reads `author-interpretations/music_online_scenarios.md` for its dashed streaming-only reference on the first three axes. Historical implementation and input revisions are recorded in [the method archive](../sources/method_history.md) and [score audit](../author-interpretations/subjective_scores_2026.md#revision-rule-and-audit).
+The scripts render the current local inputs in English by default, or in Russian with `--lang ru`. They do not scrape sources, estimate missing observations or validate author ratings. The music radar also reads `author-interpretations/music_online_scenarios.md` for its dashed streaming-only reference on the first three axes. Historical implementation and input revisions are recorded in [the method archive](../sources/method_history.md) and [score audit](../author-interpretations/subjective_scores_2026.md#revision-rule-and-audit).
 
-All nine radar SVGs and matching TXT files are generated inside `author-interpretations/`. They are excluded from the empirical/context gallery. Validation checks both output directories; Russian text is allowed in documentation and the subjective gallery, while SVG display text stays English.
+All nine radar SVGs and matching TXT files are generated inside `author-interpretations/`. They are excluded from the empirical/context gallery. Validation checks both output directories; English and Russian SVG variants and their gallery links are checked separately.
 
 Snapshot labels implement the distinction between source-format proxies and the separate media-component inventory in `data/media_components_2026.md`. No component uplift is added to a format row. Component totals remain missing and generate no chart. Earlier subjective radars retain their scores with a visible mixed-scope warning; they do not implement the new two-level comparison.
 
@@ -41,10 +41,25 @@ Snapshot labels are defined in `SNAPSHOT_LABELS`, separately from author radar n
 
 ## GMI26 growth chart (Russian)
 
-Run `python3 scripts/build_growth_figure.py` from the project root for the Russian reproduction of chart 573622. The full build also invokes it. Input: [transcribed data](../data/media_growth_h1_2026.md), including source screenshot, method, category mapping and confidence limits. Outputs: `figures/media-growth-h1-2026.svg`, matching TXT and standalone HTML. No external dependencies or network. The Russian growth chart is the explicit exception to the older English-only SVG convention. Percent changes are plotted on a common zero-centered scale; weekly times stay as HH:MM. The original chart's growth period is interpreted from the author transcript, not invented baseline observations.
+Run `python3 scripts/build_growth_figure.py --lang ru` from the project root for the Russian reproduction of chart 573622. The full build also invokes it. Input: [transcribed data](../data/media_growth_h1_2026.md), including source screenshot, method, category mapping and confidence limits. Outputs: `figures/media-growth-h1-2026.svg`, matching TXT and standalone HTML. No external dependencies or network. The growth chart supports the same English-default and `--lang ru` modes as the other generators. Percent changes are plotted on a common zero-centered scale; weekly times stay as HH:MM. The original chart's growth period is interpreted from the author transcript, not invented baseline observations.
 
 The growth image contains only a short title/period, category labels, weekly values and the percentage axis. Reading guide, color key, sources, population, method and limitations are in `media-growth-h1-2026.txt`.
 
 ## Compact Russian GWI gallery
 
-`python3 scripts/build_gwi_figures.py` generates `figures/gwi/index.html`, with compact Russian reach, weekly-time and frequency SVGs plus per-chart TXT explanations, sources and color keys. The gallery also references the H1 2026 growth chart, built by `build_growth_figure.py`; `build_figures.py` builds both. The existing `figures/` directory is the project's visualization folder. No OUTFRONT historical values are spliced into a growth series. Missing categories are omitted with explanations in TXT. Device-specific game frequencies are not shown as all-game frequency.
+`python3 scripts/build_gwi_figures.py --lang ru` generates `figures/gwi/index-ru.html`, with compact Russian reach, weekly-time and frequency SVGs plus per-chart TXT explanations, sources and color keys. The gallery also references the H1 2026 growth chart, built by `build_growth_figure.py`; `build_figures.py` builds both. The existing `figures/` directory is the project's visualization folder. No OUTFRONT historical values are spliced into a growth series. Missing categories are omitted with explanations in TXT. Device-specific game frequencies are not shown as all-game frequency.
+
+## English and Russian output
+
+All four figure generators accept `--lang en|ru`; the default is `en`:
+
+```sh
+python3 scripts/build_figures.py
+python3 scripts/build_figures.py --lang ru
+```
+
+The first command writes English charts and `index.html`. The second writes the same charts with Russian labels to adjacent `*-ru.svg` files, matching `*-ru.txt` annotations and `index-ru.html` galleries. It covers all eight empirical charts (including `gwi/`) and all nine author radar diagrams. English and Russian outputs coexist; running either mode preserves the other language's files. Each main gallery discovers only the assets for its own language, including subfolders. Author diagrams remain in their own gallery.
+
+The same option works independently with `build_comparison_figures.py`, `build_growth_figure.py`, and `build_gwi_figures.py`. `figure_i18n.py` and `figure_translations.json` supply shared labels, text localization, decimal punctuation and asset-link naming. Localization changes rendered text and language metadata, preserving numeric SVG coordinates and source tables. Source excerpts in TXT retain their original document structure and identifiers. The editable radar guide has English and Russian source files under `author-interpretations/`.
+
+After building both languages, run `python3 scripts/validate.py` to check matching chart sets, unchanged geometry, label languages and gallery links. Run localization regression tests with `python3 -m unittest discover -s scripts -p 'test_figure_i18n.py'`.

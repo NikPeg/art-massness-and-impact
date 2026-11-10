@@ -1,33 +1,33 @@
-ПРЕДУПРЕЖДЕНИЕ О ГРАНИЦАХ
-Старые профили смешивают музыку внутри других произведений с отдельными
-форматами картинок и книг. Это не сравнение по единым правилам.
-Теперь форматы и медиакомпоненты рассматриваются отдельно:
+SCOPE WARNING
+Earlier profiles combine music embedded in other works with standalone picture
+and book formats. They do not use consistent comparison boundaries.
+Formats and media components are now considered separately:
 ../research/01_scope_and_metrics.md; ../data/media_components_2026.md.
-Картина в вертикальном видео учитывается и как изображение,
-и как содержание видео, без сложения времени двух уровней.
-Баллы сохранены как авторские сценарии и не пересчитаны.
+A painting in a vertical video counts as both image contact and video content,
+without summing the time of the two levels.
+Scores are retained as author scenarios and have not been recalculated.
 
-РАДИАЛЬНЫЕ ДИАГРАММЫ: КАК ЧИТАТЬ
+RADAR DIAGRAMS: READING GUIDE
 
-Алфавитный порядок английских названий, слева направо, сверху вниз.
-Авторские оценки 0–10, не измеренные эффекты. Исследований,
-обосновывающих баллы Life impact и сравнение форматов, пока не нашли.
-Площадь не означает общий рейтинг; разницу в один балл не интерпретируем.
+Alphabetical order of English category names, left to right, then top to bottom.
+Subjective author ratings from 0 to 10, not measured effects. The project review
+has found no research establishing the exact Life impact scores or format order.
+Area does not represent an overall ranking; a one-point gap is not interpreted.
 
-Оси по часовой стрелке, начиная сверху:
-Reach — охват аудитории.
-Time — время потребления.
-Frequency — частота обращения.
-Money — коммерческий масштаб.
-Recognition — культурная узнаваемость.
-Life impact — возможное длительное влияние на взгляды, привычки и решения.
+Axes clockwise from the top:
+Reach: audience reach.
+Time: consumption time.
+Frequency: frequency of use.
+Money: commercial scale.
+Recognition: cultural recognition.
+Life impact: potential lasting influence on views, habits and decisions.
 
-Круг: числовая опора в источнике. Пустой ромб: качественное обоснование.
-Оба типа баллов субъективны. Категории и аудитории пересекаются.
-Музыка: синий профиль включает прямой и встроенный онлайн-контакт;
-оранжевый пунктир — только стриминг (8/6/7), не измеренная прибавка.
-Пересечения внутри музыки требуют исключения повторного счёта;
-минуты музыки и видео нельзя суммировать как независимые доли времени.
+Circle: numeric source anchor. Hollow diamond: qualitative rationale.
+Both types of ratings are subjective. Categories and audiences overlap.
+Music: blue includes direct and embedded online contact;
+orange dashed is streaming only (8/6/7), not a measured increase.
+Overlaps within music require deduplication;
+music and video minutes must not be summed as independent time shares.
 
-Баллы и основания: subjective_scores_2026.md;
+Scores and rationales: subjective_scores_2026.md;
 score_rationales.md; music_online_scenarios.md.

@@ -1,0 +1,694 @@
+[
+  [
+    "Weekly reach: format proxies, 2026",
+    "Недельный охват: категории медиа, 2026"
+  ],
+  [
+    "Daily time: format proxies, 2026",
+    "Время в день: категории медиа, 2026"
+  ],
+  [
+    "Frequency: format proxies, 2026",
+    "Частота: категории медиа, 2026"
+  ],
+  [
+    "Short online video",
+    "Короткие онлайн-видео"
+  ],
+  [
+    "Long online video",
+    "Длинные онлайн-видео"
+  ],
+  [
+    "Music streaming",
+    "Музыкальный стриминг"
+  ],
+  [
+    "Video games",
+    "Видеоигры"
+  ],
+  [
+    "TV streaming (all content)",
+    "ТВ-стриминг (весь контент)"
+  ],
+  [
+    "Feature films",
+    "Полнометражные фильмы"
+  ],
+  [
+    "Digital books",
+    "Цифровые книги"
+  ],
+  [
+    "Standalone pictures",
+    "Отдельные изображения"
+  ],
+  [
+    "Short-form video",
+    "Короткие видео"
+  ],
+  [
+    "Long horizontal video",
+    "Длинные горизонтальные видео"
+  ],
+  [
+    "Long online video (proxy)",
+    "Длинные онлайн-видео (прокси)"
+  ],
+  [
+    "Series / streaming proxy",
+    "Сериалы / стриминг (прокси)"
+  ],
+  [
+    "Series",
+    "Сериалы"
+  ],
+  [
+    "Books",
+    "Книги"
+  ],
+  [
+    "Pictures",
+    "Изображения"
+  ],
+  [
+    "Music",
+    "Музыка"
+  ],
+  [
+    "Reach",
+    "Охват"
+  ],
+  [
+    "Time",
+    "Время"
+  ],
+  [
+    "Frequency",
+    "Частота"
+  ],
+  [
+    "Money",
+    "Коммерческий масштаб"
+  ],
+  [
+    "Recognition",
+    "Узнаваемость"
+  ],
+  [
+    "Life impact",
+    "Влияние на жизнь"
+  ],
+  [
+    "Not assessed",
+    "Нет оценки"
+  ],
+  [
+    "Mixed scopes · not a format/component comparison",
+    "Разные границы учёта · авторские оценки"
+  ],
+  [
+    "All online music",
+    "Вся онлайн-музыка"
+  ],
+  [
+    "Streaming only",
+    "Только стриминг"
+  ],
+  [
+    "All eight subjective radar profiles, 2026",
+    "Все восемь авторских профилей, 2026"
+  ],
+  [
+    "Streaming-only reference: reach 8, time 6, frequency 7; author judgments",
+    "Только стриминг: охват 8, время 6, частота 7; авторские оценки"
+  ],
+  [
+    "Streaming-only reach",
+    "Только стриминг: охват"
+  ],
+  [
+    "Streaming-only time",
+    "Только стриминг: время"
+  ],
+  [
+    "Streaming-only frequency",
+    "Только стриминг: частота"
+  ],
+  [
+    "Reach and consumption time",
+    "Охват и время потребления"
+  ],
+  [
+    "Q2 2026 · Online adults 16+ · Format proxies",
+    "II квартал 2026 · Интернет-пользователи 16+ · Категории медиа"
+  ],
+  [
+    "Minutes / week",
+    "Минут в неделю"
+  ],
+  [
+    "Weekly reach (%)",
+    "Недельный охват (%)"
+  ],
+  [
+    "GWI · Details: reach-time-2026.txt",
+    "GWI · Пояснения: reach-time-2026-ru.txt"
+  ],
+  [
+    "min/week",
+    "мин/неделю"
+  ],
+  [
+    "min/day",
+    "мин/день"
+  ],
+  [
+    "days/week",
+    "дней/неделю"
+  ],
+  [
+    "Mobile games",
+    "Мобильные игры"
+  ],
+  [
+    "PC/console games",
+    "Игры на ПК и консолях"
+  ],
+  [
+    "Percent of surveyed online adults",
+    "Процент опрошенных интернет-пользователей"
+  ],
+  [
+    "Minutes per day",
+    "Минут в день"
+  ],
+  [
+    "Days per week",
+    "Дней в неделю"
+  ],
+  [
+    "GWI Q2 2026 · Internet users aged 16+ in covered markets · Russia excluded",
+    "GWI, II квартал 2026 · Интернет-пользователи 16+ в охваченных рынках · Россия исключена"
+  ],
+  [
+    "Internet-distributed media, mass reach, and life impact",
+    "Интернет-медиа: массовый охват и влияние на жизнь"
+  ],
+  [
+    "Two separate comparisons: primary work formats and media components across those formats. The snapshot figures below show broad format proxies, with music streaming explicitly labeled. Component totals are unmeasured; a painting shown in a vertical video remains image contact. ",
+    "Два отдельных сравнения: форматы произведений и медиакомпоненты внутри этих форматов. Графики ниже показывают широкие категории форматов; музыкальный стриминг выделен отдельно. Суммарные показатели компонентов не измерены; картина в вертикальном видео учитывается как контакт с изображением. "
+  ],
+  [
+    "Component comparison and gaps",
+    "Сравнение компонентов и пробелы в данных"
+  ],
+  [
+    "Coding rules",
+    "Правила учёта"
+  ],
+  [
+    "As of 9 November 2026. Eight categories of media content distributed through the internet. Empirical observations and contextual indicators.",
+    "По состоянию на 9 ноября 2026 года. Восемь категорий медиаконтента, распространяемого через интернет. Наблюдаемые данные и контекстные показатели."
+  ],
+  [
+    "Financial observations remain in the source tables without a common-axis chart. The compact reach/time figure has detailed sources and limitations in its adjacent TXT annotation. Pictures have no matched consumption or revenue values. Long online video is a broader proxy for horizontal media works; its financial series is missing. Author interpretations and radar profiles are presented separately.",
+    "Финансовые наблюдения сохранены в исходных таблицах без общего графика. Источники и ограничения графика охвата и времени приведены в соседнем текстовом файле. Для изображений нет сопоставимых данных о потреблении и выручке. Длинные онлайн-видео служат широкой заменой категории горизонтальных произведений; финансового ряда для них нет. Авторские интерпретации и радиальные профили вынесены в отдельный раздел."
+  ],
+  [
+    "Research README",
+    "Описание исследования"
+  ],
+  [
+    "Limitations",
+    "Ограничения"
+  ],
+  [
+    "Sources",
+    "Источники"
+  ],
+  [
+    "Author interpretations and radars",
+    "Авторские интерпретации и радиальные диаграммы"
+  ],
+  [
+    "Annotation (TXT)",
+    "Пояснения (текстовый файл)"
+  ],
+  [
+    "Author Interpretations",
+    "Авторские интерпретации"
+  ],
+  [
+    "Open full-size radar overview",
+    "Открыть общий обзор в полном размере"
+  ],
+  [
+    "Russian annotation (TXT)",
+    "Пояснения к обзору (текстовый файл)"
+  ],
+  [
+    "Subjective 2026 radar profiles",
+    "Авторские радиальные профили, 2026"
+  ],
+  [
+    "Earlier mixed-scope author profiles: music includes embedded soundtracks while other profiles mostly use standalone formats. These profiles do not implement either the primary-format or media-component comparison. Scores have not been recalibrated. Author interpretation. Research supporting the exact Life impact scores or their comparative ordering has not been found in the project review.",
+    "В прежних авторских профилях смешаны разные границы учёта: музыка включает встроенные звуковые дорожки, остальные профили в основном относятся к самостоятельным форматам. Это не сравнение форматов или медиакомпонентов по единым правилам. Баллы не пересчитывались. Они отражают авторскую интерпретацию; исследований, обосновывающих точные баллы влияния на жизнь и их порядок, в обзоре проекта не найдено."
+  ],
+  [
+    "Media consumption time growth",
+    "Рост времени потребления медиа"
+  ],
+  [
+    "H1 2026 · Year-on-year change, GWI",
+    "Первое полугодие 2026 · Годовое изменение, по данным GWI"
+  ],
+  [
+    "Category",
+    "Категория"
+  ],
+  [
+    "HH:MM / week",
+    "Ч:ММ / неделю"
+  ],
+  [
+    "Time change, %",
+    "Изменение времени, %"
+  ],
+  [
+    "Media consumption time growth, H1 2026",
+    "Рост времени потребления медиа, первое полугодие 2026"
+  ],
+  [
+    "Short video: +5.2%, mobile games: +4.2%. GWI point estimates for 12 categories; differences have not been tested for statistical significance.",
+    "Короткие видео: +5,2%, мобильные игры: +4,2%. Рейтинг оценок GWI по 12 категориям; статистическая значимость различий не установлена."
+  ],
+  [
+    "Short videos",
+    "Короткие видео"
+  ],
+  [
+    "Long online videos",
+    "Длинные онлайн-видео"
+  ],
+  [
+    "Mobile gaming",
+    "Мобильные игры"
+  ],
+  [
+    "Podcasts",
+    "Подкасты"
+  ],
+  [
+    "Social media",
+    "Социальные сети"
+  ],
+  [
+    "Video streaming",
+    "Видеостриминг"
+  ],
+  [
+    "PC and console games",
+    "Игры на ПК и консолях"
+  ],
+  [
+    "Print media",
+    "Печатные издания"
+  ],
+  [
+    "Online press",
+    "Онлайн-пресса"
+  ],
+  [
+    "Broadcast radio",
+    "Эфирное радио"
+  ],
+  [
+    "Broadcast television",
+    "Обычное телевидение"
+  ],
+  [
+    "Media consumption growth — H1 2026",
+    "Рост потребления медиа — первое полугодие 2026"
+  ],
+  [
+    "Media consumption time across 12 categories",
+    "Рост времени потребления 12 категорий медиа"
+  ],
+  [
+    "Data, sources and limitations",
+    "Данные, источники и ограничения"
+  ],
+  [
+    "Source table",
+    "Исходная таблица"
+  ],
+  [
+    "Weekly media reach",
+    "Недельный охват медиа"
+  ],
+  [
+    "Media consumption time",
+    "Время потребления медиа"
+  ],
+  [
+    "Media consumption frequency",
+    "Частота потребления медиа"
+  ],
+  [
+    "Reach, %",
+    "Охват, %"
+  ],
+  [
+    "Minutes per week",
+    "Минут в неделю"
+  ],
+  [
+    "Q2 2026 · Internet users 16+ · GWI",
+    "II квартал 2026 · Интернет-пользователи 16+ · GWI"
+  ],
+  [
+    " · HH:MM labels",
+    " · подписи Ч:ММ"
+  ],
+  [
+    "GWI estimates for measured categories. Sources, legend and limitations are in the adjacent TXT.",
+    "Оценки GWI по измеренным категориям. Источники, легенда и ограничения находятся в соседнем TXT."
+  ],
+  [
+    "Notes, sources and legend",
+    "Пояснение, источники и легенда"
+  ],
+  [
+    "Media consumption growth: H1 2026",
+    "Рост потребления медиа: первое полугодие 2026"
+  ],
+  [
+    "Media: GWI data",
+    "Медиа: данные GWI"
+  ],
+  [
+    "Reach, time and frequency: Q2 2026; growth: H1 2026. Sources and limitations are in each chart's notes.",
+    "Охват, время и частота — II квартал 2026; рост — первое полугодие 2026. Источники и ограничения указаны в пояснениях к каждому графику."
+  ],
+  [
+    "TV streaming: all content",
+    "ТВ-стриминг: весь контент"
+  ],
+  [
+    "Source-defined categories; overlapping audiences, not a complete ranking of media formats.",
+    "Категории определены источником; аудитории пересекаются. Полного рейтинга медиаформатов здесь нет."
+  ],
+  [
+    "Horizontal axis",
+    "Горизонтальная ось"
+  ],
+  [
+    "Source: GWI via DataReportal, Digital 2027, p.",
+    "Источник: GWI через DataReportal, Digital 2027, стр."
+  ],
+  [
+    "Source values",
+    "Исходные значения"
+  ],
+  [
+    "Music means streaming only. TV streaming is not series-only. Missing rows are not zeros.",
+    "Музыка означает только стриминг. ТВ-стриминг включает не только сериалы. Пропуски не равны нулю."
+  ],
+  [
+    "Weekly survey time / 7 gives the displayed daily mean.",
+    "Среднее время в день получено делением недельного времени на 7."
+  ],
+  [
+    "Frequency means average days per week, not sessions; overlapping device groups must not be added.",
+    "Частота означает среднее число дней в неделю, а не сеансов; пересекающиеся группы устройств нельзя складывать."
+  ],
+  [
+    "Reach means reported weekly use within the surveyed online population, not a share of all people.",
+    "Охват означает заявленное использование за неделю среди опрошенных интернет-пользователей, а не долю всех людей."
+  ],
+  [
+    "Standalone format proxies only; embedded images, music, text and speech have no measured combined totals here.",
+    "Показаны только самостоятельные категории форматов; суммарный контакт со встроенными изображениями, музыкой, текстом и речью не измерен."
+  ],
+  [
+    "Unavailable categories are omitted, not plotted as zeros",
+    "Категории без сопоставимых данных пропущены, а не показаны как нули"
+  ],
+  [
+    "Games frequency: filled circle = mobile; hollow diamond = PC/console. These groups overlap.",
+    "Частота игр: круг означает мобильные устройства, пустой ромб означает ПК и консоли. Группы пересекаются."
+  ],
+  [
+    "Category details",
+    "Пояснения к категориям"
+  ],
+  [
+    "Category scopes",
+    "Границы категорий"
+  ],
+  [
+    "Plotted values, rounded to two decimals",
+    "Значения на графике, округлённые до двух знаков"
+  ],
+  [
+    "Source category; not Instagram Reels alone",
+    "Категория источника; не только Instagram Reels"
+  ],
+  [
+    "Source category; duration/orientation not isolated",
+    "Категория источника; длительность и ориентация не выделены"
+  ],
+  [
+    "Streaming listening only; no embedded-music union",
+    "Только музыкальный стриминг; без суммарного учёта встроенной музыки"
+  ],
+  [
+    "Reach/time: all devices; frequency: device groups",
+    "Охват и время: все устройства; частота: группы устройств"
+  ],
+  [
+    "Series proxy; includes films and other programmes",
+    "Прокси для сериалов; включает фильмы и другие программы"
+  ],
+  [
+    "No film-only observation",
+    "Нет отдельного наблюдения для фильмов"
+  ],
+  [
+    "No comparable reading observation",
+    "Нет сопоставимых данных о чтении"
+  ],
+  [
+    "Not isolated from mixed platform use",
+    "Не выделено из смешанного использования платформ"
+  ],
+  [
+    "mobile",
+    "мобильные устройства"
+  ],
+  [
+    "PC/console",
+    "ПК и консоли"
+  ],
+  [
+    "Minutes per week · HH:MM labels",
+    "Минут в неделю · подписи Ч:ММ"
+  ],
+  [
+    "GWI charts",
+    "Графики GWI"
+  ],
+  [
+    "Short online video, not only Instagram Reels",
+    "Короткие онлайн-видео, не только Instagram Reels"
+  ],
+  [
+    "Long online video proxy; source-defined category; duration cutoff and orientation not isolated",
+    "Прокси длинных онлайн-видео; категория источника; порог длительности и ориентация не выделены"
+  ],
+  [
+    "Music streaming only",
+    "Только музыкальный стриминг"
+  ],
+  [
+    "Reach/time all devices; frequency mobile, then PC/console",
+    "Охват и время: все устройства; частота: сначала мобильные устройства, затем ПК и консоли"
+  ],
+  [
+    "All TV streaming, a proxy including films and other programs",
+    "Весь ТВ-стриминг, включая фильмы и другие программы"
+  ],
+  [
+    "Feature films not isolated",
+    "Полнометражные фильмы не выделены"
+  ],
+  [
+    "Not reported as a comparable category",
+    "Нет сопоставимого наблюдения для категории"
+  ],
+  [
+    "Pictures not isolated from mixed social-media and platform use",
+    "Изображения не выделены из смешанного использования социальных сетей и платформ"
+  ],
+  [
+    "Source: GWI Q2 2026, reproduced in DataReportal Digital 2027, pages 38 and 40. Internet users aged 16+ in covered markets; Russia excluded. Not a census of all humans.",
+    "Источник: GWI, II квартал 2026, в отчёте DataReportal Digital 2027, страницы 38 и 40. Интернет-пользователи 16+ в охваченных рынках; Россия исключена. Это не перепись населения мира."
+  ],
+  [
+    "Axes: reported weekly reach (%) and reported weekly minutes, as transcribed in ../data/media_use_2026.md. No division by reach, multiplication by audience, or time conversion. Data points are not jittered; leader lines connect displaced labels to exact points.",
+    "Оси: заявленный недельный охват (%) и минуты в неделю из ../data/media_use_2026.md. Значения не делятся на охват, не умножаются на аудиторию и не переводятся в другие единицы времени. Точки стоят на точных координатах; линии соединяют их со смещёнными подписями."
+  ],
+  [
+    "Observations",
+    "Наблюдения"
+  ],
+  [
+    "weekly reach",
+    "недельный охват"
+  ],
+  [
+    "minutes/week",
+    "минут/неделю"
+  ],
+  [
+    "Omitted because one or both coordinates are unavailable",
+    "Пропущены из-за отсутствия одной или обеих координат"
+  ],
+  [
+    "Missing observations are not zeros. Music is streaming-only. TV streaming includes films and other programmes and does not isolate series. Source short/long video categories do not isolate vertical/horizontal orientation. Audiences overlap; embedded components are not added.",
+    "Пропуски не равны нулю. Музыка означает только стриминг. ТВ-стриминг включает фильмы и другие программы, без выделения сериалов. Категории коротких и длинных видео не выделяют вертикальную и горизонтальную ориентацию. Аудитории пересекаются; встроенные компоненты не добавляются."
+  ],
+  [
+    "The selected point estimates put short video first in reach and games first in time. The 433 versus 426 minute contrast has not been tested for statistical significance. No complete eight-format ranking, causal effect, or life-impact estimate follows.",
+    "Среди выбранных точечных оценок короткие видео первые по охвату, игры первые по времени. Разница между 433 и 426 минутами не проверялась на статистическую значимость. Полный рейтинг восьми форматов, причинные эффекты и влияние на жизнь из этих данных не следуют."
+  ],
+  [
+    "Source register entries",
+    "Записи реестра источников"
+  ],
+  [
+    "GWI Q2 2026, pages 38–40",
+    "GWI, II квартал 2026, страницы 38–40"
+  ],
+  [
+    "Web article and original chart images inspected; source of reach, weekly minutes, and days/week",
+    "Проверены статья и исходные изображения графиков; источник охвата, минут в неделю и дней в неделю"
+  ],
+  [
+    "Mixed comparison levels: earlier author profiles, not a harmonized format or component comparison. See ../research/01_scope_and_metrics.md and ../data/media_components_2026.md.",
+    "Разные уровни сравнения: прежние авторские профили, без единых границ учёта форматов и компонентов. См. ../research/01_scope_and_metrics.md и ../data/media_components_2026.md."
+  ],
+  [
+    "2026 | Subjective author scores, 0–10; not measured effects. Research supporting exact Life impact scores or their ordering has not been found in the project review.",
+    "2026 | Субъективные авторские баллы от 0 до 10, а не измеренные эффекты. Исследований, обосновывающих точные баллы влияния на жизнь и их порядок, в обзоре проекта не найдено."
+  ],
+  [
+    "Blue: direct and embedded audible online music. Orange dashed: streaming-only reference (8/6/7), informed by GWI26. Different exposure definitions, not measured uplift. See music_online_scenarios.md.",
+    "Синий: прямой и встроенный слышимый контакт с онлайн-музыкой. Оранжевый пунктир: сценарий только стриминга (8/6/7) с опорой на GWI26. Это разные определения контакта, а не измеренная прибавка. См. music_online_scenarios.md."
+  ],
+  [
+    "Filled circle: numeric anchor | Hollow diamond: qualitative rationale.",
+    "Круг: числовая опора | Пустой ромб: качественное обоснование."
+  ],
+  [
+    "No overall ranking. Axes and reading guide: radar-overview.txt. Scores and rationale: subjective_scores_2026.md; score_rationales.md.",
+    "Общего рейтинга нет. Оси и правила чтения: radar-overview-ru.txt. Баллы и основания: subjective_scores_2026.md; score_rationales.md."
+  ],
+  [
+    "Author interpretation with mixed comparison levels; not a harmonized format or component comparison. Research supporting these exact Life impact scores or their comparative ordering has not been found in the project review.",
+    "Авторская интерпретация с разными уровнями сравнения; границы учёта форматов и компонентов не согласованы. Исследований, обосновывающих точные баллы влияния на жизнь и их порядок, в обзоре проекта не найдено."
+  ],
+  [
+    "Eight profiles in alphabetical order by displayed English category name, left to right, then top to bottom. Identical axes and scales. Author interpretation; research supporting these exact Life impact scores or their comparative ordering has not been found in the project review.",
+    "Восемь профилей в алфавитном порядке русских названий, слева направо и сверху вниз. Одинаковые оси и шкалы. Авторская интерпретация; исследований, обосновывающих точные баллы влияния на жизнь и их порядок, в обзоре проекта не найдено."
+  ],
+  [
+    "Author scores reflect the author's interpretation of the project's existing data. The choice of scores and ordering of formats is subjective. Research and statistics inform the discussion but do not establish these 0–10 ratings.",
+    "Здесь собраны субъективные выводы автора на основе существующих данных проекта. Выбор баллов и порядок форматов отражают авторскую интерпретацию. Исследования и статистика дают основания для размышлений, но не устанавливают эти оценки от 0 до 10."
+  ],
+  [
+    "Radar diagrams illustrate the author's model. They do not measure effects or establish the superiority of a format. Even a point with a numeric source anchor remains a subjective rating.",
+    "Радиальные диаграммы иллюстрируют авторскую модель. Они не измеряют эффекты и не доказывают превосходство одного формата над другим. Даже точка с числовой опорой остаётся авторской оценкой."
+  ],
+  [
+    "About this section",
+    "О разделе"
+  ],
+  [
+    "Scores",
+    "Баллы"
+  ],
+  [
+    "Score rationales",
+    "Обоснования"
+  ],
+  [
+    "Profile discussion",
+    "Разбор профилей"
+  ],
+  [
+    "Observed-data charts",
+    "Графики наблюдаемых данных"
+  ],
+  [
+    "All eight profiles",
+    "Все восемь профилей"
+  ],
+  [
+    "Eight subjective radar profiles",
+    "Восемь субъективных радиальных диаграмм"
+  ],
+  [
+    "Independent visualization of published GWI estimates, not the publisher's original chart.",
+    "Самостоятельная визуализация опубликованных оценок GWI, не оригинальный график издателя."
+  ],
+  [
+    "Source: GWI Q2 2026, DataReportal Digital 2027, pages 38–40.",
+    "Источник: GWI Q2 2026, DataReportal Digital 2027, страницы 38–40."
+  ],
+  [
+    "Project source table",
+    "Исходная таблица проекта"
+  ],
+  [
+    "Legend: blue = short videos; grey = other categories. Color does not indicate quality or impact.",
+    "Легенда: синий — короткие видео, серый — остальные категории. Цвет не обозначает качество или влияние."
+  ],
+  [
+    "Population: internet users aged 16+ in covered markets; Russia excluded. Self-reports, not a census or screen logs. Uncertainty is not shown here.",
+    "Популяция: интернет-пользователи 16+ в охваченных рынках; Россия исключена. Самоотчёты, не перепись населения и не экранные логи. Погрешности здесь не показаны."
+  ],
+  [
+    "Short/long videos do not isolate vertical/horizontal orientation. Music is streaming only; TV streaming includes films, series and other programmes. Digital books, standalone films and pictures have no comparable observations; they are omitted, not treated as zeros. Audiences overlap; bars must not be summed.",
+    "Короткие/длинные видео не выделяют вертикальную/горизонтальную ориентацию. Музыка — только стриминг; ТВ-стриминг включает фильмы, сериалы и другие программы. Цифровые книги, отдельные фильмы и самостоятельные изображения не имеют сопоставимых наблюдений; они пропущены, а не приравнены к нулю. Аудитории пересекаются; столбцы нельзя суммировать."
+  ],
+  [
+    "Games are excluded only from this frequency chart: the source reports device-specific frequency (mobile: 2.80 days; PC/console: 1.73), not all-game frequency. These values must not be added. Days are not sessions.",
+    "Игры исключены только из этого графика: источник даёт частоту по устройствам (мобильные — 2,80 дня, ПК/консоли — 1,73), а не общую частоту игр. Эти показатели нельзя складывать. Дни не означают число сессий."
+  ],
+  [
+    "Bar length is minutes per week; the label is hours:minutes. Games include all devices.",
+    "Длина столбца — минуты в неделю; подпись — часы:минуты. Игры включают все устройства."
+  ],
+  [
+    "Values",
+    "Значения"
+  ],
+  [
+    "Media consumption time growth — H1 2026",
+    "Рост времени потребления медиа — первое полугодие 2026"
+  ],
+  [
+    "Reading guide: bars show year-on-year time change, %. HH:MM / week is the current weekly estimate. Blue means growth, grey means decline; signs and values are labeled. Categories are ordered by change without combining overlapping audiences.",
+    "Как читать график: столбцы показывают годовое изменение времени, %. Ч:ММ / неделю — текущая оценка недельного потребления. Синий цвет — рост, серый — снижение; знак и значение подписаны. Категории упорядочены по изменению, без объединения пересекающихся аудиторий."
+  ],
+  [
+    "Population: internet users aged 16–64. Source: GWI, August 2026; EMARKETER, chart 573622. Redrawn from a screenshot of the authors' video. Year-on-year comparison is clarified in the authors' discussion; the base period is not printed on the chart. Self-reports averaged using interval midpoints; uncertainty is not published on the chart. Leadership applies to the 12 measured categories, without separate digital books or pictures.",
+    "Население: интернет-пользователи 16–64 лет. Источник: GWI, август 2026; EMARKETER, график 573622. Перерисовано по скриншоту из видео авторов. Годовое сравнение уточняется в обсуждении авторов; базовый период на графике не подписан. Самоотчёты, среднее через середины интервалов; погрешности не опубликованы на графике. Лидерство относится к 12 измеренным категориям, без отдельных цифровых книг и изображений."
+  ],
+  [
+    " radar",
+    " (радиальная диаграмма)"
+  ]
+]

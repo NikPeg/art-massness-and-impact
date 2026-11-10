@@ -3,6 +3,7 @@
 
 from pathlib import Path
 from html.parser import HTMLParser
+from figure_i18n import translate
 import re
 import xml.etree.ElementTree as ET
 from markdown_links import check_local_links
@@ -55,18 +56,32 @@ def main():
             super().__init__()
             self.images = []
             self.links = []
+            self.labels = []
+            self.in_style = False
 
         def handle_starttag(self, tag, attrs):
             attrs = dict(attrs)
+            if tag == "style":
+                self.in_style = True
+            if "alt" in attrs:
+                self.labels.append(attrs["alt"])
             if tag == "img":
                 self.images.append(attrs["src"])
             elif tag == "a":
                 self.links.append(attrs["href"])
 
+        def handle_endtag(self, tag):
+            if tag == "style":
+                self.in_style = False
+
+        def handle_data(self, value):
+            if not self.in_style and value.strip():
+                self.labels.append(value)
+
     gallery = GalleryParser()
     gallery.feed((ROOT/"figures/index.html").read_text())
     expected = {p.relative_to(ROOT/"figures").as_posix()
-                for p in (ROOT/"figures").rglob("*.svg")}
+                for p in (ROOT/"figures").rglob("*.svg") if not p.stem.endswith("-ru")}
     assert set(gallery.images) == expected, "Gallery must contain every figure"
     assert len(gallery.images) == len(expected), "Duplicate gallery images"
     for name in expected:
@@ -115,7 +130,8 @@ def main():
         tree=ET.parse(ROOT/"figures"/name)
         height=float(tree.getroot().attrib["height"])
         assert all(0<=float(el.attrib["y"])<height for el in tree.iter() if el.tag.endswith("text"))
-    svgs=list((ROOT/"figures").glob("*.svg")) + list(SUBJECTIVE.glob("*.svg"))
+    svgs=[p for p in list((ROOT/"figures").glob("*.svg")) + list(SUBJECTIVE.glob("*.svg"))
+          if not p.stem.endswith("-ru")]
     assert not list((ROOT/"figures").glob("radar-*")), "Radars belong in the author-interpretation folder"
     # Compact comparisons preserve exact point coordinates and ship detailed sidecars.
     scatter = ET.parse(ROOT/"figures/reach-time-2026.svg").getroot()
@@ -169,17 +185,70 @@ def main():
     assert len(ids)==len(set(ids)), "Duplicate SVG accessibility IDs"
     assert not overview.findall(f".//{ns}image"), "Overview must be self-contained"
     annotation=(SUBJECTIVE/"radar-overview.txt").read_text(encoding="utf-8")
-    assert annotation==(ROOT/"author-interpretations/radar_overview_annotation.txt").read_text(encoding="utf-8")
-    assert all(f"{AXIS_LABELS[axis]} —" in annotation for axis in AXES)
+    assert annotation==(SUBJECTIVE/"radar_overview_annotation-en.txt").read_text(encoding="utf-8")
+    assert all(f"{AXIS_LABELS[axis]}:" in annotation for axis in AXES)
     broken = check_local_links(ROOT)
     assert not broken, "Broken local Markdown links (file, line, target, reason):\n" + "\n".join(map(str, broken))
     for path in svgs:
-        if path.name == "media-growth-h1-2026.svg":
-            continue  # Explicitly Russian GMI26 reproduction.
         assert not re.search(r'[\u0400-\u04ff]', " ".join(ET.parse(path).getroot().itertext())), f"Non-English SVG text: {path}"
+    # Both language variants cover the same charts and retain exact geometry/data.
+    all_en = [p for directory in (ROOT/"figures", SUBJECTIVE)
+              for p in directory.rglob("*.svg") if not p.stem.endswith("-ru")]
+    assert len(all_en) == 17
+    for path in all_en:
+        ru = path.with_name(path.stem + "-ru.svg")
+        assert ru.is_file() and ru.with_suffix(".txt").is_file(), path
+        en_tree, ru_tree = ET.parse(path).getroot(), ET.parse(ru).getroot()
+        assert en_tree.attrib["{http://www.w3.org/XML/1998/namespace}lang"] == "en"
+        assert ru_tree.attrib["{http://www.w3.org/XML/1998/namespace}lang"] == "ru"
+        for tree, lang in ((en_tree, "en"), (ru_tree, "ru")):
+            for el in tree.iter():
+                if not el.tag.endswith("text"):
+                    continue
+                label = el.text or ""
+                if lang == "en":
+                    assert not re.search(r"[А-Яа-я]", label), (path, label)
+                else:
+                    # Proper names, the Roman quarter and the literal TXT filename remain.
+                    label = re.sub(r"GWI|II|reach-time-2026-ru[.]txt", "", label)
+                    assert not re.search(r"[A-Za-z]", label), (ru, label)
+        if path.name != "radar-overview.svg":
+            assert [(el.tag, el.attrib) for el in en_tree.iter() if not el.tag.endswith("svg")] == [
+                (el.tag, el.attrib) for el in ru_tree.iter() if not el.tag.endswith("svg")], path
+    for directory in (ROOT/"figures", ROOT/"figures/gwi", SUBJECTIVE):
+        for lang in ("en", "ru"):
+            page = directory/("index-ru.html" if lang == "ru" else "index.html")
+            parser = GalleryParser()
+            markup = page.read_text()
+            parser.feed(markup)
+            assert f'<html lang="{lang}">' in markup
+            for label in parser.labels:
+                if lang == "en":
+                    assert not re.search(r"[А-Яа-я]", label), (page, label)
+                else:
+                    label = re.sub(r"GWI|II", "", label)
+                    assert not re.search(r"[A-Za-z]", label), (page, label)
+            assert all((directory/image).is_file() for image in parser.images)
+            assert all(Path(image).stem.endswith("-ru") == (lang == "ru") for image in parser.images)
+            assert all((directory/link.split("#")[0]).exists() for link in parser.links)
+            if directory == ROOT/"figures":
+                expected = {p.relative_to(directory).as_posix() for p in directory.rglob("*.svg")
+                            if p.stem.endswith("-ru") == (lang == "ru")}
+                assert len(parser.images) == len(expected) == 8
+                assert set(parser.images) == expected
+            elif directory == SUBJECTIVE:
+                assert len(parser.images) == 9
+    ru_overview = ET.parse(SUBJECTIVE/"radar-overview-ru.svg").getroot()
+    ru_panels = ru_overview.findall(f"{ns}svg")
+    ru_order = sorted(score_rows, key=lambda row: translate(RADAR_NAMES[row["category"]], "ru").casefold())
+    assert len(ru_panels) == 8
+    for panel, row in zip(ru_panels, ru_order):
+        individual = ET.parse(SUBJECTIVE/("radar-" + row["category"].replace("_", "-") + "-ru.svg")).getroot()
+        assert panel.find(f"{ns}title").text == individual.find(f"{ns}title").text
+        assert panel.find(f"{ns}desc").text == individual.find(f"{ns}desc").text
     assert (SUBJECTIVE/"README.md").is_file()
-    assert (SUBJECTIVE/"index.html").is_file()
-    print("PASS: 40 financial cells; 5 US years; 8 snapshot rows; exact comparison coordinates; 48 subjective scores and rationales; 14 top-level SVGs; complete recursive gallery; TXT annotations; local files and section anchors; English figures plus Russian growth chart.")
+    print("PASS: source data; 17 English/Russian chart pairs; identical geometry; complete language-specific galleries; TXT annotations; local files and section anchors.")
+
 
 
 if __name__=="__main__":

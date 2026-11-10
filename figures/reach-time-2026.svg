@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc"><title id="title">Reach and consumption time</title><desc id="desc">Source: GWI Q2 2026, reproduced in DataReportal Digital 2027, pages 38 and 40. Internet users aged 16+ in covered markets; Russia excluded. Not a census of all humans.
+<svg xml:lang="en" xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc"><title id="title">Reach and consumption time</title><desc id="desc">Source: GWI Q2 2026, reproduced in DataReportal Digital 2027, pages 38 and 40. Internet users aged 16+ in covered markets; Russia excluded. Not a census of all humans.
 
 Axes: reported weekly reach (%) and reported weekly minutes, as transcribed in ../data/media_use_2026.md. No division by reach, multiplication by audience, or time conversion. Data points are not jittered; leader lines connect displaced labels to exact points.
 
